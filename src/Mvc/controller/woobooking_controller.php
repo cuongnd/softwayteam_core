@@ -396,7 +396,7 @@ class softway_controller{
 
         list($view,$layout)=explode(".",$view_layout);
         $openSource=Factory::getOpenSource();
-        $key_woo_booking=$openSource->getKeySoftWay();
+        $key_soft_way=$openSource->getKeySoftWay();
         $http_list_var=[];
         if(is_array($items_var)){
             foreach ($items_var as $key=> $value){
@@ -415,7 +415,7 @@ class softway_controller{
         $root_url=Factory::getRootUrl();
         list($view,$layout)=explode(".",$view_layout);
         $openSource=Factory::getOpenSource();
-        $key_woo_booking=$openSource->getKeySoftWay();
+        $key_soft_way=$openSource->getKeySoftWay();
         $http_list_var=[];
         if(is_array($items_var)){
             foreach ($items_var as $key=> $value){

@@ -28,7 +28,7 @@ class SoftWayOnWordpress
 {
     public static $instance = null;
     public static $items_submenus = null;
-    public static $key_woo_booking = "softwaycore";
+    public static $key_soft_way = "softwaycore";
     public static $version = "1.0";
     public static $prefix_link = "wb_";
     public static $namespace = "softway_api/1.0";
@@ -53,7 +53,7 @@ class SoftWayOnWordpress
 
         return self::$prefix_link;
     }
-    private static function get_true_menu_of_woo_booking($menu)
+    private static function get_true_menu_of_soft_way($menu)
     {
         return str_replace(self::$prefix_link,"",$menu);
     }
@@ -63,7 +63,7 @@ class SoftWayOnWordpress
         return false;
     }
     public function getKeySoftWay(){
-        return self::$key_woo_booking;
+        return self::$key_soft_way;
     }
     function react2wp_woocommerce_hide_product_price($price)
     {
@@ -149,7 +149,7 @@ class SoftWayOnWordpress
 
 
             $menu = $this->get_current_page();
-            $menu = self::get_true_menu_of_woo_booking($menu);
+            $menu = self::get_true_menu_of_soft_way($menu);
             $file_controller_path = WOOBOOKING_PATH_COMPONENT . "/controllers/" . ucfirst($menu) . ".php";
 
             $file_controller_short_path = Utility::get_short_file_by_path($file_controller_path);
@@ -238,14 +238,14 @@ class SoftWayOnWordpress
 
 
         foreach ($list_view as $key=> $view){
-            $a_key=self::$key_woo_booking."-".$key;
-            add_shortcode( $a_key, array($this,'woo_booking_render_by_tag_func') );
+            $a_key=self::$key_soft_way."-".$key;
+            add_shortcode( $a_key, array($this,'soft_way_render_by_tag_func') );
         }
         $list_view=self::get_list_layout_block_frontend();
 
         foreach ($list_view as $key=> $view){
-            $a_key=self::$key_woo_booking."-block-".$key;
-            add_shortcode( $a_key, array($this,'woo_booking_render_block_by_tag_func') );
+            $a_key=self::$key_soft_way."-block-".$key;
+            add_shortcode( $a_key, array($this,'soft_way_render_block_by_tag_func') );
         }
 
 
@@ -397,7 +397,7 @@ class SoftWayOnWordpress
         $doc=Factory::getDocument();
 
         add_action('admin_head', array($this,'admin_wordpress_shapeSpace_print_scripts'));
-        $doc->addScript('admin/sw_apps/softway_core/assets/js/woo_booking_debug.js');
+        $doc->addScript('admin/sw_apps/softway_core/assets/js/soft_way_debug.js');
 
 
         Html::_('jquery.loading_js');
@@ -470,7 +470,7 @@ class SoftWayOnWordpress
         add_action( 'vc_before_init', array($this,'your_name_integrateWithVC') );
         if(function_exists("vc_add_shortcode_param"))
         {
-            vc_add_shortcode_param( 'woo_booking_block_type', array($this,'woo_booking_block_type_settings_field') );
+            vc_add_shortcode_param( 'soft_way_block_type', array($this,'soft_way_block_type_settings_field') );
         }
 
 
@@ -512,7 +512,7 @@ class SoftWayOnWordpress
 
             echo softway_controller::action_task();
         }else {
-            $menu = self::get_true_menu_of_woo_booking($page);
+            $menu = self::get_true_menu_of_soft_way($page);
             $file_controller_path = WOOBOOKING_PATH_COMPONENT . "/controllers/" . ucfirst($menu) . ".php";
             $file_controller_short_path = Utility::get_short_file_by_path($file_controller_path);
             if (file_exists($file_controller_path)) {
@@ -531,7 +531,7 @@ class SoftWayOnWordpress
             }
         }
     }
-    function woo_booking_block_type_settings_field( $settings, $value ) {
+    function soft_way_block_type_settings_field( $settings, $value ) {
         ob_start();
         ?>
         <div data-type="<?php  esc_attr( $settings['type'] ) ?>" class="woo-booking-block-edit-content"   >
@@ -730,7 +730,7 @@ class SoftWayOnWordpress
         <?php
 
     }
-    function woo_booking_render_by_tag_func( $atts,$content, $a_view ) {
+    function soft_way_render_by_tag_func( $atts,$content, $a_view ) {
         if($a_view !="softwaycore-install-form"  && !self::checkInstalled()){
             self::goToPopupInstall();
         }
@@ -753,7 +753,7 @@ class SoftWayOnWordpress
         $html .= '</head><body></body></html>';
         echo $html;
     }
-    function woo_booking_render_block_by_tag_func( $atts,$content, $a_view ) {
+    function soft_way_render_block_by_tag_func( $atts,$content, $a_view ) {
         if(!self::checkInstalled()){
             self::goToPopupInstall();
         }
@@ -770,7 +770,7 @@ class SoftWayOnWordpress
     function your_name_integrateWithVC() {
         $list_view=self::get_list_layout_view_frontend();
         foreach ($list_view as $key=> $value){
-            $a_key=self::$key_woo_booking."-".$key;
+            $a_key=self::$key_soft_way."-".$key;
             vc_map( array(
                 "name" => __( $value['title'], "my-text-domain" ),
                 "base" => $a_key,
@@ -779,7 +779,7 @@ class SoftWayOnWordpress
                 "category" => __( "Woo Booking", "my-text-domain"),
                 "params" => array(
                     array(
-                        "type" => "woo_booking_block_type",
+                        "type" => "soft_way_block_type",
                         "holder" => "div",
                         "class" => "",
                         "param_name" => $a_key,
@@ -792,7 +792,7 @@ class SoftWayOnWordpress
 
         $list_layout_block=self::get_list_layout_block_frontend();
         foreach ($list_layout_block as $key=> $value){
-            $a_key=self::$key_woo_booking."-block-".$key;
+            $a_key=self::$key_soft_way."-block-".$key;
             vc_map( array(
                 "name" => __( "Block ".$value['title'], "my-text-domain" ),
                 "base" => $a_key,
@@ -801,7 +801,7 @@ class SoftWayOnWordpress
                 "category" => __( "Woo Booking block", "my-text-domain"),
                 "params" => array(
                     array(
-                        "type" => "woo_booking_block_type",
+                        "type" => "soft_way_block_type",
                         "holder" => "div",
                         "class" => "",
                         "param_name" => $a_key,
@@ -839,9 +839,9 @@ class SoftWayOnWordpress
     public static function pluginprefix_activation(){
 
         $list_page=SoftWayOnWordpress::get_list_layout_view_frontend();
-        $key_woo_booking=self::$key_woo_booking;
+        $key_soft_way=self::$key_soft_way;
         foreach ($list_page as $k => $page) {
-            $key_page="$key_woo_booking-$k";
+            $key_page="$key_soft_way-$k";
             // Create post object
             $my_post = array(
                 'post_name'     => $key_page,
@@ -877,7 +877,7 @@ class SoftWayOnWordpress
     public function nav_menu_link() {?>
         <?php
         $list_page=self::get_list_layout_view_frontend();
-        $key_woo_booking=self::$key_woo_booking;
+        $key_soft_way=self::$key_soft_way;
         ?>
         <div id="posttype-wl-login" class="posttypediv">
             <div id="tabs-panel-wishlist-login" class="tabs-panel tabs-panel-active">
@@ -889,7 +889,7 @@ class SoftWayOnWordpress
                             </label>
                             <input type="hidden" class="menu-item-type" name="menu-item[-1][menu-item-type]" value="custom">
                             <input type="hidden" class="menu-item-title" name="menu-item[-1][menu-item-title]" value="<?php echo $page['title'] ?>">
-                            <input type="hidden" class="menu-item-url" name="menu-item[-1][menu-item-url]" value="<?php bloginfo('wpurl'); ?>/<?php echo "$key_woo_booking-$key" ?>">
+                            <input type="hidden" class="menu-item-url" name="menu-item[-1][menu-item-url]" value="<?php bloginfo('wpurl'); ?>/<?php echo "$key_soft_way-$key" ?>">
                         </li>
                     <?php } ?>
                 </ul>
@@ -1033,7 +1033,7 @@ class SoftWayOnWordpress
 
         $listMenu = self::getListMenuWooPanel();
         foreach ($listMenu as $menu) {
-            $menu=self::get_true_menu_of_woo_booking($menu);
+            $menu=self::get_true_menu_of_soft_way($menu);
             $file_api_path = WOOBOOKING_PATH_COMPONENT . "/api/Api{$menu}.php";
             if (file_exists($file_api_path)) {
                 require_once $file_api_path;
@@ -1052,7 +1052,7 @@ class SoftWayOnWordpress
         $app = Factory::getApplication();
         $doc = Factory::getDocument();
         wp_enqueue_media();
-        $doc->addScript('admin/sw_apps/softway_core/assets/js/woo_booking_debug.js');
+        $doc->addScript('admin/sw_apps/softway_core/assets/js/soft_way_debug.js');
 
         if ($app->getClient() == 1) {
 
