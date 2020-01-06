@@ -1,0 +1,143 @@
+build file scss
+copy command to terminal "gulp watch"
+mac dinh hien thi layout list
+
+tài khoản database
+databasename:demo9cms_woobooking_v11
+user name database: demo9cms_woobkv1/yQ#J3r,3$c5I
+link quan ly database
+https://162.241.159.168:2083/cpsess8562840281/3rdparty/phpMyAdmin/index.php
+
+
+link website http://demo9.cmsmart.net/woobooking/
+
+link admin: http://demo9.cmsmart.net/woobooking/wp-admin/
+admin/RFYTQrqAVV&G8UTnNK
+
+cpanel
+https://162.241.159.168:2083/
+Sử dụng cổng 21
+https://162.241.159.168:2083/
+Đường dẫn plugin :/public_html/woobooking/wp-content/plugins/woobooking
+
+Đường dẫn root website: public_html/woobooking
+account:demo9cmsmart
+
+pass: V4d-ywPdr4G5
+
+link xem log
+http://demo9.cmsmart.net/woobooking/wp-content/debug.log
+----------------------------------
+
+link tai lieu lap trinh
+
+http://demo9.cmsmart.net/dev-woobooking
+mà dùng trang này
+user login admin/admin
+
+database :demo9cms_dev_woob
+user :demo9cms_devwoob/d_ug}B-R=Gon
+
+=> chú mục này không dùng nữa
+------------------------------------
+
+------------------------
+Link tài liệu lập trình mới
+http://45.119.84.18/~devwobk
+user admin/admin
+Thông tin hosting
+devwobk/c%H=jT=J6!6Jd#Rq
+Thông tin database
+Database:	devwobk_2
+Host:	localhost
+Username:	devwobk_2
+Password:	q1HkoPQI
+
+-----------------
+link demo cho theme fitness
+http://demo9.cmsmart.net/wooboking_fitness_v1
+xem debug
+http://demo9.cmsmart.net/wooboking_fitness_v1/wp-content/debug.log
+tai khoan vao backend
+admin_netbase/c%H=jT=J6!6Jd#Rq
+
+database name: demo9cms_woobk_fitness_v1
+
+user/pass
+demo9cms_wbk_1/{tsjE%_Q-Cgj
+
+
+
+----------------------------------
+link server mới
+http://45.119.84.18/~wbkfitnes
+admin_netbase/c%H=jT=J6!6Jd#Rq
+Thư mục public_html chứa tòa bộ website
+thư mục chưa woobooking
+public_html/wp-content/plugins/woobooking
+http://45.119.84.18:2222/
+45.119.84.18
+Tài khoản ftp
+wbkfitnes/tnr0itvB3P
+
+Link vào quản lý database
+http://45.119.84.18/phpMyAdmin
+Database:	wbkfitnes_1
+Host:	localhost
+Username:	wbkfitnes_1
+Password:	tnr0itvB3P
+
+Đây là server để làm việc còn website demo vẫn phải up lên con demo9, chỉ upload khi nào đưa lên cho khách xem thôi
+
+
+Xem logtime
+http://cloodo.com/time_entries/report?utf8=%E2%9C%93&f%5B%5D=spent_on&op%5Bspent_on%5D=%3Et-&v%5Bspent_on%5D%5B%5D=10&f%5B%5D=user_id&op%5Buser_id%5D=%3D&v%5Buser_id%5D%5B%5D=me&f%5B%5D=&columns=day&criteria%5B%5D=user
+
+Lấy thông tin dang php input
+file_get_contents("php://input")
+
+------------------
+tài liệu hướng dẫn sử dụng
+http://45.119.84.18/~docwooboking
+Thông tin quản trị
+link quản trị http://45.119.84.18/~docwooboking/admin
+tài khoản
+admin/$2(AaL5LlXngNQfDA(
+Thông tin hosting
+http://45.119.84.18:2222/
+user/pass
+docwooboking/cuongnd234
+
+thông tin database
+
+Database:	docwooboking_1
+Host:	localhost
+Username:	docwooboking_1
+Password:	VvJTvV2pqN
+
+// tài liệu hướng dẫn cho khách hàng
+
+hosting
+http://45.119.84.18:2222/
+woobkdoc1/$2(AaL5LlXngNQfDA(
+
+tên miền tài liệu woobooking
+http://woobooking.cmsmart.net/
+user login
+link quản trị http://woobooking.cmsmart.net/admin
+tài khoản
+admin/xA3k4gT*Zt7n2d^y)L
+
+Thông tin tài khoản database
+Database:	woobkdoc1_1
+Host:	localhost
+Username:	woobkdoc1_1
+Password:	JjkP4mO2H
+
+
+https://code.tutsplus.com/vi/articles/data-sanitization-and-validation-with-wordpress--wp-25536
+xóa các file và folder khỏi git nhưng vẫn giữ ở local
+git rm --cached `git ls-files -i -X .gitignore`
+
+
+

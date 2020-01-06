@@ -1,0 +1,28 @@
+{
+    "name": "softwayteam/core",
+    "description": "core.",
+    "type": "library",
+    "keywords": [
+        "core"
+    ],
+    "homepage": "https://github.com/cuongnd/core",
+    
+    "authors": [
+        {
+            "name": "core",
+            "email": "nguyendinhcuong@gmail.com",
+            "role": "lead"
+        }
+    ],
+    "support": {
+        "issues": "https://github.com/cuongnd/woobooking/issues"
+    },
+    "require": {
+        "php": ">=5.3.3"
+    },
+    "autoload": {
+        "classmap": [
+            "src/"
+        ]
+    }
+}
