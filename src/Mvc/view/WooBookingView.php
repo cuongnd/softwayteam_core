@@ -205,7 +205,7 @@ class SoftWayView extends CMSObject
         if(!$open_source->is_rest_api() && ($appConfig->get('debug_dev')==1 || $appConfig->get('debug_end_user') )) {
             ob_start();
             ?>
-            <div class="wrapper-woo-booking-debug">
+            <div class="wrapper-soft-way-debug">
                 <h3>Debug</h3>
                 <?php if($appConfig->get('debug_dev')==1){ ?>
                     <div class="dev-debug">
@@ -263,9 +263,9 @@ class SoftWayView extends CMSObject
             include $tmpl_path;
             $content=ob_get_clean();
             if(!trim($content)){
-                $content="<div class='wrapper-woo-booking'><p>layout <b>$tmpl_short_path</b> empty please add content to it</p>$debug</div>";
+                $content="<div class='wrapper-soft-way'><p>layout <b>$tmpl_short_path</b> empty please add content to it</p>$debug</div>";
             }
-            $content="<div class=\"wrapper-woo-booking\">$content $debug</div>";
+            $content="<div class=\"wrapper-soft-way\">$content $debug</div>";
             $doc=Factory::getDocument();
 
 
@@ -285,7 +285,7 @@ class SoftWayView extends CMSObject
         if(!$open_source->is_rest_api()) {
             ob_start();
             ?>
-            <div class="wrapper-woo-booking-debug">
+            <div class="wrapper-soft-way-debug">
                 <h3>Debug</h3>
                 <div class="dev-debug">
                     <h4>Dev debug</h4>
@@ -445,9 +445,9 @@ class SoftWayView extends CMSObject
             include $tmpl_path;
             $content=ob_get_clean();
             if(!trim($content)){
-                $content="<div class='wrapper-woo-booking'><p>layout <b>$tmpl_short_path</b> empty please add content to it</p>$debug</div>";
+                $content="<div class='wrapper-soft-way'><p>layout <b>$tmpl_short_path</b> empty please add content to it</p>$debug</div>";
             }
-            $content="<div class=\"wrapper-woo-booking\">$content $debug</div>";
+            $content="<div class=\"wrapper-soft-way\">$content $debug</div>";
             $doc=Factory::getDocument();
 
 
@@ -467,7 +467,7 @@ class SoftWayView extends CMSObject
         if(!$open_source->is_rest_api()) {
             ob_start();
             ?>
-            <div class="wrapper-woo-booking-debug">
+            <div class="wrapper-soft-way-debug">
                 <h3>Debug</h3>
                 <div class="dev-debug">
                     <h4>Dev debug</h4>
@@ -627,9 +627,9 @@ class SoftWayView extends CMSObject
             include $tmpl_path;
             $content=ob_get_clean();
             if(!trim($content)){
-                $content="<div class='wrapper-woo-booking'><p>layout <b>$tmpl_short_path</b> empty please add content to it</p>$debug</div>";
+                $content="<div class='wrapper-soft-way'><p>layout <b>$tmpl_short_path</b> empty please add content to it</p>$debug</div>";
             }
-            $content="<div class=\"wrapper-woo-booking\">$content $debug</div>";
+            $content="<div class=\"wrapper-soft-way\">$content $debug</div>";
             $doc=Factory::getDocument();
 
 

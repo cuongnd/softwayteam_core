@@ -534,7 +534,7 @@ class SoftWayOnWordpress
     function soft_way_block_type_settings_field( $settings, $value ) {
         ob_start();
         ?>
-        <div data-type="<?php  esc_attr( $settings['type'] ) ?>" class="woo-booking-block-edit-content"   >
+        <div data-type="<?php  esc_attr( $settings['type'] ) ?>" class="soft-way-block-edit-content"   >
             <div class="row">
                 <div class="col-md-12">
                     <div class="block-content" style="text-align: center">
@@ -570,7 +570,7 @@ class SoftWayOnWordpress
                    class="wpb_vc_param_value wpb-textinput  <?php echo esc_attr( $settings['param_name'] ) ?> <?php  esc_attr( $settings['type'] ) ?>_field"
                    type="hidden" value="<?php echo esc_attr( $value ) ?>" />
             <script type="text/javascript">
-                $('.woo-booking-block-edit-content').render_block_config({
+                $('.soft-way-block-edit-content').render_block_config({
                     id:"<?php echo $value ?>",
                     block_setting:<?php echo json_encode($settings) ?>
                 });
