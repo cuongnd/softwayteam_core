@@ -1,6 +1,6 @@
 <?php
 
-use SoftWay\CMS\mvc\model\BaseDatabaseModel;
+use SoftWay\CMS\Mvc\model\BaseDatabaseModel;
 use SoftWay\CMS\Utilities\Utility;
 use SoftWay\CMS\Form\Form;
 use SoftWay\CMS\Filesystem\Path;

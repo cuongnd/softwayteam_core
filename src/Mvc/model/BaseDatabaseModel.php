@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace SoftWay\CMS\mvc\model;
+namespace SoftWay\CMS\Mvc\model;
 
 defined('_SOFT_WAY_EXEC') or die;
 
