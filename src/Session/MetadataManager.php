@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Session;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 use softwaycore\Application\AbstractApplication;
 use softwaycore\CMS\Application\CMSApplication;

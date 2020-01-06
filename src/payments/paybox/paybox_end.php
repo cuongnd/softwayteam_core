@@ -6,7 +6,7 @@
  * @copyright	(C) 2010-2016 HIKARI SOFTWARE. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_paybox_end" id="hikashop_paybox_end">
 	<span id="hikashop_paybox_end_message" class="hikashop_paypal_end_message">
 		<?php echo WoobookingText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X', $this->payment_name).'<br/>'. WoobookingText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>

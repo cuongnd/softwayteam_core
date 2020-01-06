@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Crypt\Cipher;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * JCrypt cipher for Triple DES encryption, decryption and key generation.

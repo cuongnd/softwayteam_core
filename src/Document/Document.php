@@ -13,7 +13,7 @@ use SoftWay\CMS\Utilities\Utility;
 use SoftWayLoader;
 use SoftWay\CMS\Document\HtmlDocument;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 
 

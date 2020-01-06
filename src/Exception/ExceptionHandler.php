@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Exception;
 use SoftWay\CMS\Log\Log;
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * Displays the custom error page when an uncaught exception occurs.

@@ -11,7 +11,7 @@
  *
  * In order to configure and use this plug-in you must have a Worldpay Global Gateway account.
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?>
 <?php
 class rbsglobalgateway_helper {

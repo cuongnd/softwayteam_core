@@ -10,7 +10,7 @@ namespace SoftWay\CMS\Form;
 use SoftWay\CMS\Layout\FileLayout;
 use WoobookingText;
 use SoftWay\CMS\Utilities\Utility;
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 
 

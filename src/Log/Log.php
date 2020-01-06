@@ -11,7 +11,7 @@ namespace SoftWay\CMS\Log;
 use SoftWay\CMS\Log\LogEntry;
 use SoftWay\CMS\Utilities\Utility;
 use SoftWay\CMS\Log\Logger\FormattedtextLogger;
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * softwaycore! Log Class

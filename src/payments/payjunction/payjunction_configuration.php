@@ -6,7 +6,7 @@
  * @copyright	(C) 2010-2016 HIKARI SOFTWARE. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><?php
 if(!function_exists('curl_init')) {
 	echo '<tr><td colspan="2"><strong>The PayJunction payment plugin needs the CURL library installed but it seems that it is not available on your server. Please contact your web hosting to set it up.</strong></td></tr>';

@@ -12,7 +12,7 @@
  * In order to configure and use this plug-in you must have a Worldpay Global Gateway account.
  * Worldpay Global Gateway is sometimes referred to as 'BiBit'.
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 require_once dirname(__FILE__) . DS . 'bf_rbsglobalgateway_helper.php';
 class WBPaymentbf_rbsglobalgateway extends JPlugin {
 	var $accepted_currencies = array(

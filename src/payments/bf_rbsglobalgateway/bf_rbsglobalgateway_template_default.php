@@ -27,7 +27,7 @@
  *  $order
  *  $user
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?>
 <?php
 	echo '<div class="rbs-wrapper">';

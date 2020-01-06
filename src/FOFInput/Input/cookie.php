@@ -9,7 +9,7 @@
 namespace SoftWay\CMS\FOFInput\Input;
 use SoftWay\CMS\FOFInput\FOFInput;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * softwaycore! Input Cookie Class

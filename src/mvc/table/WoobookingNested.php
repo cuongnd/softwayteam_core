@@ -8,7 +8,7 @@
 
 
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 
 require_once WOOBOOKING_PATH_ROOT."/lib/utilities/arrayhelper.php";

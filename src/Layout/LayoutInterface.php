@@ -8,7 +8,7 @@
 namespace  SoftWay\CMS\Layout;
 
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * Interface to handle display layout

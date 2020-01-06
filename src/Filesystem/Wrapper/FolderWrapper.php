@@ -10,7 +10,7 @@ namespace SoftWay\CMS\Filesystem\Wrapper;
 
 use SoftWay\CMS\Filesystem\Folder;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * Wrapper class for Folder

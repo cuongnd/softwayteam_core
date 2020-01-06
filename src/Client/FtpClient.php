@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Client;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 use softwaycore\CMS\Log\Log;
 use softwaycore\CMS\Utility\BufferStreamHandler;

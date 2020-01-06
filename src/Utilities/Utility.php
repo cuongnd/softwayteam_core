@@ -17,7 +17,7 @@ use Log;
 use ReflectionClass;
 use stdClass;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * JUtility is a utility functions class

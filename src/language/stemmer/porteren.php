@@ -7,7 +7,7 @@
  * @copyright   Copyright (C) 2005 Richard Heyes (http://www.phpguru.org/). All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 /**
  * Porter English stemmer class.
  *

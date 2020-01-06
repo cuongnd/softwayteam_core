@@ -8,7 +8,7 @@
 
 
 use SoftWay\CMS\Layout\FileLayout;
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * Helper to render a Layout object, storing a base path

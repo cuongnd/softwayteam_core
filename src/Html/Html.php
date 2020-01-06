@@ -11,7 +11,7 @@ namespace SoftWay\CMS\Html;
 use \SoftWay\CMS\Utilities\Utility;
 
 use SoftWay\CMS\Filesystem\Path;
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * Utility class for all HTML drawing classes
@@ -121,7 +121,7 @@ abstract class Html
         $className = $prefix . ucfirst($file);
 
         if(empty(static::$includePaths)){
-            self::addIncludePath(WOO_BOOKING_PATH_PLATFORM."/Html/Html");
+            self::addIncludePath(SOFT_WAY_PATH_PLATFORM."/Html/Html");
         }
 
         if (!class_exists($className))

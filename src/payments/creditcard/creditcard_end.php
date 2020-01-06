@@ -6,7 +6,7 @@
  * @copyright	(C) 2010-2016 HIKARI SOFTWARE. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_creditcard_end" id="hikashop_creditcard_end">
 	<span class="hikashop_creditcard_end_message" id="hikashop_creditcard_end_message">
 		<?php echo WoobookingText::_('ORDER_IS_COMPLETE').'<br/>'.

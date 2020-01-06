@@ -10,7 +10,7 @@
  * In order to configure and use this plug-in you must have a Worldpay Business Gateway account.
  * Worldpay Business Gateway is sometimes refered to as 'Select Junior'.
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?>
 <?php
 class WBPaymentbf_rbsbusinessgateway extends WBPayment

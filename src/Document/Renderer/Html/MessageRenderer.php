@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Document\Renderer\Html;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 use SoftWay\CMS\Document\DocumentRenderer;
 use SoftWay\CMS\Log\Log;

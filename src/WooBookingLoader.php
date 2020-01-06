@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-defined('WOO_BOOKING_PATH_PLATFORM') or die;
+defined('SOFT_WAY_PATH_PLATFORM') or die;
 use SoftWay\CMS\Utilities\Utility;
 /**
  * Static class to handle loading of libraries.
@@ -506,7 +506,7 @@ abstract class SoftWayLoader
         if ($enablePrefixes)
         {
             // Register the J prefix and base path for SoftWay platform libraries.
-            self::registerPrefix('SoftWay', WOO_BOOKING_PATH_PLATFORM . '/SoftWay');
+            self::registerPrefix('SoftWay', SOFT_WAY_PATH_PLATFORM . '/SoftWay');
 
             // Register the prefix autoloader.
             spl_autoload_register(array('SoftWayLoader', '_autoload'));

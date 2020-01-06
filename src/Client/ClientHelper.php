@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Client;
 use Factory;
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * Client helper class

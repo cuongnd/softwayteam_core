@@ -16,7 +16,7 @@ $order_payment_deposit_value = $this->order->cart->order_payment_deposit_value;
 $order_payment_deposit_value_format = $currencyHelper->format($order_payment_deposit_value,$currency_id);
 $pay_else=$this->order->cart->order_full_price-$order_payment_deposit_value;
 $pay_else_format = $currencyHelper->format($pay_else,$currency_id);
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?>
     <p><?php echo WoobookingText::_('ORDER_IS_COMPLETE') ?></p>
     <div class="hikashop_banktransfer_end" id="hikashop_banktransfer_end">

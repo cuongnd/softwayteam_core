@@ -12,7 +12,7 @@
  * In order to configure and use this plug-in you must have a RBS Worldpay Global Gateway account.
  * Worldpay Global Gateway is sometimes referred to as 'BiBit'.
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 if(!function_exists('curl_init')){ ?>
 <tr><td colspan="2" style="color:red;">This plugin needs the CURL library installed but it is not available on your server.<br />Please contact your web hosting to set it up.</td></tr>
 <?php }

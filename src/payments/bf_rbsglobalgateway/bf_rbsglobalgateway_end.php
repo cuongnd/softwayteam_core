@@ -12,7 +12,7 @@
  * In order to configure and use this plug-in you must have a Worldpay Global Gateway account.
  * Worldpay Global Gateway is sometimes referred to as 'BiBit'.
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?>
 <div class="hikashop_rbsworldpayXMLRedirect_end" id="hikashop_rbsworldpayXMLRedirect_end">
 	<span id="hikashop_rbsworldpayXMLRedirect_end_message" class="hikashop_rbsworldpayXMLRedirect_end_message">

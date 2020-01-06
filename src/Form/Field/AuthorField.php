@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Form\Field;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 use Factory;
 use SoftWay\CMS\Form\FormHelper;

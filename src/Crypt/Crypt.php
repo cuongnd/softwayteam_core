@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Crypt;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 use SoftWay\CMS\Crypt\Cipher\SimpleCipher;
 use SoftWay\CMS\Log\Log;

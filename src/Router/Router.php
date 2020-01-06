@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Router;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 use SoftWay\CMS\Application\ApplicationHelper;
 use SoftWay\CMS\Component\ComponentHelper;

@@ -15,7 +15,7 @@ use Factory;
 use SoftWay\CMS\Utilities\Utility;
 use SoftWay\CMS\Utilities\ArrayHelper;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 
 /**

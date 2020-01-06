@@ -6,7 +6,7 @@
  * @copyright	(C) 2010-2016 HIKARI SOFTWARE. All rights reserved.
  * @license	GNU/GPLv3 http://www.gnu.org/licenses/gpl-3.0.html
  */
-defined('_WOO_BOOKING_EXEC') or die('Restricted access');
+defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_iveri_thankyou" id="hikashop_iveri_thankyou">
 	<span id="hikashop_iveri_thankyou_message" class="hikashop_iveri_thankyou_message">
 		<?php echo WoobookingText::_('THANK_YOU_FOR_PURCHASE');

@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Session\Exception;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * Exception class defining an unsupported session storage object

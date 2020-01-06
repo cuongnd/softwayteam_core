@@ -9,7 +9,7 @@
 
 namespace SoftWay\CMS\Html;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * Utility class for all HTML drawing classes

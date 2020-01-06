@@ -9,7 +9,7 @@ namespace SoftWay\CMS\Layout;
 use SoftWay\CMS\Filesystem\Path;
 
 use SoftWay\CMS\Utilities\Utility;
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 
 /**

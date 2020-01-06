@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Uri;
 
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 
 /**
  * JUri Class
@@ -146,9 +146,9 @@ class NBUri extends Uri
 				static::$base['prefix'] = $uri->toString(array('scheme', 'host', 'port'));
 				static::$base['path'] = rtrim($uri->toString(array('path')), '/\\');
 
-				if (defined('_WOO_BOOKING_EXEC') && defined('JPATH_ADMINISTRATOR'))
+				if (defined('_SOFT_WAY_EXEC') && defined('JPATH_ADMINISTRATOR'))
 				{
-					if (_WOO_BOOKING_EXEC == JPATH_ADMINISTRATOR)
+					if (_SOFT_WAY_EXEC == JPATH_ADMINISTRATOR)
 					{
 						static::$base['path'] .= '/administrator';
 					}

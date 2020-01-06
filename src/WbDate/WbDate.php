@@ -8,7 +8,7 @@ use Factory;
  * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
-defined('_WOO_BOOKING_EXEC') or die;
+defined('_SOFT_WAY_EXEC') or die;
 /**
  * JDate is a class that stores a date and provides logic to manipulate
  * and render that date in a variety of formats.
