@@ -6,8 +6,8 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace  WooBooking\CMS\registry;
-use WooBooking\CMS\Registry\Factory;
+namespace  SoftWay\CMS\registry;
+use SoftWay\CMS\Registry\Factory;
 
 /**
  * Abstract Format for Registry

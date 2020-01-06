@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -9,7 +9,7 @@
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\Utilities\ArrayHelper;
+use SoftWay\Utilities\ArrayHelper;
 
 /**
  * Utility class for form elements
@@ -52,7 +52,7 @@ abstract class HtmlForm
 	}
 
 	/**
-	 * Add CSRF form token to WooBooking script options that developers can get it by Javascript.
+	 * Add CSRF form token to SoftWay script options that developers can get it by Javascript.
 	 *
 	 * @param   string  $name  The script option key name.
 	 *

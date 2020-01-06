@@ -1,11 +1,11 @@
 <?php
 
-use WooBooking\CMS\mvc\model\BaseDatabaseModel;
-use WooBooking\CMS\Utilities\Utility;
-use WooBooking\CMS\Form\Form;
-use WooBooking\CMS\Filesystem\Path;
-use WooBooking\CMS\Object\CMSObject;
-use WooBooking\CMS\FOFInput\FOFInput;
+use SoftWay\CMS\mvc\model\BaseDatabaseModel;
+use SoftWay\CMS\Utilities\Utility;
+use SoftWay\CMS\Form\Form;
+use SoftWay\CMS\Filesystem\Path;
+use SoftWay\CMS\Object\CMSObject;
+use SoftWay\CMS\FOFInput\FOFInput;
 
 class WoobookingModel extends BaseDatabaseModel
 {

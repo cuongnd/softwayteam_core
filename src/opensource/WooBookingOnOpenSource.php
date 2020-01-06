@@ -1,7 +1,7 @@
 <?php
-namespace WooBooking\CMS\OpenSource;
-use WooBooking\CMS\OpenSource\WordPress\WooBookingOnWordpress;
-class      WooBookingOnOpenSource
+namespace SoftWay\CMS\OpenSource;
+use SoftWay\CMS\OpenSource\WordPress\SoftWayOnWordpress;
+class      SoftWayOnOpenSource
 {
     public static $instance=null;
     public  $open_source=null;
@@ -11,7 +11,7 @@ class      WooBookingOnOpenSource
         {
             $current_open_source="wordpress";
             if($current_open_source=="wordpress"){
-                self::$instance=  WooBookingOnWordpress::getInstance();
+                self::$instance=  SoftWayOnWordpress::getInstance();
             }
         }
 

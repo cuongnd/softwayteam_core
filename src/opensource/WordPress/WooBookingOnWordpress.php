@@ -1,21 +1,21 @@
 <?php
 
 
-namespace WooBooking\CMS\OpenSource\WordPress;
+namespace SoftWay\CMS\OpenSource\WordPress;
 
 
 use Exception;
 use Factory;
-use WooBooking\CMS\Filesystem\File;
-use WooBooking\CMS\Form\Form;
-use WooBooking\CMS\Html\HtmlFrontend;
-use WooBooking\CMS\OpenSource\WooBookingOnOpenSource;
-use WooBooking\CMS\Filesystem\Folder;
-use WooBooking\CMS\OpenSource\WordPress\ECommerce\ECommerce;
-use WooBooking\CMS;
-use woobooking_controller;
-use WooBooking\CMS\Html\Html;
-use WooBooking\CMS\Utilities\Utility;
+use SoftWay\CMS\Filesystem\File;
+use SoftWay\CMS\Form\Form;
+use SoftWay\CMS\Html\HtmlFrontend;
+use SoftWay\CMS\OpenSource\SoftWayOnOpenSource;
+use SoftWay\CMS\Filesystem\Folder;
+use SoftWay\CMS\OpenSource\WordPress\ECommerce\ECommerce;
+use SoftWay\CMS;
+use softway_controller;
+use SoftWay\CMS\Html\Html;
+use SoftWay\CMS\Utilities\Utility;
 use WoobookingModel;
 use WoobookingText;
 use BlockController;
@@ -24,14 +24,14 @@ use BlockController;
 
 
 
-class WooBookingOnWordpress
+class SoftWayOnWordpress
 {
     public static $instance = null;
     public static $items_submenus = null;
     public static $key_woo_booking = "softwaycore";
     public static $version = "1.0";
     public static $prefix_link = "wb_";
-    public static $namespace = "woobooking_api/1.0";
+    public static $namespace = "softway_api/1.0";
     private static $list_environment=array();
     public $view = "";
     public $ecommerce = null;
@@ -42,7 +42,7 @@ class WooBookingOnWordpress
     public static function getInstance($new = false)
     {
         if (!is_object(self::$instance)) {
-            self::$instance = new WooBookingOnWordpress();
+            self::$instance = new SoftWayOnWordpress();
             self::$instance->run();
         }
 
@@ -62,7 +62,7 @@ class WooBookingOnWordpress
     {
         return false;
     }
-    public function getKeyWooBooking(){
+    public function getKeySoftWay(){
         return self::$key_woo_booking;
     }
     function react2wp_woocommerce_hide_product_price($price)
@@ -81,7 +81,7 @@ class WooBookingOnWordpress
 
         ?>
         <script type="text/javascript">
-            window.location.href = "http://localhost/woobooking2/cart/";
+            window.location.href = "http://localhost/softway2/cart/";
         </script>
         <?php
 
@@ -90,7 +90,7 @@ class WooBookingOnWordpress
         echo esc_html($content);
     }
 
-    public function initOpenWooBookingWooPanelBackend(){
+    public function initOpenSoftWayWooPanelBackend(){
 
 
 
@@ -102,7 +102,7 @@ class WooBookingOnWordpress
 
         $listMenuWooPanel = self::getListMenuWooPanel();
         foreach ($listMenuWooPanel as $menu) {
-            add_filter("woopanel_dashboard_{$menu}_endpoint",array($this,"woopanel_dashboard_woobooking_endpoint"));
+            add_filter("woopanel_dashboard_{$menu}_endpoint",array($this,"woopanel_dashboard_softway_endpoint"));
         }
 
         Factory::setRootUrlPlugin($root_url . "/wp-content/plugins/softwaycore/");
@@ -114,21 +114,21 @@ class WooBookingOnWordpress
         }
 
         if ($app->getClient() == 1) {
-            add_action('woopanel_enqueue_scripts', array($this, 'woobooking_enqueue_scripts'), 99999, 1);
+            add_action('woopanel_enqueue_scripts', array($this, 'softway_enqueue_scripts'), 99999, 1);
         } else {
 
 
         }
 
-        add_action('wp_print_scripts', array($this,'woopanel_dashboard_woobooking_frontend_shapeSpace_print_scripts'));
+        add_action('wp_print_scripts', array($this,'woopanel_dashboard_softway_frontend_shapeSpace_print_scripts'));
         $prefix_link=self::$prefix_link;
         //hook api
-        add_action('rest_api_init', array($this, 'woobooking_register_rest_route'));
+        add_action('rest_api_init', array($this, 'softway_register_rest_route'));
 
 
     }
 
-    public  function woopanel_dashboard_woobooking_endpoint(){
+    public  function woopanel_dashboard_softway_endpoint(){
 
         if(!self::checkInstalled()){
             self::goToPopupInstall();
@@ -144,7 +144,7 @@ class WooBookingOnWordpress
 
         if($task){
 
-            echo woobooking_controller::action_task();
+            echo softway_controller::action_task();
         }else {
 
 
@@ -196,7 +196,7 @@ class WooBookingOnWordpress
         return $order;
     }
 
-    public function initOpenWooBookingWordpressFrontend(){
+    public function initOpenSoftWayWordpressFrontend(){
 
         $root_url = self::get_root_url();
         $input = Factory::getInput();
@@ -214,7 +214,7 @@ class WooBookingOnWordpress
 
 
         $task = $input->getString('task', '');
-        add_action('wp_enqueue_scripts', array($this, 'woobooking_enqueue_scripts'), 99999, 1);
+        add_action('wp_enqueue_scripts', array($this, 'softway_enqueue_scripts'), 99999, 1);
 
         //trying remove add to cart and price
         remove_action('woocommerce_after_shop_loop_item', 'woocommerce_template_loop_add_to_cart');
@@ -232,7 +232,7 @@ class WooBookingOnWordpress
 
 
         // add action when booking order
-        add_action('woocommerce_checkout_create_order', array($this, 'woobooking_checkout_create_order'), 20, 2);
+        add_action('woocommerce_checkout_create_order', array($this, 'softway_checkout_create_order'), 20, 2);
 
         $list_view=self::get_list_layout_view_frontend();
 
@@ -275,7 +275,7 @@ class WooBookingOnWordpress
             }
         }
         //hook api
-        add_action('rest_api_init', array($this, 'woobooking_register_rest_route'));
+        add_action('rest_api_init', array($this, 'softway_register_rest_route'));
 
 
         //TODO làm đăng ký khi người dùng active plugin
@@ -315,7 +315,7 @@ class WooBookingOnWordpress
     }
 
     public  static function get_stander_page_front_end($page ) {
-        return self::getKeyWooBooking()."-$page";
+        return self::getKeySoftWay()."-$page";
     }
     function bl_new_demo_route_callback( ) {
         return "Congrats! Your demo callback is fully functional. Now make it do something fancy";
@@ -347,15 +347,15 @@ class WooBookingOnWordpress
         $app = Factory::getApplication();
         $input=Factory::getInput();
         add_filter('woopanel_query_var_filter', array($this, 'db_appointments'), 20, 1);
-        add_filter('woopanel_navigation_items', array($this, 'woobooking_add_appointment'), 10, 1);
+        add_filter('woopanel_navigation_items', array($this, 'softway_add_appointment'), 10, 1);
         if ($app->getClient() == 1) {
             if(self::is_backend_wordpress()){
                 $this->initWordpressBackend();
             }else{
-                $this->initOpenWooBookingWooPanelBackend();
+                $this->initOpenSoftWayWooPanelBackend();
             }
         }else{
-            $this->initOpenWooBookingWordpressFrontend();
+            $this->initOpenSoftWayWordpressFrontend();
             $this->ecommerce=ECommerce::getInstance();
         }
 
@@ -371,7 +371,7 @@ class WooBookingOnWordpress
     function getEcommerce( ) {
         return $this->ecommerce;
     }
-    function woobooking_block_category( $categories, $post ) {
+    function softway_block_category( $categories, $post ) {
 
         return array_merge(
             $categories,
@@ -386,7 +386,7 @@ class WooBookingOnWordpress
     function add_script_admin_wordpress() {
         $doc=Factory::getDocument();
         echo '<script type="text/javascript" src="'.Factory::getRootUrlPlugin() .'admin/resources/js/less/less.min.js"></script>';
-        //echo '<script type="text/javascript" src="'.Factory::getRootUrlPlugin() .'lib/WooBooking/opensource/WordPress/blocks.build.js"></script>';
+        //echo '<script type="text/javascript" src="'.Factory::getRootUrlPlugin() .'lib/SoftWay/opensource/WordPress/blocks.build.js"></script>';
     }
     public  function initWordpressBackend(){
 
@@ -443,7 +443,7 @@ class WooBookingOnWordpress
 
 
         add_action('admin_footer', array($this,'add_script_admin_wordpress'));
-        add_filter( 'block_categories', array($this,'woobooking_block_category'), 10, 2);
+        add_filter( 'block_categories', array($this,'softway_block_category'), 10, 2);
 
 
         /* wp_update_nav_menu_item(23, 0, array('menu-item-title' => 'About',
@@ -460,7 +460,7 @@ class WooBookingOnWordpress
          }*/
         add_action('admin_init', array($this, 'add_nav_menu_meta_boxes'));
         //add admin menu
-        add_action('admin_menu', array($this,'woobooking_plugin_setup_menu'));
+        add_action('admin_menu', array($this,'softway_plugin_setup_menu'));
 
         // [bartag foo="foo-value"]
 
@@ -480,20 +480,20 @@ class WooBookingOnWordpress
 
 
     }
-    function woobooking_plugin_setup_menu(){
+    function softway_plugin_setup_menu(){
         $list_view_admin=self::get_list_view_for_woo_panel();
         $first_view=array_shift($list_view_admin);
         $first_view=(object)$first_view;
         $menu_slug=str_replace('_','-',$first_view->menu_slug);
-        add_menu_page( 'Woobooking', 'WooBooking', 'manage_options', 'softwaycore-plugin',array($this,'woobooking_page') );
+        add_menu_page( 'Woobooking', 'SoftWay', 'manage_options', 'softwaycore-plugin',array($this,'softway_page') );
         foreach ($list_view_admin as $key=> $view) {
             $view=(object)$view;
-            add_submenu_page( 'softwaycore-plugin', $view->label,  $view->label, 'manage_options', $view->menu_slug, array($this,'woobooking_page'));
+            add_submenu_page( 'softwaycore-plugin', $view->label,  $view->label, 'manage_options', $view->menu_slug, array($this,'softway_page'));
         }
 
 
     }
-    function woobooking_page(){
+    function softway_page(){
         $input=Factory::getInput();
         $page=$input->getString('page','');
         if(!self::checkInstalled()){
@@ -510,7 +510,7 @@ class WooBookingOnWordpress
 
         if($task){
 
-            echo woobooking_controller::action_task();
+            echo softway_controller::action_task();
         }else {
             $menu = self::get_true_menu_of_woo_booking($page);
             $file_controller_path = WOOBOOKING_PATH_COMPONENT . "/controllers/" . ucfirst($menu) . ".php";
@@ -581,7 +581,7 @@ class WooBookingOnWordpress
     }
 
 
-    function woopanel_dashboard_woobooking_frontend_shapeSpace_print_scripts() {
+    function woopanel_dashboard_softway_frontend_shapeSpace_print_scripts() {
         $root_url = self::get_root_url();
         ?>
         <script type="text/javascript">
@@ -739,10 +739,10 @@ class WooBookingOnWordpress
         $type=null;
         if(is_array($atts) && $id=reset($atts)){
             list($package,$view,$layout)=explode("-",$a_view);
-            echo   woobooking_controller::display_block_app($id,"$view.$layout");
+            echo   softway_controller::display_block_app($id,"$view.$layout");
         }else{
             list($package,$view,$layout)=explode("-",$a_view);
-            echo   woobooking_controller::view("$view.$layout");
+            echo   softway_controller::view("$view.$layout");
         }
     }
     function goToPopupInstall( ) {
@@ -831,14 +831,14 @@ class WooBookingOnWordpress
         }else {
 
             list($view, $layout) = explode("-", $type);
-            echo woobooking_controller::view("$view.$layout");
+            echo softway_controller::view("$view.$layout");
         }
 
 
     }
     public static function pluginprefix_activation(){
 
-        $list_page=WooBookingOnWordpress::get_list_layout_view_frontend();
+        $list_page=SoftWayOnWordpress::get_list_layout_view_frontend();
         $key_woo_booking=self::$key_woo_booking;
         foreach ($list_page as $k => $page) {
             $key_page="$key_woo_booking-$k";
@@ -1012,21 +1012,21 @@ class WooBookingOnWordpress
         if ($app->getClient() == 1) {
             return "/{$prefix_link}db_appointments/task";
         } else {
-            return "/nbwoobooking/task";
+            return "/nbsoftway/task";
         }
 
     }
 
-    function woobooking_register_rest_route()
+    function softway_register_rest_route()
     {
         $view = self::get_current_page();
-        //root/wp-json/woobooking_api/1.0/db_appointments/task //post
+        //root/wp-json/softway_api/1.0/db_appointments/task //post
         register_rest_route(
             self::$namespace,
             self::get_api_task(),
             array(
                 'methods' => 'POST',
-                'callback' => array('woobooking_controller', 'ajax_action_task'),
+                'callback' => array('softway_controller', 'ajax_action_task'),
             )
         );
 
@@ -1047,7 +1047,7 @@ class WooBookingOnWordpress
     }
 
     //for softwaycore admin
-    function woobooking_enqueue_scripts()
+    function softway_enqueue_scripts()
     {
         $app = Factory::getApplication();
         $doc = Factory::getDocument();
@@ -1191,7 +1191,7 @@ class WooBookingOnWordpress
         }
         return self::$list_menu_by_xml;
     }
-    function woobooking_add_appointment($output_menus)
+    function softway_add_appointment($output_menus)
     {
 
 

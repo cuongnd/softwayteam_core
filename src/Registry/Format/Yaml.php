@@ -6,9 +6,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace WooBooking\CMS\Registry\Format;
+namespace SoftWay\CMS\Registry\Format;
 
-use WooBooking\CMS\Registry\AbstractRegistryFormat;
+use SoftWay\CMS\Registry\AbstractRegistryFormat;
 use Symfony\Component\Yaml\Parser as SymfonyYamlParser;
 use Symfony\Component\Yaml\Dumper as SymfonyYamlDumper;
 

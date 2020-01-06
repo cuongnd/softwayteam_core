@@ -6,13 +6,13 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form\Field;
+namespace SoftWay\CMS\Form\Field;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Factory;
-use WooBooking\CMS\Form\FormField;
-use WooBooking\CMS\User\User;
+use SoftWay\CMS\Factory;
+use SoftWay\CMS\Form\FormField;
+use SoftWay\CMS\User\User;
 
 /**
  * Field to select a user ID from a modal list.
@@ -51,7 +51,7 @@ class UserField extends FormField
 	 * @var   string
 	 * @since 3.5
 	 */
-	protected $layout = 'WooBooking.form.field.user';
+	protected $layout = 'SoftWay.form.field.user';
 
 	/**
 	 * Method to attach a JForm object to the field.

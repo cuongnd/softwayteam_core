@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Log\Logger;
+namespace SoftWay\CMS\Log\Logger;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Log\LogEntry;
-use WooBooking\CMS\Log\Logger;
+use SoftWay\CMS\Log\LogEntry;
+use SoftWay\CMS\Log\Logger;
 
 /**
  * softwaycore! MySQL Database Log class

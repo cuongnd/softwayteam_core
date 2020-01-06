@@ -6,9 +6,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace WooBooking\CMS\Registry\Format;
+namespace SoftWay\CMS\Registry\Format;
 
-use WooBooking\CMS\Registry\AbstractRegistryFormat;
+use SoftWay\CMS\Registry\AbstractRegistryFormat;
 
 /**
  * PHP class format handler for Registry

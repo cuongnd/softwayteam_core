@@ -35,7 +35,7 @@ class FormFieldCheckboxes extends JFormFieldList
 	 * @var    string
 	 * @since  3.5
 	 */
-	protected $layout = 'WooBooking.form.field.checkboxes';
+	protected $layout = 'SoftWay.form.field.checkboxes';
 
 	/**
 	 * Flag to tell the field to always be in multiple values mode.

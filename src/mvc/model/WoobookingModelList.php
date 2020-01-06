@@ -1,6 +1,6 @@
 <?php
-use WooBooking\CMS\Form\Form;
-use WooBooking\CMS\Pagination\Pagination;
+use SoftWay\CMS\Form\Form;
+use SoftWay\CMS\Pagination\Pagination;
 
 class WoobookingModelList extends  WoobookingModel
 {

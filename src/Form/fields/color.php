@@ -8,12 +8,12 @@
  */
 
 
-namespace WooBooking\CMS\Form\fields;
+namespace SoftWay\CMS\Form\fields;
 defined('_WOO_BOOKING_EXEC') or die;
-use WooBooking\CMS\Form\FormField;
+use SoftWay\CMS\Form\FormField;
 use WoobookingText;
 use Factory;
-use WooBooking\CMS\Html\Html;
+use SoftWay\CMS\Html\Html;
 use SimpleXMLElement;
 
 /**
@@ -87,7 +87,7 @@ class FormFieldColor extends FormField
 	 * @var    string
 	 * @since  3.5
 	 */
-	protected $layout = 'WooBooking.form.field.color';
+	protected $layout = 'SoftWay.form.field.color';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

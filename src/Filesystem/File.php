@@ -5,18 +5,18 @@
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace WooBooking\CMS\Filesystem;
+namespace SoftWay\CMS\Filesystem;
 defined('_WOO_BOOKING_EXEC') or die;
 
 
 
 use Factory;
-use WooBooking\CMS\Client\ClientHelper;
-use WooBooking\CMS\Filesystem\Wrapper\FileWrapper;
-use WooBooking\CMS\Filesystem\Wrapper\PathWrapper;
-use WooBooking\CMS\Filesystem\Wrapper\FolderWrapper;
-use WooBooking\CMS\Filesystem\Path;
-use WooBooking\CMS\Log\Log;
+use SoftWay\CMS\Client\ClientHelper;
+use SoftWay\CMS\Filesystem\Wrapper\FileWrapper;
+use SoftWay\CMS\Filesystem\Wrapper\PathWrapper;
+use SoftWay\CMS\Filesystem\Wrapper\FolderWrapper;
+use SoftWay\CMS\Filesystem\Path;
+use SoftWay\CMS\Log\Log;
 use WoobookingText;
 
 /**

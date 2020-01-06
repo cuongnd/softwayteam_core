@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Filesystem;
+namespace SoftWay\CMS\Filesystem;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Object\CMSObject;
-use WooBooking\CMS\Language\Text;
+use SoftWay\CMS\Object\CMSObject;
+use SoftWay\CMS\Language\Text;
 
 /**
  * softwaycore! Stream Interface
@@ -205,7 +205,7 @@ class Stream extends CMSObject
 		if (isset($url['scheme']))
 		{
 			// If we're dealing with a softwaycore! stream, load it
-			if (FilesystemHelper::isWooBookingStream($url['scheme']))
+			if (FilesystemHelper::isSoftWayStream($url['scheme']))
 			{
 				require_once __DIR__ . '/streams/' . $url['scheme'] . '.php';
 			}

@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Filesystem;
+namespace SoftWay\CMS\Filesystem;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
@@ -290,7 +290,7 @@ class FilesystemHelper
 	 *
 	 * @since   1.7.0
 	 */
-	public static function isWooBookingStream($streamname)
+	public static function isSoftWayStream($streamname)
 	{
 		return in_array($streamname, self::getJStreams());
 	}

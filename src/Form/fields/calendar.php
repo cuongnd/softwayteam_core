@@ -73,7 +73,7 @@ class FormFieldCalendar extends FormField
 	 * @var    string
 	 * @since  3.7.0
 	 */
-	protected $layout = 'WooBooking.form.field.calendar';
+	protected $layout = 'SoftWay.form.field.calendar';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

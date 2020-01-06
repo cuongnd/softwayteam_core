@@ -1,16 +1,16 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 
-namespace WooBooking\CMS\Html;
-use \WooBooking\CMS\Utilities\Utility;
+namespace SoftWay\CMS\Html;
+use \SoftWay\CMS\Utilities\Utility;
 
-use WooBooking\CMS\Filesystem\Path;
+use SoftWay\CMS\Filesystem\Path;
 defined('_WOO_BOOKING_EXEC') or die;
 
 /**
@@ -785,7 +785,7 @@ abstract class Html
 			'maxYear'      => $maxYear,
 		);
 
-		return LayoutHelper::render('WooBooking.form.field.calendar', $data, null, null);
+		return LayoutHelper::render('SoftWay.form.field.calendar', $data, null, null);
 	}
 
 	/**
@@ -820,7 +820,7 @@ abstract class Html
 	 * @return  string  JavaScript object notation representation of the array
 	 *
 	 * @since   3.0
-	 * @deprecated  4.0 Use `json_encode()` or `WooBooking\Registry\Registry::toString('json')` instead
+	 * @deprecated  4.0 Use `json_encode()` or `SoftWay\Registry\Registry::toString('json')` instead
 	 */
 	public static function getJSObject(array $array = array())
 	{

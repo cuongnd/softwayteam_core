@@ -6,11 +6,11 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Log;
+namespace SoftWay\CMS\Log;
 
-use WooBooking\CMS\Psr\Log\AbstractLogger;
-use WooBooking\CMS\Psr\Log\InvalidArgumentException;
-use WooBooking\CMS\Psr\Log\LogLevel;
+use SoftWay\CMS\Psr\Log\AbstractLogger;
+use SoftWay\CMS\Psr\Log\InvalidArgumentException;
+use SoftWay\CMS\Psr\Log\LogLevel;
 
 /**
  * Delegating logger which delegates log messages received from the PSR-3 interface to the softwaycore! Log object.

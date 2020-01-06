@@ -6,13 +6,13 @@
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
-namespace WooBooking\CMS\Form\fields;
+namespace SoftWay\CMS\Form\fields;
 use Factory;
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Form\FormField;
+use SoftWay\CMS\Form\FormField;
 use SimpleXMLElement;
-use WooBooking\CMS\Html\Html;
+use SoftWay\CMS\Html\Html;
 use WoobookingText;
 /**
  * Form Field class for the softwaycore Platform.
@@ -62,7 +62,7 @@ class FormFieldPickDateTime extends FormField
 	 * @var    string
 	 * @since  3.7
 	 */
-	protected $layout = 'WooBooking.form.field.pickdatetime';
+	protected $layout = 'SoftWay.form.field.pickdatetime';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

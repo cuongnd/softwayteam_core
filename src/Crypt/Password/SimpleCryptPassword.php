@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Crypt\Password;
+namespace SoftWay\CMS\Crypt\Password;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Crypt\Crypt;
-use WooBooking\CMS\Crypt\CryptPassword;
+use SoftWay\CMS\Crypt\Crypt;
+use SoftWay\CMS\Crypt\CryptPassword;
 
 /**
  * Joomla Platform Password Crypter

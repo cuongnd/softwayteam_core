@@ -1,18 +1,18 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document;
+namespace SoftWay\CMS\Document;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Document\Opensearch\OpensearchImage;
-use WooBooking\CMS\Document\Opensearch\OpensearchUrl;
-use WooBooking\CMS\Uri\Uri;
+use SoftWay\CMS\Document\Opensearch\OpensearchImage;
+use SoftWay\CMS\Document\Opensearch\OpensearchUrl;
+use SoftWay\CMS\Uri\Uri;
 
 /**
  * Opensearch class, provides an easy interface to display an Opensearch document

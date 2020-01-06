@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.

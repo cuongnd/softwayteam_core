@@ -1,17 +1,17 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document;
+namespace SoftWay\CMS\Document;
 
-use WooBooking\CMS\Log\Log;
-use WooBooking\CMS\Utilities\Utility;
-use WooBookingLoader;
-use WooBooking\CMS\Document\HtmlDocument;
+use SoftWay\CMS\Log\Log;
+use SoftWay\CMS\Utilities\Utility;
+use SoftWayLoader;
+use SoftWay\CMS\Document\HtmlDocument;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
@@ -78,7 +78,7 @@ class Document
 	 * @var    string
 	 * @since  1.7.0
 	 */
-	public $_generator = 'WooBooking! - Open Source Content Management';
+	public $_generator = 'SoftWay! - Open Source Content Management';
 
 	/**
 	 * Document modified date
@@ -307,7 +307,7 @@ class Document
                 // @deprecated 4.0 - Document objects should be autoloaded instead
                 $path = __DIR__ . '/' . $type . '/' . $type . '.php';
 
-                WooBookingLoader::register($class, $path);
+                SoftWayLoader::register($class, $path);
 
                 if (class_exists($class))
                 {
@@ -522,7 +522,7 @@ class Document
 
 	/**
 	 * Adds a linked script to the page with a version to allow to flush it. Ex: myscript.js?54771616b5bceae9df03c6173babf11d
-	 * If not specified WooBooking! automatically handles versioning
+	 * If not specified SoftWay! automatically handles versioning
 	 *
 	 * @param   string  $url      URL to the linked script.
 	 * @param   array   $options  Array of options. Example: array('version' => 'auto', 'conditional' => 'lt IE 9')
@@ -763,7 +763,7 @@ class Document
 
 	/**
 	 * Adds a linked stylesheet version to the page. Ex: template.css?54771616b5bceae9df03c6173babf11d
-	 * If not specified WooBooking! automatically handles versioning
+	 * If not specified SoftWay! automatically handles versioning
 	 *
 	 * @param   string  $url      URL to the linked style sheet
 	 * @param   array   $options  Array of options. Example: array('version' => 'auto', 'conditional' => 'lt IE 9')
@@ -1129,7 +1129,7 @@ class Document
 				sprintf(
 					'The $date parameter of %1$s must be a string or a %2$s instance, a %3$s was given.',
 					__METHOD__ . '()',
-					'WooBooking\\CMS\\Date\\Date',
+					'SoftWay\\CMS\\Date\\Date',
 					gettype($date) === 'object' ? (get_class($date) . ' instance') : gettype($date)
 				)
 			);
@@ -1299,7 +1299,7 @@ class Document
                     throw new \RuntimeException('Unable to load renderer class', 500);
                 }
 
-                WooBookingLoader::register($class, $path);
+                SoftWayLoader::register($class, $path);
 
                 Log::add('Non-autoloadable JDocumentRenderer subclasses are deprecated, support will be removed in 4.0.', Log::WARNING, 'deprecated');
 

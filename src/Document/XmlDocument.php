@@ -1,12 +1,12 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document;
+namespace SoftWay\CMS\Document;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
@@ -23,7 +23,7 @@ class XmlDocument extends Document
 	 * @var    string
 	 * @since  3.0.0
 	 */
-	protected $name = 'WooBooking';
+	protected $name = 'SoftWay';
 
 	/**
 	 * Flag indicating the document should be downloaded (Content-Disposition = attachment) versus displayed inline
@@ -93,7 +93,7 @@ class XmlDocument extends Document
 	 *
 	 * @since   1.7.0
 	 */
-	public function setName($name = 'WooBooking')
+	public function setName($name = 'SoftWay')
 	{
 		$this->name = $name;
 

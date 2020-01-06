@@ -1,8 +1,8 @@
 <?php
 
 
-use WooBooking\CMS\Form\Form;
-use WooBooking\CMS\Registry\Registry;
+use SoftWay\CMS\Form\Form;
+use SoftWay\CMS\Registry\Registry;
 
 
 class WoobookingModelForm extends WoobookingModel

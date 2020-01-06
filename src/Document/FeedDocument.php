@@ -1,17 +1,17 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document;
+namespace SoftWay\CMS\Document;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Document\Feed\FeedImage;
-use WooBooking\CMS\Document\Feed\FeedItem;
+use SoftWay\CMS\Document\Feed\FeedImage;
+use SoftWay\CMS\Document\Feed\FeedItem;
 
 /**
  * FeedDocument class, provides an easy interface to parse and display any feed document

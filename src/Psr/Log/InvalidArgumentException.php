@@ -1,6 +1,6 @@
 <?php
 
-namespace WooBooking\CMS\Psr\Log;
+namespace SoftWay\CMS\Psr\Log;
 
 class InvalidArgumentException extends \InvalidArgumentException
 {

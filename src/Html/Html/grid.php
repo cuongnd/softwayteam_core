@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -95,7 +95,7 @@ abstract class HtmlGrid
 			$form = ', document.getElementById(\'' . $form . '\')';
 		}
 
-		$html = '<a href="#" onclick="WooBooking.tableOrdering(\'' . $order . '\',\'' . $direction . '\',\'' . $task . '\'' . $form . ');return false;"'
+		$html = '<a href="#" onclick="SoftWay.tableOrdering(\'' . $order . '\',\'' . $direction . '\',\'' . $task . '\'' . $form . ');return false;"'
 			. ' class="hasPopover" title="' . htmlspecialchars(WoobookingText::_($tip ?: $title)) . '"'
 			. ' data-content="' . htmlspecialchars(WoobookingText::_('JGLOBAL_CLICK_TO_SORT_THIS_COLUMN')) . '" data-placement="top">';
 
@@ -129,7 +129,7 @@ abstract class HtmlGrid
 	 *
 	 * @since   3.1.2
 	 */
-	public static function checkall($name = 'checkall-toggle', $tip = 'JGLOBAL_CHECK_ALL', $action = 'WooBooking.checkAll(this)')
+	public static function checkall($name = 'checkall-toggle', $tip = 'JGLOBAL_CHECK_ALL', $action = 'SoftWay.checkAll(this)')
 	{
 		Html::_('behavior.core');
 		Html::_('bootstrap.tooltip');
@@ -154,7 +154,7 @@ abstract class HtmlGrid
 	public static function id($rowNum, $recId, $checkedOut = false, $name = 'cid', $stub = 'cb')
 	{
 		return $checkedOut ? '' : '<input type="checkbox" id="' . $stub . $rowNum . '" name="' . $name . '[]" value="' . $recId
-			. '" onclick="WooBooking.isChecked(this.checked);" />';
+			. '" onclick="SoftWay.isChecked(this.checked);" />';
 	}
 
 	/**
@@ -261,7 +261,7 @@ abstract class HtmlGrid
 			$state,
 			'filter_state',
 			array(
-				'list.attr' => 'class="inputbox" size="1" onchange="WooBooking.submitform();"',
+				'list.attr' => 'class="inputbox" size="1" onchange="SoftWay.submitform();"',
 				'list.select' => $filter_state,
 				'option.key' => null,
 			)

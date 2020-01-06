@@ -35,7 +35,7 @@ class FormFieldUrl extends JFormFieldText
 	 * @var    string
 	 * @since  3.7
 	 */
-	protected $layout = 'WooBooking.form.field.url';
+	protected $layout = 'SoftWay.form.field.url';
 
 	/**
 	 * Method to get the field input markup.

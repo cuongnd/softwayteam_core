@@ -1,20 +1,20 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Layout;
-use WooBooking\CMS\Registry\Registry;
+namespace SoftWay\CMS\Layout;
+use SoftWay\CMS\Registry\Registry;
 
 
 
 /**
  * Base class for rendering a display layout
  *
- * @link   https://docs.WooBooking.org/Special:MyLanguage/Sharing_layouts_across_views_or_extensions_with_JLayout
+ * @link   https://docs.SoftWay.org/Special:MyLanguage/Sharing_layouts_across_views_or_extensions_with_JLayout
  * @since  3.0
  */
 class BaseLayout implements LayoutInterface
@@ -109,7 +109,7 @@ class BaseLayout implements LayoutInterface
 	 *
 	 * @return  string  The escaped output.
 	 *
-	 * @note the ENT_COMPAT flag will be replaced by ENT_QUOTES in WooBooking 4.0 to also escape single quotes
+	 * @note the ENT_COMPAT flag will be replaced by ENT_QUOTES in SoftWay 4.0 to also escape single quotes
 	 *
 	 * @since   3.0
 	 */

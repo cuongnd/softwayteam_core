@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Log;
+namespace SoftWay\CMS\Log;
 
 defined('_WOO_BOOKING_EXEC') or die;
 

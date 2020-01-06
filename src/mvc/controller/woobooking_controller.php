@@ -1,9 +1,9 @@
 <?php
 
-use WooBooking\CMS\Log\Log;
-use WooBooking\CMS\Utilities\Utility;
+use SoftWay\CMS\Log\Log;
+use SoftWay\CMS\Utilities\Utility;
 
-class woobooking_controller{
+class softway_controller{
     public $model;
     public $modelItem="";
     public $modelList="";
@@ -396,7 +396,7 @@ class woobooking_controller{
 
         list($view,$layout)=explode(".",$view_layout);
         $openSource=Factory::getOpenSource();
-        $key_woo_booking=$openSource->getKeyWooBooking();
+        $key_woo_booking=$openSource->getKeySoftWay();
         $http_list_var=[];
         if(is_array($items_var)){
             foreach ($items_var as $key=> $value){
@@ -415,7 +415,7 @@ class woobooking_controller{
         $root_url=Factory::getRootUrl();
         list($view,$layout)=explode(".",$view_layout);
         $openSource=Factory::getOpenSource();
-        $key_woo_booking=$openSource->getKeyWooBooking();
+        $key_woo_booking=$openSource->getKeySoftWay();
         $http_list_var=[];
         if(is_array($items_var)){
             foreach ($items_var as $key=> $value){
@@ -442,7 +442,7 @@ class woobooking_controller{
         $html .= '</head><body></body></html>';
         echo $html;
     }
-    public function redirectInWooBookingPage($page){
+    public function redirectInSoftWayPage($page){
         $openSource=Factory::getOpenSource();
         $page=$openSource->get_stander_page_front_end($page);
         $root_url=Factory::getRootUrl();

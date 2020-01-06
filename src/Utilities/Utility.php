@@ -6,10 +6,10 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Utilities;
+namespace SoftWay\CMS\Utilities;
 
-use WooBooking\CMS\Filesystem\File;
-use WooBooking\CMS\Crypt\Crypt;
+use SoftWay\CMS\Filesystem\File;
+use SoftWay\CMS\Crypt\Crypt;
 use DOMDocument;
 use Factory;
 use JDatabaseDriver;
@@ -74,7 +74,7 @@ class Utility
 
         list($view,$layout)=explode(".",$view_layout);
         $openSource=Factory::getOpenSource();
-        $key_woo_booking=$openSource->getKeyWooBooking();
+        $key_woo_booking=$openSource->getKeySoftWay();
         $http_list_var=[];
         if(is_array($items_var)){
             foreach ($items_var as $key=> $value){

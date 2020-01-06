@@ -6,14 +6,14 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Router;
+namespace SoftWay\CMS\Router;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Application\CMSApplication;
-use WooBooking\CMS\Component\ComponentHelper;
-use WooBooking\CMS\Component\Router\RouterInterface;
-use WooBooking\CMS\Component\Router\RouterLegacy;
+use SoftWay\CMS\Application\CMSApplication;
+use SoftWay\CMS\Component\ComponentHelper;
+use SoftWay\CMS\Component\Router\RouterInterface;
+use SoftWay\CMS\Component\Router\RouterLegacy;
 use Joomla\String\StringHelper;
 
 /**

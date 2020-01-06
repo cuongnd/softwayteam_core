@@ -6,8 +6,8 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Exception;
-use WooBooking\CMS\Log\Log;
+namespace SoftWay\CMS\Exception;
+use SoftWay\CMS\Log\Log;
 defined('_WOO_BOOKING_EXEC') or die;
 
 /**

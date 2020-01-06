@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -73,7 +73,7 @@ abstract class HtmlBehavior
 	/**
 	 * Method to load core.js into the document head.
 	 *
-	 * Core.js defines the 'WooBooking' namespace and contains functions which are used across extensions
+	 * Core.js defines the 'SoftWay' namespace and contains functions which are used across extensions
 	 *
 	 * @return  void
 	 *
@@ -491,7 +491,7 @@ abstract class HtmlBehavior
 		// Attach multiselect to document
 		Factory::getDocument()->addScriptDeclaration(
 			"jQuery(document).ready(function() {
-				WooBooking.JMultiSelect('" . $id . "');
+				SoftWay.JMultiSelect('" . $id . "');
 			});"
 		);
 
@@ -785,10 +785,10 @@ abstract class HtmlBehavior
 			jQuery(function ($) {
 				var start = document.getElementById('" . $start . "');
 				var end = document.getElementById('" . $end . "');
-				if (!start || !end || !WooBooking.Highlighter) {
+				if (!start || !end || !SoftWay.Highlighter) {
 					return true;
 				}
-				highlighter = new WooBooking.Highlighter({
+				highlighter = new SoftWay.Highlighter({
 					startElement: start,
 					endElement: end,
 					className: '" . $className . "',

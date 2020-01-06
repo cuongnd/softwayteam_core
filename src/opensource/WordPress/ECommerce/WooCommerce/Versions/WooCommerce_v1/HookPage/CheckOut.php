@@ -1,7 +1,7 @@
 <?php
 
 
-namespace WooBooking\CMS\OpenSource\WordPress\ECommerce\WooCommerce\Versions\WooCommerce_v1\HookPage;
+namespace SoftWay\CMS\OpenSource\WordPress\ECommerce\WooCommerce\Versions\WooCommerce_v1\HookPage;
 
 use WC_Customer;
 use WoobookingModel;

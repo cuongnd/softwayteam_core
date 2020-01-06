@@ -1,16 +1,16 @@
 <?php
 
-use WooBooking\CMS\Version;
-use WooBooking\CMS\WbDate\WbDate;
-use WooBooking\CMS\FOFInput\FOFInput;
-use WooBooking\CMS\Registry\Registry;
-use WooBooking\CMS\Document\Document;
-use WooBooking\CMS\Application\Application;
-use WooBooking\CMS\Uri\NBUri;
-use WooBooking\CMS\Application\NBAppHelper;
-use WooBooking\CMS\OpenSource\WooBookingOnOpenSource;
-use WooBooking\CMS\Session\Session;
-use WooBooking\CMS\Database\driver\DatabaseDriverMysqli;
+use SoftWay\CMS\Version;
+use SoftWay\CMS\WbDate\WbDate;
+use SoftWay\CMS\FOFInput\FOFInput;
+use SoftWay\CMS\Registry\Registry;
+use SoftWay\CMS\Document\Document;
+use SoftWay\CMS\Application\Application;
+use SoftWay\CMS\Uri\NBUri;
+use SoftWay\CMS\Application\NBAppHelper;
+use SoftWay\CMS\OpenSource\SoftWayOnOpenSource;
+use SoftWay\CMS\Session\Session;
+use SoftWay\CMS\Database\driver\DatabaseDriverMysqli;
 class Factory
 {
     private static $database;
@@ -69,7 +69,7 @@ class Factory
         if (!isset(self::$open_source))
         {
 
-            self::$open_source = WooBookingOnOpenSource::getInstance();
+            self::$open_source = SoftWayOnOpenSource::getInstance();
         }
         return self::$open_source;
     }

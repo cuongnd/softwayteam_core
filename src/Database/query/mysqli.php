@@ -7,8 +7,8 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace WooBooking\CMS\Database\query;
-use WooBooking\CMS\Database\DatabaseQuery;
+namespace SoftWay\CMS\Database\query;
+use SoftWay\CMS\Database\DatabaseQuery;
 defined('_WOO_BOOKING_EXEC') or die;
 /**
  * Query Building Class.

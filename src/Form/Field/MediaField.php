@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form\Field;
+namespace SoftWay\CMS\Form\Field;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Component\ComponentHelper;
-use WooBooking\CMS\Form\FormField;
+use SoftWay\CMS\Component\ComponentHelper;
+use SoftWay\CMS\Form\FormField;
 
 /**
  * Provides a modal media selector including upload mechanism
@@ -106,7 +106,7 @@ class MediaField extends FormField
 	 * @var    string
 	 * @since  3.5
 	 */
-	protected $layout = 'WooBooking.form.field.media';
+	protected $layout = 'SoftWay.form.field.media';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

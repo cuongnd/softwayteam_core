@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -61,7 +61,7 @@ abstract class HtmlFrontendSortablelist
 			'proceedSaveOrderButton' => $proceedSaveOrderButton,
 		);
 
-		JLayoutHelper::render('WooBooking.html.sortablelist', $displayData);
+		JLayoutHelper::render('SoftWay.html.sortablelist', $displayData);
 
 		// Set static array
 		static::$loaded[__METHOD__] = true;

@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form\Field;
+namespace SoftWay\CMS\Form\Field;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Form\FormHelper;
-use  WooBooking\CMS\Form\fields\FormFieldList;
+use SoftWay\CMS\Form\FormHelper;
+use  SoftWay\CMS\Form\fields\FormFieldList;
 use WoobookingText;
 FormHelper::loadFieldClass('list');
 
@@ -99,7 +99,7 @@ class LimitboxField extends FormFieldList
 				{
 					$options[] = (object) array(
 						'value' => $value,
-						'text' => ($value != 0) ? WoobookingText::_('WooBooking' . $value) : WoobookingText::_('JALL'),
+						'text' => ($value != 0) ? WoobookingText::_('SoftWay' . $value) : WoobookingText::_('JALL'),
 					);
 				}
 

@@ -1,6 +1,6 @@
 <?php
-namespace WooBooking\CMS\OpenSource\WordPress\ECommerce;
-use WooBooking\CMS\OpenSource\WordPress\ECommerce\WooCommerce\WooCommerce;
+namespace SoftWay\CMS\OpenSource\WordPress\ECommerce;
+use SoftWay\CMS\OpenSource\WordPress\ECommerce\WooCommerce\WooCommerce;
 class ECommerce
 {
     public static $instance=null;

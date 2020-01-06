@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -62,7 +62,7 @@ abstract class HtmlFrontendDropdown
 					{
 						$('input[name=\"cid[]\"]').removeAttr('checked');
 						$('#' + cbId).attr('checked','checked');
-						WooBooking.submitbutton(task);
+						SoftWay.submitbutton(task);
 					}
 				});
 			})(jQuery);
@@ -124,7 +124,7 @@ abstract class HtmlFrontendDropdown
 	 *
 	 * @param   integer  $id          Record ID
 	 * @param   string   $prefix      Task prefix
-	 * @param   string   $customLink  The custom link if dont use default WooBooking action format
+	 * @param   string   $customLink  The custom link if dont use default SoftWay action format
 	 *
 	 * @return  void
 	 *

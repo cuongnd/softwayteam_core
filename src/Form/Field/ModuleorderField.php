@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form\Field;
+namespace SoftWay\CMS\Form\Field;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Form\FormField;
-use WooBooking\CMS\Session\Session;
+use SoftWay\CMS\Form\FormField;
+use SoftWay\CMS\Session\Session;
 
 /**
  * Module Order field.
@@ -34,7 +34,7 @@ class ModuleorderField extends FormField
 	 * @var    string
 	 * @since  3.6.3
 	 */
-	protected $layout = 'WooBooking.form.field.moduleorder';
+	protected $layout = 'SoftWay.form.field.moduleorder';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

@@ -6,9 +6,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Filesystem\Wrapper;
+namespace SoftWay\CMS\Filesystem\Wrapper;
     
-use WooBooking\CMS\Filesystem\Path;
+use SoftWay\CMS\Filesystem\Path;
 defined('_WOO_BOOKING_EXEC') or die;
 
 /**
@@ -17,7 +17,7 @@ defined('_WOO_BOOKING_EXEC') or die;
  * @package     softwaycore.Platform
  * @subpackage  Filesystem
  * @since       3.4
- * @deprecated  4.0 Use \WooBooking\CMS\Filesystem\Path instead
+ * @deprecated  4.0 Use \SoftWay\CMS\Filesystem\Path instead
  */
 class PathWrapper
 {
@@ -30,7 +30,7 @@ class PathWrapper
 	 *
 	 * @see         Path::canChmod()
 	 * @since       3.4
-	 * @deprecated  4.0 Use \WooBooking\CMS\Filesystem\Path instead
+	 * @deprecated  4.0 Use \SoftWay\CMS\Filesystem\Path instead
 	 */
 	public function canChmod($path)
 	{
@@ -48,7 +48,7 @@ class PathWrapper
 	 *
 	 * @see         Path::setPermissions()
 	 * @since       3.4
-	 * @deprecated  4.0 Use \WooBooking\CMS\Filesystem\Path instead
+	 * @deprecated  4.0 Use \SoftWay\CMS\Filesystem\Path instead
 	 */
 	public function setPermissions($path, $filemode = '0644', $foldermode = '0755')
 	{
@@ -64,7 +64,7 @@ class PathWrapper
 	 *
 	 * @see         Path::getPermissions()
 	 * @since       3.4
-	 * @deprecated  4.0 Use \WooBooking\CMS\Filesystem\Path instead
+	 * @deprecated  4.0 Use \SoftWay\CMS\Filesystem\Path instead
 	 */
 	public function getPermissions($path)
 	{
@@ -81,7 +81,7 @@ class PathWrapper
 	 * @see         Path::check()
 	 * @since       3.4
 	 * @throws      Exception
-	 * @deprecated  4.0 Use \WooBooking\CMS\Filesystem\Path instead
+	 * @deprecated  4.0 Use \SoftWay\CMS\Filesystem\Path instead
 	 */
 	public function check($path)
 	{
@@ -99,7 +99,7 @@ class PathWrapper
 	 * @see         Path::clean()
 	 * @since       3.4
 	 * @throws      UnexpectedValueException
-	 * @deprecated  4.0 Use \WooBooking\CMS\Filesystem\Path instead
+	 * @deprecated  4.0 Use \SoftWay\CMS\Filesystem\Path instead
 	 */
 	public function clean($path, $ds = DIRECTORY_SEPARATOR)
 	{
@@ -115,7 +115,7 @@ class PathWrapper
 	 *
 	 * @see         Path::isOwner()
 	 * @since       3.4
-	 * @deprecated  4.0 Use \WooBooking\CMS\Filesystem\Path instead
+	 * @deprecated  4.0 Use \SoftWay\CMS\Filesystem\Path instead
 	 */
 	public function isOwner($path)
 	{
@@ -132,7 +132,7 @@ class PathWrapper
 	 *
 	 * @see         Path::find()
 	 * @since       3.4
-	 * @deprecated  4.0 Use \WooBooking\CMS\Filesystem\Path instead
+	 * @deprecated  4.0 Use \SoftWay\CMS\Filesystem\Path instead
 	 */
 	public function find($paths, $file)
 	{

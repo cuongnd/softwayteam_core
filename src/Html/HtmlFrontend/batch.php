@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -25,13 +25,13 @@ abstract class HtmlFrontendBatch
 	 *
 	 * @since       1.7
 	 *
-	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.access'); use JLayoutHelper::render('WooBooking.html.batch.access', array());
+	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.access'); use JLayoutHelper::render('SoftWay.html.batch.access', array());
 	 */
 	public static function access()
 	{
 		Log::add('The use of HtmlFrontend::_("batch.access") is deprecated use JLayout instead.', Log::WARNING, 'deprecated');
 
-		return JLayoutHelper::render('WooBooking.html.batch.access', array());
+		return JLayoutHelper::render('SoftWay.html.batch.access', array());
 	}
 
 	/**
@@ -43,7 +43,7 @@ abstract class HtmlFrontendBatch
 	 *
 	 * @since       1.7
 	 *
-	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.item'); use JLayoutHelper::render('WooBooking.html.batch.item', array('extension' => 'com_XXX'));
+	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.item'); use JLayoutHelper::render('SoftWay.html.batch.item', array('extension' => 'com_XXX'));
 	 */
 	public static function item($extension)
 	{
@@ -51,7 +51,7 @@ abstract class HtmlFrontendBatch
 
 		Log::add('The use of HtmlFrontend::_("batch.item") is deprecated use JLayout instead.', Log::WARNING, 'deprecated');
 
-		return JLayoutHelper::render('WooBooking.html.batch.item', $displayData);
+		return JLayoutHelper::render('SoftWay.html.batch.item', $displayData);
 	}
 
 	/**
@@ -61,13 +61,13 @@ abstract class HtmlFrontendBatch
 	 *
 	 * @since       2.5
 	 *
-	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.language'); use JLayoutHelper::render('WooBooking.html.batch.language', array());
+	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.language'); use JLayoutHelper::render('SoftWay.html.batch.language', array());
 	 */
 	public static function language()
 	{
 		Log::add('The use of HtmlFrontend::_("batch.language") is deprecated use JLayout instead.', Log::WARNING, 'deprecated');
 
-		return JLayoutHelper::render('WooBooking.html.batch.language', array());
+		return JLayoutHelper::render('SoftWay.html.batch.language', array());
 	}
 
 	/**
@@ -79,7 +79,7 @@ abstract class HtmlFrontendBatch
 	 *
 	 * @since       2.5
 	 *
-	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.user'); use JLayoutHelper::render('WooBooking.html.batch.user', array());
+	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.user'); use JLayoutHelper::render('SoftWay.html.batch.user', array());
 	 */
 	public static function user($noUser = true)
 	{
@@ -87,7 +87,7 @@ abstract class HtmlFrontendBatch
 
 		Log::add('The use of HtmlFrontend::_("batch.user") is deprecated use JLayout instead.', Log::WARNING, 'deprecated');
 
-		return JLayoutHelper::render('WooBooking.html.batch.user', $displayData);
+		return JLayoutHelper::render('SoftWay.html.batch.user', $displayData);
 	}
 
 	/**
@@ -97,12 +97,12 @@ abstract class HtmlFrontendBatch
 	 *
 	 * @since       3.1
 	 *
-	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.tag'); use JLayoutHelper::render('WooBooking.html.batch.tag', array());
+	 * @deprecated  4.0 instead of HtmlFrontend::_('batch.tag'); use JLayoutHelper::render('SoftWay.html.batch.tag', array());
 	 */
 	public static function tag()
 	{
 		Log::add('The use of HtmlFrontend::_("batch.tag") is deprecated use JLayout instead.', Log::WARNING, 'deprecated');
 
-		return JLayoutHelper::render('WooBooking.html.batch.tag', array());
+		return JLayoutHelper::render('SoftWay.html.batch.tag', array());
 	}
 }

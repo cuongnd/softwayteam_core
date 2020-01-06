@@ -5,10 +5,10 @@
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace WooBooking\CMS\Form;
+namespace SoftWay\CMS\Form;
 
-use WooBooking\CMS\String\Normalise;
-use WooBooking\CMS\Filesystem\Path;
+use SoftWay\CMS\String\Normalise;
+use SoftWay\CMS\Filesystem\Path;
 
 
 /**

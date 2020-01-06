@@ -1,8 +1,8 @@
 <?php
 
-namespace WooBooking\CMS\OpenSource\WordPress\ECommerce\WooCommerce;
-use  WooBooking\CMS\OpenSource\WordPress\ECommerce\WooCommerce\Versions\WooCommerce_v1\HookPage\CheckOut;
-use  WooBooking\CMS\OpenSource\WordPress\ECommerce\WooCommerce\Versions\WooCommerce_v1\HookPage\Cart;
+namespace SoftWay\CMS\OpenSource\WordPress\ECommerce\WooCommerce;
+use  SoftWay\CMS\OpenSource\WordPress\ECommerce\WooCommerce\Versions\WooCommerce_v1\HookPage\CheckOut;
+use  SoftWay\CMS\OpenSource\WordPress\ECommerce\WooCommerce\Versions\WooCommerce_v1\HookPage\Cart;
 class WooCommerce
 {
     public function __construct()

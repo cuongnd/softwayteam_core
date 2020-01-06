@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace WooBooking\CMS\Utilities;
+namespace SoftWay\CMS\Utilities;
 
 /**
  * IpHelper is a utility class for processing IP addresses
@@ -394,13 +394,13 @@ final class IpHelper
 
 		if (array_key_exists('REMOTE_ADDR', $_SERVER))
 		{
-			$_SERVER['woobooking_REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR'];
+			$_SERVER['softway_REMOTE_ADDR'] = $_SERVER['REMOTE_ADDR'];
 		}
 		elseif (\function_exists('getenv'))
 		{
 			if (getenv('REMOTE_ADDR'))
 			{
-				$_SERVER['woobooking_REMOTE_ADDR'] = getenv('REMOTE_ADDR');
+				$_SERVER['softway_REMOTE_ADDR'] = getenv('REMOTE_ADDR');
 			}
 		}
 

@@ -40,7 +40,7 @@ class FormFieldFile extends FormField
 	 * @var    string
 	 * @since  3.6
 	 */
-	protected $layout = 'WooBooking.form.field.file';
+	protected $layout = 'SoftWay.form.field.file';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

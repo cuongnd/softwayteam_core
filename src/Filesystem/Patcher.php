@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Filesystem;
+namespace SoftWay\CMS\Filesystem;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Log\Log;
-use WooBooking\CMS\Language\Text;
+use SoftWay\CMS\Log\Log;
+use SoftWay\CMS\Language\Text;
 
 /**
  * A Unified Diff Format Patcher class

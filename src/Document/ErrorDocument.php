@@ -1,17 +1,17 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document;
+namespace SoftWay\CMS\Document;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Layout\LayoutHelper;
-use WooBooking\CMS\Uri\Uri;
+use SoftWay\CMS\Layout\LayoutHelper;
+use SoftWay\CMS\Uri\Uri;
 
 /**
  * ErrorDocument class, provides an easy interface to parse and display an error page
@@ -230,6 +230,6 @@ class ErrorDocument extends Document
 		// Add the position of the actual file
 		array_unshift($backtrace, array('file' => $this->_error->getFile(), 'line' => $this->_error->getLine(), 'function' => ''));
 
-		return LayoutHelper::render('WooBooking.error.backtrace', array('backtrace' => $backtrace));
+		return LayoutHelper::render('SoftWay.error.backtrace', array('backtrace' => $backtrace));
 	}
 }

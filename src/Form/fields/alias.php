@@ -57,7 +57,7 @@ class FormFieldAlias extends FormField
 	 * @var    string
 	 * @since  3.7
 	 */
-	protected $layout = 'WooBooking.form.field.alias';
+	protected $layout = 'SoftWay.form.field.alias';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

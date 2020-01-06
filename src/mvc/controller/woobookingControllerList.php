@@ -1,6 +1,6 @@
 <?php
 
-class woobookingControllerList extends woobooking_controller
+class softwayControllerList extends softway_controller
 {
     public function ajax_sorting($list_ordering=array()){
         $model=$this->getModelList();

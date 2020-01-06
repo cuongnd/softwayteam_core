@@ -6,9 +6,9 @@
  * @license     GNU General Public License version 2 or later; see LICENSE.txt
  */
 // Protect from unauthorized access
-namespace WooBooking\CMS\FOFInput;
-use WooBooking\CMS\filter\InputFilter;
-use WooBooking\CMS\FOFInput\Input\Input;
+namespace SoftWay\CMS\FOFInput;
+use SoftWay\CMS\filter\InputFilter;
+use SoftWay\CMS\FOFInput\Input\Input;
 /**
  * FrameworkOnFramework input handling class. Extends upon the Input class.
  *

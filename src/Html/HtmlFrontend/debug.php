@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -28,7 +28,7 @@ abstract class HtmlFrontendDebug
 	public static $xdebugLinkFormat;
 
 	/**
-	 * Replaces the WooBooking! root with "JROOT" to improve readability.
+	 * Replaces the SoftWay! root with "JROOT" to improve readability.
 	 * Formats a link with a special value xdebug.file_link_format
 	 * from the php.ini file.
 	 *

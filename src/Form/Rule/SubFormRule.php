@@ -6,13 +6,13 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form\Rule;
+namespace SoftWay\CMS\Form\Rule;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
 use softwaycore\Registry\Registry;
-use WooBooking\CMS\Form\Form;
-use WooBooking\CMS\Form\FormRule;
+use SoftWay\CMS\Form\Form;
+use SoftWay\CMS\Form\FormRule;
 
 /**
  * Form rule to validate subforms field-wise.

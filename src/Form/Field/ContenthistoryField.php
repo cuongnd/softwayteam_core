@@ -6,13 +6,13 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form\Field;
+namespace SoftWay\CMS\Form\Field;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Form\FormField;
-use WooBooking\CMS\Session\Session;
-use WooBooking\CMS\Table\Table;
+use SoftWay\CMS\Form\FormField;
+use SoftWay\CMS\Session\Session;
+use SoftWay\CMS\Table\Table;
 
 /**
  * Field to select Content History from a modal list.
@@ -34,7 +34,7 @@ class ContenthistoryField extends FormField
 	 *
 	 * @var  string
 	 */
-	protected $layout = 'WooBooking.form.field.contenthistory';
+	protected $layout = 'SoftWay.form.field.contenthistory';
 
 	/**
 	 * Get the data that is going to be passed to the layout

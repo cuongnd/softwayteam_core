@@ -1,20 +1,20 @@
 <?php
-namespace WooBooking\CMS\Application;
+namespace SoftWay\CMS\Application;
 
 
 
-use WooBooking\CMS\FOFInput\FOFInput;
-use WooBooking\CMS\Registry\Registry;
+use SoftWay\CMS\FOFInput\FOFInput;
+use SoftWay\CMS\Registry\Registry;
 use nb_config;
 use Factory;
-use WooBooking\CMS\Log\Log;
+use SoftWay\CMS\Log\Log;
 use Language;
-use WooBooking\CMS\Object\CMSObject;
+use SoftWay\CMS\Object\CMSObject;
 
 
 
-use WooBooking\CMS\OpenSource\WordPress\WooBookingOnWordpress;
-use WooBooking\CMS\Router\Router;
+use SoftWay\CMS\OpenSource\WordPress\SoftWayOnWordpress;
+use SoftWay\CMS\Router\Router;
 
 class ApplicationAdmin extends Application
 {

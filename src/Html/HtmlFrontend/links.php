@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -31,18 +31,18 @@ abstract class HtmlFrontendLinks
 
 		if (count($groupsOfLinks) > 0)
 		{
-			$layout = new JLayoutFile('WooBooking.links.groupsopen');
+			$layout = new JLayoutFile('SoftWay.links.groupsopen');
 			$html[] = $layout->render('');
 
 			foreach ($groupsOfLinks as $title => $links)
 			{
 				if (isset($links[0]['separategroup']))
 				{
-					$layout = new JLayoutFile('WooBooking.links.groupseparator');
+					$layout = new JLayoutFile('SoftWay.links.groupseparator');
 					$html[] = $layout->render($title);
 				}
 
-				$layout = new JLayoutFile('WooBooking.links.groupopen');
+				$layout = new JLayoutFile('SoftWay.links.groupopen');
 				$htmlHeader = $layout->render($title);
 
 				$htmlLinks  = HtmlFrontend::_('links.links', $links);
@@ -52,12 +52,12 @@ abstract class HtmlFrontendLinks
 					$html[] = $htmlHeader;
 					$html[] = $htmlLinks;
 
-					$layout = new JLayoutFile('WooBooking.links.groupclose');
+					$layout = new JLayoutFile('SoftWay.links.groupclose');
 					$html[] = $layout->render('');
 				}
 			}
 
-			$layout = new JLayoutFile('WooBooking.links.groupsclose');
+			$layout = new JLayoutFile('SoftWay.links.groupsclose');
 			$html[] = $layout->render('');
 		}
 
@@ -122,7 +122,7 @@ abstract class HtmlFrontendLinks
 		}
 
 		// Instantiate a new JLayoutFile instance and render the layout
-		$layout = new JLayoutFile('WooBooking.links.link');
+		$layout = new JLayoutFile('SoftWay.links.link');
 
 		return $layout->render($link);
 	}

@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace  WooBooking\CMS\Utilities;
+namespace  SoftWay\CMS\Utilities;
 
 use softwaycore\String\StringHelper;
 /**

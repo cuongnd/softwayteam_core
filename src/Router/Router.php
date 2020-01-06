@@ -6,14 +6,14 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Router;
+namespace SoftWay\CMS\Router;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Application\ApplicationHelper;
-use WooBooking\CMS\Component\ComponentHelper;
-use WooBooking\CMS\Router\Exception\RouteNotFoundException;
-use WooBooking\CMS\Uri\NBUri;
+use SoftWay\CMS\Application\ApplicationHelper;
+use SoftWay\CMS\Component\ComponentHelper;
+use SoftWay\CMS\Router\Exception\RouteNotFoundException;
+use SoftWay\CMS\Uri\NBUri;
 
 /**
  * Class to create and parse routes

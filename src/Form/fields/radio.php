@@ -34,7 +34,7 @@ class FormFieldRadio extends JFormFieldList
 	 * @var    string
 	 * @since  3.5
 	 */
-	protected $layout = 'WooBooking.form.field.radio';
+	protected $layout = 'SoftWay.form.field.radio';
 
 	/**
 	 * Method to get the radio button field input markup.

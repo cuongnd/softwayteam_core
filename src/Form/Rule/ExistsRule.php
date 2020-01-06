@@ -6,13 +6,13 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form\Rule;
+namespace SoftWay\CMS\Form\Rule;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Factory;
-use WooBooking\CMS\Form\Form;
-use WooBooking\CMS\Form\FormRule;
+use SoftWay\CMS\Factory;
+use SoftWay\CMS\Form\Form;
+use SoftWay\CMS\Form\FormRule;
 use softwaycore\Registry\Registry;
 
 /**

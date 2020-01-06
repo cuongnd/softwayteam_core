@@ -33,7 +33,7 @@ class FormFieldCombo extends JFormFieldList
 	 * @var    string
 	 * @since  3.8.0
 	 */
-	protected $layout = 'WooBooking.form.field.combo';
+	protected $layout = 'SoftWay.form.field.combo';
 
 	/**
 	 * Method to get the field input markup for a combo box field.

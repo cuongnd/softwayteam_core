@@ -36,7 +36,7 @@ class FormFieldTel extends JFormFieldText
 	 * @var    string
 	 * @since  3.7.0
 	 */
-	protected $layout = 'WooBooking.form.field.tel';
+	protected $layout = 'SoftWay.form.field.tel';
 
 	/**
 	 * Method to get the field input markup.

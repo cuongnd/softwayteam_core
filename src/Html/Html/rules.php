@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -8,7 +8,7 @@
  */
 
 defined('_WOO_BOOKING_EXEC') or die;
-use WooBooking\CMS\Log\Log;
+use SoftWay\CMS\Log\Log;
 Log::add('JHtmlRules is deprecated.', Log::WARNING, 'deprecated');
 
 /**

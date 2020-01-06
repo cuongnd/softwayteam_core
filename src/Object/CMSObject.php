@@ -1,17 +1,17 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace WooBooking\CMS\Object;
+namespace SoftWay\CMS\Object;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
 
 /**
- * WooBooking Platform Object Class
+ * SoftWay Platform Object Class
  *
  * This class allows for simple but smart objects with get and set methods
  * and an internal error handler.

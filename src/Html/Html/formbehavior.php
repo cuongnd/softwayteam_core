@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -88,7 +88,7 @@ abstract class HtmlFormbehavior
 			'selector' => $selector,
 		);
 
-		JLayoutHelper::render('WooBooking.html.formbehavior.chosen', $displayData);
+		JLayoutHelper::render('SoftWay.html.formbehavior.chosen', $displayData);
 
 		static::$loaded[__METHOD__][$selector] = true;
 
@@ -141,7 +141,7 @@ abstract class HtmlFormbehavior
 				'minTermLength'  => $minTermLength,
 			);
 
-			JLayoutHelper::render('WooBooking.html.formbehavior.ajaxchosen', $displayData);
+			JLayoutHelper::render('SoftWay.html.formbehavior.ajaxchosen', $displayData);
 
 			static::$loaded[__METHOD__][$selector] = true;
 		}

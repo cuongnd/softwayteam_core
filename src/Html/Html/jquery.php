@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -132,7 +132,7 @@ abstract class HtmlJquery
 ;(function ($) {
 	$.ajaxSetup({
 		headers: {
-			'X-CSRF-Token': WooBooking.getOptions('$name')
+			'X-CSRF-Token': SoftWay.getOptions('$name')
 		}
 	});
 })(jQuery);

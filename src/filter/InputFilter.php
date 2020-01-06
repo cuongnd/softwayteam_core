@@ -6,9 +6,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace WooBooking\CMS\Filter;
+namespace SoftWay\CMS\Filter;
 
-use WooBooking\CMS\String\StringHelper;
+use SoftWay\CMS\String\StringHelper;
 
 /**
  * InputFilter is a class for filtering input from any data source

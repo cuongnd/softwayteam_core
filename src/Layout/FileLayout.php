@@ -1,14 +1,14 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace WooBooking\CMS\Layout;
-use WooBooking\CMS\Filesystem\Path;
+namespace SoftWay\CMS\Layout;
+use SoftWay\CMS\Filesystem\Path;
 
-use WooBooking\CMS\Utilities\Utility;
+use SoftWay\CMS\Utilities\Utility;
 defined('_WOO_BOOKING_EXEC') or die;
 
 
@@ -16,7 +16,7 @@ defined('_WOO_BOOKING_EXEC') or die;
  * Base class for rendering a display layout
  * loaded from from a layout file
  *
- * @link   https://docs.WooBooking.org/Special:MyLanguage/Sharing_layouts_across_views_or_extensions_with_JLayout
+ * @link   https://docs.SoftWay.org/Special:MyLanguage/Sharing_layouts_across_views_or_extensions_with_JLayout
  * @since  3.0
  */
 class FileLayout extends BaseLayout
@@ -356,7 +356,7 @@ class FileLayout extends BaseLayout
 		$cmsVersion = new \JVersion;
 
 		// Example j311
-		$fullVersion = 'WooBooking' . str_replace('.', '', $cmsVersion->getShortVersion());
+		$fullVersion = 'SoftWay' . str_replace('.', '', $cmsVersion->getShortVersion());
 
 		// Create suffixes like array('j311', 'j31', 'j3')
 		$suffixes = array(

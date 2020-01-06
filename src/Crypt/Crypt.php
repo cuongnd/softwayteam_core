@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Crypt;
+namespace SoftWay\CMS\Crypt;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Crypt\Cipher\SimpleCipher;
-use WooBooking\CMS\Log\Log;
+use SoftWay\CMS\Crypt\Cipher\SimpleCipher;
+use SoftWay\CMS\Log\Log;
 
 /**
  * Crypt is a Joomla Platform class for handling basic encryption/decryption of data.

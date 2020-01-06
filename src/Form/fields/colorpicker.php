@@ -7,12 +7,12 @@
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace WooBooking\CMS\Form\fields;
+namespace SoftWay\CMS\Form\fields;
 defined('_WOO_BOOKING_EXEC') or die;
-use WooBooking\CMS\Form\FormField;
+use SoftWay\CMS\Form\FormField;
 use WoobookingText;
 use Factory;
-use WooBooking\CMS\Html\Html;
+use SoftWay\CMS\Html\Html;
 use SimpleXMLElement;
 
 /**
@@ -62,7 +62,7 @@ class FormFieldColorPicker extends FormField
 	 * @var    string
 	 * @since  3.7
 	 */
-	protected $layout = 'WooBooking.form.field.colorpicker';
+	protected $layout = 'SoftWay.form.field.colorpicker';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

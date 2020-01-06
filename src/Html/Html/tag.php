@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -9,7 +9,7 @@
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\Utilities\ArrayHelper;
+use SoftWay\Utilities\ArrayHelper;
 
 /**
  * Utility class for tags
@@ -173,7 +173,7 @@ abstract class HtmlTag
 			'allowCustom'   => Factory::getUser()->authorise('core.create', 'com_tags') ? $allowCustom : false,
 		);
 
-		JLayoutHelper::render('WooBooking.html.tag', $displayData);
+		JLayoutHelper::render('SoftWay.html.tag', $displayData);
 
 		return;
 	}

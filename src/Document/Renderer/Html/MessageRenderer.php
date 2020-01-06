@@ -1,18 +1,18 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document\Renderer\Html;
+namespace SoftWay\CMS\Document\Renderer\Html;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Document\DocumentRenderer;
-use WooBooking\CMS\Log\Log;
-use WooBooking\CMS\Layout\LayoutHelper;
+use SoftWay\CMS\Document\DocumentRenderer;
+use SoftWay\CMS\Log\Log;
+use SoftWay\CMS\Layout\LayoutHelper;
 
 /**
  * HTML document renderer for the system message queue
@@ -57,7 +57,7 @@ class MessageRenderer extends DocumentRenderer
 			return renderMessage($msgList);
 		}
 
-		return LayoutHelper::render('WooBooking.system.message', $displayData);
+		return LayoutHelper::render('SoftWay.system.message', $displayData);
 	}
 
 	/**

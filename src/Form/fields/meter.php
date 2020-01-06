@@ -66,7 +66,7 @@ class FormFieldMeter extends JFormFieldNumber
 	 * @var    string
 	 * @since  3.7
 	 */
-	protected $layout = 'WooBooking.form.field.meter';
+	protected $layout = 'SoftWay.form.field.meter';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

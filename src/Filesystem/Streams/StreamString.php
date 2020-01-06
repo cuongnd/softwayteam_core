@@ -6,11 +6,11 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Filesystem\Streams;
+namespace SoftWay\CMS\Filesystem\Streams;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Filesystem\Support\Stringcontroller;
+use SoftWay\CMS\Filesystem\Support\Stringcontroller;
 
 /**
  * String Stream Wrapper

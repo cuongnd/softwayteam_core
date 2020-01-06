@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Filter\Wrapper;
+namespace SoftWay\CMS\Filter\Wrapper;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
@@ -16,7 +16,7 @@ use softwaycore\Filter\OutputFilter;
  * Wrapper class for OutputFilter
  *
  * @since       3.4
- * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+ * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
  */
 class OutputFilterWrapper
 {
@@ -31,7 +31,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::objectHTMLSafe()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function objectHTMLSafe(&$mixed, $quote_style = 3, $exclude_keys = '')
 	{
@@ -47,7 +47,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::linkXHTMLSafe()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function linkXHTMLSafe($input)
 	{
@@ -63,7 +63,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::stringURLSafe()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function stringURLSafe($string)
 	{
@@ -79,7 +79,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::stringURLUnicodeSlug()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function stringURLUnicodeSlug($string)
 	{
@@ -95,7 +95,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::ampReplace()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function ampReplace($text)
 	{
@@ -111,7 +111,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::_ampReplaceCallback()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function _ampReplaceCallback($m)
 	{
@@ -127,7 +127,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::cleanText()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function cleanText(&$text)
 	{
@@ -143,7 +143,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::stripImages()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function stripImages($string)
 	{
@@ -159,7 +159,7 @@ class OutputFilterWrapper
 	 *
 	 * @see     OutputFilter::stripIframes()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Filter\OutputFilter` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Filter\OutputFilter` directly
 	 */
 	public function stripIframes($string)
 	{

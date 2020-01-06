@@ -1,9 +1,9 @@
 <?php
 
-namespace WooBooking\CMS\Application;
+namespace SoftWay\CMS\Application;
 
 
-use WooBooking\CMS\Registry\Registry;
+use SoftWay\CMS\Registry\Registry;
 
 class NBAppHelper
 {

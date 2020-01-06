@@ -1,5 +1,5 @@
 <?php
-namespace WooBooking\CMS\WbDate;
+namespace SoftWay\CMS\WbDate;
 use Factory;
 /**
  * @package     softwaycore.Platform

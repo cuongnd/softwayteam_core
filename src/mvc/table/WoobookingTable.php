@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-use WooBooking\CMS\Object\CMSObject;
+use SoftWay\CMS\Object\CMSObject;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
@@ -132,7 +132,7 @@ abstract class WoobookingTable extends CMSObject
 	{
         $table=strtolower($table);
         if (strpos($table, 'softwaycore') === false) {
-            $table="woobooking_$table";
+            $table="softway_$table";
         }
 		// Set internal variables.
 		$this->_tbl = $table;
@@ -209,7 +209,7 @@ abstract class WoobookingTable extends CMSObject
 		$this->_observers->attachObserver($observer);
 	}
     public static function getWBTable($table){
-	    return "woobooking_$table";
+	    return "softway_$table";
     }
 	/**
 	 * Gets the instance of the observer of class $observerClass

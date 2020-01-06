@@ -1,18 +1,18 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document\Renderer\Html;
+namespace SoftWay\CMS\Document\Renderer\Html;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Document\DocumentRenderer;
-use WooBooking\CMS\Helper\ModuleHelper;
-use WooBooking\CMS\Layout\LayoutHelper;
+use SoftWay\CMS\Document\DocumentRenderer;
+use SoftWay\CMS\Helper\ModuleHelper;
+use SoftWay\CMS\Layout\LayoutHelper;
 
 /**
  * HTML document renderer for a module position
@@ -49,7 +49,7 @@ class ModulesRenderer extends DocumentRenderer
 			if ($frontediting && trim($moduleHtml) != '' && $user->authorise('module.edit.frontend', 'com_modules.module.' . $mod->id))
 			{
 				$displayData = array('moduleHtml' => &$moduleHtml, 'module' => $mod, 'position' => $position, 'menusediting' => $menusEditing);
-				LayoutHelper::render('WooBooking.edit.frontediting_modules', $displayData);
+				LayoutHelper::render('SoftWay.edit.frontediting_modules', $displayData);
 			}
 
 			$buffer .= $moduleHtml;

@@ -6,11 +6,11 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Log;
+namespace SoftWay\CMS\Log;
 
-use WooBooking\CMS\Log\LogEntry;
-use WooBooking\CMS\Utilities\Utility;
-use WooBooking\CMS\Log\Logger\FormattedtextLogger;
+use SoftWay\CMS\Log\LogEntry;
+use SoftWay\CMS\Utilities\Utility;
+use SoftWay\CMS\Log\Logger\FormattedtextLogger;
 defined('_WOO_BOOKING_EXEC') or die;
 
 /**

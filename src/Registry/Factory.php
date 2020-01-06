@@ -6,9 +6,9 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace  WooBooking\CMS\Registry;
-use WooBooking\CMS\Registry\Format\Json;
-use WooBooking\CMS\Registry\Format\Ini;
+namespace  SoftWay\CMS\Registry;
+use SoftWay\CMS\Registry\Format\Json;
+use SoftWay\CMS\Registry\Format\Ini;
 /**
  * Factory class to fetch Registry objects
  *

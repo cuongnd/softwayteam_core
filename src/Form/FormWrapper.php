@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form;
+namespace SoftWay\CMS\Form;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
@@ -14,7 +14,7 @@ defined('_WOO_BOOKING_EXEC') or die;
  * Wrapper class for FormHelper
  *
  * @since       3.4
- * @deprecated  4.0  Use `WooBooking\CMS\Form\FormHelper` directly
+ * @deprecated  4.0  Use `SoftWay\CMS\Form\FormHelper` directly
  */
 class FormWrapper
 {
@@ -28,7 +28,7 @@ class FormWrapper
 	 *
 	 * @see     FormHelper::loadFieldType()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Form\FormHelper` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Form\FormHelper` directly
 	 */
 	public function loadFieldType($type, $new = true)
 	{
@@ -45,7 +45,7 @@ class FormWrapper
 	 *
 	 * @see     FormHelper::loadRuleType()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Form\FormHelper` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Form\FormHelper` directly
 	 */
 	public function loadRuleType($type, $new = true)
 	{
@@ -61,7 +61,7 @@ class FormWrapper
 	 *
 	 * @see     FormHelper::loadFieldClass()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Form\FormHelper` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Form\FormHelper` directly
 	 */
 	public function loadFieldClass($type)
 	{
@@ -77,7 +77,7 @@ class FormWrapper
 	 *
 	 * @see     FormHelper::loadRuleClass()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Form\FormHelper` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Form\FormHelper` directly
 	 */
 	public function loadRuleClass($type)
 	{
@@ -93,7 +93,7 @@ class FormWrapper
 	 *
 	 * @see     FormHelper::addFieldPath()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Form\FormHelper` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Form\FormHelper` directly
 	 */
 	public function addFieldPath($new = null)
 	{
@@ -109,7 +109,7 @@ class FormWrapper
 	 *
 	 * @see     FormHelper::addFormPath()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Form\FormHelper` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Form\FormHelper` directly
 	 */
 	public function addFormPath($new = null)
 	{
@@ -125,7 +125,7 @@ class FormWrapper
 	 *
 	 * @see     FormHelper::addRulePath()
 	 * @since   3.4
-	 * @deprecated  4.0  Use `WooBooking\CMS\Form\FormHelper` directly
+	 * @deprecated  4.0  Use `SoftWay\CMS\Form\FormHelper` directly
 	 */
 	public function addRulePath($new = null)
 	{

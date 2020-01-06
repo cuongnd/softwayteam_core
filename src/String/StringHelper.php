@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace WooBooking\CMS\String;
+namespace SoftWay\CMS\String;
 
 // PHP mbstring and iconv local configuration
 if (extension_loaded('mbstring'))

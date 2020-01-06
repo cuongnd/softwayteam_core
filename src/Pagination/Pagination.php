@@ -6,18 +6,18 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Pagination;
+namespace SoftWay\CMS\Pagination;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
 use Factory;
 use LayoutHelper;
-use WooBooking\CMS\Pagination\PaginationObject;
-use WooBooking\CMS\Log\Log;
-use WooBooking\CMS\Application\Application;
-use WooBooking\CMS\Router\Route;
-use WooBooking\CMS\Router\Router;
-use WooBooking\CMS\Html\Html;
+use SoftWay\CMS\Pagination\PaginationObject;
+use SoftWay\CMS\Log\Log;
+use SoftWay\CMS\Application\Application;
+use SoftWay\CMS\Router\Route;
+use SoftWay\CMS\Router\Router;
+use SoftWay\CMS\Html\Html;
 use WoobookingText;
 
 /**
@@ -354,7 +354,7 @@ class Pagination
 			if (function_exists('pagination_item_active') && function_exists('pagination_item_inactive'))
 			{
 				Log::add(
-					'pagination_item_active and pagination_item_inactive are deprecated. Use the layout WooBooking.pagination.link instead.',
+					'pagination_item_active and pagination_item_inactive are deprecated. Use the layout SoftWay.pagination.link instead.',
 					Log::WARNING,
 					'deprecated'
 				);
@@ -368,7 +368,7 @@ class Pagination
 			 */
 			if (function_exists('pagination_list_render'))
 			{
-				Log::add('pagination_list_render is deprecated. Use the layout WooBooking.pagination.list instead.', Log::WARNING, 'deprecated');
+				Log::add('pagination_list_render is deprecated. Use the layout SoftWay.pagination.list instead.', Log::WARNING, 'deprecated');
 				$listOverride = true;
 			}
 		}
@@ -466,10 +466,10 @@ class Pagination
 	 *
 	 * @since   3.3
 	 */
-	public function getPaginationLinks($layoutId = 'WooBooking.pagination.links', $options = array())
+	public function getPaginationLinks($layoutId = 'SoftWay.pagination.links', $options = array())
 	{
 		// Allow to receive a null layout
-		$layoutId = $layoutId === null ? 'WooBooking.pagination.links' : $layoutId;
+		$layoutId = $layoutId === null ? 'SoftWay.pagination.links' : $layoutId;
        
 		$list = array(
 			'prefix'       => $this->prefix,
@@ -554,7 +554,7 @@ class Pagination
 
 			if (function_exists('pagination_list_footer'))
 			{
-				Log::add('pagination_list_footer is deprecated. Use the layout WooBooking.pagination.links instead.', Log::WARNING, 'deprecated');
+				Log::add('pagination_list_footer is deprecated. Use the layout SoftWay.pagination.links instead.', Log::WARNING, 'deprecated');
 
 				$list = array(
 					'prefix'       => $this->prefix,
@@ -603,7 +603,7 @@ class Pagination
 				'select.genericlist',
 				$limits,
 				$this->prefix . 'limit',
-				'class="inputbox input-mini" size="1" onchange="WooBooking.submitform();"',
+				'class="inputbox input-mini" size="1" onchange="SoftWay.submitform();"',
 				'value',
 				'text',
 				$selected
@@ -713,7 +713,7 @@ class Pagination
 	 */
 	protected function _list_render($list)
 	{
-		return LayoutHelper::render('WooBooking.pagination.list', array('list' => $list));
+		return LayoutHelper::render('SoftWay.pagination.list', array('list' => $list));
 	}
 
 	/**
@@ -724,7 +724,7 @@ class Pagination
 	 * @return  string  HTML link
 	 *
 	 * @since   1.5
-	 * @note    As of 4.0 this method will proxy to `LayoutHelper::render('WooBooking.pagination.link', ['data' => $item, 'active' => true])`
+	 * @note    As of 4.0 this method will proxy to `LayoutHelper::render('SoftWay.pagination.link', ['data' => $item, 'active' => true])`
 	 */
 	protected function _item_active(PaginationObject $item)
 	{
@@ -741,7 +741,7 @@ class Pagination
 		if ($this->app->isClient('admin'))
 		{
 			return '<a' . $title . ' href="#" onclick="document.adminForm.' . $this->prefix
-			. 'limitstart.value=' . ($item->base > 0 ? $item->base : '0') . '; WooBooking.submitform();return false;">' . $item->text . '</a>';
+			. 'limitstart.value=' . ($item->base > 0 ? $item->base : '0') . '; SoftWay.submitform();return false;">' . $item->text . '</a>';
 		}
 		else
 		{
@@ -757,7 +757,7 @@ class Pagination
 	 * @return  string
 	 *
 	 * @since   1.5
-	 * @note    As of 4.0 this method will proxy to `LayoutHelper::render('WooBooking.pagination.link', ['data' => $item, 'active' => false])`
+	 * @note    As of 4.0 this method will proxy to `LayoutHelper::render('SoftWay.pagination.link', ['data' => $item, 'active' => false])`
 	 */
 	protected function _item_inactive(PaginationObject $item)
 	{

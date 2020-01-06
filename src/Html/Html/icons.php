@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -74,7 +74,7 @@ abstract class HtmlIcons
 		}
 
 		// Instantiate a new JLayoutFile instance and render the layout
-		$layout = new JLayoutFile('WooBooking.quickicons.icon');
+		$layout = new JLayoutFile('SoftWay.quickicons.icon');
 
 		return $layout->render($button);
 	}

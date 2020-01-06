@@ -1,17 +1,17 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document\Renderer\Feed;
+namespace SoftWay\CMS\Document\Renderer\Feed;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Document\DocumentRenderer;
-use WooBooking\CMS\Uri\Uri;
+use SoftWay\CMS\Document\DocumentRenderer;
+use SoftWay\CMS\Uri\Uri;
 
 /**
  * RssRenderer is a feed that implements RSS 2.0 Specification
@@ -19,7 +19,7 @@ use WooBooking\CMS\Uri\Uri;
  * @link   http://www.rssboard.org/rss-specification
  * @since  3.5
  *
- * @property-read  \WooBooking\CMS\Document\FeedDocument  $_doc  Reference to the Document object that instantiated the renderer
+ * @property-read  \SoftWay\CMS\Document\FeedDocument  $_doc  Reference to the Document object that instantiated the renderer
  */
 class RssRenderer extends DocumentRenderer
 {

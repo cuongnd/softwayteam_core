@@ -6,7 +6,7 @@
  * @copyright   Copyright (C) 2005 - 2016 Open Source Matters, Inc. All rights reserved.
  * @license     GNU General Public License version 2 or later; see LICENSE
  */
-namespace WooBooking\CMS\Database\query;
+namespace SoftWay\CMS\Database\query;
 defined('_WOO_BOOKING_EXEC') or die;
 /**
  * Oracle Query Building Class.
@@ -136,24 +136,24 @@ class DatabaseQueryOracle extends DatabaseQueryPdo implements DatabaseQueryPrepa
 		// Check if we need to mangle the query.
 		if ($limit || $offset)
 		{
-			$query = "SELECT WooBooking2.*
+			$query = "SELECT SoftWay2.*
 		              FROM (
-		                  SELECT WooBooking1.*, ROWNUM AS WooBooking_db_rownum
+		                  SELECT SoftWay1.*, ROWNUM AS SoftWay_db_rownum
 		                  FROM (
 		                      " . $query . "
-		                  ) WooBooking1
-		              ) WooBooking2";
+		                  ) SoftWay1
+		              ) SoftWay2";
 			// Check if the limit value is greater than zero.
 			if ($limit > 0)
 			{
-				$query .= ' WHERE WooBooking2.WooBooking_db_rownum BETWEEN ' . ($offset + 1) . ' AND ' . ($offset + $limit);
+				$query .= ' WHERE SoftWay2.SoftWay_db_rownum BETWEEN ' . ($offset + 1) . ' AND ' . ($offset + $limit);
 			}
 			else
 			{
 				// Check if there is an offset and then use this.
 				if ($offset)
 				{
-					$query .= ' WHERE WooBooking2.WooBooking_db_rownum > ' . ($offset + 1);
+					$query .= ' WHERE SoftWay2.SoftWay_db_rownum > ' . ($offset + 1);
 				}
 			}
 		}

@@ -6,10 +6,10 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form;
-use WooBooking\CMS\Layout\FileLayout;
+namespace SoftWay\CMS\Form;
+use SoftWay\CMS\Layout\FileLayout;
 use WoobookingText;
-use WooBooking\CMS\Utilities\Utility;
+use SoftWay\CMS\Utilities\Utility;
 defined('_WOO_BOOKING_EXEC') or die;
 
 
@@ -336,14 +336,14 @@ abstract class FormField
 	 *
 	 * @var  string
 	 */
-	protected $renderLayout = 'WooBooking.form.renderfield';
+	protected $renderLayout = 'SoftWay.form.renderfield';
 
 	/**
 	 * Layout to render the label
 	 *
 	 * @var  string
 	 */
-	protected $renderLabelLayout = 'WooBooking.form.renderlabel';
+	protected $renderLabelLayout = 'SoftWay.form.renderlabel';
 
 	/**
 	 * Method to instantiate the form field object.
@@ -366,7 +366,7 @@ abstract class FormField
 		{
 			$parts = Normalise::fromCamelCase(get_called_class(), true);
 
-			if ($parts[0] == 'WooBooking')
+			if ($parts[0] == 'SoftWay')
 			{
 				$this->type = StringHelper::ucfirst($parts[count($parts) - 1], '_');
 			}

@@ -1,17 +1,17 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document\Renderer\Feed;
+namespace SoftWay\CMS\Document\Renderer\Feed;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Document\DocumentRenderer;
-use WooBooking\CMS\Uri\Uri;
+use SoftWay\CMS\Document\DocumentRenderer;
+use SoftWay\CMS\Uri\Uri;
 
 /**
  * AtomRenderer is a feed that implements the atom specification
@@ -23,7 +23,7 @@ use WooBooking\CMS\Uri\Uri;
  * @link   http://www.atomenabled.org/developers/syndication/atom-format-spec.php
  * @since  3.5
  *
- * @property-read  \WooBooking\CMS\Document\FeedDocument  $_doc  Reference to the Document object that instantiated the renderer
+ * @property-read  \SoftWay\CMS\Document\FeedDocument  $_doc  Reference to the Document object that instantiated the renderer
  */
 class AtomRenderer extends DocumentRenderer
 {
@@ -125,7 +125,7 @@ class AtomRenderer extends DocumentRenderer
 			$versionHtmlEscaped = ' version="' . htmlspecialchars($minorVersion, ENT_COMPAT, 'UTF-8') . '"';
 		}
 
-		$feed .= "	<generator uri=\"https://www.WooBooking.org\"" . $versionHtmlEscaped . ">" . $data->getGenerator() . "</generator>\n";
+		$feed .= "	<generator uri=\"https://www.SoftWay.org\"" . $versionHtmlEscaped . ">" . $data->getGenerator() . "</generator>\n";
 		$feed .= "	<link rel=\"self\" type=\"application/atom+xml\" href=\"" . str_replace(' ', '%20', $url . $syndicationURL) . "\"/>\n";
 
 		for ($i = 0, $count = count($data->items); $i < $count; $i++)

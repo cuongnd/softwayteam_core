@@ -6,13 +6,13 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Crypt\Cipher;
+namespace SoftWay\CMS\Crypt\Cipher;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Crypt\CipherInterface;
-use WooBooking\CMS\Crypt\Crypt;
-use WooBooking\CMS\Crypt\Key;
+use SoftWay\CMS\Crypt\CipherInterface;
+use SoftWay\CMS\Crypt\Crypt;
+use SoftWay\CMS\Crypt\Key;
 
 /**
  * Crypt cipher for Simple encryption, decryption and key generation.

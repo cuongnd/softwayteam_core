@@ -252,7 +252,7 @@ class FormFieldRules extends FormField
 
 			$html[] = '<li' . $active . '>';
 			$html[] = '<a href="#permission-' . $group->value . '" data-toggle="tab">';
-			$html[] = JLayoutHelper::render('WooBooking.html.treeprefix', array('level' => $group->level + 1)) . $group->text;
+			$html[] = JLayoutHelper::render('SoftWay.html.treeprefix', array('level' => $group->level + 1)) . $group->text;
 			$html[] = '</a>';
 			$html[] = '</li>';
 		}

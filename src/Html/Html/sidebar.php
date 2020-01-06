@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -59,7 +59,7 @@ abstract class HtmlSidebar
 		$data->hide           = Factory::getApplication()->input->getBool('hidemainmenu');
 
 		// Create a layout object and ask it to render the sidebar
-		$layout      = new JLayoutFile('WooBooking.sidebars.submenu');
+		$layout      = new JLayoutFile('SoftWay.sidebars.submenu');
 
 		return $layout->render($data);
 	}

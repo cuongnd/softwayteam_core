@@ -57,7 +57,7 @@ class FormFieldPassword extends FormField
 	 * @var    string
 	 * @since  3.7
 	 */
-	protected $layout = 'WooBooking.form.field.password';
+	protected $layout = 'SoftWay.form.field.password';
 
 	/**
 	 * Method to get certain otherwise inaccessible properties from the form field object.

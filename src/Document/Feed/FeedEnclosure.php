@@ -1,12 +1,12 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document\Feed;
+namespace SoftWay\CMS\Document\Feed;
 
 defined('_WOO_BOOKING_EXEC') or die;
 

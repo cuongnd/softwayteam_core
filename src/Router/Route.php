@@ -6,13 +6,13 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Router;
+namespace SoftWay\CMS\Router;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Log\Log;
+use SoftWay\CMS\Log\Log;
 use Factory;
-use WooBooking\CMS\Uri\Uri;
+use SoftWay\CMS\Uri\Uri;
 use WoobookingText;
 
 /**

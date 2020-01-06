@@ -6,17 +6,17 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Filesystem;
+namespace SoftWay\CMS\Filesystem;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Factory;
-use WooBooking\CMS\Log\Log;
-use WooBooking\CMS\Filesystem\Wrapper\PathWrapper;
-use WooBooking\CMS\Filesystem\Wrapper\FileWrapper;
-use WooBooking\CMS\Client\ClientHelper;
-use WooBooking\CMS\Client\FtpClient;
-use WooBooking\CMS\Language\Text;
+use SoftWay\CMS\Factory;
+use SoftWay\CMS\Log\Log;
+use SoftWay\CMS\Filesystem\Wrapper\PathWrapper;
+use SoftWay\CMS\Filesystem\Wrapper\FileWrapper;
+use SoftWay\CMS\Client\ClientHelper;
+use SoftWay\CMS\Client\FtpClient;
+use SoftWay\CMS\Language\Text;
 use WoobookingText;
 
 /**

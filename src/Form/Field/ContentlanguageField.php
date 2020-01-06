@@ -6,12 +6,12 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form\Field;
+namespace SoftWay\CMS\Form\Field;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Form\FormHelper;
-use  WooBooking\CMS\Form\fields\FormFieldList;
+use SoftWay\CMS\Form\FormHelper;
+use  SoftWay\CMS\Form\fields\FormFieldList;
 FormHelper::loadFieldClass('list');
 
 /**

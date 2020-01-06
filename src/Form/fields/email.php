@@ -35,7 +35,7 @@ class FormFieldEMail extends JFormFieldText
 	 * @var    string
 	 * @since  3.7
 	 */
-	protected $layout = 'WooBooking.form.field.email';
+	protected $layout = 'SoftWay.form.field.email';
 
 	/**
 	 * Method to get the field input markup for email addresses.

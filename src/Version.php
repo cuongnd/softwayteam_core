@@ -6,11 +6,11 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS;
+namespace SoftWay\CMS;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Helper\LibraryHelper;
+use SoftWay\CMS\Helper\LibraryHelper;
 
 /**
  * Version information class for the softwaycore CMS.

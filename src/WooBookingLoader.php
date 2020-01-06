@@ -1,20 +1,20 @@
 <?php
 /**
- * @package    WooBooking.Platform
+ * @package    SoftWay.Platform
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
 defined('WOO_BOOKING_PATH_PLATFORM') or die;
-use WooBooking\CMS\Utilities\Utility;
+use SoftWay\CMS\Utilities\Utility;
 /**
  * Static class to handle loading of libraries.
  *
- * @package  WooBooking.Platform
+ * @package  SoftWay.Platform
  * @since    1.7.0
  */
-abstract class WooBookingLoader
+abstract class SoftWayLoader
 {
     /**
      * Container for already imported library paths.
@@ -206,11 +206,11 @@ abstract class WooBookingLoader
                 return  self::$imported[$key];
             }
 
-            // If we are importing a library from the WooBooking namespace set the class to autoload.
-            if (strpos($path, 'WooBooking') === 0)
+            // If we are importing a library from the SoftWay namespace set the class to autoload.
+            if (strpos($path, 'SoftWay') === 0)
             {
 
-                // Since we are in the WooBooking namespace prepend the classname with J.
+                // Since we are in the SoftWay namespace prepend the classname with J.
                 // Only register the class for autoloading if the file exists.
                 if (is_file($base . '/' . $path . '.php'))
                 {
@@ -227,7 +227,7 @@ abstract class WooBookingLoader
                 }
             }
             /*
-             * If we are not importing a library from the WooBooking namespace directly include the
+             * If we are not importing a library from the SoftWay namespace directly include the
              * file since we cannot assert the file/folder naming conventions.
              */
             else {
@@ -481,15 +481,15 @@ abstract class WooBookingLoader
     }
 
     /**
-     * Method to setup the autoloaders for the WooBooking Platform.
+     * Method to setup the autoloaders for the SoftWay Platform.
      * Since the SPL autoloaders are called in a queue we will add our explicit
      * class-registration based loader first, then fall back on the autoloader based on conventions.
      * This will allow people to register a class in a specific location and override platform libraries
      * as was previously possible.
      *
      * @param   boolean  $enablePsr       True to enable autoloading based on PSR-0.
-     * @param   boolean  $enablePrefixes  True to enable prefix based class loading (needed to auto load the WooBooking core).
-     * @param   boolean  $enableClasses   True to enable class map based class loading (needed to auto load the WooBooking core).
+     * @param   boolean  $enablePrefixes  True to enable prefix based class loading (needed to auto load the SoftWay core).
+     * @param   boolean  $enableClasses   True to enable class map based class loading (needed to auto load the SoftWay core).
      *
      * @return  void
      *
@@ -500,24 +500,24 @@ abstract class WooBookingLoader
         if ($enableClasses)
         {
             // Register the class map based autoloader.
-            spl_autoload_register(array('WooBookingLoader', 'load'));
+            spl_autoload_register(array('SoftWayLoader', 'load'));
         }
 
         if ($enablePrefixes)
         {
-            // Register the J prefix and base path for WooBooking platform libraries.
-            self::registerPrefix('WooBooking', WOO_BOOKING_PATH_PLATFORM . '/WooBooking');
+            // Register the J prefix and base path for SoftWay platform libraries.
+            self::registerPrefix('SoftWay', WOO_BOOKING_PATH_PLATFORM . '/SoftWay');
 
             // Register the prefix autoloader.
-            spl_autoload_register(array('WooBookingLoader', '_autoload'));
+            spl_autoload_register(array('SoftWayLoader', '_autoload'));
         }
 
         if ($enablePsr)
         {
             // Register the PSR based autoloader.
-            spl_autoload_register(array('WooBookingLoader', 'loadByPsr0'));
-            spl_autoload_register(array('WooBookingLoader', 'loadByPsr4'));
-            spl_autoload_register(array('WooBookingLoader', 'loadByAlias'));
+            spl_autoload_register(array('SoftWayLoader', 'loadByPsr0'));
+            spl_autoload_register(array('SoftWayLoader', 'loadByPsr4'));
+            spl_autoload_register(array('SoftWayLoader', 'loadByAlias'));
         }
     }
 
@@ -862,7 +862,7 @@ if (!function_exists('jexit'))
  *
  * @since   1.7.0
  */
-function WooBookingImport($path, $base = null)
+function SoftWayImport($path, $base = null)
 {
-    return WooBookingLoader::import($path, $base);
+    return SoftWayLoader::import($path, $base);
 }

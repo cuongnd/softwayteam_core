@@ -6,8 +6,8 @@
  * @license    GNU General Public License version 2 or later; see LICENSE
  */
 
-namespace WooBooking\CMS\FOFInput\Input;
-use WooBooking\CMS\Filter\InputFilter;
+namespace SoftWay\CMS\FOFInput\Input;
+use SoftWay\CMS\Filter\InputFilter;
 
 
 
@@ -139,8 +139,8 @@ class Input implements \Serializable, \Countable
         {
             return $this->inputs[$name];
         }
-        //WooBooking\CMS\FOFInput
-        $className = '\\WooBooking\\CMS\\FOFInput\\Input\\Input' . ucfirst($name);
+        //SoftWay\CMS\FOFInput
+        $className = '\\SoftWay\\CMS\\FOFInput\\Input\\Input' . ucfirst($name);
 
         if (class_exists($className))
         {

@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -158,7 +158,7 @@ abstract class HtmlFrontendAccess
 				$html[] = '			<label class="checkbox" for="' . $eid . '">';
 				$html[] = '			<input type="checkbox" name="' . $name . '[]" value="' . $item->id . '" id="' . $eid . '"';
 				$html[] = '					' . $checked . $rel . ' />';
-				$html[] = '			' . JLayoutHelper::render('WooBooking.html.treeprefix', array('level' => $item->level + 1)) . $item->title;
+				$html[] = '			' . JLayoutHelper::render('SoftWay.html.treeprefix', array('level' => $item->level + 1)) . $item->title;
 				$html[] = '			</label>';
 				$html[] = '		</div>';
 				$html[] = '	</div>';

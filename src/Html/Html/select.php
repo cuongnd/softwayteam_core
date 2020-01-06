@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -8,8 +8,8 @@
  */
 
 defined('_WOO_BOOKING_EXEC') or die;
-use WooBooking\CMS\Html\Html;
-use WooBooking\Utilities\ArrayHelper;
+use SoftWay\CMS\Html\Html;
+use SoftWay\Utilities\ArrayHelper;
 
 /**
  * Utility class for creating HTML select lists

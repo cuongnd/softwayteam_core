@@ -1,6 +1,6 @@
 <?php
 
-use WooBooking\CMS\Utilities\Utility;
+use SoftWay\CMS\Utilities\Utility;
 
 class WBPayment
 {

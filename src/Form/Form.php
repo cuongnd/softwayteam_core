@@ -7,13 +7,13 @@
  */
 
 
-namespace WooBooking\CMS\Form;
-use WooBooking\CMS\Object\CMSObject;
-use WooBooking\CMS\Registry\Registry;
-use WooBooking\CMS\Filesystem\Path;
+namespace SoftWay\CMS\Form;
+use SoftWay\CMS\Object\CMSObject;
+use SoftWay\CMS\Registry\Registry;
+use SoftWay\CMS\Filesystem\Path;
 use Factory;
-use WooBooking\CMS\Utilities\Utility;
-use WooBooking\CMS\Utilities\ArrayHelper;
+use SoftWay\CMS\Utilities\Utility;
+use SoftWay\CMS\Utilities\ArrayHelper;
 
 defined('_WOO_BOOKING_EXEC') or die;
 

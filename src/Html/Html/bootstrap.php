@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -39,7 +39,7 @@ abstract class HtmlBootstrap
 	 *
 	 * @since   3.1
 	 *
-	 * @deprecated  4.0  Bootstrap 4.0 dropped this so will WooBooking.
+	 * @deprecated  4.0  Bootstrap 4.0 dropped this so will SoftWay.
 	 */
 	public static function affix($selector = 'affix', $params = array())
 	{
@@ -249,7 +249,7 @@ abstract class HtmlBootstrap
 	 * @since   3.0
 	 * @deprecated  4.0  This method was used by the old renderModal() implementation.
 	 *                   Since the new implementation it is unneeded and the broken JS it was injecting could create issues
-	 *                   As a case, please see: https://github.com/WooBooking/WooBooking-cms/pull/6918
+	 *                   As a case, please see: https://github.com/SoftWay/SoftWay-cms/pull/6918
 	 */
 	public static function modal($selector = 'modal', $params = array())
 	{
@@ -313,7 +313,7 @@ abstract class HtmlBootstrap
 			'body'     => $body,
 		);
 
-		return JLayoutHelper::render('WooBooking.modal.main', $layoutData);
+		return JLayoutHelper::render('SoftWay.modal.main', $layoutData);
 	}
 
 	/**
@@ -546,7 +546,7 @@ abstract class HtmlBootstrap
 	 *
 	 * @since   3.0
 	 *
-	 * @deprecated  4.0  Bootstrap 4.0 dropped this so will WooBooking.
+	 * @deprecated  4.0  Bootstrap 4.0 dropped this so will SoftWay.
 	 */
 	public static function typeahead($selector = '.typeahead', $params = array())
 	{

@@ -6,11 +6,11 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Router;
+namespace SoftWay\CMS\Router;
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Uri\Uri;
+use SoftWay\CMS\Uri\Uri;
 
 /**
  * Class to create and parse routes

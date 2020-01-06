@@ -1,11 +1,11 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
-namespace  WooBooking\CMS\Layout;
+namespace  SoftWay\CMS\Layout;
 
 
 defined('_WOO_BOOKING_EXEC') or die;
@@ -13,7 +13,7 @@ defined('_WOO_BOOKING_EXEC') or die;
 /**
  * Interface to handle display layout
  *
- * @link   https://docs.WooBooking.org/Special:MyLanguage/Sharing_layouts_across_views_or_extensions_with_JLayout
+ * @link   https://docs.SoftWay.org/Special:MyLanguage/Sharing_layouts_across_views_or_extensions_with_JLayout
  * @since  3.0
  */
 interface LayoutInterface

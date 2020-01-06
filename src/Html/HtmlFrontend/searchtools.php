@@ -1,6 +1,6 @@
 <?php
 /**
- * @package     WooBooking.Libraries
+ * @package     SoftWay.Libraries
  * @subpackage  HTML
  *
  * @copyright   Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
@@ -162,6 +162,6 @@ abstract class HtmlFrontendSearchtools
 		$data->icon      = $icon;
 		$data->formName  = $formName;
 
-		return JLayoutHelper::render('WooBooking.searchtools.grid.sort', $data);
+		return JLayoutHelper::render('SoftWay.searchtools.grid.sort', $data);
 	}
 }

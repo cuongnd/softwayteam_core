@@ -9,7 +9,7 @@
 
 defined('_WOO_BOOKING_EXEC') or die;
 
-use WooBooking\CMS\Form\Form;
+use SoftWay\CMS\Form\Form;
 
 
 /**
@@ -53,7 +53,7 @@ class FormFieldSubform extends FormField
 	 * Layout to render the form
 	 * @var  string
 	 */
-	protected $layout = 'WooBooking.form.field.subform.default';
+	protected $layout = 'SoftWay.form.field.subform.default';
 
 	/**
 	 * Whether group subform fields by it`s fieldset
@@ -143,7 +143,7 @@ class FormFieldSubform extends FormField
 				if (!$this->layout)
 				{
 					// Set default value depend from "multiple" mode
-					$this->layout = !$this->multiple ? 'WooBooking.form.field.subform.default' : 'WooBooking.form.field.subform.repeatable';
+					$this->layout = !$this->multiple ? 'SoftWay.form.field.subform.default' : 'SoftWay.form.field.subform.repeatable';
 				}
 
 				break;

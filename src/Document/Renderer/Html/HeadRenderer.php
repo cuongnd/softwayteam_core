@@ -1,16 +1,16 @@
 <?php
 /**
- * WooBooking! Content Management System
+ * SoftWay! Content Management System
  *
  * @copyright  Copyright (C) 2005 - 2019 Open Source Matters, Inc. All rights reserved.
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Document\Renderer\Html;
+namespace SoftWay\CMS\Document\Renderer\Html;
 defined('_WOO_BOOKING_EXEC') or die;
 
 use Factory;
-use WooBooking\CMS\Document\DocumentRenderer;
+use SoftWay\CMS\Document\DocumentRenderer;
 /**
  * HTML document renderer for the document `<head>` element
  *
@@ -164,7 +164,7 @@ class HeadRenderer extends DocumentRenderer
         $scriptOptions = $document->getScriptOptions();
 
         if (!empty($scriptOptions)) {
-            $buffer .= $tab . '<script type="application/json" class="WooBooking-script-options new">';
+            $buffer .= $tab . '<script type="application/json" class="SoftWay-script-options new">';
 
             $prettyPrint = (WBDEBUG && defined('JSON_PRETTY_PRINT') ? JSON_PRETTY_PRINT : false);
             $jsonOptions = json_encode($scriptOptions, $prettyPrint);

@@ -6,7 +6,7 @@
  * @license    GNU General Public License version 2 or later; see LICENSE.txt
  */
 
-namespace WooBooking\CMS\Form;
+namespace SoftWay\CMS\Form;
 
 defined('_WOO_BOOKING_EXEC') or die;
 

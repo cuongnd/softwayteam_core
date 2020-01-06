@@ -34,7 +34,7 @@ class FormFieldRange extends JFormFieldNumber
 	 * @var    string
 	 * @since  3.7
 	 */
-	protected $layout = 'WooBooking.form.field.range';
+	protected $layout = 'SoftWay.form.field.range';
 
 	/**
 	 * Method to get the field input markup.
