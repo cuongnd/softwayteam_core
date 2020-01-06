@@ -102,7 +102,7 @@ class SoftWayOnWordpress
 
         $listMenuWooPanel = self::getListMenuWooPanel();
         foreach ($listMenuWooPanel as $menu) {
-            add_filter("woopanel_dashboard_{$menu}_endpoint",array($this,"woopanel_dashboard_softway_endpoint"));
+            add_filter("softway_dashboard_{$menu}_endpoint",array($this,"softway_dashboard_softway_endpoint"));
         }
 
         Factory::setRootUrlPlugin($root_url . "/wp-content/plugins/softwaycore/");
@@ -114,13 +114,13 @@ class SoftWayOnWordpress
         }
 
         if ($app->getClient() == 1) {
-            add_action('woopanel_enqueue_scripts', array($this, 'softway_enqueue_scripts'), 99999, 1);
+            add_action('softway_enqueue_scripts', array($this, 'softway_enqueue_scripts'), 99999, 1);
         } else {
 
 
         }
 
-        add_action('wp_print_scripts', array($this,'woopanel_dashboard_softway_frontend_shapeSpace_print_scripts'));
+        add_action('wp_print_scripts', array($this,'softway_dashboard_softway_frontend_shapeSpace_print_scripts'));
         $prefix_link=self::$prefix_link;
         //hook api
         add_action('rest_api_init', array($this, 'softway_register_rest_route'));
@@ -128,7 +128,7 @@ class SoftWayOnWordpress
 
     }
 
-    public  function woopanel_dashboard_softway_endpoint(){
+    public  function softway_dashboard_softway_endpoint(){
 
         if(!self::checkInstalled()){
             self::goToPopupInstall();
@@ -346,8 +346,8 @@ class SoftWayOnWordpress
         $this->view = self::get_current_page();
         $app = Factory::getApplication();
         $input=Factory::getInput();
-        add_filter('woopanel_query_var_filter', array($this, 'db_appointments'), 20, 1);
-        add_filter('woopanel_navigation_items', array($this, 'softway_add_appointment'), 10, 1);
+        add_filter('softway_query_var_filter', array($this, 'db_appointments'), 20, 1);
+        add_filter('softway_navigation_items', array($this, 'softway_add_appointment'), 10, 1);
         if ($app->getClient() == 1) {
             if(self::is_backend_wordpress()){
                 $this->initWordpressBackend();
@@ -581,7 +581,7 @@ class SoftWayOnWordpress
     }
 
 
-    function woopanel_dashboard_softway_frontend_shapeSpace_print_scripts() {
+    function softway_dashboard_softway_frontend_shapeSpace_print_scripts() {
         $root_url = self::get_root_url();
         ?>
         <script type="text/javascript">
@@ -1195,7 +1195,7 @@ class SoftWayOnWordpress
     {
 
 
-        global $woopanel_submenus;
+        global $softway_submenus;
         $list_item = array();
         foreach ($output_menus as $item) {
             $list_item[] = $item;
@@ -1203,7 +1203,7 @@ class SoftWayOnWordpress
         $output_menus = $list_item;
 
 
-        $woopanel_submenus['db_appointments'] = self::get_list_view_for_woo_panel();
+        $softway_submenus['db_appointments'] = self::get_list_view_for_woo_panel();
 
 
         $db_appointments = array(
@@ -1214,7 +1214,7 @@ class SoftWayOnWordpress
             'page_title' => '',
             'icon' => 'flaticon-line-graph',
             'classes' => '',
-            'submenu' => $woopanel_submenus['db_appointments']
+            'submenu' => $softway_submenus['db_appointments']
         );
 
         array_splice($output_menus, 2, 0, array($db_appointments));
