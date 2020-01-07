@@ -277,7 +277,7 @@ class FormFieldCalendar extends FormField
 		// Get the appropriate file for the current language date helper
 		$helperPath = 'system/fields/calendar-locales/date/gregorian/date-helper.min.js';
 
-		if (!empty($calendar) && is_dir(EASY_BK_APPOINTMENT_PATH_ROOT . '/media/system/js/fields/calendar-locales/date/' . strtolower($calendar)))
+		if (!empty($calendar) && is_dir(SOFT_WAY_CORE_PATH_ROOT . '/media/system/js/fields/calendar-locales/date/' . strtolower($calendar)))
 		{
 			$helperPath = 'system/fields/calendar-locales/date/' . strtolower($calendar) . '/date-helper.min.js';
 		}
@@ -285,15 +285,15 @@ class FormFieldCalendar extends FormField
 		// Get the appropriate locale file for the current language
 		$localesPath = 'system/fields/calendar-locales/en.js';
 
-		if (is_file(EASY_BK_APPOINTMENT_PATH_ROOT . '/media/system/js/fields/calendar-locales/' . strtolower($tag) . '.js'))
+		if (is_file(SOFT_WAY_CORE_PATH_ROOT . '/media/system/js/fields/calendar-locales/' . strtolower($tag) . '.js'))
 		{
 			$localesPath = 'system/fields/calendar-locales/' . strtolower($tag) . '.js';
 		}
-		elseif (is_file(EASY_BK_APPOINTMENT_PATH_ROOT . '/media/system/js/fields/calendar-locales/' . $tag . '.js'))
+		elseif (is_file(SOFT_WAY_CORE_PATH_ROOT . '/media/system/js/fields/calendar-locales/' . $tag . '.js'))
 		{
 			$localesPath = 'system/fields/calendar-locales/' . $tag . '.js';
 		}
-		elseif (is_file(EASY_BK_APPOINTMENT_PATH_ROOT . '/media/system/js/fields/calendar-locales/' . strtolower(substr($tag, 0, -3)) . '.js'))
+		elseif (is_file(SOFT_WAY_CORE_PATH_ROOT . '/media/system/js/fields/calendar-locales/' . strtolower(substr($tag, 0, -3)) . '.js'))
 		{
 			$localesPath = 'system/fields/calendar-locales/' . strtolower(substr($tag, 0, -3)) . '.js';
 		}

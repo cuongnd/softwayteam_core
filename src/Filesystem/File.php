@@ -141,7 +141,7 @@ class File
 				}
 
 				// Translate the destination path for the FTP account
-				$dest = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $dest), '/');
+				$dest = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $dest), '/');
 
 				if (!$ftp->store($src, $dest))
 				{
@@ -218,7 +218,7 @@ class File
 			}
 			elseif ($FTPOptions['enabled'] == 1)
 			{
-				$file = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $file), '/');
+				$file = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $file), '/');
 
 				if (!$ftp->delete($file))
 				{
@@ -292,8 +292,8 @@ class File
 				$ftp = FtpClient::getInstance($FTPOptions['host'], $FTPOptions['port'], array(), $FTPOptions['user'], $FTPOptions['pass']);
 
 				// Translate path for the FTP account
-				$src = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $src), '/');
-				$dest = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $dest), '/');
+				$src = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $src), '/');
+				$dest = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $dest), '/');
 
 				// Use FTP rename to simulate move
 				if (!$ftp->rename($src, $dest))
@@ -460,7 +460,7 @@ class File
 				$ftp = FtpClient::getInstance($FTPOptions['host'], $FTPOptions['port'], array(), $FTPOptions['user'], $FTPOptions['pass']);
 
 				// Translate path for the FTP account and use FTP write buffer to file
-				$file = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $file), '/');
+				$file = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $file), '/');
 				$ret = $ftp->write($file, $buffer);
 			}
 			else
@@ -521,7 +521,7 @@ class File
 				$ftp = FtpClient::getInstance($FTPOptions['host'], $FTPOptions['port'], array(), $FTPOptions['user'], $FTPOptions['pass']);
 
 				// Translate path for the FTP account and use FTP write buffer to file
-				$file = Path::clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $file), '/');
+				$file = Path::clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $file), '/');
 				$ret = $ftp->append($file, $buffer);
 			}
 			else
@@ -607,7 +607,7 @@ class File
 				$ftp = FtpClient::getInstance($FTPOptions['host'], $FTPOptions['port'], array(), $FTPOptions['user'], $FTPOptions['pass']);
 
 				// Translate path for the FTP account
-				$dest = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $dest), '/');
+				$dest = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $dest), '/');
 
 				// Copy the file to the destination directory
 				if (is_uploaded_file($src) && $ftp->store($src, $dest))

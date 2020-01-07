@@ -176,7 +176,7 @@ class Stream extends CMSObject
 	 * @param   boolean   $use_include_path      Use the PHP include path
 	 * @param   resource  $context               Context to use when opening
 	 * @param   boolean   $use_prefix            Use a prefix to open the file
-	 * @param   boolean   $relative              Filename is a relative path (if false, strips EASY_BK_APPOINTMENT_PATH_ROOT to make it relative)
+	 * @param   boolean   $relative              Filename is a relative path (if false, strips SOFT_WAY_CORE_PATH_ROOT to make it relative)
 	 * @param   boolean   $detectprocessingmode  Detect the processing method for the file and use the appropriate function
 	 *                                           to handle output automatically
 	 *
@@ -1165,7 +1165,7 @@ class Stream extends CMSObject
 	 * @param   string    $dest        The file path to copy to.
 	 * @param   resource  $context     A valid context resource (optional) created with stream_context_create.
 	 * @param   boolean   $use_prefix  Controls the use of a prefix (optional).
-	 * @param   boolean   $relative    Determines if the filename given is relative. Relative paths do not have EASY_BK_APPOINTMENT_PATH_ROOT stripped.
+	 * @param   boolean   $relative    Determines if the filename given is relative. Relative paths do not have SOFT_WAY_CORE_PATH_ROOT stripped.
 	 *
 	 * @return  mixed
 	 *
@@ -1223,7 +1223,7 @@ class Stream extends CMSObject
 	 * @param   string    $dest        The file path to move to.
 	 * @param   resource  $context     A valid context resource (optional) created with stream_context_create.
 	 * @param   boolean   $use_prefix  Controls the use of a prefix (optional).
-	 * @param   boolean   $relative    Determines if the filename given is relative. Relative paths do not have EASY_BK_APPOINTMENT_PATH_ROOT stripped.
+	 * @param   boolean   $relative    Determines if the filename given is relative. Relative paths do not have SOFT_WAY_CORE_PATH_ROOT stripped.
 	 *
 	 * @return  mixed
 	 *
@@ -1274,7 +1274,7 @@ class Stream extends CMSObject
 	 * @param   string    $filename    The file path to delete.
 	 * @param   resource  $context     A valid context resource (optional) created with stream_context_create.
 	 * @param   boolean   $use_prefix  Controls the use of a prefix (optional).
-	 * @param   boolean   $relative    Determines if the filename given is relative. Relative paths do not have EASY_BK_APPOINTMENT_PATH_ROOT stripped.
+	 * @param   boolean   $relative    Determines if the filename given is relative. Relative paths do not have SOFT_WAY_CORE_PATH_ROOT stripped.
 	 *
 	 * @return  mixed
 	 *
@@ -1323,7 +1323,7 @@ class Stream extends CMSObject
 	 * @param   string    $dest        The file path to copy to.
 	 * @param   resource  $context     A valid context resource (optional) created with stream_context_create.
 	 * @param   boolean   $use_prefix  Controls the use of a prefix (optional).
-	 * @param   boolean   $relative    Determines if the filename given is relative. Relative paths do not have EASY_BK_APPOINTMENT_PATH_ROOT stripped.
+	 * @param   boolean   $relative    Determines if the filename given is relative. Relative paths do not have SOFT_WAY_CORE_PATH_ROOT stripped.
 	 *
 	 * @return  mixed
 	 *
@@ -1374,7 +1374,7 @@ class Stream extends CMSObject
 	 * @param   string   $filename    Original filename of the file
 	 * @param   string   $mode        Mode string to retrieve the filename
 	 * @param   boolean  $use_prefix  Controls the use of a prefix
-	 * @param   boolean  $relative    Determines if the filename given is relative. Relative paths do not have EASY_BK_APPOINTMENT_PATH_ROOT stripped.
+	 * @param   boolean  $relative    Determines if the filename given is relative. Relative paths do not have SOFT_WAY_CORE_PATH_ROOT stripped.
 	 *
 	 * @return  string
 	 *
@@ -1388,12 +1388,12 @@ class Stream extends CMSObject
 			$tmode = trim($mode, 'btf123456789');
 
 			// Check if it's a write mode then add the appropriate prefix
-			// Get rid of EASY_BK_APPOINTMENT_PATH_ROOT (legacy compat) along the way
+			// Get rid of SOFT_WAY_CORE_PATH_ROOT (legacy compat) along the way
 			if (in_array($tmode, FilesystemHelper::getWriteModes()))
 			{
 				if (!$relative && $this->writeprefix)
 				{
-					$filename = str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, '', $filename);
+					$filename = str_replace(SOFT_WAY_CORE_PATH_ROOT, '', $filename);
 				}
 
 				$filename = $this->writeprefix . $filename;
@@ -1402,7 +1402,7 @@ class Stream extends CMSObject
 			{
 				if (!$relative && $this->readprefix)
 				{
-					$filename = str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, '', $filename);
+					$filename = str_replace(SOFT_WAY_CORE_PATH_ROOT, '', $filename);
 				}
 
 				$filename = $this->readprefix . $filename;

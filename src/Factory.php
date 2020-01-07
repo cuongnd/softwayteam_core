@@ -222,7 +222,7 @@ class Factory
         {
             if ($file === null)
             {
-                $file = EASY_BK_APPOINTMENT_PATH_ROOT . '/nb_config.php';
+                $file = SOFT_WAY_CORE_PATH_ROOT . '/nb_config.php';
             }
 
             self::$config = self::createConfig($file, $type, $namespace);

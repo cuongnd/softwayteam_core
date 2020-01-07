@@ -105,7 +105,7 @@ abstract class Folder
 
 					case 'file':
 						// Translate path for the FTP account
-						$dfid = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $dfid), '/');
+						$dfid = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $dfid), '/');
 
 						if (!$ftp->store($sfid, $dfid))
 						{
@@ -227,7 +227,7 @@ abstract class Folder
 			$ftp = FtpClient::getInstance($FTPOptions['host'], $FTPOptions['port'], array(), $FTPOptions['user'], $FTPOptions['pass']);
 
 			// Translate path to FTP path
-			$path = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $path), '/');
+			$path = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $path), '/');
 			$ret = $ftp->mkdir($path);
 			$ftp->chmod($path, $mode);
 		}
@@ -382,7 +382,7 @@ abstract class Folder
 		elseif ($FTPOptions['enabled'] == 1)
 		{
 			// Translate path and delete
-			$path = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $path), '/');
+			$path = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $path), '/');
 
 			// FTP connector throws an error
 			$ret = $ftp->delete($path);
@@ -448,8 +448,8 @@ abstract class Folder
 				$ftp = FtpClient::getInstance($FTPOptions['host'], $FTPOptions['port'], array(), $FTPOptions['user'], $FTPOptions['pass']);
 
 				// Translate path for the FTP account
-				$src = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $src), '/');
-				$dest = $pathObject->clean(str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, $FTPOptions['root'], $dest), '/');
+				$src = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $src), '/');
+				$dest = $pathObject->clean(str_replace(SOFT_WAY_CORE_PATH_ROOT, $FTPOptions['root'], $dest), '/');
 
 				// Use FTP rename to simulate move
 				if (!$ftp->rename($src, $dest))
@@ -704,7 +704,7 @@ abstract class Folder
 					'parent' => $parent,
 					'name' => $name,
 					'fullname' => $fullName,
-					'relname' => str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, '', $fullName),
+					'relname' => str_replace(SOFT_WAY_CORE_PATH_ROOT, '', $fullName),
 				);
 				$dirs2 = self::listFolderTree($fullName, $filter, $maxLevel, $level + 1, $id);
 				$dirs = array_merge($dirs, $dirs2);

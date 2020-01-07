@@ -493,7 +493,7 @@ class WoobookingModel extends BaseDatabaseModel
             $table = $this->table_name;
         }
         $UCFtable = ucfirst($table);
-        $table_path = EASY_BK_APPOINTMENT_PATH_ROOT . "/admin/sw_apps/softway_core/tables/$UCFtable.php";
+        $table_path = SOFT_WAY_CORE_PATH_ROOT . "/admin/sw_apps/softway_core/tables/$UCFtable.php";
         if (file_exists($table_path)) {
             require_once $table_path;
             $table_name = "{$UCFtable}Table";

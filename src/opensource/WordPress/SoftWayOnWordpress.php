@@ -325,7 +325,7 @@ class SoftWayOnWordpress
         $app=Factory::getApplication();
         $db=Factory::getDBO();
         $list_database_table=$db->setQuery("SHOW TABLES LIKE ".$db->quote("softwaycore%"))->loadColumn();
-        $json_table=File::read(EASY_BK_APPOINTMENT_PATH_ROOT."/install/tables.json");
+        $json_table=File::read(SOFT_WAY_CORE_PATH_ROOT."/install/tables.json");
         $json_table=json_decode($json_table);
         $installed=true;
         foreach ($json_table as $table){
@@ -655,7 +655,7 @@ class SoftWayOnWordpress
         return $list_view;
     }
     protected  static  function  get_list_layout_block_frontend() {
-        $blocks_path=EASY_BK_APPOINTMENT_PATH_ROOT."/blocks";
+        $blocks_path=SOFT_WAY_CORE_PATH_ROOT."/blocks";
 
         $list_block=array();
         $folders=Folder::folders($blocks_path);

@@ -187,7 +187,7 @@ class FormFieldFolderList extends JFormFieldList
 
 		if (!is_dir($path))
 		{
-			$path = EASY_BK_APPOINTMENT_PATH_ROOT . '/' . $path;
+			$path = SOFT_WAY_CORE_PATH_ROOT . '/' . $path;
 		}
 		
 		$path = JPath::clean($path);

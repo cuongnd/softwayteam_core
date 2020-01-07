@@ -254,7 +254,7 @@ class Application extends CMSObject
     protected function initialiseApp($options = array())
     {
 
-        require_once EASY_BK_APPOINTMENT_PATH_ROOT."/nb_config.php";
+        require_once SOFT_WAY_CORE_PATH_ROOT."/nb_config.php";
         $config= new nb_config();
 
         $register=new Registry();

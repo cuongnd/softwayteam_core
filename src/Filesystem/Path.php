@@ -173,7 +173,7 @@ class Path
 
 		$path = self::clean($path);
 
-		if ((EASY_BK_APPOINTMENT_PATH_ROOT != '') && strpos($path, self::clean(EASY_BK_APPOINTMENT_PATH_ROOT)) !== 0)
+		if ((SOFT_WAY_CORE_PATH_ROOT != '') && strpos($path, self::clean(SOFT_WAY_CORE_PATH_ROOT)) !== 0)
 		{
 			throw new \Exception(
 				sprintf(
@@ -216,7 +216,7 @@ class Path
 
 		if (empty($path))
 		{
-			$path = EASY_BK_APPOINTMENT_PATH_ROOT;
+			$path = SOFT_WAY_CORE_PATH_ROOT;
 		}
 		// Remove double slashes and backslashes and convert all slashes and backslashes to DIRECTORY_SEPARATOR
 		// If dealing with a UNC path don't forget to prepend the path with a backslash.

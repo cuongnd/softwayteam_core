@@ -167,7 +167,7 @@ class ErrorDocument extends Document
 			$lang = \Factory::getLanguage();
 
 			// 1.5 or core then 1.6
-			$lang->load('tpl_' . $template, EASY_BK_APPOINTMENT_PATH_ROOT, null, false, true)
+			$lang->load('tpl_' . $template, SOFT_WAY_CORE_PATH_ROOT, null, false, true)
 				|| $lang->load('tpl_' . $template, $directory . '/' . $template, null, false, true);
 		}
 

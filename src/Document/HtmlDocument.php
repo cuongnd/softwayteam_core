@@ -643,11 +643,11 @@ class HtmlDocument extends Document
 		// Try to find a favicon by checking the template and root folder
 		$icon = '/favicon.ico';
 
-		foreach (array($directory, EASY_BK_APPOINTMENT_PATH_ROOT) as $dir)
+		foreach (array($directory, SOFT_WAY_CORE_PATH_ROOT) as $dir)
 		{
 			if (file_exists($dir . $icon))
 			{
-				$path = str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, '', $dir);
+				$path = str_replace(SOFT_WAY_CORE_PATH_ROOT, '', $dir);
 				$path = str_replace('\\', '/', $path);
 				$this->addFavicon(Uri::base(true) . $path . $icon);
 				break;

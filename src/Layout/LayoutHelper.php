@@ -20,7 +20,7 @@ class LayoutHelper
 {
 	/**
 	 * A default base path that will be used if none is provided when calling the render method.
-	 * Note that FileLayout itself will defaults to EASY_BK_APPOINTMENT_PATH_ROOT . '/layouts' if no basePath is supplied at all
+	 * Note that FileLayout itself will defaults to SOFT_WAY_CORE_PATH_ROOT . '/layouts' if no basePath is supplied at all
 	 *
 	 * @var    string
 	 * @since  3.1
