@@ -234,7 +234,7 @@ class Patcher
 	 *
 	 * @since   3.0.0
 	 */
-	public function add($udiff, $root = WOOBOOKING_PATH_ROOT, $strip = 0)
+	public function add($udiff, $root = EASY_BK_APPOINTMENT_PATH_ROOT, $strip = 0)
 	{
 		$this->patches[] = array(
 			'udiff' => $udiff,

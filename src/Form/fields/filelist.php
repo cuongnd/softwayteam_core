@@ -190,7 +190,7 @@ class FormFieldFileList extends JFormFieldList
 
 		if (!is_dir($path))
 		{
-			$path = WOOBOOKING_PATH_ROOT . '/' . $path;
+			$path = EASY_BK_APPOINTMENT_PATH_ROOT . '/' . $path;
 		}
 		
 		$path = JPath::clean($path);

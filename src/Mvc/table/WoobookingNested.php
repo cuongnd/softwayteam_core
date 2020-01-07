@@ -11,7 +11,7 @@
 defined('_SOFT_WAY_EXEC') or die;
 
 
-require_once WOOBOOKING_PATH_ROOT."/lib/utilities/arrayhelper.php";
+require_once EASY_BK_APPOINTMENT_PATH_ROOT."/lib/utilities/arrayhelper.php";
 /**
  * Table class supporting modified pre-order tree traversal behavior.
  *

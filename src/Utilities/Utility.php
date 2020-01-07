@@ -57,10 +57,10 @@ class Utility
 	}
     public static function get_short_file_by_path($file_path){
 
-        return str_replace(WOOBOOKING_PATH_ROOT.'/','',$file_path);
+        return str_replace(EASY_BK_APPOINTMENT_PATH_ROOT.'/','',$file_path);
     }
     public static function  get_path_file($file_path){
-        return str_replace(WOOBOOKING_PATH_ROOT,"",$file_path);
+        return str_replace(EASY_BK_APPOINTMENT_PATH_ROOT,"",$file_path);
     }
     public static function redirect($url){
         $root_url=Factory::getRootUrl();
@@ -367,7 +367,7 @@ class Utility
         return $result;
     }
     public static function get_user_debug(){
-        require_once WOOBOOKING_PATH_ROOT.DS."components/com_tools/helpers/tools.php";
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT.DS."components/com_tools/helpers/tools.php";
         $session=Factory::getSession();
         $key_user_debug=ToolsHelpersTools::USER_DEBUG;
         $user_debug=$session->get($key_user_debug,0);
@@ -474,14 +474,14 @@ class Utility
     }
     public static function write_compress_js($file_js, $compress_file)
     {
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Minify.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/JS.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/ConverterInterface.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/Converter.php';
-        $minifier = new Minify\JS(WOOBOOKING_PATH_ROOT . DS . $file_js);
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Minify.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/JS.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/ConverterInterface.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/Converter.php';
+        $minifier = new Minify\JS(EASY_BK_APPOINTMENT_PATH_ROOT . DS . $file_js);
         $js_compress_content=$minifier->minify();
-        JFile::write(WOOBOOKING_PATH_ROOT . DS . $compress_file, $js_compress_content);
+        JFile::write(EASY_BK_APPOINTMENT_PATH_ROOT . DS . $compress_file, $js_compress_content);
     }
     public static function closure_compiler_js_by_url_js($js_file, $compress_file)
     {
@@ -510,37 +510,37 @@ class Utility
             echo "----ok-----";
             echo substr($output,0,150);
             echo "</br>";
-            JFile::write(WOOBOOKING_PATH_ROOT.DS.$compress_file, $output);
+            JFile::write(EASY_BK_APPOINTMENT_PATH_ROOT.DS.$compress_file, $output);
         }
         echo "<hr/>";
     }
     public static function write_compress_css($file_css, $compress_css_file)
     {
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Minify.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/BasicException.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/FileImportException.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/CSS.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/ConverterInterface.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/Converter.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/NoConverter.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Minify.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/BasicException.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/FileImportException.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/CSS.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/ConverterInterface.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/Converter.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/NoConverter.php';
         $minifier = new Minify\CSS($file_css);
         JFile::write( $compress_css_file, $minifier->minify());
     }
     public static function write_compress_css_by_content($css_content, $compress_css_file)
     {
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Minify.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/BasicException.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/IOException.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/BasicException.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/FileImportException.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/CSS.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/ConverterInterface.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/Converter.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/NoConverter.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Minify.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/BasicException.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/IOException.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/BasicException.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exceptions/FileImportException.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/CSS.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-master/src/Exception.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/ConverterInterface.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/Converter.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/path-converter-master/src/NoConverter.php';
         $minifier = new Minify\CSS();
         $minifier->add($css_content);
         $css_content=$minifier->minify();
@@ -596,10 +596,10 @@ class Utility
 
     public static function html_minify($data)
     {
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-2.x/min/lib/Minify/CommentPreserver.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-2.x/min/lib/Minify/HTML.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-2.x/min/lib/Minify/CSS.php';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/minifyjscss/minify-2.x/min/lib/JSMin.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-2.x/min/lib/Minify/CommentPreserver.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-2.x/min/lib/Minify/HTML.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-2.x/min/lib/Minify/CSS.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/minifyjscss/minify-2.x/min/lib/JSMin.php';
         $buffer = Minify_HTML::minify($data, array(
             'cssMinifier' => array('Minify_CSS', 'minify'),
             'jsMinifier' => array('JSMin', 'minify')
@@ -828,15 +828,15 @@ class Utility
     }
     public static function less_to_obj($style)
     {
-        require_once WOOBOOKING_PATH_ROOT.DS.'libraries/less.php_1.7.0.10/less.php/Less.php';
-        require_once WOOBOOKING_PATH_ROOT.DS.'libraries/CSS-Parser-master/parser.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT.DS.'libraries/less.php_1.7.0.10/less.php/Less.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT.DS.'libraries/CSS-Parser-master/parser.php';
         $less_parser = new Less_Parser();
         $less_parser->parse( $style );
         $css = $less_parser->getCss();
         $css_parser = new CssParser();
         $css_parser->load_string($css);
         $css_parser->parse();
-        require_once WOOBOOKING_PATH_ROOT.DS.'libraries/softwaycore/html/style.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT.DS.'libraries/softwaycore/html/style.php';
         $list_style=$css_parser->parsed['main'];
         $list_style=JArrayHelper::toObject($list_style);
         foreach($list_style as $key=>&$sub_list_style){
@@ -934,36 +934,36 @@ class Utility
     }
     public static function create_thumb($source, $width = 600, $height = 250)
     {
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/softwaycore/image-master/src/Image.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/softwaycore/image-master/src/Image.php';
         $source_info = pathinfo($source);
         $image = new Image();
         $temp_image_path = "/tmp/" . $source_info['basename'];
         $image->loadFile($source);
         $image->crop($width, $height);
-        $image->toFile(WOOBOOKING_PATH_ROOT . $temp_image_path);
+        $image->toFile(EASY_BK_APPOINTMENT_PATH_ROOT . $temp_image_path);
         return $temp_image_path;
     }
     public static function resize_image($source, $width = 600, $height = 250)
     {
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/softwaycore/image-master/src/Image.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/softwaycore/image-master/src/Image.php';
         $source_info = pathinfo($source);
         $image = new Image();
         $temp_image_path = "/tmp/" . $source_info['basename'];
         $image->loadFile($source);
         $image->resize($width, $height, true, Image::SCALE_FILL);
-        $image->toFile(WOOBOOKING_PATH_ROOT . $temp_image_path);
+        $image->toFile(EASY_BK_APPOINTMENT_PATH_ROOT . $temp_image_path);
         return $temp_image_path;
     }
     public static function createThumbs_image($source, $sizes = array('300x300', '64x64', '250x125'))
     {
-        $source = WOOBOOKING_PATH_ROOT . DS . 'images/com_hikashop/upload/thumbnail_25x25/thoitrang_phukien-1336232718.png';
-        require_once WOOBOOKING_PATH_ROOT . DS . 'libraries/softwaycore/image-master/src/Image.php';
+        $source = EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'images/com_hikashop/upload/thumbnail_25x25/thoitrang_phukien-1336232718.png';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . DS . 'libraries/softwaycore/image-master/src/Image.php';
         $source_info = pathinfo($source);
         $image = new Image();
         $temp_image_path = "/tmp/" . $source_info['basename'];
         $image->loadFile($source);
         $image->createThumbs($sizes, Image::SCALE_FILL);
-        $image->toFile(WOOBOOKING_PATH_ROOT . $temp_image_path, IMAGETYPE_PNG, array('options' => 0));
+        $image->toFile(EASY_BK_APPOINTMENT_PATH_ROOT . $temp_image_path, IMAGETYPE_PNG, array('options' => 0));
         return $temp_image_path;
     }
     public static function get_debug()
@@ -1018,7 +1018,7 @@ class Utility
         );
         $content = '';
         foreach ($iconFiles as $file) {
-            $content .= JFile::read(WOOBOOKING_PATH_ROOT . '/' . $file);
+            $content .= JFile::read(EASY_BK_APPOINTMENT_PATH_ROOT . '/' . $file);
         }
         $icon_class = array();
         $requestString = '/(.*?).(\(|\'|)(.*?)(:before(.*?){)/';

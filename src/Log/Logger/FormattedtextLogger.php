@@ -176,7 +176,7 @@ class FormattedtextLogger extends Logger
 			$line = $this->formatLine($entry);
 			$line .= "\n";
 
-			if (!File::append(WOOBOOKING_PATH_ROOT.$this->path, $line))
+			if (!File::append(EASY_BK_APPOINTMENT_PATH_ROOT.$this->path, $line))
 			{
 				throw new \RuntimeException('Cannot write to log file.');
 			}
@@ -288,12 +288,12 @@ class FormattedtextLogger extends Logger
 		}
 
 		// Make sure the folder exists in which to create the log file.
-		Folder::create(WOOBOOKING_PATH_ROOT.dirname($this->path));
+		Folder::create(EASY_BK_APPOINTMENT_PATH_ROOT.dirname($this->path));
 
 		// Build the log file header.
 		$head = $this->generateFileHeader();
 
-		if (!File::write(WOOBOOKING_PATH_ROOT.$this->path, $head))
+		if (!File::write(EASY_BK_APPOINTMENT_PATH_ROOT.$this->path, $head))
 		{
 			throw new \RuntimeException('Cannot write to log file.');
 		}

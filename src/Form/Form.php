@@ -2043,7 +2043,7 @@ class Form
 		// Add the field paths.
 		foreach ($paths as $path)
 		{
-			$path = WOOBOOKING_PATH_ROOT . '/' . ltrim($path, '/\\');
+			$path = EASY_BK_APPOINTMENT_PATH_ROOT . '/' . ltrim($path, '/\\');
 			self::addFieldPath($path);
 		}
 
@@ -2054,7 +2054,7 @@ class Form
 		// Add the form paths.
 		foreach ($paths as $path)
 		{
-			$path = WOOBOOKING_PATH_ROOT . '/' . ltrim($path, '/\\');
+			$path = EASY_BK_APPOINTMENT_PATH_ROOT . '/' . ltrim($path, '/\\');
 			self::addFormPath($path);
 		}
 
@@ -2065,7 +2065,7 @@ class Form
 		// Add the rule paths.
 		foreach ($paths as $path)
 		{
-			$path = WOOBOOKING_PATH_ROOT . '/' . ltrim($path, '/\\');
+			$path = EASY_BK_APPOINTMENT_PATH_ROOT . '/' . ltrim($path, '/\\');
 			self::addRulePath($path);
 		}
 

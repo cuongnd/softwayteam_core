@@ -48,7 +48,7 @@ abstract class HtmlFrontendDebug
 			static::$xdebugLinkFormat = ini_get('xdebug.file_link_format');
 		}
 
-		$link = str_replace(WOOBOOKING_PATH_ROOT, 'JROOT', JPath::clean($file));
+		$link = str_replace(EASY_BK_APPOINTMENT_PATH_ROOT, 'JROOT', JPath::clean($file));
 		$link .= $line ? ':' . $line : '';
 
 		if (static::$xdebugLinkFormat)
