@@ -150,7 +150,7 @@ class SoftWayOnWordpress
 
             $menu = $this->get_current_page();
             $menu = self::get_true_menu_of_soft_way($menu);
-            $file_controller_path = WOOBOOKING_PATH_COMPONENT . "/controllers/" . ucfirst($menu) . ".php";
+            $file_controller_path = SOFTWAY_PATH_APP . "/controllers/" . ucfirst($menu) . ".php";
 
             $file_controller_short_path = Utility::get_short_file_by_path($file_controller_path);
             if (file_exists($file_controller_path)) {
@@ -254,7 +254,7 @@ class SoftWayOnWordpress
         } else {
 
             list($controller, $task) = explode(".", $task);
-            $file_controller_path = WOOBOOKING_PATH_COMPONENT . "/controllers/" . ucfirst($controller) . ".php";
+            $file_controller_path = SOFTWAY_PATH_APP . "/controllers/" . ucfirst($controller) . ".php";
             $file_controller_short_path = Utility::get_short_file_by_path($file_controller_path);
             $file_short_controller_path = Utility::get_short_file_by_path($file_controller_path);
             require_once $file_controller_path;
@@ -513,7 +513,7 @@ class SoftWayOnWordpress
             echo softway_controller::action_task();
         }else {
             $menu = self::get_true_menu_of_soft_way($page);
-            $file_controller_path = WOOBOOKING_PATH_COMPONENT . "/controllers/" . ucfirst($menu) . ".php";
+            $file_controller_path = SOFTWAY_PATH_APP . "/controllers/" . ucfirst($menu) . ".php";
             $file_controller_short_path = Utility::get_short_file_by_path($file_controller_path);
             if (file_exists($file_controller_path)) {
                 require_once $file_controller_path;
@@ -614,7 +614,7 @@ class SoftWayOnWordpress
         <?php
     }
     protected  static  function  get_list_layout_view_frontend() {
-        $views_path=WOOBOOKING_PATH_COMPONENT_FRONT_END."/views";
+        $views_path=SOFTWAY_PATH_APP_FRONT_END."/views";
 
         $list_view=array();
         $folders=Folder::folders($views_path);
@@ -683,7 +683,7 @@ class SoftWayOnWordpress
         return $list_block;
     }
     protected  static  function  get_list_view_backend() {
-        $views_path=WOOBOOKING_PATH_COMPONENT."/views";
+        $views_path=SOFTWAY_PATH_APP."/views";
         $list_view=array();
         $folders=CMS\Filesystem\Folder::folders($views_path);
         foreach ($folders as $view){
@@ -757,7 +757,7 @@ class SoftWayOnWordpress
         if(!self::checkInstalled()){
             self::goToPopupInstall();
         }
-        require_once WOOBOOKING_PATH_COMPONENT_FRONT_END."/controllers/Block.php";
+        require_once SOFTWAY_PATH_APP_FRONT_END."/controllers/Block.php";
         $input=Factory::getInput();
         if(is_array($atts) && $id=reset($atts)){
 
@@ -971,7 +971,7 @@ class SoftWayOnWordpress
         $input = Factory::getInput();
         $app = Factory::getApplication();
 
-        $file_controller_path = WOOBOOKING_PATH_COMPONENT . "/controllers/Booking.php";
+        $file_controller_path = SOFTWAY_PATH_APP . "/controllers/Booking.php";
         require_once $file_controller_path;
         $class_name = "BookingController";
         $class_controller = new $class_name();
@@ -1034,7 +1034,7 @@ class SoftWayOnWordpress
         $listMenu = self::getListMenuWooPanel();
         foreach ($listMenu as $menu) {
             $menu=self::get_true_menu_of_soft_way($menu);
-            $file_api_path = WOOBOOKING_PATH_COMPONENT . "/api/Api{$menu}.php";
+            $file_api_path = SOFTWAY_PATH_APP . "/api/Api{$menu}.php";
             if (file_exists($file_api_path)) {
                 require_once $file_api_path;
                 $class_name = "Api{$menu}";

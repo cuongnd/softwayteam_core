@@ -570,7 +570,7 @@ class FileLayout extends BaseLayout
 	{
 		// Reset includePaths
 		$paths = array();
-        $paths[]=WOOBOOKING_PATH_COMPONENT."/layouts";
+        $paths[]=SOFTWAY_PATH_APP."/layouts";
 		return $paths;
 	}
 

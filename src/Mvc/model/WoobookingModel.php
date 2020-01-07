@@ -49,7 +49,7 @@ class WoobookingModel extends BaseDatabaseModel
             $model = $this->model;
         }
         $Ucfmodel = ucfirst($model);
-        $model_path = WOOBOOKING_PATH_COMPONENT . "/models/$Ucfmodel.php";
+        $model_path = SOFTWAY_PATH_APP . "/models/$Ucfmodel.php";
         if (file_exists($model_path)) {
             require_once $model_path;
             $model_name = "{$model}Model";
@@ -71,7 +71,7 @@ class WoobookingModel extends BaseDatabaseModel
 
             throw new Exception("please defined publish var modelItem in file " . get_called_class());
         }
-        $model_path = WOOBOOKING_PATH_COMPONENT . "/models/$model.php";
+        $model_path = SOFTWAY_PATH_APP . "/models/$model.php";
         if (file_exists($model_path)) {
             require_once $model_path;
             $model_name = "{$model}Model";
@@ -89,7 +89,7 @@ class WoobookingModel extends BaseDatabaseModel
         if (!$model) {
             $model = $this->modelList;
         }
-        $model_path = WOOBOOKING_PATH_COMPONENT . "/models/$model.php";
+        $model_path = SOFTWAY_PATH_APP . "/models/$model.php";
         if (file_exists($model_path)) {
             require_once $model_path;
             $model_name = "{$model}Model";
@@ -315,7 +315,7 @@ class WoobookingModel extends BaseDatabaseModel
     {
         $model = preg_replace('/[^A-Z0-9_\.-]/i', '', $model);
         $model = ucfirst($model);
-        $model_path = WOOBOOKING_PATH_COMPONENT . "/models/$model.php";
+        $model_path = SOFTWAY_PATH_APP . "/models/$model.php";
         if (file_exists($model_path)) {
             require_once $model_path;
             if (!array_key_exists($model, self::$instance)) {
@@ -408,8 +408,8 @@ class WoobookingModel extends BaseDatabaseModel
     protected function loadForm($source = null, $options = array(), $clear = false, $xpath = false)
     {
         Form::addFieldPath(__DIR__ . '/../../form/fields');
-        Form::addFormPath(WOOBOOKING_PATH_COMPONENT . '/models/forms');
-        Form::addFieldPath(WOOBOOKING_PATH_COMPONENT . '/models/fields');
+        Form::addFormPath(SOFTWAY_PATH_APP . '/models/forms');
+        Form::addFieldPath(SOFTWAY_PATH_APP . '/models/fields');
         try {
             $form = Form::getInstance($source, $options, false, $xpath);
             if (isset($options['load_data']) && $options['load_data']) {

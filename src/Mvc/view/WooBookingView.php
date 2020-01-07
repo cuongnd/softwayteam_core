@@ -16,7 +16,7 @@ class SoftWayView extends CMSObject
     public function getModel($model=""){
         $model=$model?$model:$this->view;
         $model=ucfirst($model);
-        $model_path=WOOBOOKING_PATH_COMPONENT."/models/$model.php";
+        $model_path=SOFTWAY_PATH_APP."/models/$model.php";
         if(file_exists($model_path)){
             $model_name="{$model}Model";
             $model_class=WoobookingModel::getInstance($model);
@@ -156,7 +156,7 @@ class SoftWayView extends CMSObject
     public function loadTemplate($tpl){
         $tmpl_short_path="/views/".$this->view."/tmpl/".$tpl.".php";
 
-        $tmpl_path=WOOBOOKING_PATH_COMPONENT.$tmpl_short_path;
+        $tmpl_path=SOFTWAY_PATH_APP.$tmpl_short_path;
 
         if(file_exists($tmpl_path)){
             ob_start();
@@ -171,7 +171,7 @@ class SoftWayView extends CMSObject
         list($template,$layout)=explode(".",$template);
         $tmpl_short_path="/shared/".$template."/$layout.php";
 
-        $tmpl_path=WOOBOOKING_PATH_COMPONENT.$tmpl_short_path;
+        $tmpl_path=SOFTWAY_PATH_APP.$tmpl_short_path;
 
         if(file_exists($tmpl_path)){
             ob_start();
@@ -184,7 +184,7 @@ class SoftWayView extends CMSObject
     }
     public function loadTemplateFromOtherView($view,$tpl){
         $tmpl_short_path="/views/".$view."/tmpl/".$tpl.".php";
-        $tmpl_path=WOOBOOKING_PATH_COMPONENT.$tmpl_short_path;
+        $tmpl_path=SOFTWAY_PATH_APP.$tmpl_short_path;
 
         if(file_exists($tmpl_path)){
             ob_start();
@@ -198,7 +198,7 @@ class SoftWayView extends CMSObject
     public function display($tpl){
 
         $tmpl_short_path="/views/".$this->view."/tmpl/".$tpl.".php";
-        $tmpl_path=WOOBOOKING_PATH_COMPONENT.$tmpl_short_path;
+        $tmpl_path=SOFTWAY_PATH_APP.$tmpl_short_path;
         $open_source=Factory::getOpenSource();
         $appConfig=Factory::getAppConfig();
         $debug="";
@@ -279,7 +279,7 @@ class SoftWayView extends CMSObject
     public function display_block($block_id,$tpl){
 
         $tmpl_short_path="/views/".$this->view."/tmpl/".$tpl.".php";
-        $tmpl_path=WOOBOOKING_PATH_COMPONENT.$tmpl_short_path;
+        $tmpl_path=SOFTWAY_PATH_APP.$tmpl_short_path;
         $open_source=Factory::getOpenSource();
         $debug="";
         if(!$open_source->is_rest_api()) {
@@ -461,7 +461,7 @@ class SoftWayView extends CMSObject
     public function display_block_app($block,$tpl){
 
         $tmpl_short_path="/views/".$this->view."/tmpl/".$tpl.".php";
-        $tmpl_path=WOOBOOKING_PATH_COMPONENT.$tmpl_short_path;
+        $tmpl_path=SOFTWAY_PATH_APP.$tmpl_short_path;
         $open_source=Factory::getOpenSource();
         $debug="";
         if(!$open_source->is_rest_api()) {

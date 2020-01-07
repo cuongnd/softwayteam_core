@@ -113,7 +113,7 @@ class WoobookingModelList extends  WoobookingModel
     public function getFilterForm($data = array(), $loadData = true)
     {
         
-        Form::addFormPath(WOOBOOKING_PATH_COMPONENT."/models/forms");
+        Form::addFormPath(SOFTWAY_PATH_APP."/models/forms");
         $form = null;
 
         // Try to locate the filter form automatically. Example: ContentModelArticles => "filter_articles"

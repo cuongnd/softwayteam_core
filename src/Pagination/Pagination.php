@@ -342,7 +342,7 @@ class Pagination
 		$itemOverride = false;
 		$listOverride = false;
 
-		$chromePath = WOOBOOKING_PATH_COMPONENT.'/html/pagination.php';
+		$chromePath = SOFTWAY_PATH_APP.'/html/pagination.php';
 
 		if (file_exists($chromePath))
 		{
@@ -546,7 +546,7 @@ class Pagination
 	{
 
 		/*// Keep B/C for overrides done with chromes
-		$chromePath = WOOBOOKING_PATH_COMPONENT. '/html/pagination.php';
+		$chromePath = SOFTWAY_PATH_APP. '/html/pagination.php';
 
 		if (file_exists($chromePath))
 		{
