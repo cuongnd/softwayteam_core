@@ -3,35 +3,35 @@ copy command to terminal "gulp watch"
 mac dinh hien thi layout list
 
 tài khoản database
-databasename:demo9cms_woobooking_v11
+databasename:demo9cms_softway_v11
 user name database: demo9cms_woobkv1/yQ#J3r,3$c5I
 link quan ly database
 https://162.241.159.168:2083/cpsess8562840281/3rdparty/phpMyAdmin/index.php
 
 
-link website http://demo9.cmsmart.net/woobooking/
+link website http://demo9.cmsmart.net/softway/
 
-link admin: http://demo9.cmsmart.net/woobooking/wp-admin/
+link admin: http://demo9.cmsmart.net/softway/wp-admin/
 admin/RFYTQrqAVV&G8UTnNK
 
 cpanel
 https://162.241.159.168:2083/
 Sử dụng cổng 21
 https://162.241.159.168:2083/
-Đường dẫn plugin :/public_html/woobooking/wp-content/plugins/woobooking
+Đường dẫn plugin :/public_html/softway/wp-content/plugins/softway
 
-Đường dẫn root website: public_html/woobooking
+Đường dẫn root website: public_html/softway
 account:demo9cmsmart
 
 pass: V4d-ywPdr4G5
 
 link xem log
-http://demo9.cmsmart.net/woobooking/wp-content/debug.log
+http://demo9.cmsmart.net/softway/wp-content/debug.log
 ----------------------------------
 
 link tai lieu lap trinh
 
-http://demo9.cmsmart.net/dev-woobooking
+http://demo9.cmsmart.net/dev-softway
 mà dùng trang này
 user login admin/admin
 
@@ -73,8 +73,8 @@ link server mới
 http://45.119.84.18/~wbkfitnes
 admin_netbase/c%H=jT=J6!6Jd#Rq
 Thư mục public_html chứa tòa bộ website
-thư mục chưa woobooking
-public_html/wp-content/plugins/woobooking
+thư mục chưa softway
+public_html/wp-content/plugins/softway
 http://45.119.84.18:2222/
 45.119.84.18
 Tài khoản ftp
@@ -121,10 +121,10 @@ hosting
 http://45.119.84.18:2222/
 woobkdoc1/$2(AaL5LlXngNQfDA(
 
-tên miền tài liệu woobooking
-http://woobooking.cmsmart.net/
+tên miền tài liệu softway
+http://softway.cmsmart.net/
 user login
-link quản trị http://woobooking.cmsmart.net/admin
+link quản trị http://softway.cmsmart.net/admin
 tài khoản
 admin/xA3k4gT*Zt7n2d^y)L
 

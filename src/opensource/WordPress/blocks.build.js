@@ -203,10 +203,10 @@ render_wrapper_block=function(clientId,wp,key,props,content){
 
 };
 jQuery.each(list_view,function (key, item) {
-    wp.blocks.registerBlockType(`woobooking/${key}`, {
+    wp.blocks.registerBlockType(`softway/${key}`, {
         title: item.title,
         icon: 'megaphone',
-        category: 'woobooking-block',
+        category: 'softway-block',
         attributes: {
             open_source_client_id:{type: 'string'}
         },

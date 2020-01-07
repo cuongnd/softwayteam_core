@@ -1,7 +1,7 @@
-wp.blocks.registerBlockType('woobooking/border-box', {
+wp.blocks.registerBlockType('softway/border-box', {
     title: 'Booking form',
     icon: 'smiley',
-    category: 'woobooking-block',
+    category: 'softway-block',
     attributes: {
 
     },
@@ -17,12 +17,12 @@ wp.blocks.registerBlockType('woobooking/border-box', {
         return "11111111"
     }
 });
-wp.blocks.registerBlockType('woobooking/border-box2', {
+wp.blocks.registerBlockType('softway/border-box2', {
     title: 'Callout Block',
 
     icon: 'megaphone',
 
-    category: 'woobooking-block',
+    category: 'softway-block',
 
     attributes: {
 

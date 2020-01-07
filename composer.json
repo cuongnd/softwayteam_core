@@ -15,7 +15,7 @@
         }
     ],
     "support": {
-        "issues": "https://github.com/cuongnd/woobooking/issues"
+        "issues": "https://github.com/cuongnd/softway/issues"
     },
     "require": {
         "php": ">=5.3.3"
