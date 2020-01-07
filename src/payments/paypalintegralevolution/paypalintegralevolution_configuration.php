@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><tr>
 	<td class="key">
 		<label for="params[payment_params][email]"><?php
-			echo WoobookingText::_( 'HIKA_EMAIL' );
+			echo SoftWayText::_( 'HIKA_EMAIL' );
 		?></label>
 	</td>
 	<td>
@@ -20,7 +20,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][address_type]"><?php
-			echo WoobookingText::_( 'PAYPAL_ADDRESS_TYPE' );
+			echo SoftWayText::_( 'PAYPAL_ADDRESS_TYPE' );
 		?></label>
 	</td>
 	<td><?php
@@ -30,7 +30,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][address_override]"><?php
-			echo WoobookingText::_( 'ADDRESS_OVERRIDE' );
+			echo SoftWayText::_( 'ADDRESS_OVERRIDE' );
 		?></label>
 	</td>
 	<td><?php
@@ -40,7 +40,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][details]"><?php
-			echo WoobookingText::_('SEND_DETAILS_OF_ORDER');
+			echo SoftWayText::_('SEND_DETAILS_OF_ORDER');
 		?></label>
 	</td>
 	<td><?php
@@ -50,7 +50,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][iframe]"><?php
-			echo WoobookingText::_( 'IFRAME' );
+			echo SoftWayText::_( 'IFRAME' );
 		?></label>
 	</td>
 	<td><?php
@@ -60,7 +60,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][sandbox]"><?php
-			echo WoobookingText::_( 'SANDBOX' );
+			echo SoftWayText::_( 'SANDBOX' );
 		?></label>
 	</td>
 	<td><?php
@@ -70,7 +70,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]"><?php
-			echo WoobookingText::_('DEBUG');
+			echo SoftWayText::_('DEBUG');
 		?></label>
 	</td>
 	<td><?php
@@ -80,7 +80,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][cancel_url]"><?php
-			echo WoobookingText::_('CANCEL_URL');
+			echo SoftWayText::_('CANCEL_URL');
 		?></label>
 	</td>
 	<td>
@@ -90,7 +90,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][return_url]"><?php
-			echo WoobookingText::_('RETURN_URL');
+			echo SoftWayText::_('RETURN_URL');
 		?></label>
 	</td>
 	<td>
@@ -100,7 +100,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][logoImage]"><?php
-			echo WoobookingText::_('HEADER_IMAGE');
+			echo SoftWayText::_('HEADER_IMAGE');
 		?></label>
 	</td>
 	<td>
@@ -110,13 +110,13 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][ips]"><?php
-			echo WoobookingText::_('IPS');
+			echo SoftWayText::_('IPS');
 		?></label>
 	</td>
 	<td>
 		<textarea id="paypal_ips" name="params[payment_params][ips]" ><?php echo (!empty($this->element->payment_params->ips) && is_array($this->element->payment_params->ips)?trim(implode(',',$this->element->payment_params->ips)):''); ?></textarea>
 		<br/>
-		<a href="#" onclick="return paypal_refreshIps();"><?php echo WoobookingText::_('REFRESH_IPS');?></a>
+		<a href="#" onclick="return paypal_refreshIps();"><?php echo SoftWayText::_('REFRESH_IPS');?></a>
 <script type="text/javascript">
 function paypal_refreshIps() {
 	var w = window, d = document, o = w.Oby;
@@ -131,7 +131,7 @@ function paypal_refreshIps() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][invalid_status]"><?php
-			echo WoobookingText::_('INVALID_STATUS');
+			echo SoftWayText::_('INVALID_STATUS');
 		?></label>
 	</td>
 	<td><?php
@@ -141,7 +141,7 @@ function paypal_refreshIps() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][pending_status]"><?php
-			echo WoobookingText::_('PENDING_STATUS');
+			echo SoftWayText::_('PENDING_STATUS');
 		?></label>
 	</td>
 	<td><?php
@@ -151,7 +151,7 @@ function paypal_refreshIps() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]"><?php
-			echo WoobookingText::_('VERIFIED_STATUS');
+			echo SoftWayText::_('VERIFIED_STATUS');
 		?></label>
 	</td>
 	<td><?php

@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><tr>
 	<td class="key">
 		<label for="params[payment_params][email]"><?php
-			echo WoobookingText::_('HIKA_EMAIL');
+			echo SoftWayText::_('HIKA_EMAIL');
 		?></label>
 	</td>
 	<td>
@@ -20,7 +20,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][classical]"><?php
-			echo WoobookingText::_('PAYPAL_CLASSICAL');
+			echo SoftWayText::_('PAYPAL_CLASSICAL');
 		?></label>
 	</td>
 	<td><?php
@@ -46,7 +46,7 @@ window.hikashop.ready(function(){
 <tr class="pp_adative_opt">
 	<td class="key">
 		<label for="params[payment_params][username]"><?php
-			echo WoobookingText::_('HIKA_USERNAME');
+			echo SoftWayText::_('HIKA_USERNAME');
 		?></label>
 	</td>
 	<td>
@@ -56,7 +56,7 @@ window.hikashop.ready(function(){
 <tr class="pp_adative_opt">
 	<td class="key">
 		<label for="params[payment_params][password]"><?php
-			echo WoobookingText::_('HIKA_PASSWORD');
+			echo SoftWayText::_('HIKA_PASSWORD');
 		?></label>
 	</td>
 	<td>
@@ -66,7 +66,7 @@ window.hikashop.ready(function(){
 <tr class="pp_adative_opt">
 	<td class="key">
 		<label for="params[payment_params][signature]"><?php
-			echo WoobookingText::_('SIGNATURE');
+			echo SoftWayText::_('SIGNATURE');
 		?></label>
 	</td>
 	<td>
@@ -154,7 +154,7 @@ window.hikashop.ready(function(){
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]"><?php
-			echo WoobookingText::_('DEBUG');
+			echo SoftWayText::_('DEBUG');
 		?></label>
 	</td>
 	<td><?php
@@ -164,7 +164,7 @@ window.hikashop.ready(function(){
 <tr>
 	<td class="key">
 		<label for="params[payment_params][sandbox]"><?php
-			echo WoobookingText::_('SANDBOX');
+			echo SoftWayText::_('SANDBOX');
 		?></label>
 	</td>
 	<td><?php
@@ -196,7 +196,7 @@ window.hikashop.ready(function(){
 <tr>
 	<td class="key">
 		<label for="params[payment_params][cancel_url]"><?php
-			echo WoobookingText::_('CANCEL_URL');
+			echo SoftWayText::_('CANCEL_URL');
 		?></label>
 	</td>
 	<td>
@@ -206,7 +206,7 @@ window.hikashop.ready(function(){
 <tr>
 	<td class="key">
 		<label for="params[payment_params][return_url]"><?php
-			echo WoobookingText::_('RETURN_URL');
+			echo SoftWayText::_('RETURN_URL');
 		?></label>
 	</td>
 	<td>
@@ -216,13 +216,13 @@ window.hikashop.ready(function(){
 <tr>
 	<td class="key">
 		<label for="params[payment_params][ips]"><?php
-			echo WoobookingText::_('IPS');
+			echo SoftWayText::_('IPS');
 		?></label>
 	</td>
 	<td>
 		<textarea id="paypal_ips" name="params[payment_params][ips]" ><?php echo (!empty($this->element->payment_params->ips) && is_array($this->element->payment_params->ips)?trim(implode(',',$this->element->payment_params->ips)):''); ?></textarea>
 		<br/>
-		<a href="#" onclick="return paypal_refreshIps();"><?php echo WoobookingText::_('REFRESH_IPS');?></a>
+		<a href="#" onclick="return paypal_refreshIps();"><?php echo SoftWayText::_('REFRESH_IPS');?></a>
 <script type="text/javascript">
 function paypal_refreshIps() {
 	var w = window, d = document, o = w.Oby;
@@ -237,7 +237,7 @@ function paypal_refreshIps() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][invalid_status]"><?php
-			echo WoobookingText::_('INVALID_STATUS');
+			echo SoftWayText::_('INVALID_STATUS');
 		?></label>
 	</td>
 	<td><?php
@@ -247,7 +247,7 @@ function paypal_refreshIps() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][pending_status]"><?php
-			echo WoobookingText::_('PENDING_STATUS');
+			echo SoftWayText::_('PENDING_STATUS');
 		?></label>
 	</td>
 	<td><?php
@@ -257,7 +257,7 @@ function paypal_refreshIps() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]"><?php
-			echo WoobookingText::_('VERIFIED_STATUS');
+			echo SoftWayText::_('VERIFIED_STATUS');
 		?></label>
 	</td>
 	<td><?php

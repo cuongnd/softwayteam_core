@@ -15,8 +15,8 @@ use Factory;
 use SoftWay\CMS\Filesystem\Path;
 use SoftWay\CMS\Log\Log;
 use SoftWay\CMS\Object\CMSObject;
-use WoobookingTable;
-use WoobookingText;
+use SoftWayTable;
+use SoftWayText;
 
 /**
  * Base class for a database aware Joomla Model
@@ -137,7 +137,7 @@ abstract class BaseDatabaseModel extends CMSObject
 	 */
 	public static function addTablePath($path)
 	{
-		WoobookingTable::addIncludePath($path);
+		SoftWayTable::addIncludePath($path);
 	}
 
 	/**
@@ -198,7 +198,7 @@ abstract class BaseDatabaseModel extends CMSObject
 
 			if (!class_exists($modelClass))
 			{
-				Log::add(WoobookingText::sprintf('JLIB_APPLICATION_ERROR_MODELCLASS_NOT_FOUND', $modelClass), Log::WARNING, 'jerror');
+				Log::add(SoftWayText::sprintf('JLIB_APPLICATION_ERROR_MODELCLASS_NOT_FOUND', $modelClass), Log::WARNING, 'jerror');
 
 				return false;
 			}
@@ -294,12 +294,12 @@ abstract class BaseDatabaseModel extends CMSObject
 	 *
 	 * @param   string  $name    The name of the view
 	 * @param   string  $prefix  The class prefix. Optional.
-	 * @param   array   $config  Configuration settings to pass to WoobookingTable::getInstance
+	 * @param   array   $config  Configuration settings to pass to SoftWayTable::getInstance
 	 *
-	 * @return  WoobookingTable|boolean  Table object or boolean false if failed
+	 * @return  SoftWayTable|boolean  Table object or boolean false if failed
 	 *
 	 * @since   3.0
-	 * @see     WoobookingTable::getInstance()
+	 * @see     SoftWayTable::getInstance()
 	 */
 	protected function _createTable($name, $prefix = 'Table', $config = array())
 	{
@@ -313,7 +313,7 @@ abstract class BaseDatabaseModel extends CMSObject
 			$config['dbo'] = $this->getDBO();
 		}
 
-		return WoobookingTable::getInstance($name, $prefix, $config);
+		return SoftWayTable::getInstance($name, $prefix, $config);
 	}
 
 	/**
@@ -347,7 +347,7 @@ abstract class BaseDatabaseModel extends CMSObject
 
 			if (!preg_match('/Model(.*)/i', get_class($this), $r))
 			{
-				throw new \Exception(WoobookingText::_('JLIB_APPLICATION_ERROR_MODEL_GET_NAME'), 500);
+				throw new \Exception(SoftWayText::_('JLIB_APPLICATION_ERROR_MODEL_GET_NAME'), 500);
 			}
 
 			$this->name = strtolower($r[1]);
@@ -387,7 +387,7 @@ abstract class BaseDatabaseModel extends CMSObject
 	 * @param   string  $prefix   The class prefix. Optional.
 	 * @param   array   $options  Configuration array for model. Optional.
 	 *
-	 * @return  WoobookingTable  A WoobookingTable object
+	 * @return  SoftWayTable  A SoftWayTable object
 	 *
 	 * @since   3.0
 	 * @throws  \Exception
@@ -404,20 +404,20 @@ abstract class BaseDatabaseModel extends CMSObject
 			return $table;
 		}
 
-		throw new \Exception(WoobookingText::sprintf('JLIB_APPLICATION_ERROR_TABLE_NAME_NOT_SUPPORTED', $name), 0);
+		throw new \Exception(SoftWayText::sprintf('JLIB_APPLICATION_ERROR_TABLE_NAME_NOT_SUPPORTED', $name), 0);
 	}
 
 	/**
 	 * Method to load a row for editing from the version history table.
 	 *
 	 * @param   integer  $version_id  Key to the version history table.
-	 * @param   WoobookingTable  &$table      Content table object being loaded.
+	 * @param   SoftWayTable  &$table      Content table object being loaded.
 	 *
 	 * @return  boolean  False on failure or error, true otherwise.
 	 *
 	 * @since   3.2
 	 */
-	public function loadHistory($version_id, WoobookingTable &$table)
+	public function loadHistory($version_id, SoftWayTable &$table)
 	{
 		// Only attempt to check the row in if it exists, otherwise do an early exit.
 		if (!$version_id)
@@ -426,7 +426,7 @@ abstract class BaseDatabaseModel extends CMSObject
 		}
 
 		// Get an instance of the row to checkout.
-		$historyTable = WoobookingTable::getInstance('Contenthistory');
+		$historyTable = SoftWayTable::getInstance('Contenthistory');
 
 		if (!$historyTable->load($version_id))
 		{
@@ -436,11 +436,11 @@ abstract class BaseDatabaseModel extends CMSObject
 		}
 
 		$rowArray = ArrayHelper::fromObject(json_decode($historyTable->version_data));
-		$typeId   = WoobookingTable::getInstance('Contenttype')->getTypeId($this->typeAlias);
+		$typeId   = SoftWayTable::getInstance('Contenttype')->getTypeId($this->typeAlias);
 
 		if ($historyTable->ucm_type_id != $typeId)
 		{
-			$this->setError(WoobookingText::_('JLIB_APPLICATION_ERROR_HISTORY_ID_MISMATCH'));
+			$this->setError(SoftWayText::_('JLIB_APPLICATION_ERROR_HISTORY_ID_MISMATCH'));
 
 			$key = $table->getKeyName();
 

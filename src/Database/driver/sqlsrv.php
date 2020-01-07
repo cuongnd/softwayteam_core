@@ -523,7 +523,7 @@ class DatabaseDriverSqlsrv extends DatabaseDriver
 		}
 		if (!is_resource($this->connection))
 		{
-			Log::add(WoobookingText::sprintf('JLIB_DATABASE_QUERY_FAILED', $this->errorNum, $this->errorMsg), Log::ERROR, 'database');
+			Log::add(SoftWayText::sprintf('JLIB_DATABASE_QUERY_FAILED', $this->errorNum, $this->errorMsg), Log::ERROR, 'database');
 			throw new DatabaseExceptionExecuting($query, $this->errorMsg, $this->errorNum);
 		}
 		// Increment the query counter.
@@ -584,7 +584,7 @@ class DatabaseDriverSqlsrv extends DatabaseDriver
 					$this->errorNum = $this->getErrorNumber();
 					$this->errorMsg = $this->getErrorMessage($query);
 					// Throw the normal query exception.
-					Log::add(WoobookingText::sprintf('JLIB_DATABASE_QUERY_FAILED', $this->errorNum, $this->errorMsg), Log::ERROR, 'database-error');
+					Log::add(SoftWayText::sprintf('JLIB_DATABASE_QUERY_FAILED', $this->errorNum, $this->errorMsg), Log::ERROR, 'database-error');
 					throw new DatabaseExceptionExecuting($query, $this->errorMsg, $this->errorNum, $e);
 				}
 				// Since we were able to reconnect, run the query again.
@@ -597,7 +597,7 @@ class DatabaseDriverSqlsrv extends DatabaseDriver
 				$this->errorNum = $errorNum;
 				$this->errorMsg = $errorMsg;
 				// Throw the normal query exception.
-				Log::add(WoobookingText::sprintf('JLIB_DATABASE_QUERY_FAILED', $this->errorNum, $this->errorMsg), Log::ERROR, 'database-error');
+				Log::add(SoftWayText::sprintf('JLIB_DATABASE_QUERY_FAILED', $this->errorNum, $this->errorMsg), Log::ERROR, 'database-error');
 				throw new DatabaseExceptionExecuting($query, $this->errorMsg, $this->errorNum);
 			}
 		}

@@ -76,7 +76,7 @@ class EmailRule extends FormRule
 			// Test the value against the regular expression.
 			if (!parent::test($element, $value, $group, $input, $form))
 			{
-				return new \UnexpectedValueException(WoobookingText::_('JLIB_DATABASE_ERROR_VALID_MAIL'));
+				return new \UnexpectedValueException(SoftWayText::_('JLIB_DATABASE_ERROR_VALID_MAIL'));
 			}
 		}
 		else
@@ -91,7 +91,7 @@ class EmailRule extends FormRule
 				// Test the value against the regular expression.
 				if (!parent::test($element, $value, $group, $input, $form))
 				{
-					return new \UnexpectedValueException(WoobookingText::_('JLIB_DATABASE_ERROR_VALID_MAIL'));
+					return new \UnexpectedValueException(SoftWayText::_('JLIB_DATABASE_ERROR_VALID_MAIL'));
 				}
 			}
 		}
@@ -160,7 +160,7 @@ class EmailRule extends FormRule
 				// If domain is not allowed, fail validation. Otherwise continue.
 				if (!$allowed)
 				{
-					return new \UnexpectedValueException(WoobookingText::sprintf('JGLOBAL_EMAIL_DOMAIN_NOT_ALLOWED', $emailDomain));
+					return new \UnexpectedValueException(SoftWayText::sprintf('JGLOBAL_EMAIL_DOMAIN_NOT_ALLOWED', $emailDomain));
 				}
 			}
 		}
@@ -189,7 +189,7 @@ class EmailRule extends FormRule
 
 			if ($duplicate)
 			{
-				return new \UnexpectedValueException(WoobookingText::_('JLIB_DATABASE_ERROR_EMAIL_INUSE'));
+				return new \UnexpectedValueException(SoftWayText::_('JLIB_DATABASE_ERROR_EMAIL_INUSE'));
 			}
 		}
 

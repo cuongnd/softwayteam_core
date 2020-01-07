@@ -96,7 +96,7 @@ class MenuField extends FormFieldGroupedList
 		{
 			$opts[] = (object) array(
 				'value'     => 'main',
-				'text'      => WoobookingText::_('COM_MENUS_MENU_TYPE_PROTECTED_MAIN_LABEL'),
+				'text'      => SoftWayText::_('COM_MENUS_MENU_TYPE_PROTECTED_MAIN_LABEL'),
 				'client_id' => 1,
 			);
 		}
@@ -113,7 +113,7 @@ class MenuField extends FormFieldGroupedList
 			foreach ($options as $option)
 			{
 				// If client id is not specified we group the items.
-				$label = ($option->client_id == 1 ? WoobookingText::_('JADMINISTRATOR') : WoobookingText::_('JSITE'));
+				$label = ($option->client_id == 1 ? SoftWayText::_('JADMINISTRATOR') : SoftWayText::_('JSITE'));
 
 				$groups[$label][] = $option;
 			}

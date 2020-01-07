@@ -4,7 +4,7 @@
 namespace SoftWay\CMS\OpenSource\WordPress\ECommerce\WooCommerce\Versions\WooCommerce_v1\HookPage;
 
 use WC_Customer;
-use WoobookingModel;
+use SoftWayModel;
 
 class CheckOut
 {
@@ -19,10 +19,10 @@ class CheckOut
         echo "hello woocommerce_order_review";
     }
     public function woocommerce_checkout_order_processed($order_id, $posted_data, $OpenSourceOrder){
-        $modelOrder=WoobookingModel::getInstance('order');
-        $modelOrderStatus=WoobookingModel::getInstance('OrderStatus');
-        $modelCustomer=WoobookingModel::getInstance('Customer');
-        $modelRate=WoobookingModel::getInstance('Rate');
+        $modelOrder=SoftWayModel::getInstance('order');
+        $modelOrderStatus=SoftWayModel::getInstance('OrderStatus');
+        $modelCustomer=SoftWayModel::getInstance('Customer');
+        $modelRate=SoftWayModel::getInstance('Rate');
 
 
 
@@ -77,7 +77,7 @@ class CheckOut
         //store database make new order is $order
         $order=$modelOrder->save($order_data);
 
-        $modelBilling=WoobookingModel::getInstance('Billing');
+        $modelBilling=SoftWayModel::getInstance('Billing');
         //save info billing
         //create data new billing
         $dataBilling=array(
@@ -98,7 +98,7 @@ class CheckOut
         $modelBilling->save($dataBilling);
         //create info shipping
         //get model shipping
-        $modelShipping=WoobookingModel::getInstance('Shipping');
+        $modelShipping=SoftWayModel::getInstance('Shipping');
         //get info shipping from opensource
         $shipping=$openSourceOrderData['shipping'];
         //create data new shipping
@@ -120,7 +120,7 @@ class CheckOut
         $modelShipping->save($dataShipping);
         //create orderdetail
         //get model order detail
-        $modelOrderDetail=WoobookingModel::getInstance('OrderDetail');
+        $modelOrderDetail=SoftWayModel::getInstance('OrderDetail');
         //get product from open source
         $OpenSourceOrderItems=$OpenSourceOrder->get_items();
         //tree node items
@@ -142,7 +142,7 @@ class CheckOut
             }
             $new_order_detail=$modelOrderDetail->save($data_order_detail);
 
-            $modelOrderDetailRate=WoobookingModel::getInstance('OrderDetailRate');
+            $modelOrderDetailRate=SoftWayModel::getInstance('OrderDetailRate');
 
             //store new rate
             foreach ($metas_data as $meta_data){

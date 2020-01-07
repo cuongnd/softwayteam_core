@@ -51,16 +51,16 @@ abstract class HtmlRules
 
 		$html[] = '<div class="acl-options">';
 		$html[] = Html::_('tabs.start', 'acl-rules-' . $assetId, array('useCookie' => 1));
-		$html[] = Html::_('tabs.panel', WoobookingText::_('JLIB_HTML_ACCESS_SUMMARY'), 'summary');
-		$html[] = '			<p>' . WoobookingText::_('JLIB_HTML_ACCESS_SUMMARY_DESC') . '</p>';
-		$html[] = '			<table class="aclsummary-table" summary="' . WoobookingText::_('JLIB_HTML_ACCESS_SUMMARY_DESC') . '">';
-		$html[] = '			<caption>' . WoobookingText::_('JLIB_HTML_ACCESS_SUMMARY_DESC_CAPTION') . '</caption>';
+		$html[] = Html::_('tabs.panel', SoftWayText::_('JLIB_HTML_ACCESS_SUMMARY'), 'summary');
+		$html[] = '			<p>' . SoftWayText::_('JLIB_HTML_ACCESS_SUMMARY_DESC') . '</p>';
+		$html[] = '			<table class="aclsummary-table" summary="' . SoftWayText::_('JLIB_HTML_ACCESS_SUMMARY_DESC') . '">';
+		$html[] = '			<caption>' . SoftWayText::_('JLIB_HTML_ACCESS_SUMMARY_DESC_CAPTION') . '</caption>';
 		$html[] = '			<tr>';
-		$html[] = '				<th class="col1 hidelabeltxt">' . WoobookingText::_('JLIB_RULES_GROUPS') . '</th>';
+		$html[] = '				<th class="col1 hidelabeltxt">' . SoftWayText::_('JLIB_RULES_GROUPS') . '</th>';
 
 		foreach ($actions as $i => $action)
 		{
-			$html[] = '				<th class="col' . ($i + 2) . '">' . WoobookingText::_($action->title) . '</th>';
+			$html[] = '				<th class="col' . ($i + 2) . '">' . SoftWayText::_($action->title) . '</th>';
 		}
 
 		$html[] = '			</tr>';
@@ -84,18 +84,18 @@ abstract class HtmlRules
 
 		foreach ($actions as $action)
 		{
-			$actionTitle = WoobookingText::_($action->title);
-			$actionDesc = WoobookingText::_($action->description);
+			$actionTitle = SoftWayText::_($action->title);
+			$actionDesc = SoftWayText::_($action->description);
 			$html[] = Html::_('tabs.panel', $actionTitle, $action->name);
 			$html[] = '			<p>' . $actionDesc . '</p>';
 			$html[] = '			<table class="aclmodify-table" summary="' . strip_tags($actionDesc) . '">';
-			$html[] = '			<caption>' . WoobookingText::_('JLIB_HTML_ACCESS_MODIFY_DESC_CAPTION_ACL') . ' ' . $actionTitle . ' '
-				. WoobookingText::_('JLIB_HTML_ACCESS_MODIFY_DESC_CAPTION_TABLE') . '</caption>';
+			$html[] = '			<caption>' . SoftWayText::_('JLIB_HTML_ACCESS_MODIFY_DESC_CAPTION_ACL') . ' ' . $actionTitle . ' '
+				. SoftWayText::_('JLIB_HTML_ACCESS_MODIFY_DESC_CAPTION_TABLE') . '</caption>';
 			$html[] = '			<tr>';
-			$html[] = '				<th class="col1 hidelabeltxt">' . WoobookingText::_('JLIB_RULES_GROUP') . '</th>';
-			$html[] = '				<th class="col2">' . WoobookingText::_('JLIB_RULES_INHERIT') . '</th>';
-			$html[] = '				<th class="col3 hidelabeltxt">' . WoobookingText::_('JMODIFY') . '</th>';
-			$html[] = '				<th class="col4">' . WoobookingText::_('JCURRENT') . '</th>';
+			$html[] = '				<th class="col1 hidelabeltxt">' . SoftWayText::_('JLIB_RULES_GROUP') . '</th>';
+			$html[] = '				<th class="col2">' . SoftWayText::_('JLIB_RULES_INHERIT') . '</th>';
+			$html[] = '				<th class="col3 hidelabeltxt">' . SoftWayText::_('JMODIFY') . '</th>';
+			$html[] = '				<th class="col4">' . SoftWayText::_('JCURRENT') . '</th>';
 			$html[] = '			</tr>';
 
 			foreach ($groups as $i => $group)
@@ -109,13 +109,13 @@ abstract class HtmlRules
 				$html[] = '				<td class="col3">';
 				$html[] = '					<select id="' . $idPrefix . '_' . $action->name . '_' . $group->value
 					. '" class="inputbox" size="1" name="' . $control . '[' . $action->name . '][' . $group->value . ']" title="'
-					. WoobookingText::sprintf('JLIB_RULES_SELECT_ALLOW_DENY_GROUP', $actionTitle, $group->text) . '">';
+					. SoftWayText::sprintf('JLIB_RULES_SELECT_ALLOW_DENY_GROUP', $actionTitle, $group->text) . '">';
 				$html[] = '						<option value=""' . ($selected === null ? ' selected="selected"' : '') . '>'
-					. WoobookingText::_('JLIB_RULES_INHERIT') . '</option>';
+					. SoftWayText::_('JLIB_RULES_INHERIT') . '</option>';
 				$html[] = '						<option value="1"' . ($selected === true ? ' selected="selected"' : '') . '>'
-					. WoobookingText::_('JLIB_RULES_ALLOWED') . '</option>';
+					. SoftWayText::_('JLIB_RULES_ALLOWED') . '</option>';
 				$html[] = '						<option value="0"' . ($selected === false ? ' selected="selected"' : '') . '>'
-					. WoobookingText::_('JLIB_RULES_DENIED') . '</option>';
+					. SoftWayText::_('JLIB_RULES_DENIED') . '</option>';
 				$html[] = '					</select>';
 				$html[] = '				</td>';
 				$html[] = '				<td class="col4">'
@@ -132,8 +132,8 @@ abstract class HtmlRules
 		// Build the footer with legend and special purpose buttons.
 		$html[] = '	<div class="clr"></div>';
 		$html[] = '	<ul class="acllegend fltlft">';
-		$html[] = '		<li class="acl-allowed">' . WoobookingText::_('JLIB_RULES_ALLOWED') . '</li>';
-		$html[] = '		<li class="acl-denied">' . WoobookingText::_('JLIB_RULES_DENIED') . '</li>';
+		$html[] = '		<li class="acl-allowed">' . SoftWayText::_('JLIB_RULES_ALLOWED') . '</li>';
+		$html[] = '		<li class="acl-denied">' . SoftWayText::_('JLIB_RULES_DENIED') . '</li>';
 		$html[] = '	</ul>';
 		$html[] = '</div>';
 
@@ -219,13 +219,13 @@ abstract class HtmlRules
 	 */
 	protected static function _getImagesArray()
 	{
-		$images['allow-l'] = '<label class="icon-16-allow" title="' . WoobookingText::_('JLIB_RULES_ALLOWED') . '">' . WoobookingText::_('JLIB_RULES_ALLOWED')
+		$images['allow-l'] = '<label class="icon-16-allow" title="' . SoftWayText::_('JLIB_RULES_ALLOWED') . '">' . SoftWayText::_('JLIB_RULES_ALLOWED')
 			. '</label>';
-		$images['deny-l'] = '<label class="icon-16-deny" title="' . WoobookingText::_('JLIB_RULES_DENIED') . '">' . WoobookingText::_('JLIB_RULES_DENIED') . '</label>';
-		$images['allow'] = '<a class="icon-16-allow" title="' . WoobookingText::_('JLIB_RULES_ALLOWED') . '"> </a>';
-		$images['deny'] = '<a class="icon-16-deny" title="' . WoobookingText::_('JLIB_RULES_DENIED') . '"> </a>';
-		$images['allow-i'] = '<a class="icon-16-allowinactive" title="' . WoobookingText::_('JRULE_ALLOWED_INHERITED') . '"> </a>';
-		$images['deny-i'] = '<a class="icon-16-denyinactive" title="' . WoobookingText::_('JRULE_DENIED_INHERITED') . '"> </a>';
+		$images['deny-l'] = '<label class="icon-16-deny" title="' . SoftWayText::_('JLIB_RULES_DENIED') . '">' . SoftWayText::_('JLIB_RULES_DENIED') . '</label>';
+		$images['allow'] = '<a class="icon-16-allow" title="' . SoftWayText::_('JLIB_RULES_ALLOWED') . '"> </a>';
+		$images['deny'] = '<a class="icon-16-deny" title="' . SoftWayText::_('JLIB_RULES_DENIED') . '"> </a>';
+		$images['allow-i'] = '<a class="icon-16-allowinactive" title="' . SoftWayText::_('JRULE_ALLOWED_INHERITED') . '"> </a>';
+		$images['deny-i'] = '<a class="icon-16-denyinactive" title="' . SoftWayText::_('JRULE_DENIED_INHERITED') . '"> </a>';
 
 		return $images;
 	}

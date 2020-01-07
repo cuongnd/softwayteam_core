@@ -59,7 +59,7 @@ class WBPaymentCommon extends WBPayment
 		$vars->email = $this->user->user_email;
 		$vars->user_email = $this->user->user_email;
 		$vars->country_code = @$order->cart->billing_address->address_country->zone_code_2;
-		$vars->item_name = WoobookingText::_('CART_PRODUCT_TOTAL_PRICE');
+		$vars->item_name = SoftWayText::_('CART_PRODUCT_TOTAL_PRICE');
 		$vars->return = $notify_url;
 		$vars->cancel_return = $cancel_url;
 		$vars->notify_url = $notify_url;
@@ -90,14 +90,14 @@ class WBPaymentCommon extends WBPayment
 		$data = ob_get_clean();
 		$statuses = array('C'=>$this->payment_params->verified_status,'P'=>$this->payment_params->pending_status);
 		$url = HIKASHOP_LIVE . 'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id=' . $result['order_id'];
-		$order_text = "\r\n" . WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
-		$order_text .= "\r\n" . str_replace('<br/>', "\r\n", WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
+		$order_text = "\r\n" . SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
+		$order_text .= "\r\n" . str_replace('<br/>', "\r\n", SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
 		$email = new stdClass();
 		$status = @$statuses[$result['status']];
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER',$_REQUEST['name'],$status,$dbOrder->order_number);
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER',$_REQUEST['name'],$status,$dbOrder->order_number);
 		if(!empty($statuses[$result['status']])){
 			$status = $statuses[$result['status']];
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS',$_REQUEST['name'],$status)).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$status)."\r\n\r\n".$order_text;
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS',$_REQUEST['name'],$status)).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$status)."\r\n\r\n".$order_text;
 
 			$history = new stdClass();
 			$history->notified = 0;

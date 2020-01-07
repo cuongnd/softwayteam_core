@@ -16,8 +16,8 @@ use SoftWay\CMS;
 use softway_controller;
 use SoftWay\CMS\Html\Html;
 use SoftWay\CMS\Utilities\Utility;
-use WoobookingModel;
-use WoobookingText;
+use SoftWayModel;
+use SoftWayText;
 use BlockController;
 
 
@@ -76,7 +76,7 @@ class SoftWayOnWordpress
         $data = $input->getData();
         echo "sdfsdfds";
         die;
-        $modelBooking = WoobookingModel::getInstance('booking');
+        $modelBooking = SoftWayModel::getInstance('booking');
         $modelBooking->add_to_cart($data);
 
         ?>
@@ -290,7 +290,7 @@ class SoftWayOnWordpress
 
     public static  function wp_login($user_login) {
         $user = get_user_by('login',$user_login);
-        $userModel=WoobookingModel::getInstance('user');
+        $userModel=SoftWayModel::getInstance('user');
         $open_source_user_id=$user->__get('id');
         $data=$user->to_array();
         $user=$userModel->getUserByOpenSourceUserId($open_source_user_id);
@@ -485,7 +485,7 @@ class SoftWayOnWordpress
         $first_view=array_shift($list_view_admin);
         $first_view=(object)$first_view;
         $menu_slug=str_replace('_','-',$first_view->menu_slug);
-        add_menu_page( 'Woobooking', 'SoftWay', 'manage_options', 'softwaycore-plugin',array($this,'softway_page') );
+        add_menu_page( 'SoftWay', 'SoftWay', 'manage_options', 'softwaycore-plugin',array($this,'softway_page') );
         foreach ($list_view_admin as $key=> $view) {
             $view=(object)$view;
             add_submenu_page( 'softwaycore-plugin', $view->label,  $view->label, 'manage_options', $view->menu_slug, array($this,'softway_page'));
@@ -641,7 +641,7 @@ class SoftWayOnWordpress
                     echo "please check file tructor xml";
                     die;
                 }
-                $title=WoobookingText::_($title);
+                $title=SoftWayText::_($title);
                 if(!$title){
                     continue;
                 }
@@ -675,7 +675,7 @@ class SoftWayOnWordpress
                 echo "please check file tructor xml";
                 die;
             }
-            $title=WoobookingText::_($title);
+            $title=SoftWayText::_($title);
             $list_block["$file_config_block"]=array(
                 "title"=>$title
             );
@@ -705,7 +705,7 @@ class SoftWayOnWordpress
                     echo "please check file tructor xml";
                     die;
                 }
-                $title=WoobookingText::_($title);
+                $title=SoftWayText::_($title);
                 $list_view["$view-$filename"]=array(
                     "title"=>$title
                 );
@@ -817,7 +817,7 @@ class SoftWayOnWordpress
     function render_last_posts( $attributes, $content ) {
         $input=Factory::getInput();
         $open_source_client_id=$attributes['open_source_client_id'];
-        $modelBlock=WoobookingModel::getInstance('block');
+        $modelBlock=SoftWayModel::getInstance('block');
         $block=$modelBlock->getItem($open_source_client_id);
         $params=$block->params;
 
@@ -1092,7 +1092,7 @@ class SoftWayOnWordpress
     public static function get_list_view_for_woo_panel(){
         if(empty(static::$items_submenus)){
             $list_menu_by_xml=self::get_list_view_xml();
-            $confingModel=WoobookingModel::getInstance('config');
+            $confingModel=SoftWayModel::getInstance('config');
             $list_view=$confingModel->get_list_view_publish();
             $items_submenus=array();
             $index=21;
@@ -1209,7 +1209,7 @@ class SoftWayOnWordpress
         $db_appointments = array(
             'id' => self::$prefix_link.'db_appointments',
             'menu_slug' => self::$prefix_link.'db_appointments',
-            'menu_title' => __('Woobooking'),
+            'menu_title' => __('SoftWay'),
             'capability' => '',
             'page_title' => '',
             'icon' => 'flaticon-line-graph',

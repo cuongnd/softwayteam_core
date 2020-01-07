@@ -158,9 +158,9 @@ class ModulepositionField extends FormFieldText
 		// The current user display field.
 		$html[] = '<div class="input-append">';
 		$html[] = parent::getInput()
-			. '<a class="btn modal" title="' . WoobookingText::_('COM_MODULES_CHANGE_POSITION_TITLE') . '"  href="' . $link
+			. '<a class="btn modal" title="' . SoftWayText::_('COM_MODULES_CHANGE_POSITION_TITLE') . '"  href="' . $link
 			. '" rel="{handler: \'iframe\', size: {x: 800, y: 450}}">'
-			. WoobookingText::_('COM_MODULES_CHANGE_POSITION_BUTTON') . '</a>';
+			. SoftWayText::_('COM_MODULES_CHANGE_POSITION_BUTTON') . '</a>';
 		$html[] = '</div>';
 
 		return implode("\n", $html);

@@ -17,7 +17,7 @@ use SoftWay\CMS\Filesystem\Wrapper\FileWrapper;
 use SoftWay\CMS\Client\ClientHelper;
 use SoftWay\CMS\Client\FtpClient;
 use SoftWay\CMS\Language\Text;
-use WoobookingText;
+use SoftWayText;
 
 /**
  * A Folder handling class
@@ -195,7 +195,7 @@ abstract class Folder
 
 			if (($nested > 20) || ($parent == $path))
 			{
-				Log::add(__METHOD__ . ': ' . WoobookingText::_('JLIB_FILESYSTEM_ERROR_FOLDER_LOOP'), Log::WARNING, 'jerror');
+				Log::add(__METHOD__ . ': ' . SoftWayText::_('JLIB_FILESYSTEM_ERROR_FOLDER_LOOP'), Log::WARNING, 'jerror');
 				$nested--;
 
 				return false;
@@ -267,7 +267,7 @@ abstract class Folder
 				if ($inBaseDir == false)
 				{
 					// Return false for JFolder::create because the path to be created is not in open_basedir
-					Log::add(__METHOD__ . ': ' . WoobookingText::_('JLIB_FILESYSTEM_ERROR_FOLDER_PATH'), Log::WARNING, 'jerror');
+					Log::add(__METHOD__ . ': ' . SoftWayText::_('JLIB_FILESYSTEM_ERROR_FOLDER_PATH'), Log::WARNING, 'jerror');
 
 					return false;
 				}
@@ -281,7 +281,7 @@ abstract class Folder
 			{
 				@umask($origmask);
 				Log::add(
-					__METHOD__ . ': ' . WoobookingText::_('JLIB_FILESYSTEM_ERROR_COULD_NOT_CREATE_DIRECTORY') . 'Path: ' . $path, Log::WARNING, 'jerror'
+					__METHOD__ . ': ' . SoftWayText::_('JLIB_FILESYSTEM_ERROR_COULD_NOT_CREATE_DIRECTORY') . 'Path: ' . $path, Log::WARNING, 'jerror'
 				);
 
 				return false;
@@ -514,7 +514,7 @@ abstract class Folder
 		// Is the path a folder?
 		if (!is_dir($path))
 		{
-			Log::add(WoobookingText::sprintf('JLIB_FILESYSTEM_ERROR_PATH_IS_NOT_A_FOLDER_FILES', $path), Log::WARNING, 'jerror');
+			Log::add(SoftWayText::sprintf('JLIB_FILESYSTEM_ERROR_PATH_IS_NOT_A_FOLDER_FILES', $path), Log::WARNING, 'jerror');
 
 			return false;
 		}
@@ -569,7 +569,7 @@ abstract class Folder
 		// Is the path a folder?
 		if (!is_dir($path))
 		{
-			Log::add(WoobookingText::sprintf('JLIB_FILESYSTEM_ERROR_PATH_IS_NOT_A_FOLDER_FOLDER', $path), Log::WARNING, 'jerror');
+			Log::add(SoftWayText::sprintf('JLIB_FILESYSTEM_ERROR_PATH_IS_NOT_A_FOLDER_FOLDER', $path), Log::WARNING, 'jerror');
 
 			return false;
 		}

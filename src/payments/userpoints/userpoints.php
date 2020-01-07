@@ -119,7 +119,7 @@ class WBPaymentUserpoints extends WBPayment {
 				if($pts < 0) $pts = 0;
 				if(!isset($order->additional['userpoints_points']))
 					$order->additional['userpoints_points'] = new stdClass();
-				$order->additional['userpoints_points']->value = $pts.' '.WoobookingText::_('USERPOINTS_POINTS');
+				$order->additional['userpoints_points']->value = $pts.' '.SoftWayText::_('USERPOINTS_POINTS');
 				$order->additional['userpoints_points']->price_currency_id = 0;
 
 				$diff = $new_discount - $old_discount;
@@ -160,27 +160,27 @@ class WBPaymentUserpoints extends WBPayment {
 
 		$price = $currencyClass->format($this->pointsToCurrency($userPoints, $method, $order), $curr);
 
-		$method->payment_description .= WoobookingText::sprintf('YOU_HAVE', $userPoints, $price);
+		$method->payment_description .= SoftWayText::sprintf('YOU_HAVE', $userPoints, $price);
 
 		$fullOrderPoints = $this->finalPriceToPoints($order, $userPoints, false);
 
 		if($method->payment_params->partialpayment == 0 ) {
 			if( $method->payment_params->allowshipping == 1 ) {
-				$method->payment_description .= WoobookingText::sprintf('PAY_FULL_ORDER_POINTS', $fullOrderPoints);
+				$method->payment_description .= SoftWayText::sprintf('PAY_FULL_ORDER_POINTS', $fullOrderPoints);
 			} else {
-				$method->payment_description .= WoobookingText::sprintf('PAY_FULL_ORDER_NO_SHIPPING', $fullOrderPoints);
-				$method->payment_description .= WoobookingText::sprintf('COUPON_GENERATE');
-				$method->payment_description .= WoobookingText::sprintf('CAUTION_POINTS');
+				$method->payment_description .= SoftWayText::sprintf('PAY_FULL_ORDER_NO_SHIPPING', $fullOrderPoints);
+				$method->payment_description .= SoftWayText::sprintf('COUPON_GENERATE');
+				$method->payment_description .= SoftWayText::sprintf('CAUTION_POINTS');
 			}
 		} else {
 			$check = $this->checkPoints($order);
 			if( $check >= $fullOrderPoints ) {
-				$method->payment_description .= WoobookingText::sprintf('PAY_FULL_ORDER_POINTS', $fullOrderPoints);
+				$method->payment_description .= SoftWayText::sprintf('PAY_FULL_ORDER_POINTS', $fullOrderPoints);
 			} else {
 				$coupon = $check * $method->payment_params->value;
 				$price = $currencyClass->format($coupon, $this->currency_id);
-				$method->payment_description .= WoobookingText::sprintf('COUPON_GENERATE_PARTIAL', $price);
-				$method->payment_description .= WoobookingText::sprintf('CAUTION_POINTS');
+				$method->payment_description .= SoftWayText::sprintf('COUPON_GENERATE_PARTIAL', $price);
+				$method->payment_description .= SoftWayText::sprintf('CAUTION_POINTS');
 			}
 		}
 		return true;
@@ -238,7 +238,7 @@ class WBPaymentUserpoints extends WBPayment {
 
 		$userpoints_points = new stdClass();
 		$userpoints_points->name = 'USERPOINTS_USE_POINTS';
-		$userpoints_points->value = $pointsToLoose.' '.WoobookingText::_('USERPOINTS_POINTS');
+		$userpoints_points->value = $pointsToLoose.' '.SoftWayText::_('USERPOINTS_POINTS');
 		$userpoints_points->price_currency_id = 0;
 		$userpoints_points->price_value = 0;
 		$userpoints_points->price_value_with_tax = 0;
@@ -383,7 +383,7 @@ class WBPaymentUserpoints extends WBPayment {
 		if(!empty($order->cart->coupon->discount_code) && (preg_match('#^POINTS_[a-zA-Z0-9]{30}$#', $order->cart->coupon->discount_code) || preg_match('#^POINTS_([-a-zA-Z0-9]+)_[a-zA-Z0-9]{25}$#', $order->cart->coupon->discount_code))) {
 			if(@$this->payment_params->partialpayment === 0 && $order->cart->full_total->prices[0]->price_value_without_discount != $order->cart->coupon->discount_value) {
 				$do = false;
-				echo WoobookingText::_('ERROR_POINTS');
+				echo SoftWayText::_('ERROR_POINTS');
 				return true;
 			}
 		}
@@ -428,7 +428,7 @@ class WBPaymentUserpoints extends WBPayment {
 				$userClass = hikashop_get('class.user');
 				$order->customer = $userClass->get($order->order_user_id);
 			}
-			$this->addPoints(-$check, $order, WoobookingText::_('HIKASHOP_COUPON').' '.$coupon->discount_code);
+			$this->addPoints(-$check, $order, SoftWayText::_('HIKASHOP_COUPON').' '.$coupon->discount_code);
 		}
 	}
 
@@ -687,7 +687,7 @@ class WBPaymentUserpoints extends WBPayment {
 						$possible_coupon = $this->plugin_params->grouppoints * $this->plugin_params->value;
 						$price = $currencyClass->format($possible_coupon, $currency_id);
 
-						$app->enqueueMessage(WoobookingText::sprintf('MISSING_X_POINTS_TO_REDUCTION', $this->plugin_params->grouppoints - $points, $price));
+						$app->enqueueMessage(SoftWayText::sprintf('MISSING_X_POINTS_TO_REDUCTION', $this->plugin_params->grouppoints - $points, $price));
 						$displayed = true;
 					}
 				}
@@ -863,7 +863,7 @@ class WBPaymentUserpoints extends WBPayment {
 				if(!empty($cats[$cat->category_id])) {
 					$this->categories[$k]->category_name = $cats[$cat->category_id]->category_name;
 				} else {
-					$this->categories[$k]->category_name = WoobookingText::_('CATEGORY_NOT_FOUND');
+					$this->categories[$k]->category_name = SoftWayText::_('CATEGORY_NOT_FOUND');
 				}
 			}
 		}

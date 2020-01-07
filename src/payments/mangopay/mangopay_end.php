@@ -15,15 +15,15 @@ if(!empty($this->createdCardRegister)) {
 	<input type="hidden" name="accessKeyRef" value="<?php echo $this->createdCardRegister->AccessKey; ?>" />
 	<input type="hidden" name="returnURL" value="<?php echo $this->return_url; ?>" />
 
-	<label for="cardNumber"><?php echo WoobookingText::_('CARD_NUMBER'); ?></label>
+	<label for="cardNumber"><?php echo SoftWayText::_('CARD_NUMBER'); ?></label>
 	<input type="text" autocomplete="off" name="cardNumber" value="" />
 	<div class="clear"></div>
 
-	<label for="cardExpirationDate"><?php echo WoobookingText::_('EXPIRATION_DATE'); ?></label>
+	<label for="cardExpirationDate"><?php echo SoftWayText::_('EXPIRATION_DATE'); ?></label>
 	<input type="text" autocomplete="off" name="cardExpirationDate" value="" placeholder="MMYY"/>
 	<div class="clear"></div>
 
-	<label for="cardCvx"><?php echo WoobookingText::_('CVV'); ?></label>
+	<label for="cardCvx"><?php echo SoftWayText::_('CVV'); ?></label>
 	<input type="text" autocomplete="off" name="cardCvx" value="" />
 	<div class="clear"></div>
 

@@ -45,7 +45,7 @@ $form->bind($this->element);
 <tr>
 	<td class="key">
 		<label for="params[payment_params][return_url]"><?php
-			echo WoobookingText::_('RETURN_URL');
+			echo SoftWayText::_('RETURN_URL');
 		?></label>
 	</td>
 	<td>
@@ -55,7 +55,7 @@ $form->bind($this->element);
 <tr>
 	<td class="key">
 		<label for="params[payment_params][pending_status]"><?php
-			echo WoobookingText::_('PENDING_STATUS');
+			echo SoftWayText::_('PENDING_STATUS');
 		?></label>
 	</td>
 	<td><?php
@@ -65,7 +65,7 @@ $form->bind($this->element);
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]"><?php
-			echo WoobookingText::_('VERIFIED_STATUS');
+			echo SoftWayText::_('VERIFIED_STATUS');
 		?></label>
 	</td>
 	<td><?php

@@ -11,9 +11,9 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 	<span id="hikashop_paypal_end_message" class="hikashop_paypal_end_message">
 <?php
 	if(!empty($this->display_mode) && $this->display_mode == 'popup') {
-		echo WoobookingText::sprintf('PLEASE_WAIT_BEFORE_SUBMISSION_TO_X', $this->payment_name).'<br/>'. WoobookingText::_('CLICK_ON_BUTTON_IF_NOTHING');
+		echo SoftWayText::sprintf('PLEASE_WAIT_BEFORE_SUBMISSION_TO_X', $this->payment_name).'<br/>'. SoftWayText::_('CLICK_ON_BUTTON_IF_NOTHING');
 	} else {
-		echo WoobookingText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X', $this->payment_name).'<br/>'. WoobookingText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');
+		echo SoftWayText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X', $this->payment_name).'<br/>'. SoftWayText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');
 	}
 ?>
 	</span>
@@ -34,7 +34,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 	}
 ?>
 		<div id="hikashop_paypal_end_image" class="hikashop_paypal_end_image">
-			<input id="hikashop_paypal_button" type="submit" class="btn btn-primary" value="<?php echo WoobookingText::_('PAY_NOW');?>" name="" alt="<?php echo WoobookingText::_('PAY_NOW');?>" />
+			<input id="hikashop_paypal_button" type="submit" class="btn btn-primary" value="<?php echo SoftWayText::_('PAY_NOW');?>" name="" alt="<?php echo SoftWayText::_('PAY_NOW');?>" />
 		</div>
 <?php
 	JRequest::setVar('noform', 1);

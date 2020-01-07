@@ -163,7 +163,7 @@ class WBPaymentbf_rbsbusinessgateway extends WBPayment
 			$i++;
 		}
 		if(!empty($order->order_shipping_price) || !empty($order->cart->shipping->shipping_name)){
-			$vars["C_item_name_".$i]=WoobookingText::_('HIKASHOP_SHIPPING');
+			$vars["C_item_name_".$i]=SoftWayText::_('HIKASHOP_SHIPPING');
 			if(!empty($order->order_shipping_price)){
 				if (!empty($method->payment_params->show_tax_amount) && !empty($order->cart->shipping->shipping_price)) {
 					$amount_item=round($order->cart->shipping->shipping_price,(int)$this->currency->currency_locale['int_frac_digits']);
@@ -224,8 +224,8 @@ class WBPaymentbf_rbsbusinessgateway extends WBPayment
 			return false;
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',hikashop_encode($dbOrder),HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',hikashop_encode($dbOrder),HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 		$hostError = -1;
 		$ip = hikashop_getIP();
 		if(!empty($element->payment_params->hostname)){ // \.outbound\.wp3\.rbsworldpay\.com
@@ -242,13 +242,13 @@ class WBPaymentbf_rbsbusinessgateway extends WBPayment
 		}
 		if ($hostError > 0) {
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Worldpay Business Gateway').' '.WoobookingText::sprintf('IP_NOT_VALID',hikashop_encode($dbOrder));
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Worldpay Business Gateway',$ip,'See Hostname / IPs defined in configuration'))."\r\n\r\n".WoobookingText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-rbsworldpay-error#ip').$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Worldpay Business Gateway').' '.SoftWayText::sprintf('IP_NOT_VALID',hikashop_encode($dbOrder));
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Worldpay Business Gateway',$ip,'See Hostname / IPs defined in configuration'))."\r\n\r\n".SoftWayText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-rbsworldpay-error#ip').$order_text;
 			$email->body = $body;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, false, $email);
 
-			JError::raiseError( 403, WoobookingText::_( 'Access Forbidden' ));
+			JError::raiseError( 403, SoftWayText::_( 'Access Forbidden' ));
 			return false;
 		}
 		switch ($vars['transStatus']) {
@@ -256,8 +256,8 @@ class WBPaymentbf_rbsbusinessgateway extends WBPayment
 				break;
 			default:
 				$email = new stdClass();
-				$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Worldpay Business Gateway',$vars['transStatus'],$dbOrder->order_number);
-				$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Worldpay Business Gateway',$vars['payment_status'])).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".WoobookingText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-rbsworldpay-error#status').$order_text;
+				$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Worldpay Business Gateway',$vars['transStatus'],$dbOrder->order_number);
+				$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Worldpay Business Gateway',$vars['payment_status'])).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".SoftWayText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-rbsworldpay-error#status').$order_text;
 				$email->body = $body;
 
 				$this->modifyOrder($order_id, $this->payment_params->invalid_status, false, $email);
@@ -284,11 +284,11 @@ class WBPaymentbf_rbsbusinessgateway extends WBPayment
 		}
 		</style>
 
-		<p class="pageHeading">'.WoobookingText::sprintf('TRANSACTION_PROCESSING_ERROR',$vars['transStatus']).'</p>
+		<p class="pageHeading">'.SoftWayText::sprintf('TRANSACTION_PROCESSING_ERROR',$vars['transStatus']).'</p>
 
 		<form action="'.$return_url.'" method="post">
 			<div align="center">
-				<input name="submit" type="submit" class="btn" value="'.WoobookingText::_('GO_BACK_TO_SHOP').'" />
+				<input name="submit" type="submit" class="btn" value="'.SoftWayText::_('GO_BACK_TO_SHOP').'" />
 				</div>
 		</form>
 
@@ -310,8 +310,8 @@ class WBPaymentbf_rbsbusinessgateway extends WBPayment
 		$price_check = round($dbOrder->order_full_price, (int)$this->currency->currency_locale['int_frac_digits'] );
 
 		if($price_check != @$vars['amount'] || $this->currency->currency_code != @$vars['currency']){
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Worldpay Business Gateway').WoobookingText::_('INVALID_AMOUNT');
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','Worldpay Business Gateway',$history->amount,$price_check.$this->currency->currency_code))."\r\n\r\n".WoobookingText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-rbsworldpay-error#amount').$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Worldpay Business Gateway').SoftWayText::_('INVALID_AMOUNT');
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','Worldpay Business Gateway',$history->amount,$price_check.$this->currency->currency_code))."\r\n\r\n".SoftWayText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-rbsworldpay-error#amount').$order_text;
 			$email->body = $body;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, $history, $email);
@@ -326,11 +326,11 @@ class WBPaymentbf_rbsbusinessgateway extends WBPayment
 			default:
 				$payment_status = 'Unknown';
 				$order_status = $this->payment_params->invalid_status;
-				$order_text = WoobookingText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-rbsworldpay-error#pending')."\r\n\r\n".$order_text;
+				$order_text = SoftWayText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-rbsworldpay-error#pending')."\r\n\r\n".$order_text;
 		}
 		$mail_status=$statuses[$order->order_status];
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Worldpay Business Gateway',$payment_status,$dbOrder->order_number);
-		$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Worldpay Business Gateway',$order_status)).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$mail_status)."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Worldpay Business Gateway',$payment_status,$dbOrder->order_number);
+		$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Worldpay Business Gateway',$order_status)).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$mail_status)."\r\n\r\n".$order_text;
 		$email->body = $body;
 
 		$this->modifyOrder($order_id, $order_status, $history, $email);
@@ -356,11 +356,11 @@ class WBPaymentbf_rbsbusinessgateway extends WBPayment
 }
 </style>
 
-<p class="pageHeading">'.WoobookingText::_('THANK_YOU_FOR_PURCHASE').'</p>
+<p class="pageHeading">'.SoftWayText::_('THANK_YOU_FOR_PURCHASE').'</p>
 
 <form action="'.$return_url.'" method="post">
 	<div align="center">
-		<input name="submit" type="submit" class="btn" value="'.WoobookingText::_('GO_BACK_TO_SHOP').'" />
+		<input name="submit" type="submit" class="btn" value="'.SoftWayText::_('GO_BACK_TO_SHOP').'" />
 		</div>
 </form>
 

@@ -9,9 +9,9 @@
 defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_collectondelivery_end" id="hikashop_collectondelivery_end">
 	<span class="hikashop_collectondelivery_end_message" id="hikashop_collectondelivery_end_message">
-		<?php echo WoobookingText::_('ORDER_IS_COMPLETE').'<br/>'.
-		WoobookingText::sprintf('AMOUNT_COLLECTED_ON_DELIVERY',$this->amount,$this->order_number).'<br/>'.
-		WoobookingText::_('THANK_YOU_FOR_PURCHASE');?>
+		<?php echo SoftWayText::_('ORDER_IS_COMPLETE').'<br/>'.
+		SoftWayText::sprintf('AMOUNT_COLLECTED_ON_DELIVERY',$this->amount,$this->order_number).'<br/>'.
+		SoftWayText::_('THANK_YOU_FOR_PURCHASE');?>
 	</span>
 </div>
 <?php

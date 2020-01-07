@@ -106,7 +106,7 @@ abstract class HtmlNumber
 		}
 
 		return number_format(
-			round($oBytes / pow($base, $i), (int) $precision), (int) $precision, WoobookingText::_('DECIMALS_SEPARATOR'), WoobookingText::_('THOUSANDS_SEPARATOR')
+			round($oBytes / pow($base, $i), (int) $precision), (int) $precision, SoftWayText::_('DECIMALS_SEPARATOR'), SoftWayText::_('THOUSANDS_SEPARATOR')
 		) . ' ' . $suffix;
 	}
 }

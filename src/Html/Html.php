@@ -519,12 +519,12 @@ abstract class Html
 		// If no format is given use the default locale based format.
 		if (!$format)
 		{
-			$format = \WoobookingText::_('DATE_FORMAT_LC1');
+			$format = \SoftWayText::_('DATE_FORMAT_LC1');
 		}
 		// $format is an existing language key
 		elseif (Factory::getLanguage()->hasKey($format))
 		{
-			$format = \WoobookingText::_($format);
+			$format = \SoftWayText::_($format);
 		}
 
 		if ($gregorian)
@@ -612,7 +612,7 @@ abstract class Html
 	 *
 	 * @param   string   $title      The title of the tooltip (or combined '::' separated string).
 	 * @param   string   $content    The content to tooltip.
-	 * @param   boolean  $translate  If true will pass texts through WoobookingText.
+	 * @param   boolean  $translate  If true will pass texts through SoftWayText.
 	 * @param   boolean  $escape     If true will pass texts through htmlspecialchars.
 	 *
 	 * @return  string  The tooltip string
@@ -633,11 +633,11 @@ abstract class Html
 				list($title, $content) = explode('::', $title, 2);
 			}
 
-			// Pass texts through WoobookingText if required.
+			// Pass texts through SoftWayText if required.
 			if ($translate)
 			{
-				$title = \WoobookingText::_($title);
-				$content = \WoobookingText::_($content);
+				$title = \SoftWayText::_($title);
+				$content = \SoftWayText::_($content);
 			}
 
 			// Use only the content if no title is given.

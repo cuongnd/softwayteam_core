@@ -9,7 +9,7 @@
 defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_paybox_end" id="hikashop_paybox_end">
 	<span id="hikashop_paybox_end_message" class="hikashop_paypal_end_message">
-		<?php echo WoobookingText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X', $this->payment_name).'<br/>'. WoobookingText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>
+		<?php echo SoftWayText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X', $this->payment_name).'<br/>'. SoftWayText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>
 	</span>
 	<span id="hikashop_paybox_end_spinner" class="hikashop_paybox_end_spinner hikashop_checkout_end_spinner">
 	</span>
@@ -22,7 +22,7 @@ foreach($this->vars as $key => $value) {
 JRequest::setVar('noform',1);
 ?>
 		<div id="hikashop_paybox_end_image" class="hikashop_paybox_end_image">
-			<input id="hikashop_paybox_button" type="submit" class="btn btn-primary" value="<?php echo WoobookingText::_('PAY_NOW');?>" alt="<?php echo WoobookingText::_('PAY_NOW');?>" />
+			<input id="hikashop_paybox_button" type="submit" class="btn btn-primary" value="<?php echo SoftWayText::_('PAY_NOW');?>" alt="<?php echo SoftWayText::_('PAY_NOW');?>" />
 		</div>
 	</form>
 <script type="text/javascript">

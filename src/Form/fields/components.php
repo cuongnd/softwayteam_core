@@ -59,7 +59,7 @@ class FormFieldComponents extends JFormFieldList
 					|| $lang->load("$extension.sys", JPATH_ADMINISTRATOR . '/components/' . $extension, null, false, true);
 
 				// Translate component name
-				$item->text = WoobookingText::_($item->text);
+				$item->text = SoftWayText::_($item->text);
 			}
 
 			// Sort by component name

@@ -147,20 +147,20 @@ class WBPaymentPaypal extends WBPayment
         $order_id = $dbOrder->order_id;
 
         $url = HIKASHOP_LIVE . 'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id=' . $order_id;
-        $order_text = "\r\n" . WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
-        $order_text .= "\r\n" . str_replace('<br/>', "\r\n", WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
+        $order_text = "\r\n" . SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
+        $order_text .= "\r\n" . str_replace('<br/>', "\r\n", SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
 
         if (!empty($this->payment_params->ips)) {
             $ip = hikashop_getIP();
             $ips = str_replace(array('.', '*', ','), array('\.', '[0-9]+', '|'), $this->payment_params->ips);
             if (!preg_match('#(' . implode('|', $ips) . ')#', $ip)) {
                 $email = new stdClass();
-                $email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' ' . WoobookingText::sprintf('IP_NOT_VALID', $dbOrder->order_number);
-                $email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('NOTIFICATION_REFUSED_FROM_IP', 'Paypal', $ip, implode("\r\n", $this->payment_params->ips))) . "\r\n\r\n" . WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#ip') . $order_text;
+                $email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' ' . SoftWayText::sprintf('IP_NOT_VALID', $dbOrder->order_number);
+                $email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('NOTIFICATION_REFUSED_FROM_IP', 'Paypal', $ip, implode("\r\n", $this->payment_params->ips))) . "\r\n\r\n" . SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#ip') . $order_text;
                 $action = false;
                 $this->modifyOrder($action, null, null, $email);
 
-                JError::raiseError(403, WoobookingText::_('Access Forbidden'));
+                JError::raiseError(403, SoftWayText::_('Access Forbidden'));
                 return false;
             }
         }
@@ -191,12 +191,12 @@ class WBPaymentPaypal extends WBPayment
         $fp = fsockopen($url['host_socket'], $url['port'], $errno, $errstr, 30);
         if (!$fp) {
             $email = new stdClass();
-            $email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' ' . WoobookingText::sprintf('PAYPAL_CONNECTION_FAILED', $dbOrder->order_number);
-            $email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('NOTIFICATION_REFUSED_NO_CONNECTION', 'Paypal')) . "\r\n\r\n" . WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#connection') . $order_text;
+            $email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' ' . SoftWayText::sprintf('PAYPAL_CONNECTION_FAILED', $dbOrder->order_number);
+            $email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('NOTIFICATION_REFUSED_NO_CONNECTION', 'Paypal')) . "\r\n\r\n" . SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#connection') . $order_text;
             $action = false;
             $this->modifyOrder($action, null, null, $email);
 
-            JError::raiseError(403, WoobookingText::_('Access Forbidden'));
+            JError::raiseError(403, SoftWayText::_('Access Forbidden'));
             return false;
         }
 
@@ -230,13 +230,13 @@ class WBPaymentPaypal extends WBPayment
         if (!$verified) {
             $email = new stdClass();
             if (preg_match('#INVALID#i', $response)) {
-                $email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . 'invalid transaction';
-                $email->body = WoobookingText::sprintf("Hello,\r\n A paypal notification was refused because it could not be verified by the paypal server") . "\r\n\r\n" . WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#invalidtnx') . $order_text;
+                $email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . 'invalid transaction';
+                $email->body = SoftWayText::sprintf("Hello,\r\n A paypal notification was refused because it could not be verified by the paypal server") . "\r\n\r\n" . SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#invalidtnx') . $order_text;
                 if ($this->payment_params->debug)
                     echo 'invalid transaction' . "\n\n\n";
             } else {
-                $email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . 'invalid response';
-                $email->body = WoobookingText::sprintf("Hello,\r\n A paypal notification was refused because the response from the paypal server was invalid") . "\r\n\r\n" . WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#invalidresponse') . $order_text;
+                $email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . 'invalid response';
+                $email->body = SoftWayText::sprintf("Hello,\r\n A paypal notification was refused because the response from the paypal server was invalid") . "\r\n\r\n" . SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#invalidresponse') . $order_text;
 
                 if ($this->payment_params->debug)
                     echo 'invalid response' . "\n\n\n";
@@ -250,8 +250,8 @@ class WBPaymentPaypal extends WBPayment
         $pending = preg_match('#Pending#i', $vars['payment_status']);
         if (!$completed && !$pending) {
             $email = new stdClass();
-            $email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paypal', $vars['payment_status'], $dbOrder->order_number);
-            $email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paypal', $vars['payment_status'])) . ' ' . WoobookingText::_('STATUS_NOT_CHANGED') . "\r\n\r\n" . WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#status') . $order_text;
+            $email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paypal', $vars['payment_status'], $dbOrder->order_number);
+            $email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paypal', $vars['payment_status'])) . ' ' . SoftWayText::_('STATUS_NOT_CHANGED') . "\r\n\r\n" . SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#status') . $order_text;
             $action = false;
             $this->modifyOrder($action, null, null, $email);
 
@@ -270,15 +270,15 @@ class WBPaymentPaypal extends WBPayment
         $price_check = round($dbOrder->order_full_price, (int)$this->currency->currency_locale['int_frac_digits']);
         if ($price_check != @$vars['mc_gross'] || $this->currency->currency_code != @$vars['mc_currency']) {
             $email = new stdClass();
-            $email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . WoobookingText::_('INVALID_AMOUNT');
-            $email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER', 'Paypal', $history->amount, $price_check . $this->currency->currency_code)) . "\r\n\r\n" . WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#amount') . $order_text;
+            $email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . SoftWayText::_('INVALID_AMOUNT');
+            $email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER', 'Paypal', $history->amount, $price_check . $this->currency->currency_code)) . "\r\n\r\n" . SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#amount') . $order_text;
 
             $this->modifyOrder($order_id, $this->payment_params->invalid_status, $history, $email);
             return false;
         }
         if (strtolower(@$vars['receiver_email']) != strtolower($this->payment_params->email) && strtolower(@$vars['business']) != strtolower($this->payment_params->email)) {
             $email = new stdClass();
-            $email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . 'wrong receiver';
+            $email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . 'wrong receiver';
             $email->body = str_replace('<br/>', "\r\n", 'The money was sent to the wrong PayPal account, likely due to the customer trying to cheat.' . "\r\n" .
                 'Notification receiver: ' . @$vars['receiver_email'] . "\r\n" .
                 'Notification business: ' . @$vars['business'] . "\r\n" .
@@ -293,7 +293,7 @@ class WBPaymentPaypal extends WBPayment
             $order_status = $this->payment_params->verified_status;
         } else {
             $order_status = $this->payment_params->pending_status;
-            $order_text = WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#pending') . "\r\n\r\n" . $order_text;
+            $order_text = SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#pending') . "\r\n\r\n" . $order_text;
         }
         if ($dbOrder->order_status == $order_status)
             return true;
@@ -304,8 +304,8 @@ class WBPaymentPaypal extends WBPayment
         }
 
         $email = new stdClass();
-        $email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paypal', $vars['payment_status'], $dbOrder->order_number);
-        $email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paypal', $vars['payment_status'])) . ' ' . WoobookingText::sprintf('ORDER_STATUS_CHANGED', $order_status) . "\r\n\r\n" . $order_text;
+        $email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paypal', $vars['payment_status'], $dbOrder->order_number);
+        $email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paypal', $vars['payment_status'])) . ' ' . SoftWayText::sprintf('ORDER_STATUS_CHANGED', $order_status) . "\r\n\r\n" . $order_text;
 
         $this->modifyOrder($order_id, $order_status, $history, $email);
         return true;
@@ -327,7 +327,7 @@ class WBPaymentPaypal extends WBPayment
             $app = JFactory::getApplication();
             $lang = JFactory::getLanguage();
             $locale = strtolower(substr($lang->get('tag'), 0, 2));
-            $app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPal', WoobookingText::_('HIKA_EMAIL'), 'PayPal', 'https://www.paypal.com/' . $locale . '/mrb/pal=SXL9FKNKGAEM8'));
+            $app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPal', SoftWayText::_('HIKA_EMAIL'), 'PayPal', 'https://www.paypal.com/' . $locale . '/mrb/pal=SXL9FKNKGAEM8'));
         }
     }
 

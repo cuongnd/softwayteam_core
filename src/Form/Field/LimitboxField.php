@@ -12,7 +12,7 @@ defined('_SOFT_WAY_EXEC') or die;
 
 use SoftWay\CMS\Form\FormHelper;
 use  SoftWay\CMS\Form\fields\FormFieldList;
-use WoobookingText;
+use SoftWayText;
 FormHelper::loadFieldClass('list');
 
 /**
@@ -99,7 +99,7 @@ class LimitboxField extends FormFieldList
 				{
 					$options[] = (object) array(
 						'value' => $value,
-						'text' => ($value != 0) ? WoobookingText::_('SoftWay' . $value) : WoobookingText::_('JALL'),
+						'text' => ($value != 0) ? SoftWayText::_('SoftWay' . $value) : SoftWayText::_('JALL'),
 					);
 				}
 

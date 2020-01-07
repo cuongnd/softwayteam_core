@@ -69,17 +69,17 @@ class WBPaymentCreditcard extends WBPayment
 				$data = hikashop_unserialize(base64_decode($history->history_data));
 				$string='';
 				if(!empty($data->cc_type)){
-					$string.= WoobookingText::_('CARD_TYPE').': '.$data->cc_type.'<br />';
+					$string.= SoftWayText::_('CARD_TYPE').': '.$data->cc_type.'<br />';
 				}
-				$string.= WoobookingText::_('DATE').': '.$data->cc_month.'/'.$data->cc_year.'<br />';
-				$string.= WoobookingText::_('BEGINNING_OF_CREDIT_CARD_NUMBER').': '.$data->cc_number.'<br />';
+				$string.= SoftWayText::_('DATE').': '.$data->cc_month.'/'.$data->cc_year.'<br />';
+				$string.= SoftWayText::_('BEGINNING_OF_CREDIT_CARD_NUMBER').': '.$data->cc_number.'<br />';
 				$string.='<a href="'.hikashop_completeLink('order&task=remove_history_data&history_id='.$history->history_id).'"><img src="'.HIKASHOP_IMAGES.'delete.png" /></a>';
 				$histories[$k]->history_data = $string;
 				static $done = false;
 				if(!$done){
 					$done = true;
 					$app = JFactory::getApplication();
-					$app->enqueueMessage(WoobookingText::_('CREDITCARD_WARNING'));
+					$app->enqueueMessage(SoftWayText::_('CREDITCARD_WARNING'));
 				}
 			}
 		}
@@ -96,7 +96,7 @@ class WBPaymentCreditcard extends WBPayment
 
 		$this->information = $method->payment_params->information;
 		if(preg_match('#^[a-z0-9_]*$#i',$this->information)){
-			$this->information = WoobookingText::_($this->information);
+			$this->information = SoftWayText::_($this->information);
 		}
 
 		return $this->showPage('end');

@@ -27,6 +27,6 @@ if($this->payment_params->type == 'iframe'){
 			$doc->addScriptDeclaration("window.hikashop.ready( function() {document.getElementById('hikashop_paypaladvanced_form').submit();});");
 			JRequest::setVar('noform',1);
 		?>
-		<input id="hikashop_paypaladvanced_button" type="submit" class="btn btn-primary" value="<?php echo WoobookingText::_('PAY_NOW');?>" name="" alt="<?php echo WoobookingText::_('PAY_NOW');?>" />
+		<input id="hikashop_paypaladvanced_button" type="submit" class="btn btn-primary" value="<?php echo SoftWayText::_('PAY_NOW');?>" name="" alt="<?php echo SoftWayText::_('PAY_NOW');?>" />
 	</form>
 <?php } ?>

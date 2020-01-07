@@ -9,7 +9,7 @@
 namespace SoftWay\CMS\Form\fields;
 defined('_SOFT_WAY_EXEC') or die;
 use SoftWay\CMS\Form\FormField;
-use WoobookingText;
+use SoftWayText;
 use SoftWay\CMS\Html\Html;
 use SimpleXMLElement;
 /**
@@ -144,7 +144,7 @@ class FormFieldRate extends FormField
 
 			if (!empty($inputmode))
 			{
-				$defaultInputmode = in_array('default', $inputmode) ? WoobookingText::_('JLIB_FORM_INPUTMODE') . ' ' : '';
+				$defaultInputmode = in_array('default', $inputmode) ? SoftWayText::_('JLIB_FORM_INPUTMODE') . ' ' : '';
 
 				foreach (array_keys($inputmode, 'default') as $key)
 				{
@@ -204,7 +204,7 @@ class FormFieldRate extends FormField
 			{
 				$value = (string) $value;
 
-				$this->hint = WoobookingText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', $value);
+				$this->hint = SoftWayText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', $value);
 			}
 		}
 
@@ -233,7 +233,7 @@ class FormFieldRate extends FormField
 			// Create a new option object based on the <option /> element.
 			$options[] = Html::_(
 				'select.option', (string) $option['value'],
-				WoobookingText::alt(trim((string) $option), preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)), 'value', 'text'
+				SoftWayText::alt(trim((string) $option), preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)), 'value', 'text'
 			);
 		}
 

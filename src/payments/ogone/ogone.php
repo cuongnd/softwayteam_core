@@ -60,17 +60,17 @@ class WBPaymentOgone extends WBPayment
 
 		if(empty($element->payment_params->pspid)) {
 			$app = JFactory::getApplication();
-			$app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED','Ogone','PSPID','Ogone','http://www.ogone.com/en/sitecore/Content/COM/Web/Solutions/Payment%20Processing/eCommerce.aspx'));
+			$app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED','Ogone','PSPID','Ogone','http://www.ogone.com/en/sitecore/Content/COM/Web/Solutions/Payment%20Processing/eCommerce.aspx'));
 		}
 
 		$this->pluginConfig['status_url'][2] = htmlentities(HIKASHOP_LIVE.'index.php?option=com_hikashop&ctrl=checkout&task=notify&notif_payment=ogone&tmpl=component&lang='.strtolower($locale));
 
 		if( !function_exists('hash') && !function_exists('sha1') )
-			$this->pluginConfig['hash_method'][2]['sha1'] = WoobookingText::_('SHA1').' '.WoobookingText::_('not present');
+			$this->pluginConfig['hash_method'][2]['sha1'] = SoftWayText::_('SHA1').' '.SoftWayText::_('not present');
 
 		if( !function_exists('hash') ) {
-			$this->pluginConfig['hash_method'][2]['sha256'] = WoobookingText::_('SHA256').' '.WoobookingText::_('not present');
-			$this->pluginConfig['hash_method'][2]['sha512'] = WoobookingText::_('SHA512').' '.WoobookingText::_('not present');
+			$this->pluginConfig['hash_method'][2]['sha256'] = SoftWayText::_('SHA256').' '.SoftWayText::_('not present');
+			$this->pluginConfig['hash_method'][2]['sha512'] = SoftWayText::_('SHA512').' '.SoftWayText::_('not present');
 		}
 	}
 
@@ -203,8 +203,8 @@ class WBPaymentOgone extends WBPayment
 		$vars['GENERATEDHASH'] = $this->generateHash($_REQUEST, $this->payment_params->shaout_passphrase, $this->payment_params->hash_method, 'out');
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$history = new stdClass();
 		$email = new stdClass();
@@ -237,8 +237,8 @@ class WBPaymentOgone extends WBPayment
 				$order_text = ' The Hashs didn\'t match. Received: '.$vars['SHASIGN']. ' and generated: '.$vars['GENERATEDHASH']."\n\n\n"."\n\n\n".ob_get_clean()."\n\n\n"."\n\n\n".$order_text;
 				ob_start();
 			}
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Ogone') . 'invalid transaction';
-			$email->body = WoobookingText::sprintf("Hello,\r\n An Ogone payment notification was not validated. The status code was :" . $vars['STATUS']) . $order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Ogone') . 'invalid transaction';
+			$email->body = SoftWayText::sprintf("Hello,\r\n An Ogone payment notification was not validated. The status code was :" . $vars['STATUS']) . $order_text;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, false, $email);
 
@@ -300,8 +300,8 @@ class WBPaymentOgone extends WBPayment
 			$history->notified = 1;
 
 	 	$mail_status = $statuses[$order->order_status];
-	 	$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Ogone', $vars['STATUS'], $dbOrder->order_number);
-		$email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Ogone', $vars['STATUS'])) . ' ' . WoobookingText::sprintf('ORDER_STATUS_CHANGED', $mail_status) . "\r\n\r\n" . $order_text;
+	 	$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Ogone', $vars['STATUS'], $dbOrder->order_number);
+		$email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Ogone', $vars['STATUS'])) . ' ' . SoftWayText::sprintf('ORDER_STATUS_CHANGED', $mail_status) . "\r\n\r\n" . $order_text;
 
 		$this->modifyOrder($order_id, $order_status, $history, $email, $payment_params);
 

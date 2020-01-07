@@ -172,7 +172,7 @@ window.hikashop.ready( function() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]">
-			<?php echo WoobookingText::_( 'DEBUG' ); ?>
+			<?php echo SoftWayText::_( 'DEBUG' ); ?>
 		</label>
 	</td>
 	<td>
@@ -182,7 +182,7 @@ window.hikashop.ready( function() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][cancel_url]">
-			<?php echo WoobookingText::_( 'CANCEL_URL' ); ?>
+			<?php echo SoftWayText::_( 'CANCEL_URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -192,7 +192,7 @@ window.hikashop.ready( function() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][return_url]">
-			<?php echo WoobookingText::_( 'RETURN_URL' ); ?>
+			<?php echo SoftWayText::_( 'RETURN_URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -202,7 +202,7 @@ window.hikashop.ready( function() {
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]">
-			<?php echo WoobookingText::_( 'VERIFIED_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'VERIFIED_STATUS' ); ?>
 		</label>
 	</td>
 	<td>

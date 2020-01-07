@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><tr>
 	<td class="key">
 		<label for="params[payment_params][pspid]">
-			<?php echo WoobookingText::_('PSPID'); ?>
+			<?php echo SoftWayText::_('PSPID'); ?>
 		</label>
 	</td>
 	<td>
@@ -40,23 +40,23 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][hash_method]">
-			<?php echo WoobookingText::_( 'HASH_METHOD' ); ?>
+			<?php echo SoftWayText::_( 'HASH_METHOD' ); ?>
 		</label>
 	</td>
 	<td>
 		<?php
 		$values = array();
 		if( function_exists('hash') || function_exists('sha1') ) {
-			$values[] = Html::_('select.option', 'sha1',WoobookingText::_('SHA1'));
+			$values[] = Html::_('select.option', 'sha1',SoftWayText::_('SHA1'));
 		} else {
-			$values[] = Html::_('select.option', 'sha1',WoobookingText::_('SHA1').' '.WoobookingText::_('not present'), 'value', 'text', true);
+			$values[] = Html::_('select.option', 'sha1',SoftWayText::_('SHA1').' '.SoftWayText::_('not present'), 'value', 'text', true);
 		}
 		if( function_exists('hash')){
-			$values[] = Html::_('select.option', 'sha256',WoobookingText::_('SHA256'));
-			$values[] = Html::_('select.option', 'sha512',WoobookingText::_('SHA512'));
+			$values[] = Html::_('select.option', 'sha256',SoftWayText::_('SHA256'));
+			$values[] = Html::_('select.option', 'sha512',SoftWayText::_('SHA512'));
 		}else{
-			$values[] = Html::_('select.option', 'sha256',WoobookingText::_('SHA256').' '.WoobookingText::_('not present'), 'value', 'text', true);
-			$values[] = Html::_('select.option', 'sha512',WoobookingText::_('SHA512').' '.WoobookingText::_('not present'), 'value', 'text', true);
+			$values[] = Html::_('select.option', 'sha256',SoftWayText::_('SHA256').' '.SoftWayText::_('not present'), 'value', 'text', true);
+			$values[] = Html::_('select.option', 'sha512',SoftWayText::_('SHA512').' '.SoftWayText::_('not present'), 'value', 'text', true);
 		}
 
 		echo Html::_('select.genericlist',   $values, "params[payment_params][hash_method]" , 'class="inputbox" size="1"', 'value', 'text', @$this->element->payment_params->hash_method ); ?>
@@ -65,14 +65,14 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][environnement]">
-			<?php echo WoobookingText::_( 'ENVIRONNEMENT' ); ?>
+			<?php echo SoftWayText::_( 'ENVIRONNEMENT' ); ?>
 		</label>
 	</td>
 	<td>
 		<?php
 		$values = array();
-		$values[] = Html::_('select.option', 'production', WoobookingText::_('HIKA_PRODUCTION'));
-		$values[] = Html::_('select.option', 'test', WoobookingText::_('HIKA_TEST'));
+		$values[] = Html::_('select.option', 'production', SoftWayText::_('HIKA_PRODUCTION'));
+		$values[] = Html::_('select.option', 'test', SoftWayText::_('HIKA_TEST'));
 
 		echo Html::_('select.genericlist',   $values, "params[payment_params][environnement]" , 'class="inputbox" size="1"', 'value', 'text', @$this->element->payment_params->environnement ); ?>
 	</td>
@@ -90,7 +90,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]">
-			<?php echo WoobookingText::_( 'DEBUG' ); ?>
+			<?php echo SoftWayText::_( 'DEBUG' ); ?>
 		</label>
 	</td>
 	<td>
@@ -100,7 +100,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][cancel_url]">
-			<?php echo WoobookingText::_( 'CANCEL_URL' ); ?>
+			<?php echo SoftWayText::_( 'CANCEL_URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -110,7 +110,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][return_url]">
-			<?php echo WoobookingText::_( 'RETURN_URL' ); ?>
+			<?php echo SoftWayText::_( 'RETURN_URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -120,7 +120,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][invalid_status]">
-			<?php echo WoobookingText::_( 'INVALID_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'INVALID_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -130,7 +130,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][pending_status]">
-			<?php echo WoobookingText::_( 'PENDING_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'PENDING_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -140,7 +140,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]">
-			<?php echo WoobookingText::_( 'VERIFIED_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'VERIFIED_STATUS' ); ?>
 		</label>
 	</td>
 	<td>

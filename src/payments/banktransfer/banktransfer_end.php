@@ -18,24 +18,24 @@ $pay_else=$this->order->cart->order_full_price-$order_payment_deposit_value;
 $pay_else_format = $currencyHelper->format($pay_else,$currency_id);
 defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?>
-    <p><?php echo WoobookingText::_('ORDER_IS_COMPLETE') ?></p>
+    <p><?php echo SoftWayText::_('ORDER_IS_COMPLETE') ?></p>
     <div class="hikashop_banktransfer_end" id="hikashop_banktransfer_end">
         <div class="hikashop_banktransfer_end_message" id="hikashop_banktransfer_end_message">
-            <p><?php echo WoobookingText::sprintf('ORDER_CREATED', $this->order->order_number); ?></p>
+            <p><?php echo SoftWayText::sprintf('ORDER_CREATED', $this->order->order_number); ?></p>
             <?php if ($payment_deposit == 1 && $order_deposit_level_selected == "partial_payment") { ?>
-                <p><?php echo WoobookingText::sprintf('PLEASE_TRANSFERT_MONEY_DEPOSIT', $order_payment_deposit_value_format); ?></p>
-                <p><?php echo WoobookingText::sprintf('BANK_TRANSFER_CONTENT'); ?>:</p>
-                <p><b><?php echo WoobookingText::sprintf('BANK_TRANSFER_FOR_ORDER_NUMBER', $this->order->order_number); ?></b></p>
+                <p><?php echo SoftWayText::sprintf('PLEASE_TRANSFERT_MONEY_DEPOSIT', $order_payment_deposit_value_format); ?></p>
+                <p><?php echo SoftWayText::sprintf('BANK_TRANSFER_CONTENT'); ?>:</p>
+                <p><b><?php echo SoftWayText::sprintf('BANK_TRANSFER_FOR_ORDER_NUMBER', $this->order->order_number); ?></b></p>
                 <p><?php echo $this->information ?></p>
-                <p><b><?php echo WoobookingText::sprintf('THE_AMOUNT_YOU_OWE_WE_WILL_COLLECT_UPON_DELIVERY_TO_YOU', $pay_else_format); ?></b></p>
+                <p><b><?php echo SoftWayText::sprintf('THE_AMOUNT_YOU_OWE_WE_WILL_COLLECT_UPON_DELIVERY_TO_YOU', $pay_else_format); ?></b></p>
             <?php } else { ?>
-                <p><?php echo WoobookingText::sprintf('PLEASE_TRANSFERT_MONEY', $this->amount); ?></p>
-                <p><?php echo WoobookingText::sprintf('BANK_TRANSFER_CONTENT'); ?>:</p>
-                <p><b><?php echo WoobookingText::sprintf('BANK_TRANSFER_FOR_ORDER_NUMBER', $this->order->order_number); ?></b></p>
+                <p><?php echo SoftWayText::sprintf('PLEASE_TRANSFERT_MONEY', $this->amount); ?></p>
+                <p><?php echo SoftWayText::sprintf('BANK_TRANSFER_CONTENT'); ?>:</p>
+                <p><b><?php echo SoftWayText::sprintf('BANK_TRANSFER_FOR_ORDER_NUMBER', $this->order->order_number); ?></b></p>
                 <p><?php echo $this->information ?></p>
             <?php } ?>
-            <p><a target="_blank" href="/index.php?option=com_hikashop&ctrl=order&task=show_oder_number&cid[]=<?php echo $this->order->order_number ?>"><?php echo WoobookingText::_('Nhấn vào đây để xem chi tiết đơn hàng của bạn') ?></a></p>
-            <p><b><?php echo WoobookingText::_('THANK_YOU_FOR_PURCHASE'); ?></b></p>
+            <p><a target="_blank" href="/index.php?option=com_hikashop&ctrl=order&task=show_oder_number&cid[]=<?php echo $this->order->order_number ?>"><?php echo SoftWayText::_('Nhấn vào đây để xem chi tiết đơn hàng của bạn') ?></a></p>
+            <p><b><?php echo SoftWayText::_('THANK_YOU_FOR_PURCHASE'); ?></b></p>
         </div>
     </div>
 <?php
@@ -46,4 +46,4 @@ if (!empty($this->return_url)) {
 ?>
 <p></p>
 <p></p>
-<p style="text-align: center"><a href="/index.php" class="btn btn-primary"><?php echo WoobookingText::_('CLICK_HERE_BACK_TO_HOME_PAGE') ?></a></p>
+<p style="text-align: center"><a href="/index.php" class="btn btn-primary"><?php echo SoftWayText::_('CLICK_HERE_BACK_TO_HOME_PAGE') ?></a></p>

@@ -13,7 +13,7 @@ defined('_SOFT_WAY_EXEC') or die;
  *
  * @since  11.1
  */
-class WoobookingText
+class SoftWayText
 {
 	/**
 	 * JavaScript strings
@@ -26,9 +26,9 @@ class WoobookingText
 	 * Translates a string into the current language.
 	 *
 	 * Examples:
-	 * `<script>alert(softwaycore.WoobookingText._('<?php echo WoobookingText::_("JDEFAULT", array("script"=>true)); ?>'));</script>`
+	 * `<script>alert(softwaycore.SoftWayText._('<?php echo SoftWayText::_("JDEFAULT", array("script"=>true)); ?>'));</script>`
 	 * will generate an alert message containing 'Default'
-	 * `<?php echo WoobookingText::_("JDEFAULT"); ?>` will generate a 'Default' string
+	 * `<?php echo SoftWayText::_("JDEFAULT"); ?>` will generate a 'Default' string
 	 *
 	 * @param   string   $string                The string to translate.
 	 * @param   mixed    $jsSafe                Boolean: Make the result javascript safe.
@@ -78,7 +78,7 @@ class WoobookingText
             $com=strtolower($com);
             $lang->load($com);
         }
-        return WoobookingText::_($string);
+        return SoftWayText::_($string);
 	}
 	/**
 	 * Checks the string if it should be interpreted as sprintf and runs sprintf over it.
@@ -101,7 +101,7 @@ class WoobookingText
 		}
 		$lang = Factory::getLanguage();
 		$string_parts = explode(',', $string);
-		// Pass all parts through the WoobookingText translator
+		// Pass all parts through the SoftWayText translator
 		foreach ($string_parts as $i => $str)
 		{
 			$string_parts[$i] = $lang->_($str, $jsSafe, $interpretBackSlashes);
@@ -134,8 +134,8 @@ class WoobookingText
 	 * Translates a string into the current language.
 	 *
 	 * Examples:
-	 * `<?php echo WoobookingText::alt('JALL', 'language'); ?>` will generate a 'All' string in English but a "Toutes" string in French
-	 * `<?php echo WoobookingText::alt('JALL', 'module'); ?>` will generate a 'All' string in English but a "Tous" string in French
+	 * `<?php echo SoftWayText::alt('JALL', 'language'); ?>` will generate a 'All' string in English but a "Toutes" string in French
+	 * `<?php echo SoftWayText::alt('JALL', 'module'); ?>` will generate a 'All' string in English but a "Tous" string in French
 	 *
 	 * @param   string   $string                The string to translate.
 	 * @param   string   $alt                   The alternate option for global string
@@ -157,7 +157,7 @@ class WoobookingText
 		return self::_($string, $jsSafe, $interpretBackSlashes, $script);
 	}
 	/**
-	 * Like WoobookingText::sprintf but tries to pluralise the string.
+	 * Like SoftWayText::sprintf but tries to pluralise the string.
 	 *
 	 * Note that this method can take a mixed number of arguments as for the sprintf function.
 	 *
@@ -172,9 +172,9 @@ class WoobookingText
 	 * script is a boolean to indicate that the string will be push in the javascript language store.
 	 *
 	 * Examples:
-	 * `<script>alert(softwaycore.WoobookingText._('<?php echo WoobookingText::plural("COM_PLUGINS_N_ITEMS_UNPUBLISHED", 1, array("script"=>true)); ?>'));</script>`
+	 * `<script>alert(softwaycore.SoftWayText._('<?php echo SoftWayText::plural("COM_PLUGINS_N_ITEMS_UNPUBLISHED", 1, array("script"=>true)); ?>'));</script>`
 	 * will generate an alert message containing '1 plugin successfully disabled'
-	 * `<?php echo WoobookingText::plural('COM_PLUGINS_N_ITEMS_UNPUBLISHED', 1); ?>` will generate a '1 plugin successfully disabled' string
+	 * `<?php echo SoftWayText::plural('COM_PLUGINS_N_ITEMS_UNPUBLISHED', 1); ?>` will generate a '1 plugin successfully disabled' string
 	 *
 	 * @param   string   $string  The format string.
 	 * @param   integer  $n       The number of items
@@ -364,7 +364,7 @@ class WoobookingText
 	/**
 	 * Translate a string into the current language and stores it in the JavaScript language store.
 	 *
-	 * @param   string   $string                The WoobookingText key.
+	 * @param   string   $string                The SoftWayText key.
 	 * @param   boolean  $jsSafe                Ensure the output is JavaScript safe.
 	 * @param   boolean  $interpretBackSlashes  Interpret \t and \n.
 	 *

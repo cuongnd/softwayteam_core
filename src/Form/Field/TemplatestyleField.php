@@ -172,7 +172,7 @@ class TemplatestyleField extends FormFieldGroupedList
 				$template = $style->template;
 				$lang->load('tpl_' . $template . '.sys', $client->path, null, false, true)
 					|| $lang->load('tpl_' . $template . '.sys', $client->path . '/templates/' . $template, null, false, true);
-				$name = WoobookingText::_($style->name);
+				$name = SoftWayText::_($style->name);
 
 				// Initialize the group if necessary.
 				if (!isset($groups[$name]))

@@ -9,7 +9,7 @@
 namespace SoftWay\CMS\Form\fields;
 defined('_SOFT_WAY_EXEC') or die;
 use SoftWay\CMS\Form\FormHelper;
-use WoobookingText;
+use SoftWayText;
 FormHelper::loadFieldClass('list');
 
 /**
@@ -77,7 +77,7 @@ abstract class FormFieldPredefinedList extends FormFieldList
 			{
 				if (empty($filter) || in_array($value, $filter))
 				{
-					$text = $this->translate ? WoobookingText::_($text) : $text;
+					$text = $this->translate ? SoftWayText::_($text) : $text;
 
 					$options[] = (object) array(
 						'value' => $value,

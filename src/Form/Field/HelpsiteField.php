@@ -68,7 +68,7 @@ class HelpsiteField extends FormFieldList
 						rel="' . $this->id . '"
 						showDefault="' . $showDefault . '"
 					>
-					<span>' . WoobookingText::_('JGLOBAL_HELPREFRESH_BUTTON') . '</span>
+					<span>' . SoftWayText::_('JGLOBAL_HELPREFRESH_BUTTON') . '</span>
 					</button>';
 
 		return $html . $button;

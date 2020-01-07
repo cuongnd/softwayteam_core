@@ -9,11 +9,11 @@
 defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_westernunion_end" id="hikashop_westernunion_end">
 	<span class="hikashop_westernunion_end_message" id="hikashop_westernunion_end_message">
-		<?php echo WoobookingText::_('ORDER_IS_COMPLETE').'<br/>'.
-		WoobookingText::sprintf('PLEASE_TRANSFERT_MONEY',$this->amount).'<br/>'.
+		<?php echo SoftWayText::_('ORDER_IS_COMPLETE').'<br/>'.
+		SoftWayText::sprintf('PLEASE_TRANSFERT_MONEY',$this->amount).'<br/>'.
 		$this->information.'<br/>'.
-		WoobookingText::sprintf('INCLUDE_ORDER_NUMBER_TO_TRANSFER',$this->order_number).'<br/>'.
-		WoobookingText::_('THANK_YOU_FOR_PURCHASE');?>
+		SoftWayText::sprintf('INCLUDE_ORDER_NUMBER_TO_TRANSFER',$this->order_number).'<br/>'.
+		SoftWayText::_('THANK_YOU_FOR_PURCHASE');?>
 	</span>
 </div>
 <?php

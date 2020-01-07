@@ -31,7 +31,7 @@ class WBPaymentBe2Bill extends WBPayment
 
 	function __construct(&$subject, $config)
 	{
-		$this->pluginConfig['notification'][0] =  WoobookingText::sprintf('ALLOW_NOTIFICATIONS_FROM_X','Be2Bill');
+		$this->pluginConfig['notification'][0] =  SoftWayText::sprintf('ALLOW_NOTIFICATIONS_FROM_X','Be2Bill');
 		$this->pluginConfig['cancel_url'][2] = HIKASHOP_LIVE."index.php?option=com_hikashop&ctrl=order&task=cancel_order";
 		$this->pluginConfig['return_url'][2] = HIKASHOP_LIVE."index.php?option=com_hikashop&ctrl=checkout&task=after_end";
 		$this->pluginConfig['notify_url'][2] = HIKASHOP_LIVE.'index.php?option=com_hikashop&ctrl=checkout&task=notify&amp;notif_payment='.$this->name.'&tmpl=component';
@@ -110,7 +110,7 @@ class WBPaymentBe2Bill extends WBPayment
 			<input type="hidden" name="ecommerce-platform" value="Hikashop" />
 			</form>';
 			$doc->addScriptDeclaration($js);
-			$app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'Be2bill', 'identifer', 'Be2bill', '').$form);
+			$app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'Be2bill', 'identifer', 'Be2bill', '').$form);
 		}
 
 	}

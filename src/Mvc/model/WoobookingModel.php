@@ -7,7 +7,7 @@ use SoftWay\CMS\Filesystem\Path;
 use SoftWay\CMS\Object\CMSObject;
 use SoftWay\CMS\FOFInput\FOFInput;
 
-class WoobookingModel extends BaseDatabaseModel
+class SoftWayModel extends BaseDatabaseModel
 {
     public $model = "";
     public $modelItem = "";
@@ -53,7 +53,7 @@ class WoobookingModel extends BaseDatabaseModel
         if (file_exists($model_path)) {
             require_once $model_path;
             $model_name = "{$model}Model";
-            $model_class = WoobookingModel::getInstance($model);
+            $model_class = SoftWayModel::getInstance($model);
             $model_class->model = $model;
             return $model_class;
         } else {
@@ -75,7 +75,7 @@ class WoobookingModel extends BaseDatabaseModel
         if (file_exists($model_path)) {
             require_once $model_path;
             $model_name = "{$model}Model";
-            $model_class = WoobookingModel::getInstance($model);
+            $model_class = SoftWayModel::getInstance($model);
             $model_class->model = $model;
             return $model_class;
         } else {
@@ -93,7 +93,7 @@ class WoobookingModel extends BaseDatabaseModel
         if (file_exists($model_path)) {
             require_once $model_path;
             $model_name = "{$model}Model";
-            $model_class = WoobookingModel::getInstance($model);
+            $model_class = SoftWayModel::getInstance($model);
             $model_class->model = $model;
             return $model_class;
         } else {
@@ -311,7 +311,7 @@ class WoobookingModel extends BaseDatabaseModel
     }
 
 
-    public static function getInstance($model, $prefix = '', $config = array()):WoobookingModel
+    public static function getInstance($model, $prefix = '', $config = array()):SoftWayModel
     {
         $model = preg_replace('/[^A-Z0-9_\.-]/i', '', $model);
         $model = ucfirst($model);

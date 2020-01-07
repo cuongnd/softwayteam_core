@@ -70,7 +70,7 @@ class WBPaymentPaypalAdaptive extends WBPayment
 	public function checkPaymentDisplay(&$method, &$order) {
 		if(!function_exists('curl_init')) {
 			$app = JFactory::getApplication();
-			$app->enqueueMessage(WoobookingText::_('CURL_NOT_FOUND'), 'error');
+			$app->enqueueMessage(SoftWayText::_('CURL_NOT_FOUND'), 'error');
 			return false;
 		}
 		return true;
@@ -313,8 +313,8 @@ class WBPaymentPaypalAdaptive extends WBPayment
 
 			if(!empty($removed_vendors)) {
 				$email = new stdClass();
-				$email->subject = WoobookingText::_('INCORRECT_VENDOR_PAYPAL_EMAILS');
-				$email->body = str_replace('<br/>', "\r\n", WoobookingText::_('SOME_VENDORS_HAD_INCORRECT_PAYPAL_EMAILS')) . "\r\n";
+				$email->subject = SoftWayText::_('INCORRECT_VENDOR_PAYPAL_EMAILS');
+				$email->body = str_replace('<br/>', "\r\n", SoftWayText::_('SOME_VENDORS_HAD_INCORRECT_PAYPAL_EMAILS')) . "\r\n";
 				foreach($removed_vendors as $id => $removed_vendor) {
 					$email->body .= $removed_vendor['name'] . ' (' . $id . ') : ' . $removed_vendor['email'] . "\r\n";
 				}
@@ -492,7 +492,7 @@ class WBPaymentPaypalAdaptive extends WBPayment
 
 		if(empty($this->payment_params->details)) {
 			$vars['amount_1'] = round($order->cart->full_total->prices[0]->price_value_with_tax, (int)$this->currency->currency_locale['int_frac_digits']);
-			$vars['item_name_1'] = WoobookingText::_('CART_PRODUCT_TOTAL_PRICE');
+			$vars['item_name_1'] = SoftWayText::_('CART_PRODUCT_TOTAL_PRICE');
 		} else {
 			$i = 1;
 			$tax = 0;
@@ -509,7 +509,7 @@ class WBPaymentPaypalAdaptive extends WBPayment
 			}
 
 			if(!empty($order->order_shipping_price) && bccomp($order->order_shipping_price, 0, 5)) {
-				$vars['item_name_' . $i] = WoobookingText::_('HIKASHOP_SHIPPING');
+				$vars['item_name_' . $i] = SoftWayText::_('HIKASHOP_SHIPPING');
 				$vars['amount_' . $i] = round($order->order_shipping_price - @$order->order_shipping_tax, (int)$this->currency->currency_locale['int_frac_digits']);
 				$tax += round($order->order_shipping_tax, (int)$this->currency->currency_locale['int_frac_digits']);
 				$vars['quantity_' . $i] = 1;
@@ -517,7 +517,7 @@ class WBPaymentPaypalAdaptive extends WBPayment
 			}
 
 			if(!empty($order->order_payment_price) && bccomp($order->order_payment_price, 0, 5)) {
-				$vars['item_name_' . $i] = WoobookingText::_('HIKASHOP_PAYMENT');
+				$vars['item_name_' . $i] = SoftWayText::_('HIKASHOP_PAYMENT');
 				$vars['amount_' . $i] = round($order->order_payment_price - @$order->order_payment_tax, (int)$this->currency->currency_locale['int_frac_digits']);
 				$tax += round($order->order_payment_tax, (int)$this->currency->currency_locale['int_frac_digits']);
 				$vars['quantity_' . $i] = 1;
@@ -610,13 +610,13 @@ window.hikashop.ready(function() {
 			$ips = str_replace(array('.', '*', ','), array('\.', '[0-9]+', '|'), $this->payment_params->ips);
 			if(!preg_match('#('.implode('|',$ips).')#', $ip)) {
 				$email = new stdClass();
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' ' . WoobookingText::sprintf('IP_NOT_VALID', $dbOrder->order_number);
-				$email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('NOTIFICATION_REFUSED_FROM_IP', 'Paypal', $ip, implode("\r\n", $this->payment_params->ips))) .
-					"\r\n\r\n" . WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#ip') . $order_text;
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' ' . SoftWayText::sprintf('IP_NOT_VALID', $dbOrder->order_number);
+				$email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('NOTIFICATION_REFUSED_FROM_IP', 'Paypal', $ip, implode("\r\n", $this->payment_params->ips))) .
+					"\r\n\r\n" . SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#ip') . $order_text;
 				$o = false;
 				$this->modifyOrder($o, null, null, $email);
 
-				JError::raiseError(403, WoobookingText::_('Access Forbidden'));
+				JError::raiseError(403, SoftWayText::_('Access Forbidden'));
 				return false;
 			}
 			$order_text .= "\r\n" . 'IP Address: ' . $ip;
@@ -651,15 +651,15 @@ window.hikashop.ready(function() {
 
 			$email = new stdClass();
 			if(preg_match('#INVALID#i', $ipnConfirm)) {
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' invalid transaction';
-				$email->body = WoobookingText::sprintf("Hello,\r\n A paypal notification was refused because it could not be verified by the paypal server").
-					"\r\n\r\n".WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#invalidtnx') . $order_text;
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' invalid transaction';
+				$email->body = SoftWayText::sprintf("Hello,\r\n A paypal notification was refused because it could not be verified by the paypal server").
+					"\r\n\r\n".SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#invalidtnx') . $order_text;
 				if($this->payment_params->debug)
 					echo 'invalid transaction'."\n\n\n";
 			} else {
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' invalid response';
-				$email->body = WoobookingText::sprintf("Hello,\r\n A paypal notification was refused because the response from the paypal server was invalid").
-					"\r\n\r\n".WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#invalidresponse') . $order_text;
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paypal') . ' invalid response';
+				$email->body = SoftWayText::sprintf("Hello,\r\n A paypal notification was refused because the response from the paypal server was invalid").
+					"\r\n\r\n".SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#invalidresponse') . $order_text;
 
 				if($this->payment_params->debug)
 					echo 'invalid response'."\n\n\n";
@@ -677,10 +677,10 @@ window.hikashop.ready(function() {
 		$pending = preg_match('#Pending#i', $ipndata['status']);
 		if(!$completed && !$pending) {
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paypal', $ipndata['status'], $dbOrder->order_number);
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paypal', $ipndata['status'])) .
-				' ' . WoobookingText::_('STATUS_NOT_CHANGED') . "\r\n\r\n" .
-				WoobookingText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-paypal-error#status') . $order_text;
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paypal', $ipndata['status'], $dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paypal', $ipndata['status'])) .
+				' ' . SoftWayText::_('STATUS_NOT_CHANGED') . "\r\n\r\n" .
+				SoftWayText::sprintf('CHECK_DOCUMENTATION',HIKASHOP_HELPURL.'payment-paypal-error#status') . $order_text;
 			$o = false;
 			$this->modifyOrder($o, null, null, $email);
 
@@ -714,8 +714,8 @@ window.hikashop.ready(function() {
 		$price_check = round($dbOrder->order_full_price, (int)$this->currency->currency_locale['int_frac_digits']);
 		if(!empty($this->payment_params->classical) && ($price_check != @$ipndata['mc_gross'] || $this->currency->currency_code != @$ipndata['mc_currency'])) {
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Paypal').WoobookingText::_('INVALID_AMOUNT');
-			$email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER', 'Paypal', $history->amount, $price_check . $this->currency->currency_code)) . "\r\n\r\n" . WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#amount') . $order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Paypal').SoftWayText::_('INVALID_AMOUNT');
+			$email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER', 'Paypal', $history->amount, $price_check . $this->currency->currency_code)) . "\r\n\r\n" . SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#amount') . $order_text;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, $history, $email);
 			return false;
@@ -725,7 +725,7 @@ window.hikashop.ready(function() {
 	 		$order_status = $this->payment_params->verified_status;
 	 	} else {
 	 		$order_status = $this->payment_params->pending_status;
-	 		$order_text = WoobookingText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#pending') . "\r\n\r\n" . $order_text;
+	 		$order_text = SoftWayText::sprintf('CHECK_DOCUMENTATION', HIKASHOP_HELPURL . 'payment-paypal-error#pending') . "\r\n\r\n" . $order_text;
 	 	}
 
 	 	if($dbOrder->order_status == $order_status)
@@ -736,8 +736,8 @@ window.hikashop.ready(function() {
 			$history->notified = 1;
 
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paypal', $ipndata['status'], $dbOrder->order_number);
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paypal', $ipndata['status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order->mail_status)."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paypal', $ipndata['status'], $dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paypal', $ipndata['status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order->mail_status)."\r\n\r\n".$order_text;
 
 	 	$this->modifyOrder($order_id, $order_status, $history, $email);
 
@@ -779,12 +779,12 @@ window.hikashop.ready(function() {
 			$app = JFactory::getApplication();
 			$lang = JFactory::getLanguage();
 			$locale = strtolower(substr($lang->get('tag'), 0, 2));
-			$app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPal', WoobookingText::_('HIKA_EMAIL'), 'PayPal', 'https://www.paypal.com/' . $locale . '/mrb/pal=SXL9FKNKGAEM8'));
+			$app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPal', SoftWayText::_('HIKA_EMAIL'), 'PayPal', 'https://www.paypal.com/' . $locale . '/mrb/pal=SXL9FKNKGAEM8'));
 		}
 
 		if(!function_exists('curl_init')) {
 			$app = JFactory::getApplication();
-			$app->enqueueMessage(WoobookingText::_('CURL_NOT_FOUND'), 'error');
+			$app->enqueueMessage(SoftWayText::_('CURL_NOT_FOUND'), 'error');
 		}
 	}
 

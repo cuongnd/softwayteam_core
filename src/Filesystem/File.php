@@ -17,7 +17,7 @@ use SoftWay\CMS\Filesystem\Wrapper\PathWrapper;
 use SoftWay\CMS\Filesystem\Wrapper\FolderWrapper;
 use SoftWay\CMS\Filesystem\Path;
 use SoftWay\CMS\Log\Log;
-use WoobookingText;
+use SoftWayText;
 
 /**
  * A File handling class
@@ -506,7 +506,7 @@ class File
 				return true;
 			}
 
-			Log::add(WoobookingText::sprintf('JLIB_FILESYSTEM_ERROR_WRITE_STREAMS', $file, $stream->getError()), Log::WARNING, 'jerror');
+			Log::add(SoftWayText::sprintf('JLIB_FILESYSTEM_ERROR_WRITE_STREAMS', $file, $stream->getError()), Log::WARNING, 'jerror');
 
 			return false;
 		}

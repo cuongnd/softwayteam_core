@@ -286,7 +286,7 @@ class WBPaymentAtossips extends WBPayment {
 
 				$status = "Declined";
 
-				$message =WoobookingText::_("TRANSACTION_DECLINED");
+				$message =SoftWayText::_("TRANSACTION_DECLINED");
 
 				$order_status = $this->payment_params->invalid_status;
 
@@ -300,7 +300,7 @@ class WBPaymentAtossips extends WBPayment {
 
 				$status = "Declined";
 
-				$message =WoobookingText::_("TRANSACTION_DECLINED");
+				$message =SoftWayText::_("TRANSACTION_DECLINED");
 
 				$order_status = $this->payment_params->invalid_status;
 
@@ -310,12 +310,12 @@ class WBPaymentAtossips extends WBPayment {
 		}
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Atos Sips',$status,$dbOrder->order_number);
-		$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Atos Sips',$status)).' '.WoobookingText::_('STATUS_NOT_CHANGED')
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Atos Sips',$status,$dbOrder->order_number);
+		$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Atos Sips',$status)).' '.SoftWayText::_('STATUS_NOT_CHANGED')
 		."\r\n" . $details . "\r\n".$order_text;
 		$email->body = $body;
 

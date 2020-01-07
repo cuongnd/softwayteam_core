@@ -298,8 +298,8 @@ class WBPaymentbf_rbsglobalgateway extends JPlugin {
 		$order->order_id = $dbOrder->order_id;
 		$order->old_status->order_status = $dbOrder->order_status;
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order->order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',hikashop_encode($dbOrder),HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',hikashop_encode($dbOrder),HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 		if($element->payment_params->debug) echo print_r($dbOrder,true)."\n\n\n";
 		$mailer = JFactory::getMailer();
 		$config =& hikashop_config();
@@ -315,7 +315,7 @@ class WBPaymentbf_rbsglobalgateway extends JPlugin {
 		$currency=$currencies[$dbOrder->order_currency_id];
 		$fracDigits = (int)$currency->currency_locale['int_frac_digits'];
 		$paymentAmount = ((int)@$vars['paymentAmount']) / pow(10, $fracDigits);
-		$order->history->history_reason=WoobookingText::sprintf('AUTOMATIC_PAYMENT_NOTIFICATION');
+		$order->history->history_reason=SoftWayText::sprintf('AUTOMATIC_PAYMENT_NOTIFICATION');
 		$order->history->history_notified=0;
 		$order->history->history_amount=$paymentAmount.@$vars['paymentCurrency'];
 		$order->history->history_payment_id = $element->payment_id;
@@ -327,8 +327,8 @@ class WBPaymentbf_rbsglobalgateway extends JPlugin {
 			 if($price_check != $paymentAmount || $currency->currency_code != @$vars['paymentCurrency']){
 				 $order->order_status = $element->payment_params->invalid_status;
 				 $orderClass->save($order);
-				 $mailer->setSubject(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Worldpay Global Gateway').WoobookingText::_('INVALID_AMOUNT'));
-				$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','Worldpay Global Gateway',$order->history->history_amount,$price_check.$currency->currency_code))."\r\n\r\n".$order_text;
+				 $mailer->setSubject(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Worldpay Global Gateway').SoftWayText::_('INVALID_AMOUNT'));
+				$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','Worldpay Global Gateway',$order->history->history_amount,$price_check.$currency->currency_code))."\r\n\r\n".$order_text;
 				$mailer->setBody($body);
 				$mailer->Send();
 				 return false;
@@ -374,8 +374,8 @@ class WBPaymentbf_rbsglobalgateway extends JPlugin {
 		}
 		if (!empty($order_status)) $order->order_status = $order_status;
 		$order->mail_status=$statuses[$order->order_status];
-		$mailer->setSubject(WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Worldpay Global Gateway',$payment_status,$dbOrder->order_number));
-		$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Worldpay Global Gateway',$vars['paymentStatus'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order->mail_status)."\r\n\r\n".$order_text;
+		$mailer->setSubject(SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Worldpay Global Gateway',$payment_status,$dbOrder->order_number));
+		$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Worldpay Global Gateway',$vars['paymentStatus'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order->mail_status)."\r\n\r\n".$order_text;
 		$mailer->setBody($body);
 		$mailer->Send();
 		$orderClass->save($order);

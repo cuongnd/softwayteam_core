@@ -65,7 +65,7 @@ class FormFieldRepeatable extends FormField
 
 			// Build heading
 			$head_row_str[] = '<th>' . strip_tags($field->getLabel($field->name));
-			$head_row_str[] = '<br /><small style="font-weight:normal">' . WoobookingText::_($field->description) . '</small>';
+			$head_row_str[] = '<br /><small style="font-weight:normal">' . SoftWayText::_($field->description) . '</small>';
 			$head_row_str[] = '</th>';
 
 			// Build body
@@ -73,12 +73,12 @@ class FormFieldRepeatable extends FormField
 		}
 
 		// Append buttons
-		$head_row_str[] = '<th><div class="btn-group"><a href="#" class="add btn button btn-success" aria-label="' . WoobookingText::_('JGLOBAL_FIELD_ADD') . '">';
+		$head_row_str[] = '<th><div class="btn-group"><a href="#" class="add btn button btn-success" aria-label="' . SoftWayText::_('JGLOBAL_FIELD_ADD') . '">';
 		$head_row_str[] = '<span class="icon-plus" aria-hidden="true"></span> </a></div></th>';
 		$body_row_str[] = '<td><div class="btn-group">';
-		$body_row_str[] = '<a class="add btn button btn-success" aria-label="' . WoobookingText::_('JGLOBAL_FIELD_ADD') . '">';
+		$body_row_str[] = '<a class="add btn button btn-success" aria-label="' . SoftWayText::_('JGLOBAL_FIELD_ADD') . '">';
 		$body_row_str[] = '<span class="icon-plus" aria-hidden="true"></span> </a>';
-		$body_row_str[] = '<a class="remove btn button btn-danger" aria-label="' . WoobookingText::_('JGLOBAL_FIELD_REMOVE') . '">';
+		$body_row_str[] = '<a class="remove btn button btn-danger" aria-label="' . SoftWayText::_('JGLOBAL_FIELD_REMOVE') . '">';
 		$body_row_str[] = '<span class="icon-minus" aria-hidden="true"></span> </a>';
 		$body_row_str[] = '</div></td>';
 
@@ -96,8 +96,8 @@ class FormFieldRepeatable extends FormField
 		$str[] = '<div id="' . $this->id . '_modal" class="modal hide">';
 		$str[] = $table;
 		$str[] = '<div class="modal-footer">';
-		$str[] = '<button class="close-modal btn button btn-link">' . WoobookingText::_('JCANCEL') . '</button>';
-		$str[] = '<button class="save-modal-data btn button btn-primary">' . WoobookingText::_('JAPPLY') . '</button>';
+		$str[] = '<button class="close-modal btn button btn-link">' . SoftWayText::_('JCANCEL') . '</button>';
+		$str[] = '<button class="save-modal-data btn button btn-primary">' . SoftWayText::_('JAPPLY') . '</button>';
 		$str[] = '</div>';
 
 		// Close modal container
@@ -107,7 +107,7 @@ class FormFieldRepeatable extends FormField
 		$str[] = '</div>';
 
 		// Button for display the modal window
-		$select = (string) $this->element['select'] ? WoobookingText::_((string) $this->element['select']) : WoobookingText::_('JLIB_FORM_BUTTON_SELECT');
+		$select = (string) $this->element['select'] ? SoftWayText::_((string) $this->element['select']) : SoftWayText::_('JLIB_FORM_BUTTON_SELECT');
 		$icon = $this->element['icon'] ? '<span class="icon-' . $this->element['icon'] . '"></span> ' : '';
 		$str[] = '<button class="open-modal btn" id="' . $this->id . '_button" >' . $icon . $select . '</button>';
 

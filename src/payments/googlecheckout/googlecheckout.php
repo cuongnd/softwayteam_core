@@ -54,7 +54,7 @@ class WBPaymentGOOGLECHECKOUT extends WBPayment
 			if($group && $product->order_product_option_parent_id) continue;
 			$data .= '<item><item-name>Order #'.$order->order_id.' - '.$product->order_product_name.'</item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">'.$product->order_product_price.'</unit-price><quantity>'.$product->order_product_quantity.'</quantity></item>';
 		}
-		if(isset($order->order_discount_code)) $data .= '<item><item-name>Order #'.$order->order_id.' - '.WoobookingText::_('HIKASHOP_COUPON').'</item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">-'.$order->order_discount_price.'</unit-price><quantity>1</quantity></item>';
+		if(isset($order->order_discount_code)) $data .= '<item><item-name>Order #'.$order->order_id.' - '.SoftWayText::_('HIKASHOP_COUPON').'</item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">-'.$order->order_discount_price.'</unit-price><quantity>1</quantity></item>';
 
 		$shipping_price = 0.0;
 		if(!empty($order->order_shipping_price)) {
@@ -63,11 +63,11 @@ class WBPaymentGOOGLECHECKOUT extends WBPayment
 				$shipping_price -= $order->order_shipping_tax;
 		}
 		if($shipping_price > 0 )
-			$data .= '<item><item-name>Order #'.$order->order_id.' - '.WoobookingText::_('HIKASHOP_SHIPPING').' </item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">'.$shipping_price.'</unit-price><quantity>1</quantity></item>';
+			$data .= '<item><item-name>Order #'.$order->order_id.' - '.SoftWayText::_('HIKASHOP_SHIPPING').' </item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">'.$shipping_price.'</unit-price><quantity>1</quantity></item>';
 
-		if($order->order_payment_price > 0 ) $data .= '<item><item-name>Order #'.$order->order_id.' - '.WoobookingText::_('HIKASHOP_PAYMENT').' </item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">'.$order->order_payment_price.'</unit-price><quantity>1</quantity></item>';
+		if($order->order_payment_price > 0 ) $data .= '<item><item-name>Order #'.$order->order_id.' - '.SoftWayText::_('HIKASHOP_PAYMENT').' </item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">'.$order->order_payment_price.'</unit-price><quantity>1</quantity></item>';
 		$tax = $order->cart->full_total->prices[0]->price_value_with_tax - $order->cart->full_total->prices[0]->price_value;
-		if($tax>0) $data .= '<item><item-name>Order #'.$order->order_id.' - '.WoobookingText::_('TAXES').' </item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">'.$tax.'</unit-price><quantity>1</quantity></item>';
+		if($tax>0) $data .= '<item><item-name>Order #'.$order->order_id.' - '.SoftWayText::_('TAXES').' </item-name><item-description></item-description><unit-price currency="'.$this->currency->currency_code.'">'.$tax.'</unit-price><quantity>1</quantity></item>';
 		$data .= '</items></shopping-cart><checkout-flow-support><merchant-checkout-flow-support/></checkout-flow-support></checkout-shopping-cart>';
 
 		if( $this->payment_params->debug ) { echo 'XML Sent to Google<pre>'.htmlentities($data).'</pre>'; }
@@ -179,8 +179,8 @@ class WBPaymentGOOGLECHECKOUT extends WBPayment
 		}
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$history = new stdClass();
 		$history->notified = 0;
@@ -199,8 +199,8 @@ class WBPaymentGOOGLECHECKOUT extends WBPayment
 		$mail_status = $statuses[order_status];
 
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','GOOGLECHECKOUT',$payment_status,$dbOrder->order_number);
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','GOOGLECHECKOUT',$payment_status)).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$mail_status)."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','GOOGLECHECKOUT',$payment_status,$dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','GOOGLECHECKOUT',$payment_status)).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$mail_status)."\r\n\r\n".$order_text;
 
 		$this->modifyOrder($order_id, $order_status, $history, $email);
 

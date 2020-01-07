@@ -37,8 +37,8 @@ abstract class HtmlGrid
 		Html::_('bootstrap.tooltip');
 
 		// Build the title.
-		$title = $value ? WoobookingText::_('JYES') : WoobookingText::_('JNO');
-		$title = Html::_('tooltipText', $title, WoobookingText::_('JGLOBAL_CLICK_TO_TOGGLE_STATE'), 0);
+		$title = $value ? SoftWayText::_('JYES') : SoftWayText::_('JNO');
+		$title = Html::_('tooltipText', $title, SoftWayText::_('JGLOBAL_CLICK_TO_TOGGLE_STATE'), 0);
 
 		// Build the <a> tag.
 		$bool = $value ? 'true' : 'false';
@@ -96,8 +96,8 @@ abstract class HtmlGrid
 		}
 
 		$html = '<a href="#" onclick="SoftWay.tableOrdering(\'' . $order . '\',\'' . $direction . '\',\'' . $task . '\'' . $form . ');return false;"'
-			. ' class="hasPopover" title="' . htmlspecialchars(WoobookingText::_($tip ?: $title)) . '"'
-			. ' data-content="' . htmlspecialchars(WoobookingText::_('JGLOBAL_CLICK_TO_SORT_THIS_COLUMN')) . '" data-placement="top">';
+			. ' class="hasPopover" title="' . htmlspecialchars(SoftWayText::_($tip ?: $title)) . '"'
+			. ' data-content="' . htmlspecialchars(SoftWayText::_('JGLOBAL_CLICK_TO_SORT_THIS_COLUMN')) . '" data-placement="top">';
 
 		if (isset($title['0']) && $title['0'] === '<')
 		{
@@ -105,7 +105,7 @@ abstract class HtmlGrid
 		}
 		else
 		{
-			$html .= WoobookingText::_($title);
+			$html .= SoftWayText::_($title);
 		}
 
 		if ($order == $selected)
@@ -221,8 +221,8 @@ abstract class HtmlGrid
 
 		$img = $value ? $img1 : $img0;
 		$task = $value ? 'unpublish' : 'publish';
-		$alt = $value ? WoobookingText::_('JPUBLISHED') : WoobookingText::_('JUNPUBLISHED');
-		$action = $value ? WoobookingText::_('JLIB_HTML_UNPUBLISH_ITEM') : WoobookingText::_('JLIB_HTML_PUBLISH_ITEM');
+		$alt = $value ? SoftWayText::_('JPUBLISHED') : SoftWayText::_('JUNPUBLISHED');
+		$action = $value ? SoftWayText::_('JLIB_HTML_UNPUBLISH_ITEM') : SoftWayText::_('JLIB_HTML_PUBLISH_ITEM');
 
 		return '<a href="#" onclick="return listItemTask(\'cb' . $i . '\',\'' . $prefix . $task . '\')" title="' . $action . '">'
 			. Html::_('image', 'admin/' . $img, $alt, null, true) . '</a>';
@@ -233,10 +233,10 @@ abstract class HtmlGrid
 	 * By default the filter shows only published and unpublished items
 	 *
 	 * @param   string  $filter_state  The initial filter state
-	 * @param   string  $published     The WoobookingText string for published
-	 * @param   string  $unpublished   The WoobookingText string for Unpublished
-	 * @param   string  $archived      The WoobookingText string for Archived
-	 * @param   string  $trashed       The WoobookingText string for Trashed
+	 * @param   string  $published     The SoftWayText string for published
+	 * @param   string  $unpublished   The SoftWayText string for Unpublished
+	 * @param   string  $archived      The SoftWayText string for Archived
+	 * @param   string  $trashed       The SoftWayText string for Trashed
 	 *
 	 * @return  string
 	 *
@@ -244,16 +244,16 @@ abstract class HtmlGrid
 	 */
 	public static function state($filter_state = '*', $published = 'JPUBLISHED', $unpublished = 'JUNPUBLISHED', $archived = null, $trashed = null)
 	{
-		$state = array('' => '- ' . WoobookingText::_('JLIB_HTML_SELECT_STATE') . ' -', 'P' => WoobookingText::_($published), 'U' => WoobookingText::_($unpublished));
+		$state = array('' => '- ' . SoftWayText::_('JLIB_HTML_SELECT_STATE') . ' -', 'P' => SoftWayText::_($published), 'U' => SoftWayText::_($unpublished));
 
 		if ($archived)
 		{
-			$state['A'] = WoobookingText::_($archived);
+			$state['A'] = SoftWayText::_($archived);
 		}
 
 		if ($trashed)
 		{
-			$state['T'] = WoobookingText::_($trashed);
+			$state['T'] = SoftWayText::_($trashed);
 		}
 
 		return Html::_(
@@ -283,7 +283,7 @@ abstract class HtmlGrid
 	{
 		return '<a href="javascript:saveorder('
 			. (count($rows) - 1) . ', \'' . $task . '\')" rel="tooltip" class="saveorder btn btn-micro pull-right" title="'
-			. WoobookingText::_('JLIB_HTML_SAVE_ORDER') . '"><span class="icon-menu-2"></span></a>';
+			. SoftWayText::_('JLIB_HTML_SAVE_ORDER') . '"><span class="icon-menu-2"></span></a>';
 	}
 
 	/**
@@ -304,7 +304,7 @@ abstract class HtmlGrid
 		{
 			Html::_('bootstrap.tooltip');
 
-			$date = Html::_('date', $row->checked_out_time, WoobookingText::_('DATE_FORMAT_LC1'));
+			$date = Html::_('date', $row->checked_out_time, SoftWayText::_('DATE_FORMAT_LC1'));
 			$time = Html::_('date', $row->checked_out_time, 'H:i');
 
 			$hover = '<span class="editlinktip hasTooltip" title="' . Html::_('tooltipText', 'JLIB_HTML_CHECKED_OUT', $row->editor)

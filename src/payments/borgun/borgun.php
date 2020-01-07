@@ -57,7 +57,7 @@ class WBPaymentBorgun extends WBPayment
 			'currency' => $this->currency->currency_code,
 			'language' => $locale,
 
-			'Itemdescription_1' => WoobookingText::_('CART_PRODUCT_TOTAL_PRICE'),
+			'Itemdescription_1' => SoftWayText::_('CART_PRODUCT_TOTAL_PRICE'),
 			'Itemcount_1' => '1',
 			'Itemunitamount_1' => number_format($order->cart->full_total->prices[0]->price_value_with_tax, 2, ',', ''),
 			'Itemamount_1' => number_format($order->cart->full_total->prices[0]->price_value_with_tax, 2, ',', ''),
@@ -123,8 +123,8 @@ class WBPaymentBorgun extends WBPayment
 		}
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id.$this->url_itemid;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$history = new stdClass();
 		$history->notified = 0;
@@ -137,8 +137,8 @@ class WBPaymentBorgun extends WBPayment
 			$order_status = $this->payment_params->invalid_status;
 			$history->data .= "\n\n" . 'payment with code ' . $vars['authorizationcode'];
 
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Borgun',$order_status)).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
-		 	$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Borgun',$order_status,$dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Borgun',$order_status)).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
+		 	$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Borgun',$order_status,$dbOrder->order_number);
 
 			$this->modifyOrder($order_id, $order_status, $history,$email);
 
@@ -156,8 +156,8 @@ class WBPaymentBorgun extends WBPayment
 		$vars['payment_status'] = 'Accepted';
 		$history->data .= "\n\n" . 'AuthorizationCode: ' . $vars['authorizationcode'];
 		$history->notified = 1;
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Borgun', $vars['payment_status'], $dbOrder->order_number);
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Borgun', $vars['payment_status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Borgun', $vars['payment_status'], $dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Borgun', $vars['payment_status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
 
 		$this->modifyOrder($order_id,$order_status,$history,$email);
 

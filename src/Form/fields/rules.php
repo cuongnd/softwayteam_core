@@ -142,17 +142,17 @@ class FormFieldRules extends FormField
 		Html::_('script', 'system/permissions.js', array('version' => 'auto', 'relative' => true));
 
 		// Load JavaScript message titles
-		WoobookingText::script('ERROR');
-		WoobookingText::script('WARNING');
-		WoobookingText::script('NOTICE');
-		WoobookingText::script('MESSAGE');
+		SoftWayText::script('ERROR');
+		SoftWayText::script('WARNING');
+		SoftWayText::script('NOTICE');
+		SoftWayText::script('MESSAGE');
 
 		// Add strings for JavaScript error translations.
-		WoobookingText::script('JLIB_JS_AJAX_ERROR_CONNECTION_ABORT');
-		WoobookingText::script('JLIB_JS_AJAX_ERROR_NO_CONTENT');
-		WoobookingText::script('JLIB_JS_AJAX_ERROR_OTHER');
-		WoobookingText::script('JLIB_JS_AJAX_ERROR_PARSE');
-		WoobookingText::script('JLIB_JS_AJAX_ERROR_TIMEOUT');
+		SoftWayText::script('JLIB_JS_AJAX_ERROR_CONNECTION_ABORT');
+		SoftWayText::script('JLIB_JS_AJAX_ERROR_NO_CONTENT');
+		SoftWayText::script('JLIB_JS_AJAX_ERROR_OTHER');
+		SoftWayText::script('JLIB_JS_AJAX_ERROR_PARSE');
+		SoftWayText::script('JLIB_JS_AJAX_ERROR_TIMEOUT');
 
 		// Initialise some field attributes.
 		$section    = $this->section;
@@ -237,7 +237,7 @@ class FormFieldRules extends FormField
 		$html = array();
 
 		// Description
-		$html[] = '<p class="rule-desc">' . WoobookingText::_('JLIB_RULES_SETTINGS_DESC') . '</p>';
+		$html[] = '<p class="rule-desc">' . SoftWayText::_('JLIB_RULES_SETTINGS_DESC') . '</p>';
 
 		// Begin tabs
 		$html[] = '<div class="tabbable tabs-left" data-ajaxuri="' . $ajaxUri . '" id="permissions-sliders">';
@@ -273,15 +273,15 @@ class FormFieldRules extends FormField
 			$html[] = '<tr>';
 
 			$html[] = '<th class="actions" id="actions-th' . $group->value . '">';
-			$html[] = '<span class="acl-action">' . WoobookingText::_('JLIB_RULES_ACTION') . '</span>';
+			$html[] = '<span class="acl-action">' . SoftWayText::_('JLIB_RULES_ACTION') . '</span>';
 			$html[] = '</th>';
 
 			$html[] = '<th class="settings" id="settings-th' . $group->value . '">';
-			$html[] = '<span class="acl-action">' . WoobookingText::_('JLIB_RULES_SELECT_SETTING') . '</span>';
+			$html[] = '<span class="acl-action">' . SoftWayText::_('JLIB_RULES_SELECT_SETTING') . '</span>';
 			$html[] = '</th>';
 
 			$html[] = '<th id="aclactionth' . $group->value . '">';
-			$html[] = '<span class="acl-action">' . WoobookingText::_('JLIB_RULES_CALCULATED_SETTING') . '</span>';
+			$html[] = '<span class="acl-action">' . SoftWayText::_('JLIB_RULES_CALCULATED_SETTING') . '</span>';
 			$html[] = '</th>';
 
 			$html[] = '</tr>';
@@ -297,7 +297,7 @@ class FormFieldRules extends FormField
 				$html[] = '<td headers="actions-th' . $group->value . '">';
 				$html[] = '<label for="' . $this->id . '_' . $action->name . '_' . $group->value . '" class="hasTooltip" title="'
 					. Html::_('tooltipText', $action->title, $action->description) . '">';
-				$html[] = WoobookingText::_($action->title);
+				$html[] = SoftWayText::_($action->title);
 				$html[] = '</label>';
 				$html[] = '</td>';
 
@@ -306,7 +306,7 @@ class FormFieldRules extends FormField
 				$html[] = '<select onchange="sendPermissions.call(this, event)" data-chosen="true" class="input-small novalidate"'
 					. ' name="' . $this->name . '[' . $action->name . '][' . $group->value . ']"'
 					. ' id="' . $this->id . '_' . $action->name	. '_' . $group->value . '"'
-					. ' title="' . strip_tags(WoobookingText::sprintf('JLIB_RULES_SELECT_ALLOW_DENY_GROUP', WoobookingText::_($action->title), trim($group->text))) . '">';
+					. ' title="' . strip_tags(SoftWayText::sprintf('JLIB_RULES_SELECT_ALLOW_DENY_GROUP', SoftWayText::_($action->title), trim($group->text))) . '">';
 
 				/**
 				 * Possible values:
@@ -322,10 +322,10 @@ class FormFieldRules extends FormField
 
 				// The parent group has "Not Set", all children can rightly "Inherit" from that.
 				$html[] = '<option value=""' . ($assetRule === null ? ' selected="selected"' : '') . '>'
-					. WoobookingText::_(empty($group->parent_id) && $isGlobalConfig ? 'JLIB_RULES_NOT_SET' : 'JLIB_RULES_INHERITED') . '</option>';
-				$html[] = '<option value="1"' . ($assetRule === true ? ' selected="selected"' : '') . '>' . WoobookingText::_('JLIB_RULES_ALLOWED')
+					. SoftWayText::_(empty($group->parent_id) && $isGlobalConfig ? 'JLIB_RULES_NOT_SET' : 'JLIB_RULES_INHERITED') . '</option>';
+				$html[] = '<option value="1"' . ($assetRule === true ? ' selected="selected"' : '') . '>' . SoftWayText::_('JLIB_RULES_ALLOWED')
 					. '</option>';
-				$html[] = '<option value="0"' . ($assetRule === false ? ' selected="selected"' : '') . '>' . WoobookingText::_('JLIB_RULES_DENIED')
+				$html[] = '<option value="0"' . ($assetRule === false ? ' selected="selected"' : '') . '>' . SoftWayText::_('JLIB_RULES_DENIED')
 					. '</option>';
 
 				$html[] = '</select>&#160; ';
@@ -347,7 +347,7 @@ class FormFieldRules extends FormField
 				if ($isSuperUserGroup)
 				{
 					$result['class'] = 'label label-success';
-					$result['text'] = '<span class="icon-lock icon-white"></span>' . WoobookingText::_('JLIB_RULES_ALLOWED_ADMIN');
+					$result['text'] = '<span class="icon-lock icon-white"></span>' . SoftWayText::_('JLIB_RULES_ALLOWED_ADMIN');
 				}
 				// Not super user.
 				else
@@ -358,13 +358,13 @@ class FormFieldRules extends FormField
 					if ($inheritedGroupRule === null || $inheritedGroupRule === false)
 					{
 						$result['class'] = 'label label-important';
-						$result['text']  = WoobookingText::_('JLIB_RULES_NOT_ALLOWED_INHERITED');
+						$result['text']  = SoftWayText::_('JLIB_RULES_NOT_ALLOWED_INHERITED');
 					}
 					// If recursive calculated setting is "Allowed". Calculated permission is "Allowed (Inherited)".
 					else
 					{
 						$result['class'] = 'label label-success';
-						$result['text']  = WoobookingText::_('JLIB_RULES_ALLOWED_INHERITED');
+						$result['text']  = SoftWayText::_('JLIB_RULES_ALLOWED_INHERITED');
 					}
 
 					// Second part: Overwrite the calculated permissions labels if there is an explicit permission in the current group.
@@ -379,13 +379,13 @@ class FormFieldRules extends FormField
 					if ($assetRule === false)
 					{
 						$result['class'] = 'label label-important';
-						$result['text']  = WoobookingText::_('JLIB_RULES_NOT_ALLOWED');
+						$result['text']  = SoftWayText::_('JLIB_RULES_NOT_ALLOWED');
 					}
 					// If there is an explicit permission is "Allowed". Calculated permission is "Allowed".
 					elseif ($assetRule === true)
 					{
 						$result['class'] = 'label label-success';
-						$result['text']  = WoobookingText::_('JLIB_RULES_ALLOWED');
+						$result['text']  = SoftWayText::_('JLIB_RULES_ALLOWED');
 					}
 
 					// Third part: Overwrite the calculated permissions labels for special cases.
@@ -394,7 +394,7 @@ class FormFieldRules extends FormField
 					if (empty($group->parent_id) && $isGlobalConfig === true && $assetRule === null)
 					{
 						$result['class'] = 'label label-important';
-						$result['text']  = WoobookingText::_('JLIB_RULES_NOT_ALLOWED_DEFAULT');
+						$result['text']  = SoftWayText::_('JLIB_RULES_NOT_ALLOWED_DEFAULT');
 					}
 
 					/**
@@ -405,7 +405,7 @@ class FormFieldRules extends FormField
 					elseif ($inheritedGroupParentAssetRule === false || $inheritedParentGroupRule === false)
 					{
 						$result['class'] = 'label label-important';
-						$result['text']  = '<span class="icon-lock icon-white"></span>' . WoobookingText::_('JLIB_RULES_NOT_ALLOWED_LOCKED');
+						$result['text']  = '<span class="icon-lock icon-white"></span>' . SoftWayText::_('JLIB_RULES_NOT_ALLOWED_LOCKED');
 					}
 				}
 
@@ -424,11 +424,11 @@ class FormFieldRules extends FormField
 
 		if ($section === 'component' || !$section)
 		{
-			$html[] = WoobookingText::_('JLIB_RULES_SETTING_NOTES');
+			$html[] = SoftWayText::_('JLIB_RULES_SETTING_NOTES');
 		}
 		else
 		{
-			$html[] = WoobookingText::_('JLIB_RULES_SETTING_NOTES_ITEM');
+			$html[] = SoftWayText::_('JLIB_RULES_SETTING_NOTES_ITEM');
 		}
 
 		$html[] = '</div>';

@@ -205,11 +205,11 @@ class FormFieldCalendar extends FormField
 
 			if ($showTime && $showTime != 'false')
 			{
-				$this->format = WoobookingText::_('DATE_FORMAT_CALENDAR_DATETIME');
+				$this->format = SoftWayText::_('DATE_FORMAT_CALENDAR_DATETIME');
 			}
 			else
 			{
-				$this->format = WoobookingText::_('DATE_FORMAT_CALENDAR_DATE');
+				$this->format = SoftWayText::_('DATE_FORMAT_CALENDAR_DATE');
 			}
 
 			$lang->setDebug($debug);

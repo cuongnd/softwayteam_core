@@ -99,7 +99,7 @@ class ContenttypeField extends FormFieldList
 
 			if ($lang->hasKey($option->string))
 			{
-				$option->text = WoobookingText::_($option->string);
+				$option->text = SoftWayText::_($option->string);
 			}
 		}
 

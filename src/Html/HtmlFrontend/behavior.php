@@ -191,7 +191,7 @@ abstract class HtmlFrontendBehavior
 		HtmlFrontend::_('jquery.framework');
 
 		// Add validate.js language strings
-		WoobookingText::script('JLIB_FORM_FIELD_INVALID');
+		SoftWayText::script('JLIB_FORM_FIELD_INVALID');
 
 		HtmlFrontend::_('script', 'system/punycode.js', array('version' => 'auto', 'relative' => true));
 		HtmlFrontend::_('script', 'system/validate.js', array('version' => 'auto', 'relative' => true));
@@ -589,7 +589,7 @@ abstract class HtmlFrontendBehavior
 
 		$document = Factory::getDocument();
 		$tag      = Factory::getLanguage()->getTag();
-		$attribs  = array('title' => WoobookingText::_('JLIB_HTML_BEHAVIOR_GREEN'), 'media' => 'all');
+		$attribs  = array('title' => SoftWayText::_('JLIB_HTML_BEHAVIOR_GREEN'), 'media' => 'all');
 
 		HtmlFrontend::_('stylesheet', 'system/calendar-jos.css', array('version' => 'auto', 'relative' => true), $attribs);
 		HtmlFrontend::_('script', $tag . '/calendar.js', array('version' => 'auto', 'relative' => true));
@@ -954,8 +954,8 @@ abstract class HtmlFrontendBehavior
 
 		$jsscript = 1;
 
-		// To keep the code simple here, run strings through WoobookingText::_() using array_map()
-		$callback = array('WoobookingText', '_');
+		// To keep the code simple here, run strings through SoftWayText::_() using array_map()
+		$callback = array('SoftWayText', '_');
 		$weekdays_full = array_map(
 			$callback, array(
 				'SUNDAY', 'MONDAY', 'TUESDAY', 'WEDNESDAY', 'THURSDAY', 'FRIDAY', 'SATURDAY', 'SUNDAY',
@@ -981,39 +981,39 @@ abstract class HtmlFrontendBehavior
 		);
 
 		// This will become an object in Javascript but define it first in PHP for readability
-		$today = " " . WoobookingText::_('JLIB_HTML_BEHAVIOR_TODAY') . " ";
+		$today = " " . SoftWayText::_('JLIB_HTML_BEHAVIOR_TODAY') . " ";
 		$text = array(
-			'INFO'           => WoobookingText::_('JLIB_HTML_BEHAVIOR_ABOUT_THE_CALENDAR'),
+			'INFO'           => SoftWayText::_('JLIB_HTML_BEHAVIOR_ABOUT_THE_CALENDAR'),
 			'ABOUT'          => "DHTML Date/Time Selector\n"
 				. "(c) dynarch.com 20022005 / Author: Mihai Bazon\n"
 				. "For latest version visit: http://www.dynarch.com/projects/calendar/\n"
 				. "Distributed under GNU LGPL.  See http://gnu.org/licenses/lgpl.html for details."
 				. "\n\n"
-				. WoobookingText::_('JLIB_HTML_BEHAVIOR_DATE_SELECTION')
-				. WoobookingText::_('JLIB_HTML_BEHAVIOR_YEAR_SELECT')
-				. WoobookingText::_('JLIB_HTML_BEHAVIOR_MONTH_SELECT')
-				. WoobookingText::_('JLIB_HTML_BEHAVIOR_HOLD_MOUSE'),
+				. SoftWayText::_('JLIB_HTML_BEHAVIOR_DATE_SELECTION')
+				. SoftWayText::_('JLIB_HTML_BEHAVIOR_YEAR_SELECT')
+				. SoftWayText::_('JLIB_HTML_BEHAVIOR_MONTH_SELECT')
+				. SoftWayText::_('JLIB_HTML_BEHAVIOR_HOLD_MOUSE'),
 			'ABOUT_TIME'      => "\n\n"
 				. "Time selection:\n"
 				. " Click on any of the time parts to increase it\n"
 				. " or Shiftclick to decrease it\n"
 				. " or click and drag for faster selection.",
-			'PREV_YEAR'       => WoobookingText::_('JLIB_HTML_BEHAVIOR_PREV_YEAR_HOLD_FOR_MENU'),
-			'PREV_MONTH'      => WoobookingText::_('JLIB_HTML_BEHAVIOR_PREV_MONTH_HOLD_FOR_MENU'),
-			'GO_TODAY'        => WoobookingText::_('JLIB_HTML_BEHAVIOR_GO_TODAY'),
-			'NEXT_MONTH'      => WoobookingText::_('JLIB_HTML_BEHAVIOR_NEXT_MONTH_HOLD_FOR_MENU'),
-			'SEL_DATE'        => WoobookingText::_('JLIB_HTML_BEHAVIOR_SELECT_DATE'),
-			'DRAG_TO_MOVE'    => WoobookingText::_('JLIB_HTML_BEHAVIOR_DRAG_TO_MOVE'),
+			'PREV_YEAR'       => SoftWayText::_('JLIB_HTML_BEHAVIOR_PREV_YEAR_HOLD_FOR_MENU'),
+			'PREV_MONTH'      => SoftWayText::_('JLIB_HTML_BEHAVIOR_PREV_MONTH_HOLD_FOR_MENU'),
+			'GO_TODAY'        => SoftWayText::_('JLIB_HTML_BEHAVIOR_GO_TODAY'),
+			'NEXT_MONTH'      => SoftWayText::_('JLIB_HTML_BEHAVIOR_NEXT_MONTH_HOLD_FOR_MENU'),
+			'SEL_DATE'        => SoftWayText::_('JLIB_HTML_BEHAVIOR_SELECT_DATE'),
+			'DRAG_TO_MOVE'    => SoftWayText::_('JLIB_HTML_BEHAVIOR_DRAG_TO_MOVE'),
 			'PART_TODAY'      => $today,
-			'DAY_FIRST'       => WoobookingText::_('JLIB_HTML_BEHAVIOR_DISPLAY_S_FIRST'),
+			'DAY_FIRST'       => SoftWayText::_('JLIB_HTML_BEHAVIOR_DISPLAY_S_FIRST'),
 			'WEEKEND'         => Factory::getLanguage()->getWeekEnd(),
-			'CLOSE'           => WoobookingText::_('JLIB_HTML_BEHAVIOR_CLOSE'),
-			'TODAY'           => WoobookingText::_('JLIB_HTML_BEHAVIOR_TODAY'),
-			'TIME_PART'       => WoobookingText::_('JLIB_HTML_BEHAVIOR_SHIFT_CLICK_OR_DRAG_TO_CHANGE_VALUE'),
+			'CLOSE'           => SoftWayText::_('JLIB_HTML_BEHAVIOR_CLOSE'),
+			'TODAY'           => SoftWayText::_('JLIB_HTML_BEHAVIOR_TODAY'),
+			'TIME_PART'       => SoftWayText::_('JLIB_HTML_BEHAVIOR_SHIFT_CLICK_OR_DRAG_TO_CHANGE_VALUE'),
 			'DEF_DATE_FORMAT' => "%Y%m%d",
-			'TT_DATE_FORMAT'  => WoobookingText::_('JLIB_HTML_BEHAVIOR_TT_DATE_FORMAT'),
-			'WK'              => WoobookingText::_('JLIB_HTML_BEHAVIOR_WK'),
-			'TIME'            => WoobookingText::_('JLIB_HTML_BEHAVIOR_TIME'),
+			'TT_DATE_FORMAT'  => SoftWayText::_('JLIB_HTML_BEHAVIOR_TT_DATE_FORMAT'),
+			'WK'              => SoftWayText::_('JLIB_HTML_BEHAVIOR_WK'),
+			'TIME'            => SoftWayText::_('JLIB_HTML_BEHAVIOR_TIME'),
 		);
 
 		return 'Calendar._DN = ' . json_encode($weekdays_full) . ';'

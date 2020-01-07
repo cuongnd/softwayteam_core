@@ -69,17 +69,17 @@ abstract class HtmlFormbehavior
 
 		if (!isset($options['placeholder_text_multiple']))
 		{
-			$options['placeholder_text_multiple'] = WoobookingText::_('JGLOBAL_TYPE_OR_SELECT_SOME_OPTIONS');
+			$options['placeholder_text_multiple'] = SoftWayText::_('JGLOBAL_TYPE_OR_SELECT_SOME_OPTIONS');
 		}
 
 		if (!isset($options['placeholder_text_single']))
 		{
-			$options['placeholder_text_single'] = WoobookingText::_('JGLOBAL_SELECT_AN_OPTION');
+			$options['placeholder_text_single'] = SoftWayText::_('JGLOBAL_SELECT_AN_OPTION');
 		}
 
 		if (!isset($options['no_results_text']))
 		{
-			$options['no_results_text'] = WoobookingText::_('JGLOBAL_SELECT_NO_RESULTS_MATCH');
+			$options['no_results_text'] = SoftWayText::_('JGLOBAL_SELECT_NO_RESULTS_MATCH');
 		}
 
 		$displayData = array(

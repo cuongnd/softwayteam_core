@@ -103,8 +103,8 @@ class WBPaymentPayplug extends WBPayment
 
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id.$this->url_itemid;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$history = new stdClass();
 		$history->notified = 0;
@@ -117,8 +117,8 @@ class WBPaymentPayplug extends WBPayment
 			$order_status = $this->payment_params->invalid_status;
 			$history->data .= "\n\n" . 'payment with code ' . $ipn->idTransaction;
 
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','PayPlug',$order_status)).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
-		 	$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PayPlug',$order_status,$dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','PayPlug',$order_status)).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
+		 	$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PayPlug',$order_status,$dbOrder->order_number);
 
 			$this->modifyOrder($order_id, $order_status, $history,$email);
 			return false;
@@ -135,8 +135,8 @@ class WBPaymentPayplug extends WBPayment
 		$vars['payment_status'] = $ipn->state;
 		$history->data .= "\n\n" . 'Transaction id: ' . $ipn->idTransaction;
 		$history->notified = 1;
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PayPlug', $vars['payment_status'], $dbOrder->order_number);
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'PayPlug', $vars['payment_status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PayPlug', $vars['payment_status'], $dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'PayPlug', $vars['payment_status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
 
 		$this->modifyOrder($order_id,$order_status,$history,$email);
 		return true;
@@ -145,9 +145,9 @@ class WBPaymentPayplug extends WBPayment
 	function onPaymentConfigurationSave(&$element) {
 		$app = JFactory::getApplication();
 		if(empty($element->payment_params->email)){
-			$app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPlug', WoobookingText::_('HIKA_EMAIL'), 'PayPlug', 'http://www.payplug.fr'));
+			$app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPlug', SoftWayText::_('HIKA_EMAIL'), 'PayPlug', 'http://www.payplug.fr'));
 		}elseif(empty($element->payment_params->password)){
-			$app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPlug', WoobookingText::_('HIKA_PASSWORD'), 'PayPlug', 'http://www.payplug.fr'));
+			$app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPlug', SoftWayText::_('HIKA_PASSWORD'), 'PayPlug', 'http://www.payplug.fr'));
 		}else{
 			require_once(dirname(__FILE__).'/lib/payplug.php');
 			try{

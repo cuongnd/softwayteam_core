@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><tr>
 	<td class="key">
 		<label for="params[payment_params][url]"><?php
-			echo WoobookingText::_( 'Url' );
+			echo SoftWayText::_( 'Url' );
 		?></label>
 	</td>
 	<td>
@@ -21,7 +21,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][email]"><?php
-			echo WoobookingText::_( 'Email' );
+			echo SoftWayText::_( 'Email' );
 		?></label>
 	</td>
 	<td>

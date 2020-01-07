@@ -78,7 +78,7 @@ class UrlRule extends FormRule
 			 */
 			if ($urlParts === false || !$element['relative'])
 			{
-				$element->addAttribute('message', WoobookingText::sprintf('JLIB_FORM_VALIDATE_FIELD_URL_SCHEMA_MISSING', $value, implode(', ', $scheme)));
+				$element->addAttribute('message', SoftWayText::sprintf('JLIB_FORM_VALIDATE_FIELD_URL_SCHEMA_MISSING', $value, implode(', ', $scheme)));
 
 				return false;
 			}

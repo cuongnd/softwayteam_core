@@ -64,7 +64,7 @@ class WBPaymentMoneybookers extends WBPayment
 		$vars["language"]=$locale;
 
 		$vars["return_url"]=HIKASHOP_LIVE.'index.php?option=com_hikashop&ctrl=checkout&task=after_end&order_id='.$order->order_id.$this->url_itemid;
-		$vars["return_url_text"]=WoobookingText::_('RETURN_TO_THE_STORE');
+		$vars["return_url_text"]=SoftWayText::_('RETURN_TO_THE_STORE');
 		$cancel_url =  HIKASHOP_LIVE.'index.php?option=com_hikashop&ctrl=order&task=cancel_order&order_id='.$order->order_id.$this->url_itemid;
 		$vars["cancel_url"]=$cancel_url;
 
@@ -112,7 +112,7 @@ class WBPaymentMoneybookers extends WBPayment
 			$vars["hide_login"]='1';
 		}
 		$vars["platform"]='30071142';
-		$vars["detail1_description"]=WoobookingText::_('ORDER_NUMBER').' :';
+		$vars["detail1_description"]=SoftWayText::_('ORDER_NUMBER').' :';
 		$vars["detail1_text"]=$order->order_number;
 
 		$this->vars = $vars;
@@ -136,8 +136,8 @@ class WBPaymentMoneybookers extends WBPayment
 		if(!empty($dbOrder)){
 			$order->old_status->order_status=$dbOrder->order_status;
 			$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-			$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-			$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+			$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+			$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 		}else{
 			echo "Could not load any order for your notification ".$order_id;
 			return false;
@@ -174,17 +174,17 @@ class WBPaymentMoneybookers extends WBPayment
 			$ip = hikashop_getIP();
 			$ips = str_replace(array('.','*',','),array('\.','[0-9]+','|'),$this->payment_params->ips);
 			if(!preg_match('#('.implode('|',$ips).')#',$ip)){
-				$mailer->setSubject(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Moneybookers').' '.WoobookingText::sprintf('IP_NOT_VALID',$dbOrder->order_number));
-				$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Moneybookers',$ip,implode("\r\n",$this->payment_params->ips)))."\r\n\r\n".$order_text;
+				$mailer->setSubject(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Moneybookers').' '.SoftWayText::sprintf('IP_NOT_VALID',$dbOrder->order_number));
+				$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Moneybookers',$ip,implode("\r\n",$this->payment_params->ips)))."\r\n\r\n".$order_text;
 				$mailer->setBody($body);
 				$mailer->Send();
-				JError::raiseError( 403, WoobookingText::_( 'Access Forbidden' ));
+				JError::raiseError( 403, SoftWayText::_( 'Access Forbidden' ));
 				return false;
 			}
 		}
 		if (@$vars['md5sig']!=$vars['calculated_md5sig']) {
-			$mailer->setSubject(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Moneybookers').'invalid response');
-			$body = WoobookingText::sprintf("Hello,\r\n A Moneybookers notification was refused because the response from the Moneybookers server was invalid")."\r\n\r\n".$order_text;
+			$mailer->setSubject(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Moneybookers').'invalid response');
+			$body = SoftWayText::sprintf("Hello,\r\n A Moneybookers notification was refused because the response from the Moneybookers server was invalid")."\r\n\r\n".$order_text;
 			$mailer->setBody($body);
 			$mailer->Send();
 			if($this->payment_params->debug){
@@ -205,8 +205,8 @@ class WBPaymentMoneybookers extends WBPayment
 			}else{
 				$vars['payment_status']='Unknown';
 			}
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Moneybookers',$vars['payment_status'])).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
-		 	$mailer->setSubject(WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Moneybookers',$vars['payment_status'],$dbOrder->order_number));
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Moneybookers',$vars['payment_status'])).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
+		 	$mailer->setSubject(SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Moneybookers',$vars['payment_status'],$dbOrder->order_number));
 			$mailer->setBody($body);
 			$mailer->Send();
 			if($element->payment_params->debug){

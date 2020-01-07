@@ -12,7 +12,7 @@ use SoftWay\CMS\Form\fields\FormFieldList;
 use SoftWay\CMS\Form\FormField;
 use SoftWay\CMS\Form\FormHelper;
 use SoftWay\CMS\Html\Html;
-use WoobookingText;
+use SoftWayText;
 FormHelper::loadFieldClass('list');
 
 /**

@@ -137,7 +137,7 @@ class HtmlDocument extends Document
 		$data['scripts']     = $this->_scripts;
 		$data['script']      = $this->_script;
 		$data['custom']      = $this->_custom;
-		$data['scriptText']  = \WoobookingText::getScriptStrings();
+		$data['scriptText']  = \SoftWayText::getScriptStrings();
 
 		return $data;
 	}
@@ -246,7 +246,7 @@ class HtmlDocument extends Document
 		{
 			foreach ($data['scriptText'] as $key => $string)
 			{
-				\WoobookingText::script($key, $string);
+				\SoftWayText::script($key, $string);
 			}
 		}
 
@@ -678,7 +678,7 @@ class HtmlDocument extends Document
 			for ($i = count($matches[0]) - 1; $i >= 0; $i--)
 			{
 				$type = $matches[1][$i];
-				$attribs = empty($matches[2][$i]) ? array() : \WoobookingUtility::parseAttributes($matches[2][$i]);
+				$attribs = empty($matches[2][$i]) ? array() : \SoftWayUtility::parseAttributes($matches[2][$i]);
 				$name = isset($attribs['name']) ? $attribs['name'] : null;
 
 				// Separate buffers to be executed first and last

@@ -33,7 +33,7 @@ defined('_SOFT_WAY_EXEC') or die;
  */
 use DateTime;
 use DateTimeZone;
-use WoobookingText;
+use SoftWayText;
 
 class WbDate extends DateTime
 {
@@ -208,19 +208,19 @@ class WbDate extends DateTime
 		switch ($day)
 		{
 			case 0:
-				return $abbr ? WoobookingText::_('SUN') : WoobookingText::_('SUNDAY');
+				return $abbr ? SoftWayText::_('SUN') : SoftWayText::_('SUNDAY');
 			case 1:
-				return $abbr ? WoobookingText::_('MON') : WoobookingText::_('MONDAY');
+				return $abbr ? SoftWayText::_('MON') : SoftWayText::_('MONDAY');
 			case 2:
-				return $abbr ? WoobookingText::_('TUE') : WoobookingText::_('TUESDAY');
+				return $abbr ? SoftWayText::_('TUE') : SoftWayText::_('TUESDAY');
 			case 3:
-				return $abbr ? WoobookingText::_('WED') : WoobookingText::_('WEDNESDAY');
+				return $abbr ? SoftWayText::_('WED') : SoftWayText::_('WEDNESDAY');
 			case 4:
-				return $abbr ? WoobookingText::_('THU') : WoobookingText::_('THURSDAY');
+				return $abbr ? SoftWayText::_('THU') : SoftWayText::_('THURSDAY');
 			case 5:
-				return $abbr ? WoobookingText::_('FRI') : WoobookingText::_('FRIDAY');
+				return $abbr ? SoftWayText::_('FRI') : SoftWayText::_('FRIDAY');
 			case 6:
-				return $abbr ? WoobookingText::_('SAT') : WoobookingText::_('SATURDAY');
+				return $abbr ? SoftWayText::_('SAT') : SoftWayText::_('SATURDAY');
 		}
 	}
 	/**
@@ -320,29 +320,29 @@ class WbDate extends DateTime
 		switch ($month)
 		{
 			case 1:
-				return $abbr ? WoobookingText::_('JANUARY_SHORT') : WoobookingText::_('JANUARY');
+				return $abbr ? SoftWayText::_('JANUARY_SHORT') : SoftWayText::_('JANUARY');
 			case 2:
-				return $abbr ? WoobookingText::_('FEBRUARY_SHORT') : WoobookingText::_('FEBRUARY');
+				return $abbr ? SoftWayText::_('FEBRUARY_SHORT') : SoftWayText::_('FEBRUARY');
 			case 3:
-				return $abbr ? WoobookingText::_('MARCH_SHORT') : WoobookingText::_('MARCH');
+				return $abbr ? SoftWayText::_('MARCH_SHORT') : SoftWayText::_('MARCH');
 			case 4:
-				return $abbr ? WoobookingText::_('APRIL_SHORT') : WoobookingText::_('APRIL');
+				return $abbr ? SoftWayText::_('APRIL_SHORT') : SoftWayText::_('APRIL');
 			case 5:
-				return $abbr ? WoobookingText::_('MAY_SHORT') : WoobookingText::_('MAY');
+				return $abbr ? SoftWayText::_('MAY_SHORT') : SoftWayText::_('MAY');
 			case 6:
-				return $abbr ? WoobookingText::_('JUNE_SHORT') : WoobookingText::_('JUNE');
+				return $abbr ? SoftWayText::_('JUNE_SHORT') : SoftWayText::_('JUNE');
 			case 7:
-				return $abbr ? WoobookingText::_('JULY_SHORT') : WoobookingText::_('JULY');
+				return $abbr ? SoftWayText::_('JULY_SHORT') : SoftWayText::_('JULY');
 			case 8:
-				return $abbr ? WoobookingText::_('AUGUST_SHORT') : WoobookingText::_('AUGUST');
+				return $abbr ? SoftWayText::_('AUGUST_SHORT') : SoftWayText::_('AUGUST');
 			case 9:
-				return $abbr ? WoobookingText::_('SEPTEMBER_SHORT') : WoobookingText::_('SEPTEMBER');
+				return $abbr ? SoftWayText::_('SEPTEMBER_SHORT') : SoftWayText::_('SEPTEMBER');
 			case 10:
-				return $abbr ? WoobookingText::_('OCTOBER_SHORT') : WoobookingText::_('OCTOBER');
+				return $abbr ? SoftWayText::_('OCTOBER_SHORT') : SoftWayText::_('OCTOBER');
 			case 11:
-				return $abbr ? WoobookingText::_('NOVEMBER_SHORT') : WoobookingText::_('NOVEMBER');
+				return $abbr ? SoftWayText::_('NOVEMBER_SHORT') : SoftWayText::_('NOVEMBER');
 			case 12:
-				return $abbr ? WoobookingText::_('DECEMBER_SHORT') : WoobookingText::_('DECEMBER');
+				return $abbr ? SoftWayText::_('DECEMBER_SHORT') : SoftWayText::_('DECEMBER');
 		}
 	}
 	/**

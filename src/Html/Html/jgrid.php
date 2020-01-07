@@ -60,7 +60,7 @@ abstract class HtmlJGrid
 			Html::_('bootstrap.tooltip');
 
 			$title = $enabled ? $active_title : $inactive_title;
-			$title = $translate ? WoobookingText::_($title) : $title;
+			$title = $translate ? SoftWayText::_($title) : $title;
 			$title = Html::_('tooltipText', $title, '', 0);
 		}
 
@@ -188,12 +188,12 @@ abstract class HtmlJGrid
 
 			if ($publish_up)
 			{
-				$tips[] = WoobookingText::sprintf('JLIB_HTML_PUBLISHED_START', Html::_('date', $publish_up, WoobookingText::_('DATE_FORMAT_LC5'), 'UTC'));
+				$tips[] = SoftWayText::sprintf('JLIB_HTML_PUBLISHED_START', Html::_('date', $publish_up, SoftWayText::_('DATE_FORMAT_LC5'), 'UTC'));
 			}
 
 			if ($publish_down)
 			{
-				$tips[] = WoobookingText::sprintf('JLIB_HTML_PUBLISHED_FINISHED', Html::_('date', $publish_down, WoobookingText::_('DATE_FORMAT_LC5'), 'UTC'));
+				$tips[] = SoftWayText::sprintf('JLIB_HTML_PUBLISHED_FINISHED', Html::_('date', $publish_down, SoftWayText::_('DATE_FORMAT_LC5'), 'UTC'));
 			}
 
 			$tip = empty($tips) ? false : implode('<br />', $tips);
@@ -222,9 +222,9 @@ abstract class HtmlJGrid
 				// Add tips to titles
 				if ($tip)
 				{
-					$states[$key][1] = WoobookingText::_($states[$key][1]);
-					$states[$key][2] = WoobookingText::_($states[$key][2]) . '<br />' . $tip;
-					$states[$key][3] = WoobookingText::_($states[$key][3]) . '<br />' . $tip;
+					$states[$key][1] = SoftWayText::_($states[$key][1]);
+					$states[$key][2] = SoftWayText::_($states[$key][2]) . '<br />' . $tip;
+					$states[$key][3] = SoftWayText::_($states[$key][3]) . '<br />' . $tip;
 					$states[$key][4] = true;
 				}
 			}
@@ -338,12 +338,12 @@ abstract class HtmlJGrid
 			$prefix = array_key_exists('prefix', $options) ? $options['prefix'] : '';
 		}
 
-		$text = $editorName . '<br />' . Html::_('date', $time, WoobookingText::_('DATE_FORMAT_LC')) . '<br />' . Html::_('date', $time, 'H:i');
-		$active_title = Html::_('tooltipText', WoobookingText::_('JLIB_HTML_CHECKIN'), $text, 0);
-		$inactive_title = Html::_('tooltipText', WoobookingText::_('JLIB_HTML_CHECKED_OUT'), $text, 0);
+		$text = $editorName . '<br />' . Html::_('date', $time, SoftWayText::_('DATE_FORMAT_LC')) . '<br />' . Html::_('date', $time, 'H:i');
+		$active_title = Html::_('tooltipText', SoftWayText::_('JLIB_HTML_CHECKIN'), $text, 0);
+		$inactive_title = Html::_('tooltipText', SoftWayText::_('JLIB_HTML_CHECKED_OUT'), $text, 0);
 
 		return static::action(
-			$i, 'checkin', $prefix, WoobookingText::_('JLIB_HTML_CHECKED_OUT'), html_entity_decode($active_title, ENT_QUOTES, 'UTF-8'),
+			$i, 'checkin', $prefix, SoftWayText::_('JLIB_HTML_CHECKED_OUT'), html_entity_decode($active_title, ENT_QUOTES, 'UTF-8'),
 			html_entity_decode($inactive_title, ENT_QUOTES, 'UTF-8'), true, 'checkedout', 'checkedout', $enabled, false, $checkbox
 		);
 	}

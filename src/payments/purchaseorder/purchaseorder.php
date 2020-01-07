@@ -19,7 +19,7 @@ class WBPaymentPurchaseorder extends WBPayment
 	);
 
 	function needCC(&$method){
-		$method->custom_html='<span style="margin-left:10%">'.WoobookingText::_('PURCHASE_ORDER_NUMBER').'<input type="text" class="hikashop_purchase_order_number inputbox required" name="hikashop_purchase_order_number" value="'.@$_SESSION['hikashop_purchase_order_number'].'"/> *</span>';
+		$method->custom_html='<span style="margin-left:10%">'.SoftWayText::_('PURCHASE_ORDER_NUMBER').'<input type="text" class="hikashop_purchase_order_number inputbox required" name="hikashop_purchase_order_number" value="'.@$_SESSION['hikashop_purchase_order_number'].'"/> *</span>';
 	}
 
 	function onPaymentSave(&$cart, &$rates, &$payment_id) {
@@ -29,7 +29,7 @@ class WBPaymentPurchaseorder extends WBPayment
 
 		if($usable_method && $usable_method->payment_type=='purchaseorder' && empty($_SESSION['hikashop_purchase_order_number'])){
 			$app = JFactory::getApplication();
-			$app->enqueueMessage(WoobookingText::_('PLEASE_ENTER_A_PURCHASE_ORDER_NUMBER'));
+			$app->enqueueMessage(SoftWayText::_('PLEASE_ENTER_A_PURCHASE_ORDER_NUMBER'));
 			return false;
 		}
 
@@ -44,7 +44,7 @@ class WBPaymentPurchaseorder extends WBPayment
 			$history = new stdClass();
 			$history->type = 'purchase order';
 			$history->notified = 0;
-			$history->data = WoobookingText::_('PURCHASE_ORDER_NUMBER').@$_SESSION['hikashop_purchase_order_number'];
+			$history->data = SoftWayText::_('PURCHASE_ORDER_NUMBER').@$_SESSION['hikashop_purchase_order_number'];
 
 			$this->modifyOrder($order,$this->payment_params->order_status,$history,false);
 		}
@@ -57,7 +57,7 @@ class WBPaymentPurchaseorder extends WBPayment
 
 		$this->information = $method->payment_params->information;
 		if(preg_match('#^[a-z0-9_]*$#i',$this->information)){
-			$this->information = WoobookingText::_($this->information);
+			$this->information = SoftWayText::_($this->information);
 		}
 
 		return $this->showPage('end');

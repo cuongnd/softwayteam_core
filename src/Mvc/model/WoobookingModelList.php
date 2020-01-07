@@ -2,7 +2,7 @@
 use SoftWay\CMS\Form\Form;
 use SoftWay\CMS\Pagination\Pagination;
 
-class WoobookingModelList extends  WoobookingModel
+class SoftWayModelList extends  SoftWayModel
 {
     public $filterFormName="";
     public $context="";

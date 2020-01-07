@@ -174,7 +174,7 @@ class Router
 			}
 			else
 			{
-				throw new \RuntimeException(WoobookingText::sprintf('JLIB_APPLICATION_ERROR_ROUTER_LOAD', $client), 500);
+				throw new \RuntimeException(SoftWayText::sprintf('JLIB_APPLICATION_ERROR_ROUTER_LOAD', $client), 500);
 			}
 		}
 

@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?>		<tr>
 			<td class="key">
 				<label for="params[payment_params][points_mode]"><?php
-					echo WoobookingText::_('POINTS_MODE');
+					echo SoftWayText::_('POINTS_MODE');
 				?></label>
 			</td>
 			<td><?php
@@ -20,11 +20,11 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][value]"><?php
-					echo WoobookingText::sprintf('RATES', $this->element->payment_name);
+					echo SoftWayText::sprintf('RATES', $this->element->payment_name);
 				?></label>
 			</td>
 			<td>
-				<?php echo '1 '.WoobookingText::sprintf( 'POINTS' ).' '.WoobookingText::sprintf( 'EQUALS', $this->element->payment_name); ?>
+				<?php echo '1 '.SoftWayText::sprintf( 'POINTS' ).' '.SoftWayText::sprintf( 'EQUALS', $this->element->payment_name); ?>
 				<input style="width: 50px;" type="text" name="params[payment_params][value]" value="<?php echo @$this->element->payment_params->value; ?>" />
 				<?php  echo $this->data['currency']->currency_code. ' ' .$this->data['currency']->currency_symbol; ?>
 			</td>
@@ -32,7 +32,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][tax_id]"><?php
-					echo WoobookingText::_('TAXATION_CATEGORY');
+					echo SoftWayText::_('TAXATION_CATEGORY');
 				?></label>
 			</td>
 			<td><?php
@@ -42,27 +42,27 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][percent]"><?php
-					echo WoobookingText::sprintf('GROUP_POINTS_BY', $this->element->payment_name);
+					echo SoftWayText::sprintf('GROUP_POINTS_BY', $this->element->payment_name);
 				?></label>
 			</td>
 			<td>
-				<input style="width: 50px;" type="text" name="params[payment_params][grouppoints]" value="<?php echo @$this->element->payment_params->grouppoints; ?>" /> <?php echo WoobookingText::sprintf( 'POINTS' );?>
+				<input style="width: 50px;" type="text" name="params[payment_params][grouppoints]" value="<?php echo @$this->element->payment_params->grouppoints; ?>" /> <?php echo SoftWayText::sprintf( 'POINTS' );?>
 			</td>
 		</tr>
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][percent]"><?php
-					echo WoobookingText::sprintf('MAXIMUM_POINTS', $this->element->payment_name);
+					echo SoftWayText::sprintf('MAXIMUM_POINTS', $this->element->payment_name);
 				?></label>
 			</td>
 			<td>
-				<input style="width: 50px;" type="text" name="params[payment_params][maxpoints]" value="<?php echo @$this->element->payment_params->maxpoints; ?>" /> <?php echo WoobookingText::sprintf( 'POINTS' );?>
+				<input style="width: 50px;" type="text" name="params[payment_params][maxpoints]" value="<?php echo @$this->element->payment_params->maxpoints; ?>" /> <?php echo SoftWayText::sprintf( 'POINTS' );?>
 			</td>
 		</tr>
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][rounding]"><?php
-					echo WoobookingText::_('POINTS_ROUDING');
+					echo SoftWayText::_('POINTS_ROUDING');
 				?></label>
 			</td>
 			<td>
@@ -72,7 +72,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][allowshipping]"><?php
-					echo WoobookingText::sprintf('SHIPPING', $this->element->payment_name);
+					echo SoftWayText::sprintf('SHIPPING', $this->element->payment_name);
 				?></label>
 			</td>
 			<td><?php
@@ -82,7 +82,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][partialpayment]"><?php
-					echo WoobookingText::sprintf('ALLOW_PARTIAL_PAYMENT', $this->element->payment_name);
+					echo SoftWayText::sprintf('ALLOW_PARTIAL_PAYMENT', $this->element->payment_name);
 				?></label>
 			</td>
 			<td><?php
@@ -99,7 +99,7 @@ if(empty($this->element->payment_params->partialpayment)){
 			<td class="key">
 				<div id="opt"<?php echo $display?>>
 					<label for="params[payment_params][percentmax]"><?php
-						echo WoobookingText::sprintf('MAXIMUM_ORDER_PERCENT', $this->element->payment_name);
+						echo SoftWayText::sprintf('MAXIMUM_ORDER_PERCENT', $this->element->payment_name);
 					?></label>
 				</div>
 			</td>
@@ -112,7 +112,7 @@ if(empty($this->element->payment_params->partialpayment)){
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][percent]"><?php
-					echo WoobookingText::sprintf('MINIMUM_ORDER_PERCENT', $this->element->payment_name);
+					echo SoftWayText::sprintf('MINIMUM_ORDER_PERCENT', $this->element->payment_name);
 				?></label>
 			</td>
 			<td>
@@ -122,7 +122,7 @@ if(empty($this->element->payment_params->partialpayment)){
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][minimumcost]"><?php
-					echo WoobookingText::_('MINIMUM_COST');
+					echo SoftWayText::_('MINIMUM_COST');
 				?></label>
 			</td>
 			<td>
@@ -135,7 +135,7 @@ if(empty($this->element->payment_params->partialpayment)){
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][givebackpoints]"><?php
-					echo WoobookingText::sprintf('GIVE_BACK_POINTS_IF_CANCELLED', $this->element->payment_name);
+					echo SoftWayText::sprintf('GIVE_BACK_POINTS_IF_CANCELLED', $this->element->payment_name);
 				?></label>
 			</td>
 			<td>
@@ -145,7 +145,7 @@ if(empty($this->element->payment_params->partialpayment)){
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][virtual_coupon]"><?php
-					echo WoobookingText::sprintf('USE_VIRTUAL_COUPON', $this->element->payment_name);
+					echo SoftWayText::sprintf('USE_VIRTUAL_COUPON', $this->element->payment_name);
 				?></label>
 			</td>
 			<td><?php
@@ -155,10 +155,10 @@ if(empty($this->element->payment_params->partialpayment)){
 		<tr>
 			<td class="key">
 				<label for="params[payment_params][grouppoints_warning_lvl]"><?php
-					echo WoobookingText::sprintf('GROUP_POINTS_WARNING_LEVEL', $this->element->payment_name);
+					echo SoftWayText::sprintf('GROUP_POINTS_WARNING_LEVEL', $this->element->payment_name);
 				?></label>
 			</td>
 			<td>
-				<input style="width: 50px;" type="text" name="params[payment_params][grouppoints_warning_lvl]" value="<?php echo @$this->element->payment_params->grouppoints_warning_lvl; ?>" /> <?php echo WoobookingText::sprintf( 'POINTS' );?>
+				<input style="width: 50px;" type="text" name="params[payment_params][grouppoints_warning_lvl]" value="<?php echo @$this->element->payment_params->grouppoints_warning_lvl; ?>" /> <?php echo SoftWayText::sprintf( 'POINTS' );?>
 			</td>
 		</tr>

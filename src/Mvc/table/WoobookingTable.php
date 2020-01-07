@@ -19,7 +19,7 @@ defined('_SOFT_WAY_EXEC') or die;
  * @since  1.7.0
  * @tutorial  softwaycore.Platform/jtable.cls
  */
-abstract class WoobookingTable extends CMSObject
+abstract class SoftWayTable extends CMSObject
 {
 	/**
 	 * Include paths for searching for Table classes.
@@ -1560,7 +1560,7 @@ abstract class WoobookingTable extends CMSObject
 				// We don't have a full primary key - return false
 				else
 				{
-					$this->setError(WoobookingText::_('JLIB_DATABASE_ERROR_NO_ROWS_SELECTED'));
+					$this->setError(SoftWayText::_('JLIB_DATABASE_ERROR_NO_ROWS_SELECTED'));
 
 					return false;
 				}

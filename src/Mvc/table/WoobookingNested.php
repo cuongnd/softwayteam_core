@@ -17,7 +17,7 @@ require_once SOFT_WAY_CORE_PATH_ROOT."/lib/utilities/arrayhelper.php";
  *
  * @since  1.7.0
  */
-class WoobookingNested extends WoobookingTable
+class SoftWayNested extends SoftWayTable
 {
 	/**
 	 * Object property holding the primary key of the parent node.  Provides adjacency list data for nodes.

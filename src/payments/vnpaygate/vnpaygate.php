@@ -37,17 +37,17 @@ class WBPaymentVnPaygate extends WBPayment
 
 		if (empty($this->payment_params->identifier))
 		{
-			$this->app->enqueueMessage(WoobookingText::sprintf('CONFIGURE_X_PAYMENT_PLUGIN_ERROR','an identifer','vnpaygate'),'error');
+			$this->app->enqueueMessage(SoftWayText::sprintf('CONFIGURE_X_PAYMENT_PLUGIN_ERROR','an identifer','vnpaygate'),'error');
 			return false;
 		}
 		elseif (empty($this->payment_params->key))
 		{
-			$this->app->enqueueMessage(WoobookingText::sprintf('CONFIGURE_X_PAYMENT_PLUGIN_ERROR','a key','vnpaygate'),'error');
+			$this->app->enqueueMessage(SoftWayText::sprintf('CONFIGURE_X_PAYMENT_PLUGIN_ERROR','a key','vnpaygate'),'error');
 			return false;
 		}
 		elseif (empty($this->payment_params->payment_url))
 		{
-			$this->app->enqueueMessage(WoobookingText::sprintf('CONFIGURE_X_PAYMENT_PLUGIN_ERROR','a payment url','vnpaygate'),'error');
+			$this->app->enqueueMessage(SoftWayText::sprintf('CONFIGURE_X_PAYMENT_PLUGIN_ERROR','a payment url','vnpaygate'),'error');
 			return false;
 		}
 		else
@@ -141,7 +141,7 @@ class WBPaymentVnPaygate extends WBPayment
 			if($this->payment_params->debug)
 				$this->writeToLog('Hash error '.$vars['CHECKSUM'].' - '.$checksum."\n\n\n");
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, true, true);
-			$this->app->enqueueMessage(WoobookingText::sprintf('TRANSACTION_PROCESSING_ERROR','Invalid hash'),'error');
+			$this->app->enqueueMessage(SoftWayText::sprintf('TRANSACTION_PROCESSING_ERROR','Invalid hash'),'error');
 			$this->app->redirect($cancel_url);
 			return false;
 		}
@@ -150,7 +150,7 @@ class WBPaymentVnPaygate extends WBPayment
 			if($this->payment_params->debug)
 				$this->writeToLog('Reference error '.$vars['REFERENCE'].' - '.$this->payment_params->reference."\n\n\n");
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, true, true);
-			$this->app->enqueueMessage(WoobookingText::sprintf('TRANSACTION_PROCESSING_ERROR','Invalid reference'),'error');
+			$this->app->enqueueMessage(SoftWayText::sprintf('TRANSACTION_PROCESSING_ERROR','Invalid reference'),'error');
 			$this->app->redirect($cancel_url);
 			return false;
 		}
@@ -159,7 +159,7 @@ class WBPaymentVnPaygate extends WBPayment
 			if($this->payment_params->debug)
 				$this->writeToLog('Card validation error : '.$vars['RISK_INDICATOR']." - Authentication was attempted but NOT successful..\n\n\n");
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, true, true);
-			$this->app->enqueueMessage(WoobookingText::sprintf('TRANSACTION_PROCESSING_ERROR','Invalid card'),'error');
+			$this->app->enqueueMessage(SoftWayText::sprintf('TRANSACTION_PROCESSING_ERROR','Invalid card'),'error');
 			$this->app->redirect($cancel_url);
 			return false;
 		}
@@ -168,7 +168,7 @@ class WBPaymentVnPaygate extends WBPayment
 			if($this->payment_params->debug)
 				$this->writeToLog('The payment has been declined. Transaction status : '.$vars['TRANSACTION_STATUS'].' / '.$vars['RESULT_CODE'].' - '.$vars['RESULT_DESC']."\n\n\n");
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, true, true);
-			$this->app->enqueueMessage(WoobookingText::sprintf('TRANSACTION_PROCESSING_ERROR','Invalid vnpaygate\' transaction status'),'error');
+			$this->app->enqueueMessage(SoftWayText::sprintf('TRANSACTION_PROCESSING_ERROR','Invalid vnpaygate\' transaction status'),'error');
 			$this->app->redirect($cancel_url);
 			return false;
 		}

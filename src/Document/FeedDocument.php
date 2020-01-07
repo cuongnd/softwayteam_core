@@ -203,7 +203,7 @@ class FeedDocument extends Document
 
 		if (!($renderer instanceof DocumentRenderer))
 		{
-			throw new \Exception(WoobookingText::_('JGLOBAL_RESOURCE_NOT_FOUND'), 404);
+			throw new \Exception(SoftWayText::_('JGLOBAL_RESOURCE_NOT_FOUND'), 404);
 		}
 
 		$this->setMimeEncoding($renderer->getContentType());

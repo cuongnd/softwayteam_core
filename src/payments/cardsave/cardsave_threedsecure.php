@@ -9,7 +9,7 @@
 defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_cardsave_threedsecure" id="hikashop_cardsave_threedsecure">
 	<span id="hikashop_cardsave_threedsecure_message" class="hikashop_cardsave_threedsecure_message">
-		<?php echo WoobookingText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X',$this->payment_name).'<br/>'. WoobookingText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>
+		<?php echo SoftWayText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X',$this->payment_name).'<br/>'. SoftWayText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>
 	</span>
 	<span id="hikashop_cardsave_threedsecure_spinner" class="hikashop_cardsave_threedsecure_spinner">
 		<img src="<?php echo HIKASHOP_IMAGES.'spinner.gif';?>" />
@@ -17,7 +17,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 	<br/>
 	<form id="hikashop_cardsave_form" name="hikashop_cardsave_form" action="<?php echo $this->vars['url']; ?>" method="post">
 		<div id="hikashop_cardsave_threedsecure_image" class="hikashop_cardsave_threedsecure_image">
-			<input id="hikashop_cardsave_button" type="submit" class="btn btn-primary" value="<?php echo WoobookingText::_('VALIDATE CARD');?>" name="" alt="<?php echo WoobookingText::_('VALIDATE CARD');?>" />
+			<input id="hikashop_cardsave_button" type="submit" class="btn btn-primary" value="<?php echo SoftWayText::_('VALIDATE CARD');?>" name="" alt="<?php echo SoftWayText::_('VALIDATE CARD');?>" />
 		</div>
 		<input type="hidden" name="PaReq" value="<?php echo htmlspecialchars((string)$this->vars['req']); ?>" />
 		<input type="hidden" name="MD" value="<?php echo htmlspecialchars((string)$this->vars['ref']); ?>" />

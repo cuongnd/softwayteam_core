@@ -182,10 +182,10 @@ class WBPaymentVirtualmerchant extends WBPayment
 					$order_status = $this->payment_params->verified_status;
 
 					$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=listing';
-					$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE','',HIKASHOP_LIVE);
-					$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
-					$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION','VirtualMerchant','Accepted');
-					$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','VirtualMerchant','Accepted')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
+					$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE','',HIKASHOP_LIVE);
+					$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+					$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION','VirtualMerchant','Accepted');
+					$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','VirtualMerchant','Accepted')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
 
 					$this->modifyOrder($order,$order_status,$history,$email);
 				} else {

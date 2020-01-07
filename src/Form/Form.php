@@ -1348,7 +1348,7 @@ class Form
 					{
 						$showTime = (string) $element['showtime'];
 						$showTime = ($showTime && $showTime != 'false');
-						$format   = ($showTime) ? WoobookingText::_('DATE_FORMAT_FILTER_DATETIME') : WoobookingText::_('DATE_FORMAT_FILTER_DATE');
+						$format   = ($showTime) ? SoftWayText::_('DATE_FORMAT_FILTER_DATETIME') : SoftWayText::_('DATE_FORMAT_FILTER_DATE');
 						$date     = date_parse_from_format($format, $value);
 						$value    = (int) $date['year'] . '-' . (int) $date['month'] . '-' . (int) $date['day'];
 
@@ -1369,7 +1369,7 @@ class Form
 					catch (\Exception $e)
 					{
 						Factory::getApplication()->enqueueMessage(
-							WoobookingText::sprintf('JLIB_FORM_VALIDATE_FIELD_INVALID', WoobookingText::_((string) $element['label'])),
+							SoftWayText::sprintf('JLIB_FORM_VALIDATE_FIELD_INVALID', SoftWayText::_((string) $element['label'])),
 							'warning'
 						);
 
@@ -1393,7 +1393,7 @@ class Form
 					{
 						$showTime = (string) $element['showtime'];
 						$showTime = ($showTime && $showTime != 'false');
-						$format   = ($showTime) ? WoobookingText::_('DATE_FORMAT_FILTER_DATETIME') : WoobookingText::_('DATE_FORMAT_FILTER_DATE');
+						$format   = ($showTime) ? SoftWayText::_('DATE_FORMAT_FILTER_DATETIME') : SoftWayText::_('DATE_FORMAT_FILTER_DATE');
 						$date     = date_parse_from_format($format, $value);
 						$value    = (int) $date['year'] . '-' . (int) $date['month'] . '-' . (int) $date['day'];
 
@@ -1414,7 +1414,7 @@ class Form
 					catch (\Exception $e)
 					{
 						Factory::getApplication()->enqueueMessage(
-							WoobookingText::sprintf('JLIB_FORM_VALIDATE_FIELD_INVALID', WoobookingText::_((string) $element['label'])),
+							SoftWayText::sprintf('JLIB_FORM_VALIDATE_FIELD_INVALID', SoftWayText::_((string) $element['label'])),
 							'warning'
 						);
 
@@ -1960,12 +1960,12 @@ class Form
 				if ($lang->hasKey($default))
 				{
 					$debug = $lang->setDebug(false);
-					$default = WoobookingText::_($default);
+					$default = SoftWayText::_($default);
 					$lang->setDebug($debug);
 				}
 				else
 				{
-					$default = WoobookingText::_($default);
+					$default = SoftWayText::_($default);
 				}
 			}
 
@@ -2124,11 +2124,11 @@ class Form
 		// Define field name for messages
 		if ($element['label'])
 		{
-			$fieldLabel = WoobookingText::_($element['label']);
+			$fieldLabel = SoftWayText::_($element['label']);
 		}
 		else
 		{
-			$fieldLabel = WoobookingText::_($element['name']);
+			$fieldLabel = SoftWayText::_($element['name']);
 		}
 
 		// Check if the field is required.
@@ -2143,7 +2143,7 @@ class Form
 			// If the field is disabled but it is passed in the request this is invalid as disabled fields are not added to the request
 			if ($disabled && $fieldExistsInRequestData)
 			{
-				$message = WoobookingText::sprintf('JLIB_FORM_VALIDATE_FIELD_INVALID', $fieldLabel);
+				$message = SoftWayText::sprintf('JLIB_FORM_VALIDATE_FIELD_INVALID', $fieldLabel);
 
 				return new \RuntimeException($message);
 			}
@@ -2154,7 +2154,7 @@ class Form
 			// If the field is required and the value is empty return an error message.
 			if (($value === '') || ($value === null))
 			{
-				$message = WoobookingText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', $fieldLabel);
+				$message = SoftWayText::sprintf('JLIB_FORM_VALIDATE_FIELD_REQUIRED', $fieldLabel);
 
 				return new \RuntimeException($message);
 			}
@@ -2225,13 +2225,13 @@ class Form
 
 			if ($message)
 			{
-				$message = WoobookingText::_($element['message']);
+				$message = SoftWayText::_($element['message']);
 
 				return new \UnexpectedValueException($message);
 			}
 			else
 			{
-				$message = WoobookingText::sprintf('JLIB_FORM_VALIDATE_FIELD_INVALID', $fieldLabel);
+				$message = SoftWayText::sprintf('JLIB_FORM_VALIDATE_FIELD_INVALID', $fieldLabel);
 
 				return new \UnexpectedValueException($message);
 			}

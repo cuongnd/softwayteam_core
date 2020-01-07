@@ -31,14 +31,14 @@ if (($this->payment_params->iframe == 1)) {
 }else{ ?>
 <div class="hikashop_paypalintegralevolution_end" id="hikashop_paypalintegralevolution_end">
 	<span id="hikashop_paypalintegralevolution_end_message" class="hikashop_paypalintegralevolution_end_message">
-		<?php echo WoobookingText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X', $this->payment_name).'<br/><span id="hikashop_paypalintegralevolution_button_message">'. WoobookingText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED').'</span>';?>
+		<?php echo SoftWayText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X', $this->payment_name).'<br/><span id="hikashop_paypalintegralevolution_button_message">'. SoftWayText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED').'</span>';?>
 	</span>
 	<span id="hikashop_paypalintegralevolution_end_spinner" class="hikashop_paypalintegralevolution_end_spinner hikashop_checkout_end_spinner">
 	</span>
 	<br/>
 	<form id="hikashop_paypalintegralevolution_form" name="hikashop_paypalintegralevolution_form" action="<?php echo $this->payment_params->url;?>" method="post">
 		<div id="hikashop_paypalintegralevolution_end_image" class="hikashop_paypalintegralevolution_end_image">
-			<input id="hikashop_paypalintegralevolution_button" type="submit" class="btn btn-primary" value="<?php echo WoobookingText::_('PAY_NOW');?>" name="" alt="<?php echo WoobookingText::_('PAY_NOW');?>" />
+			<input id="hikashop_paypalintegralevolution_button" type="submit" class="btn btn-primary" value="<?php echo SoftWayText::_('PAY_NOW');?>" name="" alt="<?php echo SoftWayText::_('PAY_NOW');?>" />
 		</div>
 		<?php
 			foreach($this->vars as $name => $value ) {

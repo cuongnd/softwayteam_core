@@ -8,7 +8,7 @@
  */
 defined('_SOFT_WAY_EXEC') or die;
 /**
- * Wrapper class for WoobookingText
+ * Wrapper class for SoftWayText
  *
  * @package     softwaycore.Platform
  * @subpackage  Language
@@ -26,12 +26,12 @@ class LanguageWrapperText
 	 *
 	 * @return  string  The translated string or the key is $script is true.
 	 *
-	 * @see     WoobookingText::_
+	 * @see     SoftWayText::_
 	 * @since   3.4
 	 */
 	public function _($string, $jsSafe = false, $interpretBackSlashes = true, $script = false)
 	{
-		return WoobookingText::_($string, $jsSafe, $interpretBackSlashes, $script);
+		return SoftWayText::_($string, $jsSafe, $interpretBackSlashes, $script);
 	}
 	/**
 	 * Helper wrapper method for alt
@@ -44,12 +44,12 @@ class LanguageWrapperText
 	 *
 	 * @return  string  The translated string or the key if $script is true.
 	 *
-	 * @see     WoobookingText::alt
+	 * @see     SoftWayText::alt
 	 * @since   3.4
 	 */
 	public function alt($string, $alt, $jsSafe = false, $interpretBackSlashes = true, $script = false)
 	{
-		return WoobookingText::alt($string, $alt, $jsSafe, $interpretBackSlashes, $script);
+		return SoftWayText::alt($string, $alt, $jsSafe, $interpretBackSlashes, $script);
 	}
 	/**
 	 * Helper wrapper method for plural
@@ -59,12 +59,12 @@ class LanguageWrapperText
 	 *
 	 * @return  string  The translated strings or the key if 'script' is true in the array of options.
 	 *
-	 * @see     WoobookingText::plural
+	 * @see     SoftWayText::plural
 	 * @since   3.4
 	 */
 	public function plural($string, $n)
 	{
-		return WoobookingText::plural($string, $n);
+		return SoftWayText::plural($string, $n);
 	}
 	/**
 	 * Helper wrapper method for sprintf
@@ -73,12 +73,12 @@ class LanguageWrapperText
 	 *
 	 * @return  string  The translated strings or the key if 'script' is true in the array of options.
 	 *
-	 * @see     WoobookingText::sprintf
+	 * @see     SoftWayText::sprintf
 	 * @since   3.4
 	 */
 	public function sprintf($string)
 	{
-		return WoobookingText::sprintf($string);
+		return SoftWayText::sprintf($string);
 	}
 	/**
 	 * Helper wrapper method for printf
@@ -87,27 +87,27 @@ class LanguageWrapperText
 	 *
 	 * @return  mixed
 	 *
-	 * @see     WoobookingText::printf
+	 * @see     SoftWayText::printf
 	 * @since   3.4
 	 */
 	public function printf($string)
 	{
-		return WoobookingText::printf($string);
+		return SoftWayText::printf($string);
 	}
 	/**
 	 * Helper wrapper method for script
 	 *
-	 * @param   string   $string                The WoobookingText key.
+	 * @param   string   $string                The SoftWayText key.
 	 * @param   boolean  $jsSafe                Ensure the output is JavaScript safe.
 	 * @param   boolean  $interpretBackSlashes  Interpret \t and \n.
 	 *
 	 * @return  string
 	 *
-	 * @see     WoobookingText::script
+	 * @see     SoftWayText::script
 	 * @since   3.4
 	 */
 	public function script($string = null, $jsSafe = false, $interpretBackSlashes = true)
 	{
-		return WoobookingText::script($string, $jsSafe, $interpretBackSlashes);
+		return SoftWayText::script($string, $jsSafe, $interpretBackSlashes);
 	}
 }

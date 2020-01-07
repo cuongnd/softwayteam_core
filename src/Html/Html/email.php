@@ -101,7 +101,7 @@ abstract class HtmlEmail
 		// TODO: Use inline script for now
 		$inlineScript = "<script type='text/javascript'>" . $script . "</script>";
 
-		return '<span id="cloak' . $rand . '">' . WoobookingText::_('JLIB_HTML_CLOAKING') . '</span>' . $inlineScript;
+		return '<span id="cloak' . $rand . '">' . SoftWayText::_('JLIB_HTML_CLOAKING') . '</span>' . $inlineScript;
 	}
 
 	/**

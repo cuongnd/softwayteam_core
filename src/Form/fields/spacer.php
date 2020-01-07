@@ -65,7 +65,7 @@ class FormFieldSpacer extends FormField
 
 			// Get the label text from the XML element, defaulting to the element name.
 			$text = $this->element['label'] ? (string) $this->element['label'] : (string) $this->element['name'];
-			$text = $this->translateLabel ? WoobookingText::_($text) : $text;
+			$text = $this->translateLabel ? SoftWayText::_($text) : $text;
 
 			// Build the class for the label.
 			$class = !empty($this->description) ? 'hasPopover' : '';
@@ -80,7 +80,7 @@ class FormFieldSpacer extends FormField
 				Html::_('bootstrap.popover');
 				$label .= ' title="' . htmlspecialchars(trim($text, ':'), ENT_COMPAT, 'UTF-8') . '"';
 				$label .= ' data-content="' . htmlspecialchars(
-					$this->translateDescription ? WoobookingText::_($this->description) : $this->description,
+					$this->translateDescription ? SoftWayText::_($this->description) : $this->description,
 					ENT_COMPAT,
 					'UTF-8'
 				) . '"';

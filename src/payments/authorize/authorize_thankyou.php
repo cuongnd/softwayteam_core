@@ -9,9 +9,9 @@
 defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_authorize_thankyou" id="hikashop_authorize_thankyou">
 	<span id="hikashop_authorize_thankyou_message" class="hikashop_authorize_thankyou_message">
-		<?php echo WoobookingText::_('THANK_YOU_FOR_PURCHASE');
+		<?php echo SoftWayText::_('THANK_YOU_FOR_PURCHASE');
 		if(!empty($this->payment_params->return_url)){
-			echo '<br/><a href="'.$this->payment_params->return_url.'">'.WoobookingText::_('GO_BACK_TO_SHOP').'</a>';
+			echo '<br/><a href="'.$this->payment_params->return_url.'">'.SoftWayText::_('GO_BACK_TO_SHOP').'</a>';
 		}?>
 	</span>
 </div>

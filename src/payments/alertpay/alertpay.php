@@ -34,8 +34,8 @@ class WBPaymentAlertpay extends WBPayment
 	function  __construct(&$subject, $config){
 		$lang = JFactory::getLanguage();
 		$locale=strtoupper(substr($lang->get('tag'),0,2));
-		$this->pluginConfig['notification'][0] =  WoobookingText::sprintf('ALLOW_NOTIFICATIONS_FROM_X','Payza');
-		$this->pluginConfig['status_url'][0] = WoobookingText::sprintf('STATUS_URL','Payza');
+		$this->pluginConfig['notification'][0] =  SoftWayText::sprintf('ALLOW_NOTIFICATIONS_FROM_X','Payza');
+		$this->pluginConfig['status_url'][0] = SoftWayText::sprintf('STATUS_URL','Payza');
 		$this->pluginConfig['status_url'][2] = htmlentities(HIKASHOP_LIVE.'index.php?option=com_hikashop&ctrl=checkout&task=notify&notif_payment=alertpay&tmpl=component&lang='.strtolower($locale));
 		return parent::__construct($subject, $config);
 	}
@@ -123,8 +123,8 @@ class WBPaymentAlertpay extends WBPayment
 		}
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		if($this->payment_params->debug){
 			echo print_r($dbOrder,true)."\n\n\n";
@@ -136,8 +136,8 @@ class WBPaymentAlertpay extends WBPayment
 			}
 
 			$emailData = new stdClass();
-			$emailData->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Payza').'invalid response';
-			$emailData->body = WoobookingText::sprintf("Hello,\r\n An Payza notification was refused because the notification from the Payza server was invalid")."\r\n\r\n".$order_text;
+			$emailData->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Payza').'invalid response';
+			$emailData->body = SoftWayText::sprintf("Hello,\r\n An Payza notification was refused because the notification from the Payza server was invalid")."\r\n\r\n".$order_text;
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, true, $emailData);
 			return false;
 		}

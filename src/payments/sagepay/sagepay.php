@@ -283,8 +283,8 @@ class WBPaymentSagepay extends WBPayment
 			echo print_r($dbOrder,true)."\n\n\n";
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$return_url = $httpsHikashop.'index.php?option=com_hikashop&ctrl=checkout&task=after_end&order_id='.$order_id.$this->url_itemid;
 
@@ -306,8 +306,8 @@ class WBPaymentSagepay extends WBPayment
 			$history->data .= "\n\n" . 'payment with code '.$vars['Status'].' - '.$vars['StatusDetail'];
 
 			$order_text = $vars['Status'] . ' - ' . $vars['StatusDetail']."\r\n\r\n".$order_text;
-			$email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'SagePay', $vars['Status'])) . ' ' . WoobookingText::_('STATUS_NOT_CHANGED') . "\r\n\r\n" . $order_text;
-		 	$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'SagePay', $vars['Status'], $dbOrder->order_number);
+			$email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'SagePay', $vars['Status'])) . ' ' . SoftWayText::_('STATUS_NOT_CHANGED') . "\r\n\r\n" . $order_text;
+		 	$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'SagePay', $vars['Status'], $dbOrder->order_number);
 
 			$this->modifyOrder($order_id, $order_status, $history,$email);
 
@@ -322,8 +322,8 @@ class WBPaymentSagepay extends WBPayment
 
 		$vars['payment_status'] = 'Accepted';
 		$history->notified = 1;
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'SagePay', $vars['payment_status'], $dbOrder->order_number);
-		$email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'SagePay', $vars['payment_status'])) . ' ' . WoobookingText::sprintf('ORDER_STATUS_CHANGED', $statuses[$order_status]) . "\r\n\r\n" . $order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'SagePay', $vars['payment_status'], $dbOrder->order_number);
+		$email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'SagePay', $vars['payment_status'])) . ' ' . SoftWayText::sprintf('ORDER_STATUS_CHANGED', $statuses[$order_status]) . "\r\n\r\n" . $order_text;
 
 		$this->modifyOrder($order_id, $order_status, $history, $email);
 

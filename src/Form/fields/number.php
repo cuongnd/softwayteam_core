@@ -11,7 +11,7 @@
 namespace SoftWay\CMS\Form\fields;
 defined('_SOFT_WAY_EXEC') or die;
 use SoftWay\CMS\Form\FormField;
-use WoobookingText;
+use SoftWayText;
 use SoftWay\CMS\Html\Html;
 use SimpleXMLElement;
 
@@ -180,7 +180,7 @@ class FormFieldNumber extends FormField
 			{
 				$value = (string) $value;
 
-				$this->hint = WoobookingText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', $value);
+				$this->hint = SoftWayText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', $value);
 			}
 		}
 

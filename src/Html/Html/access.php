@@ -61,7 +61,7 @@ abstract class HtmlAccess
 		// If all levels is allowed, push it into the array.
 		elseif ($params)
 		{
-			array_unshift($options, Html::_('select.option', '', WoobookingText::_('JOPTION_ACCESS_SHOW_ALL_LEVELS')));
+			array_unshift($options, Html::_('select.option', '', SoftWayText::_('JOPTION_ACCESS_SHOW_ALL_LEVELS')));
 		}
 
 		return Html::_(
@@ -103,7 +103,7 @@ abstract class HtmlAccess
 		// If all usergroups is allowed, push it into the array.
 		if ($allowAll)
 		{
-			array_unshift($options, Html::_('select.option', '', WoobookingText::_('JOPTION_ACCESS_SHOW_ALL_GROUPS')));
+			array_unshift($options, Html::_('select.option', '', SoftWayText::_('JOPTION_ACCESS_SHOW_ALL_GROUPS')));
 		}
 
 		return Html::_('select.genericlist', $options, $name, array('list.attr' => $attribs, 'list.select' => $selected, 'id' => $id));
@@ -208,7 +208,7 @@ abstract class HtmlAccess
 			$html[] = '		<input type="checkbox" name="' . $name . '[]" value="' . $item->id . '" id="' . $eid . '"';
 			$html[] = '			' . $checked . ' />';
 			$html[] = '		<label for="' . $eid . '">';
-			$html[] = '			' . WoobookingText::_($item->title);
+			$html[] = '			' . SoftWayText::_($item->title);
 			$html[] = '		</label>';
 			$html[] = '	</li>';
 		}

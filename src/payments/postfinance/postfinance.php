@@ -163,8 +163,8 @@ class WBPaymentPostfinance extends WBPayment {
 		$txtSha = strtoupper(sha1($txtSha_tosecure));
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id=' . $order_id;
-		$order_text = "\r\n" . WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
-		$order_text .= "\r\n" . str_replace('<br/>', "\r\n", WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
+		$order_text = "\r\n" . SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
+		$order_text .= "\r\n" . str_replace('<br/>', "\r\n", SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
 
 		if($this->payment_params->debug) {
 			$this->writeToLog(
@@ -184,8 +184,8 @@ class WBPaymentPostfinance extends WBPayment {
 			$history->amount = $result['AMOUNT'];
 			$history->data = ob_get_clean();
 
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Postfinance',$result['STATUS'],$dbOrder->order_number);
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Postfinance',$result['STATUS'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$this->payment_params->verified_status)."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Postfinance',$result['STATUS'],$dbOrder->order_number);
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Postfinance',$result['STATUS'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$this->payment_params->verified_status)."\r\n\r\n".$order_text;
 			$email->body = $body;
 
 			if($dbOrder->order_status != $this->payment_params->verified_status)
@@ -196,21 +196,21 @@ class WBPaymentPostfinance extends WBPayment {
 		}
 
 		if($txtSha == $shasign && (int)$result['STATUS'] == 5) {
-			$this->app->enqueueMessage(WoobookingText::_('POSTFINANCE_AUTHORIZED_PAYMENT'));
+			$this->app->enqueueMessage(SoftWayText::_('POSTFINANCE_AUTHORIZED_PAYMENT'));
 			$this->app->redirect($return_url);
 			return true;
 		}
 
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name) . ' invalid response';
+		$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name) . ' invalid response';
 
 		if($txtSha !== $shasign) {
-			$email->body = WoobookingText::_("Hello,\r\n A Postfinance notification was refused because the signature was invalid")."\r\n\r\n".$order_text;
+			$email->body = SoftWayText::_("Hello,\r\n A Postfinance notification was refused because the signature was invalid")."\r\n\r\n".$order_text;
 			if($element->payment_params->debug) {
 				$this->writeToLog('invalid signature (status: ' . (int)$result['STATUS'] . ')');
 			}
 		} else {
-			$email->body = WoobookingText::_("Hello,\r\n A Postfinance notification was refused because the response from the Post finance server was invalid")."\r\n\r\n".$order_text;
+			$email->body = SoftWayText::_("Hello,\r\n A Postfinance notification was refused because the response from the Post finance server was invalid")."\r\n\r\n".$order_text;
 			if($element->payment_params->debug) {
 				$this->writeToLog('invalid response: ' . (int)$result['STATUS']);
 			}

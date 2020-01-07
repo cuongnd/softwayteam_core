@@ -10,7 +10,7 @@ namespace SoftWay\CMS\Form\fields;
 defined('_SOFT_WAY_EXEC') or die;
 
 use SoftWay\CMS\Form\FormField;
-use WoobookingText;
+use SoftWayText;
 use SoftWay\CMS\Html\Html;
 /**
  * Form Field class for the softwaycore Platform.
@@ -142,7 +142,7 @@ class FormFieldList extends FormField
 
 			$tmp = array(
 					'value'    => $value,
-					'text'     => WoobookingText::alt($text, $fieldname),
+					'text'     => SoftWayText::alt($text, $fieldname),
 					'disable'  => $disabled,
 					'class'    => (string) $option['class'],
 					'selected' => ($checked || $selected),
@@ -169,7 +169,7 @@ class FormFieldList extends FormField
 		{
 			$tmp        = new stdClass;
 			$tmp->value = '';
-			$tmp->text  = WoobookingText::_('JGLOBAL_USE_GLOBAL');
+			$tmp->text  = SoftWayText::_('JGLOBAL_USE_GLOBAL');
 			$component  = Factory::getApplication()->input->getCmd('option');
 
 			// Get correct component for menu items
@@ -209,7 +209,7 @@ class FormFieldList extends FormField
 					}
 				}
 
-				$tmp->text = WoobookingText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', $value);
+				$tmp->text = SoftWayText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', $value);
 			}
 
 			array_unshift($options, $tmp);

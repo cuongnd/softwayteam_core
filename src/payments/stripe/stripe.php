@@ -116,7 +116,7 @@ class WBPaymentStripe extends WBPayment
 
 		$currency = $this->currency->currency_code;
 		$amout = round($dbOrder->order_full_price,2)*100;
-		$desc = WoobookingText::sprintf('ORDER_NUMBER').' : '.$order_id;
+		$desc = SoftWayText::sprintf('ORDER_NUMBER').' : '.$order_id;
 
 		Stripe::setApiKey(trim($this->payment_params->secret_key));
 		Stripe::setApiVersion('2013-12-03');

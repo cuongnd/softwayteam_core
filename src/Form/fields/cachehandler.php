@@ -42,7 +42,7 @@ class FormFieldCacheHandler extends JFormFieldList
 		// Convert to name => name array.
 		foreach (JCache::getStores() as $store)
 		{
-			$options[] = Html::_('select.option', $store, WoobookingText::_('JLIB_FORM_VALUE_CACHE_' . $store), 'value', 'text');
+			$options[] = Html::_('select.option', $store, SoftWayText::_('JLIB_FORM_VALUE_CACHE_' . $store), 'value', 'text');
 		}
 
 		$options = array_merge(parent::getOptions(), $options);

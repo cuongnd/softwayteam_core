@@ -40,7 +40,7 @@ abstract class HtmlFrontendActionsDropdown
 
 		if ($item)
 		{
-			$html[] = '<span class="element-invisible">' . WoobookingText::sprintf('JACTIONS', $item) . '</span>';
+			$html[] = '<span class="element-invisible">' . SoftWayText::sprintf('JACTIONS', $item) . '</span>';
 		}
 
 		$html[] = '</button>';
@@ -66,7 +66,7 @@ abstract class HtmlFrontendActionsDropdown
 	public static function publish($id, $prefix = '')
 	{
 		$task = ($prefix ? $prefix . '.' : '') . 'publish';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_PUBLISH'), 'publish', $id, $task);
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_PUBLISH'), 'publish', $id, $task);
 	}
 
 	/**
@@ -82,7 +82,7 @@ abstract class HtmlFrontendActionsDropdown
 	public static function unpublish($id, $prefix = '')
 	{
 		$task = ($prefix ? $prefix . '.' : '') . 'unpublish';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_UNPUBLISH'), 'unpublish', $id, $task);
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_UNPUBLISH'), 'unpublish', $id, $task);
 	}
 
 	/**
@@ -98,7 +98,7 @@ abstract class HtmlFrontendActionsDropdown
 	public static function feature($id, $prefix = '')
 	{
 		$task = ($prefix ? $prefix . '.' : '') . 'featured';
-		static::addCustomItem(WoobookingText::_('JFEATURE'), 'featured', $id, $task);
+		static::addCustomItem(SoftWayText::_('JFEATURE'), 'featured', $id, $task);
 	}
 
 	/**
@@ -114,7 +114,7 @@ abstract class HtmlFrontendActionsDropdown
 	public static function unfeature($id, $prefix = '')
 	{
 		$task = ($prefix ? $prefix . '.' : '') . 'unfeatured';
-		static::addCustomItem(WoobookingText::_('JUNFEATURE'), 'unfeatured', $id, $task);
+		static::addCustomItem(SoftWayText::_('JUNFEATURE'), 'unfeatured', $id, $task);
 	}
 
 	/**
@@ -130,7 +130,7 @@ abstract class HtmlFrontendActionsDropdown
 	public static function archive($id, $prefix = '')
 	{
 		$task = ($prefix ? $prefix . '.' : '') . 'archive';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_ARCHIVE'), 'archive', $id, $task);
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_ARCHIVE'), 'archive', $id, $task);
 	}
 
 	/**
@@ -146,7 +146,7 @@ abstract class HtmlFrontendActionsDropdown
 	public static function unarchive($id, $prefix = '')
 	{
 		$task = ($prefix ? $prefix . '.' : '') . 'unpublish';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_UNARCHIVE'), 'unarchive', $id, $task);
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_UNARCHIVE'), 'unarchive', $id, $task);
 	}
 
 	/**
@@ -162,7 +162,7 @@ abstract class HtmlFrontendActionsDropdown
 	public static function duplicate($id, $prefix = '')
 	{
 		$task = ($prefix ? $prefix . '.' : '') . 'duplicate';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_DUPLICATE'), 'copy', $id, $task);
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_DUPLICATE'), 'copy', $id, $task);
 	}
 
 	/**
@@ -178,7 +178,7 @@ abstract class HtmlFrontendActionsDropdown
 	public static function trash($id, $prefix = '')
 	{
 		$task = ($prefix ? $prefix . '.' : '') . 'trash';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_TRASH'), 'trash', $id, $task);
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_TRASH'), 'trash', $id, $task);
 	}
 
 	/**

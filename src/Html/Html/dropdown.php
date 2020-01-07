@@ -147,7 +147,7 @@ abstract class HtmlDropdown
 		$link .= '&task=' . $prefix . 'edit&id=' . $id;
 		$link = JRoute::_($link);
 
-		static::addCustomItem(WoobookingText::_('JACTION_EDIT'), $link);
+		static::addCustomItem(SoftWayText::_('JACTION_EDIT'), $link);
 
 		return;
 	}
@@ -165,7 +165,7 @@ abstract class HtmlDropdown
 	public static function publish($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'publish';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_PUBLISH'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_PUBLISH'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}
@@ -183,7 +183,7 @@ abstract class HtmlDropdown
 	public static function unpublish($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'unpublish';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_UNPUBLISH'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_UNPUBLISH'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}
@@ -201,7 +201,7 @@ abstract class HtmlDropdown
 	public static function featured($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'featured';
-		static::addCustomItem(WoobookingText::_('JFEATURED'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JFEATURED'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}
@@ -219,7 +219,7 @@ abstract class HtmlDropdown
 	public static function unfeatured($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'unfeatured';
-		static::addCustomItem(WoobookingText::_('JUNFEATURED'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JUNFEATURED'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}
@@ -237,7 +237,7 @@ abstract class HtmlDropdown
 	public static function archive($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'archive';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_ARCHIVE'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_ARCHIVE'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}
@@ -255,7 +255,7 @@ abstract class HtmlDropdown
 	public static function unarchive($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'unpublish';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_UNARCHIVE'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_UNARCHIVE'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}
@@ -273,7 +273,7 @@ abstract class HtmlDropdown
 	public static function trash($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'trash';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_TRASH'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_TRASH'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}
@@ -291,7 +291,7 @@ abstract class HtmlDropdown
 	public static function untrash($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'publish';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_UNTRASH'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_UNTRASH'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}
@@ -309,7 +309,7 @@ abstract class HtmlDropdown
 	public static function checkin($checkboxId, $prefix = '')
 	{
 		$task = $prefix . 'checkin';
-		static::addCustomItem(WoobookingText::_('JTOOLBAR_CHECKIN'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
+		static::addCustomItem(SoftWayText::_('JTOOLBAR_CHECKIN'), 'javascript:void(0)', 'onclick="contextAction(\'' . $checkboxId . '\', \'' . $task . '\')"');
 
 		return;
 	}

@@ -9,7 +9,7 @@
 defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_cardsave_end" id="hikashop_cardsave_end">
 	<span id="hikashop_cardsave_end_message" class="hikashop_cardsave_end_message">
-		<?php echo WoobookingText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X',$this->payment_name).'<br/>'. WoobookingText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>
+		<?php echo SoftWayText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X',$this->payment_name).'<br/>'. SoftWayText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>
 	</span>
 	<span id="hikashop_cardsave_end_spinner" class="hikashop_cardsave_end_spinner">
 		<img src="<?php echo HIKASHOP_IMAGES.'spinner.gif';?>" />
@@ -17,7 +17,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 	<br/>
 	<form id="hikashop_cardsave_form" name="hikashop_cardsave_form" action="https://mms.cardsaveonlinepayments.com/Pages/PublicPages/PaymentForm.aspx" method="post">
 		<div id="hikashop_cardsave_end_image" class="hikashop_cardsave_end_image">
-			<input id="hikashop_cardsave_button" type="submit" class="btn btn-primary" value="<?php echo WoobookingText::_('PAY_NOW');?>" name="" alt="<?php echo WoobookingText::_('PAY_NOW');?>" />
+			<input id="hikashop_cardsave_button" type="submit" class="btn btn-primary" value="<?php echo SoftWayText::_('PAY_NOW');?>" name="" alt="<?php echo SoftWayText::_('PAY_NOW');?>" />
 		</div>
 		<?php
 			foreach( $this->vars as $name => $value ) {

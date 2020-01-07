@@ -243,7 +243,7 @@ class Utility
     public static function add_javascript_language($list_key){
         $list_language = array();
         foreach ($list_key as $key){
-            $list_language[$key] = WoobookingText::_($key);
+            $list_language[$key] = SoftWayText::_($key);
         }
         $doc = Factory::getDocument();
         ob_start();
@@ -258,7 +258,7 @@ class Utility
         </script>
         <?php
         $js_content = ob_get_clean();
-        $js_content = WoobookingUtility::remove_string_javascript($js_content);
+        $js_content = SoftWayUtility::remove_string_javascript($js_content);
         $doc->addScriptDeclaration($js_content);
     }
     public static function get_string_between($string, $start, $end){
@@ -611,10 +611,10 @@ class Utility
         $dom = new DOMDocument();
         $html  = mb_convert_encoding($html , 'HTML-ENTITIES', 'UTF-8'); // require mb_string
         $dom->loadHTML($html);
-        return WoobookingUtility::element_to_obj($dom->documentElement,$style,"");
+        return SoftWayUtility::element_to_obj($dom->documentElement,$style,"");
     }
     function element_to_obj($element,$style,$class_path) {
-        $debug=WoobookingUtility::get_debug();
+        $debug=SoftWayUtility::get_debug();
         $obj = array( "tag" => $element->tagName );
         foreach ($element->attributes as $attribute) {
             if(strtolower($attribute->name)=="class"){
@@ -821,7 +821,7 @@ class Utility
                 $obj["html"] = $subElement->wholeText;
             }
             else {
-                $obj["children"][] = WoobookingUtility::element_to_obj($subElement,$style,$class_path);
+                $obj["children"][] = SoftWayUtility::element_to_obj($subElement,$style,$class_path);
             }
         }
         return $obj;
@@ -876,8 +876,8 @@ class Utility
             md=>992,
             lg=>1200
         );
-        $user_os        = WoobookingUtility::getOS();
-        $user_browser   = WoobookingUtility::getBrowser();
+        $user_os        = SoftWayUtility::getOS();
+        $user_browser   = SoftWayUtility::getBrowser();
         if(
             $user_os=="iPhone"
             ||$user_os=="iPod"
@@ -904,8 +904,8 @@ class Utility
             md=>992,
             lg=>1200
         );
-        $user_os        = WoobookingUtility::getOS();
-        $user_browser   = WoobookingUtility::getBrowser();
+        $user_os        = SoftWayUtility::getOS();
+        $user_browser   = SoftWayUtility::getBrowser();
         if(
             $user_os=="iPhone"
             ||$user_os=="iPod"

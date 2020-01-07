@@ -271,8 +271,8 @@ class WBPaymentAmazon extends WBPayment {
 			$TransactionStatus = $this->getTagValue($result,'TransactionStatus');
 
 			$url = HIKASHOP_LIVE . 'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id=' . $vars['callerReference'];
-			$order_text = "\r\n" . WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
-			$order_text .= "\r\n" . str_replace('<br/>', "\r\n", WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
+			$order_text = "\r\n" . SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
+			$order_text .= "\r\n" . str_replace('<br/>', "\r\n", SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
 			if ($this->payment_params->debug) {
 				echo print_r($dbOrder, true) . "\n\n\n";
 			}
@@ -294,16 +294,16 @@ class WBPaymentAmazon extends WBPayment {
 				if ($dbOrder->order_status == $order_status)
 					return true;
 
-				$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Amazon', $TransactionStatus, $dbOrder->order_number);
-				$body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Amazon', $TransactionStatus)) . ' ' . WoobookingText::sprintf('ORDER_STATUS_CHANGED', $order_status) . "\r\n\r\n" . $order_text;
+				$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Amazon', $TransactionStatus, $dbOrder->order_number);
+				$body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Amazon', $TransactionStatus)) . ' ' . SoftWayText::sprintf('ORDER_STATUS_CHANGED', $order_status) . "\r\n\r\n" . $order_text;
 				$email->body = $body;
 				$this->modifyOrder($vars['callerReference'], $this->payment_params->verified_status, $history, $email);
 				$app->redirect($return_url);
 				return true;
 			} else {
 				$email = new stdClass();
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
-				$email->body = WoobookingText::sprintf("Hello,\r\n A Postfinance notification was refused because the response from the Post finance server was invalid")."\r\n\r\n".$order_text;
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
+				$email->body = SoftWayText::sprintf("Hello,\r\n A Postfinance notification was refused because the response from the Post finance server was invalid")."\r\n\r\n".$order_text;
 				$history = new stdClass();
 
 				$this->modifyOrder($vars['callerReference'], $this->payment_params->invalid_status, $history, $email);

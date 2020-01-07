@@ -56,7 +56,7 @@ class FormFieldGroupedList extends FormField
 					// Create a new option object based on the <option /> element.
 					$tmp = Html::_(
 						'select.option', ($element['value']) ? (string) $element['value'] : trim((string) $element),
-						WoobookingText::alt(trim((string) $element), preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)), 'value', 'text',
+						SoftWayText::alt(trim((string) $element), preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname)), 'value', 'text',
 						$disabled
 					);
 
@@ -75,7 +75,7 @@ class FormFieldGroupedList extends FormField
 					// Get the group label.
 					if ($groupLabel = (string) $element['label'])
 					{
-						$label = WoobookingText::_($groupLabel);
+						$label = SoftWayText::_($groupLabel);
 					}
 
 					// Initialize the group if necessary.
@@ -98,8 +98,8 @@ class FormFieldGroupedList extends FormField
 
 						// Create a new option object based on the <option /> element.
 						$tmp = Html::_(
-							'select.option', ($option['value']) ? (string) $option['value'] : WoobookingText::_(trim((string) $option)),
-							WoobookingText::_(trim((string) $option)), 'value', 'text', $disabled
+							'select.option', ($option['value']) ? (string) $option['value'] : SoftWayText::_(trim((string) $option)),
+							SoftWayText::_(trim((string) $option)), 'value', 'text', $disabled
 						);
 
 						// Set some option attributes.

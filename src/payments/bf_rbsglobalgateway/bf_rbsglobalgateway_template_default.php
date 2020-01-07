@@ -64,7 +64,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 	}
 	if(!empty($order->order_shipping_price) || !empty($order->cart->shipping->shipping_name)){
 		echo '<tr class="rbs-product-item rbs-product-row-' . $row . '">';
-		echo '<td class="rbs-product_code">' . WoobookingText::_('HIKASHOP_SHIPPING') . '</td>';
+		echo '<td class="rbs-product_code">' . SoftWayText::_('HIKASHOP_SHIPPING') . '</td>';
 		echo '<td class="rbs-product_name">' . rbsglobalgateway_helper::shipping_name($params, $order) . '</td>';
 		echo '<td class="rbs-product_quantity">1</td>';
 		echo '<td class="rbs-product_price">' . rbsglobalgateway_helper::shipping_price($params, $order, $tax_cart) . '</td>';

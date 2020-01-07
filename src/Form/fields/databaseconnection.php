@@ -61,7 +61,7 @@ class FormFieldDatabaseConnection extends JFormFieldList
 			{
 				if (in_array($support, $available))
 				{
-					$options[$support] = WoobookingText::_(ucfirst($support));
+					$options[$support] = SoftWayText::_(ucfirst($support));
 				}
 			}
 		}
@@ -69,7 +69,7 @@ class FormFieldDatabaseConnection extends JFormFieldList
 		{
 			foreach ($available as $support)
 			{
-				$options[$support] = WoobookingText::_(ucfirst($support));
+				$options[$support] = SoftWayText::_(ucfirst($support));
 			}
 		}
 
@@ -77,7 +77,7 @@ class FormFieldDatabaseConnection extends JFormFieldList
 		// a database that is not available on the server.
 		if (empty($options))
 		{
-			$options[''] = WoobookingText::_('JNONE');
+			$options[''] = SoftWayText::_('JNONE');
 		}
 
 		return $options;

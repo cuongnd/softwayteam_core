@@ -15,7 +15,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 	<div style="margin:auto;">
 	<table class="adminlist table table-striped" cellpadding="1"><thead><tr>
 		<th class="title"></th>
-		<th class="title"><?php echo WoobookingText::sprintf( 'SELECT_CARDS' ); ?></th>
+		<th class="title"><?php echo SoftWayText::sprintf( 'SELECT_CARDS' ); ?></th>
 		<th class="title"></th>
 		</tr></thead><tr>
 	<?php

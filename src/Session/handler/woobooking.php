@@ -18,7 +18,7 @@ require_once __DIR__."/native.php";
  * @since       3.5
  * @deprecated  4.0  The CMS' Session classes will be replaced with the `softwaycore/session` package
  */
-class SessionHandlerWoobooking extends SessionHandlerNative
+class SessionHandlerSoftWay extends SessionHandlerNative
 {
 	/**
 	 * The input object

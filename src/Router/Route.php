@@ -13,7 +13,7 @@ defined('_SOFT_WAY_EXEC') or die;
 use SoftWay\CMS\Log\Log;
 use Factory;
 use SoftWay\CMS\Uri\Uri;
-use WoobookingText;
+use SoftWayText;
 
 /**
  * Route handling class
@@ -138,7 +138,7 @@ class Route
 		// Make sure that we have our router
 		if (!isset(self::$_router[$client]))
 		{
-			throw new \RuntimeException(WoobookingText::sprintf('JLIB_APPLICATION_ERROR_ROUTER_LOAD', $client), 500);
+			throw new \RuntimeException(SoftWayText::sprintf('JLIB_APPLICATION_ERROR_ROUTER_LOAD', $client), 500);
 		}
 
 		// Build route.

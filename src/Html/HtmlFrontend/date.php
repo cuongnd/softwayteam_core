@@ -43,7 +43,7 @@ abstract class HtmlFrontendDate
 		// Less than a minute
 		if ($diff < 60)
 		{
-			return WoobookingText::_('JLIB_HTML_DATE_RELATIVE_LESSTHANAMINUTE');
+			return SoftWayText::_('JLIB_HTML_DATE_RELATIVE_LESSTHANAMINUTE');
 		}
 
 		// Round to minutes
@@ -52,7 +52,7 @@ abstract class HtmlFrontendDate
 		// 1 to 59 minutes
 		if ($diff < 60 || $unit === 'minute')
 		{
-			return WoobookingText::plural('JLIB_HTML_DATE_RELATIVE_MINUTES', $diff);
+			return SoftWayText::plural('JLIB_HTML_DATE_RELATIVE_MINUTES', $diff);
 		}
 
 		// Round to hours
@@ -61,7 +61,7 @@ abstract class HtmlFrontendDate
 		// 1 to 23 hours
 		if ($diff < 24 || $unit === 'hour')
 		{
-			return WoobookingText::plural('JLIB_HTML_DATE_RELATIVE_HOURS', $diff);
+			return SoftWayText::plural('JLIB_HTML_DATE_RELATIVE_HOURS', $diff);
 		}
 
 		// Round to days
@@ -70,7 +70,7 @@ abstract class HtmlFrontendDate
 		// 1 to 6 days
 		if ($diff < 7 || $unit === 'day')
 		{
-			return WoobookingText::plural('JLIB_HTML_DATE_RELATIVE_DAYS', $diff);
+			return SoftWayText::plural('JLIB_HTML_DATE_RELATIVE_DAYS', $diff);
 		}
 
 		// Round to weeks
@@ -79,7 +79,7 @@ abstract class HtmlFrontendDate
 		// 1 to 4 weeks
 		if ($diff <= 4 || $unit === 'week')
 		{
-			return WoobookingText::plural('JLIB_HTML_DATE_RELATIVE_WEEKS', $diff);
+			return SoftWayText::plural('JLIB_HTML_DATE_RELATIVE_WEEKS', $diff);
 		}
 
 		// Over a month, return the absolute time

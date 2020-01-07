@@ -96,8 +96,8 @@ class WBPaymentEpay extends WBPayment
 		$order_status = $dbOrder->order_status;
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		if($this->payment_params->debug){
 			echo print_r($dbOrder,true)."\n\n\n";
@@ -129,10 +129,10 @@ class WBPaymentEpay extends WBPayment
 				$history = new stdClass();
 				$email = new stdClass();
 				$history->notified = 0;
-				$history->reason = WoobookingText::_('PAYMENT_MD5_ERROR');
+				$history->reason = SoftWayText::_('PAYMENT_MD5_ERROR');
 				$history->data = "Payment by ePay - Invalid MD5 - ePay transaction ID: " . $_GET["tid"];
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','ePay').'invalid response';
-				$email->body = WoobookingText::sprintf("Hello,\r\n An ePay notification was refused because the notification from the ePay server was invalid")."\r\n\r\n".$order_text;
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','ePay').'invalid response';
+				$email->body = SoftWayText::sprintf("Hello,\r\n An ePay notification was refused because the notification from the ePay server was invalid")."\r\n\r\n".$order_text;
 
 				$this->modifyOrder($order_id, $this->payment_params->invalid_status, $history, $email);
 
@@ -143,13 +143,13 @@ class WBPaymentEpay extends WBPayment
 		$order_status = $this->payment_params->verified_status;
 		if($dbOrder->order_status == $order_status) return true;
 
-		$history->reason = WoobookingText::_('PAYMENT_ORDER_CONFIRMED');
+		$history->reason = SoftWayText::_('PAYMENT_ORDER_CONFIRMED');
 		$history->notified=1;
 		$history->data = "Payment by ePay - ePay transaction ID: ".$_GET["tid"];
 
 		$mail_status = $statuses[$order_status];
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','ePay',$order_status,$dbOrder->order_number); //order_id ?
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','ePay',$order_status)).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$mail_status)."\r\n\r\n".$order_text; //order->mail_status == order_status ?
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','ePay',$order_status,$dbOrder->order_number); //order_id ?
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','ePay',$order_status)).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$mail_status)."\r\n\r\n".$order_text; //order->mail_status == order_status ?
 
 		$this->modifyOrder($order_id,$order_status,$history,$email);
 		return true;

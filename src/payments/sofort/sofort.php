@@ -52,7 +52,7 @@ class WBPaymentSofort extends WBPayment
 		$configkey = $this->payment_params->user_id.':'.$this->payment_params->project_id.':'.$this->payment_params->token;
 
 		$amount = round($order->cart->full_total->prices[0]->price_value_with_tax, (int)$this->currency->currency_locale['int_frac_digits']);
-		$order_text = "\r\n".WoobookingText::sprintf('betaling Feeen en ridders: order ',$order->order_id);
+		$order_text = "\r\n".SoftWayText::sprintf('betaling Feeen en ridders: order ',$order->order_id);
 
 		$transactionId = 0;
 		$Sofort = new SofortLib_Multipay($configkey);
@@ -121,8 +121,8 @@ class WBPaymentSofort extends WBPayment
 
 		if($transactionData->getStatus() == 'pending') {
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Sofort',$transactionData->getStatus(),$dbOrder->order_number);
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Sofort',$transactionData->getStatus()))."\r\n\r\n".$transactionData->getStatusReason();
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Sofort',$transactionData->getStatus(),$dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Sofort',$transactionData->getStatus()))."\r\n\r\n".$transactionData->getStatusReason();
 			$action = false;
 			$order_status =  $this->payment_params->pending_status;
 			$this->modifyOrder($order_id, $order_status, $history, $email);
@@ -134,8 +134,8 @@ class WBPaymentSofort extends WBPayment
 
 			$order_status = 'created';
 			$email = new stdClass();
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Sofort',$order_status)).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$transactionData->getStatusReason();
-		 	$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Sofort',$order_status,$dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Sofort',$order_status)).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$transactionData->getStatusReason();
+		 	$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Sofort',$order_status,$dbOrder->order_number);
 
 			$this->modifyOrder($order_id, $order_status, $history,$email);
 
@@ -146,8 +146,8 @@ class WBPaymentSofort extends WBPayment
 		$history->history_data = 'TransactionId: '.$transactionId;
 		$history->notified = 1;
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Sofort',$transactionData->getStatus(),$dbOrder->order_number);
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Sofort',$order_status)).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$transactionData->getStatusReason();
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Sofort',$transactionData->getStatus(),$dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Sofort',$order_status)).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$transactionData->getStatusReason();
 
 		$this->modifyOrder($order_id, $order_status, $history,$email);
 

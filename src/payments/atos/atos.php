@@ -97,7 +97,7 @@ class WBPaymentAtos extends WBPayment
 			if($config->get('auto_submit_methods',1)){
 				$onclick = ' onclick="this.form.action=this.form.action+\'#hikashop_payment_methods\';this.form.submit(); return false;"';
 			}
-			$method->custom_html='<span style="margin-left:10%">'.Html::_('select.booleanlist', "hikashop_multiple_instalments", '',  $onclick, WoobookingText::sprintf( 'PAYMENT_IN_X_TIME' , $method->payment_params->instalments ), WoobookingText::sprintf( 'PAY_FULL_ORDER' , '1') ).'</span>';
+			$method->custom_html='<span style="margin-left:10%">'.Html::_('select.booleanlist', "hikashop_multiple_instalments", '',  $onclick, SoftWayText::sprintf( 'PAYMENT_IN_X_TIME' , $method->payment_params->instalments ), SoftWayText::sprintf( 'PAY_FULL_ORDER' , '1') ).'</span>';
 		}
 	}
 
@@ -236,7 +236,7 @@ class WBPaymentAtos extends WBPayment
 				break;
 		}
 		$vars["language"]=$locale;
-		$vars["return_url_text"]=WoobookingText::_('RETURN_TO_THE_STORE');
+		$vars["return_url_text"]=SoftWayText::_('RETURN_TO_THE_STORE');
 
 		$address=$this->app->getUserState( HIKASHOP_COMPONENT.'.billing_address');
 		$type = 'billing';
@@ -273,7 +273,7 @@ class WBPaymentAtos extends WBPayment
 			$vars['logo_url']=$this->payment_params->logo_url;
 		}
 
-		$vars["detail1_description"]=WoobookingText::_('ORDER_NUMBER').' :';
+		$vars["detail1_description"]=SoftWayText::_('ORDER_NUMBER').' :';
 		$vars["detail1_text"]=$order->order_number;
 		$vars["receipt_complement"]=@$this->payment_params->information;
 
@@ -402,8 +402,8 @@ class WBPaymentAtos extends WBPayment
 		$order_id = @$dbOrder->order_id;
 		if(!empty($dbOrder)){
 			$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-			$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-			$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+			$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+			$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 		}else{
 			echo "Could not load any order for your notification ".@$vars['transaction_id'];
 			return false;
@@ -431,7 +431,7 @@ class WBPaymentAtos extends WBPayment
 
 			$order_status = $this->payment_params->invalid_status;
 			$history->data = ob_get_clean();
-			$history->data .= WoobookingText::sprintf('ORDER_CANCEL_BY_USER');
+			$history->data .= SoftWayText::sprintf('ORDER_CANCEL_BY_USER');
 
 			$this->modifyOrder($order_id, $order_status, $history, false);
 
@@ -467,12 +467,12 @@ class WBPaymentAtos extends WBPayment
 			}elseif($vars['status']==90 || $vars['status']==91 || $vars['status']==96 || $vars['status']==97 || $vars['status']==98 || $vars['status']==99){
 				$vars['message']=$message['server_error'];
 			}else{
-				$vars['message']=WoobookingText::sprintf('Other error');
+				$vars['message']=SoftWayText::sprintf('Other error');
 			}
 
 			$email = new stdClass();
-			$email->body = WoobookingText::sprintf('PAYMENT_NOTIFICATION_ERROR',$vars['message'], $vars['status']).'. '.WoobookingText::sprintf( 'ORDER_HAVE_BEEN', $this->payment_params->invalid_status )."\r\n\r\n".$order_text;
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_PROBLEM','Atos',$vars['message']);
+			$email->body = SoftWayText::sprintf('PAYMENT_NOTIFICATION_ERROR',$vars['message'], $vars['status']).'. '.SoftWayText::sprintf( 'ORDER_HAVE_BEEN', $this->payment_params->invalid_status )."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_PROBLEM','Atos',$vars['message']);
 			if($this->payment_params->debug){
 				echo 'payment with code '.@$vars['status'].(!empty($vars['failed_reason_code'])?' : '.@$vars['failed_reason_code']:'')."\n\n\n";
 			}
@@ -480,7 +480,7 @@ class WBPaymentAtos extends WBPayment
 			$history->data = ob_get_clean().'  Bank_response_code:'.$vars['status'].'  Message:'.$vars['message'];
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, $history, $email);
 
-			JError::raiseError(403, WoobookingText::_('Access Forbidden'));
+			JError::raiseError(403, SoftWayText::_('Access Forbidden'));
 			return false;
 		}
 
@@ -506,8 +506,8 @@ class WBPaymentAtos extends WBPayment
 		}
 
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Atos',$vars['payment_status'],$dbOrder->order_number);
-		$email->body = WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Atos',$vars['payment_status']).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Atos',$vars['payment_status'],$dbOrder->order_number);
+		$email->body = SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Atos',$vars['payment_status']).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
 		$this->modifyOrder($order_id, $order_status, $history, $email);
 		return true;
 	}
@@ -759,7 +759,7 @@ function insertCards(){
 			$name=implode('.',$fileName);
 			if(!JFile::upload($file['tmp_name'], $folder_path.'b'.DS . $name)){
 				if ( !move_uploaded_file($file['tmp_name'], $folder_path .'b'.DS. $name)) {
-					$app->enqueueMessage(WoobookingText::sprintf( 'FAIL_UPLOAD',$file['tmp_name'],$folder_path . $name), 'error');
+					$app->enqueueMessage(SoftWayText::sprintf( 'FAIL_UPLOAD',$file['tmp_name'],$folder_path . $name), 'error');
 					return true;
 				}
 			}
@@ -769,7 +769,7 @@ function insertCards(){
 
 		if(!JFile::upload($file['tmp_name'], $folder_path .'b'.DS.$file['name'])){
 			if ( !move_uploaded_file($file['tmp_name'], $folder_path .'b'.DS. $file['name'])) {
-				$app->enqueueMessage(WoobookingText::sprintf( 'FAIL_UPLOAD',$file['tmp_name'],$folder_path .'b'.DS.$file['name']), 'error');
+				$app->enqueueMessage(SoftWayText::sprintf( 'FAIL_UPLOAD',$file['tmp_name'],$folder_path .'b'.DS.$file['name']), 'error');
 				return false;
 			}
 		}

@@ -129,7 +129,7 @@ abstract class HtmlFrontendMenu
 				// Translate the menu item title when client is administrator
 				if ($clientId === 1)
 				{
-					$item->text = WoobookingText::_($item->text);
+					$item->text = SoftWayText::_($item->text);
 				}
 
 				$item->text = str_repeat('- ', $item->level) . $item->text;
@@ -157,7 +157,7 @@ abstract class HtmlFrontendMenu
 				static::$items[$key][] = HtmlFrontend::_('select.optgroup', $menu->text);
 
 				// Special "Add to this Menu" option:
-				static::$items[$key][] = HtmlFrontend::_('select.option', $menu->value . '.1', WoobookingText::_('JLIB_HTML_ADD_TO_THIS_MENU'));
+				static::$items[$key][] = HtmlFrontend::_('select.option', $menu->value . '.1', SoftWayText::_('JLIB_HTML_ADD_TO_THIS_MENU'));
 
 				// Menu items:
 				if (isset($lookup[$menu->value]))
@@ -235,7 +235,7 @@ abstract class HtmlFrontendMenu
 		}
 		else
 		{
-			$ordering = '<input type="hidden" name="ordering" value="' . $row->ordering . '" />' . WoobookingText::_('JGLOBAL_NEWITEMSLAST_DESC');
+			$ordering = '<input type="hidden" name="ordering" value="' . $row->ordering . '" />' . SoftWayText::_('JGLOBAL_NEWITEMSLAST_DESC');
 		}
 
 		return $ordering;
@@ -297,16 +297,16 @@ abstract class HtmlFrontendMenu
 
 		if ($all | $unassigned)
 		{
-			$mitems[] = HtmlFrontend::_('select.option', '<OPTGROUP>', WoobookingText::_('JOPTION_MENUS'));
+			$mitems[] = HtmlFrontend::_('select.option', '<OPTGROUP>', SoftWayText::_('JOPTION_MENUS'));
 
 			if ($all)
 			{
-				$mitems[] = HtmlFrontend::_('select.option', 0, WoobookingText::_('JALL'));
+				$mitems[] = HtmlFrontend::_('select.option', 0, SoftWayText::_('JALL'));
 			}
 
 			if ($unassigned)
 			{
-				$mitems[] = HtmlFrontend::_('select.option', -1, WoobookingText::_('JOPTION_UNASSIGNED'));
+				$mitems[] = HtmlFrontend::_('select.option', -1, SoftWayText::_('JOPTION_UNASSIGNED'));
 			}
 
 			$mitems[] = HtmlFrontend::_('select.option', '</OPTGROUP>');

@@ -791,7 +791,7 @@ abstract class HtmlBootstrap
 		$tabScriptLayout = $tabScriptLayout === null ? new JLayoutFile('libraries.cms.html.bootstrap.addtabscript') : $tabScriptLayout;
 		$tabLayout = $tabLayout === null ? new JLayoutFile('libraries.cms.html.bootstrap.addtab') : $tabLayout;
 
-		$active = (static::$loaded['WoobookingHtmlBootstrap::startTabSet'][$selector]['active'] == $id) ? ' active' : '';
+		$active = (static::$loaded['SoftWayHtmlBootstrap::startTabSet'][$selector]['active'] == $id) ? ' active' : '';
 
 		// Inject tab into UL
 		Factory::getDocument()
@@ -827,7 +827,7 @@ abstract class HtmlBootstrap
 	{
 		$sig = md5(serialize(array($selector, $params)));
 
-		if (!isset(static::$loaded['WoobookingHtmlBootstrap::startTabSet'][$sig]))
+		if (!isset(static::$loaded['SoftWayHtmlBootstrap::startTabSet'][$sig]))
 		{
 			// Include Bootstrap framework
 			Html::_('bootstrap.framework');
@@ -846,8 +846,8 @@ abstract class HtmlBootstrap
 			);
 
 			// Set static array
-			static::$loaded['WoobookingHtmlBootstrap::startTabSet'][$sig] = true;
-			static::$loaded['WoobookingHtmlBootstrap::startTabSet'][$selector]['active'] = $opt['active'];
+			static::$loaded['SoftWayHtmlBootstrap::startTabSet'][$sig] = true;
+			static::$loaded['SoftWayHtmlBootstrap::startTabSet'][$selector]['active'] = $opt['active'];
 		}
 
 		return '<div class="tab-content" id="' . $selector . 'Content">';
@@ -879,7 +879,7 @@ abstract class HtmlBootstrap
 	 */
 	public static function addPanel($selector, $id)
 	{
-		$active = (static::$loaded['WoobookingHtmlBootstrap::startTabSet'][$selector]['active'] == $id) ? ' active' : '';
+		$active = (static::$loaded['SoftWayHtmlBootstrap::startTabSet'][$selector]['active'] == $id) ? ' active' : '';
 
 		return '<div id="' . $id . '" class="tab-pane' . $active . '">';
 	}

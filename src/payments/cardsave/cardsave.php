@@ -207,11 +207,11 @@ class WBPaymentCardSave extends WBPayment
 								$payment_status = 'confirmed';
 
 								$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=listing';
-								$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE','',HIKASHOP_LIVE);
-								$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+								$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE','',HIKASHOP_LIVE);
+								$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
-								$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION','CardSave','Accepted');
-								$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Accepted')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
+								$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION','CardSave','Accepted');
+								$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Accepted')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
 
 								$this->modifyOrder($order,$order_status,$history,$email);
 
@@ -520,16 +520,16 @@ class WBPaymentCardSave extends WBPayment
 		}
 		$order_status = $dbOrder->order_status;
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$history = new stdClass();
 		$email = new stdClass();
 
 		if( $vars['MerchantID'] != $this->payment_params->merchantid ) {
 			if( !$customer ) {
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','CardSave').'invalid merchant id';
-				$email->body = WoobookingText::sprintf("Hello,\r\n A CardSave notification was refused because the response from the merchant identifier was invalid")."\r\n\r\n".$order_text;
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','CardSave').'invalid merchant id';
+				$email->body = SoftWayText::sprintf("Hello,\r\n A CardSave notification was refused because the response from the merchant identifier was invalid")."\r\n\r\n".$order_text;
 
 				$this->modifyOrder($order_id,null,false,$email);
 
@@ -544,8 +544,8 @@ class WBPaymentCardSave extends WBPayment
 
 		if( !$customer ) {
 			if( !in_array($vars['CurrencyCode'], $this->sync_currencies) ) {
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','CardSave').'invalid currency';
-				$email->body = WoobookingText::sprintf("Hello,\r\n A CardSave notification was refused because the response from the currency was invalid")."\r\n\r\n".$order_text;
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','CardSave').'invalid currency';
+				$email->body = SoftWayText::sprintf("Hello,\r\n A CardSave notification was refused because the response from the currency was invalid")."\r\n\r\n".$order_text;
 
 				$this->modifyOrder($order_id,null,false,$email);
 
@@ -555,8 +555,8 @@ class WBPaymentCardSave extends WBPayment
 				return false;
 			}
 			if( $_POST['HashDigest'] != $vars['Calculated_HashDigest'] ) {
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','CardSave').'invalid hash';
-				$email->body = WoobookingText::sprintf("Hello,\r\n A CardSave notification was refused because the response from the hash was invalid")."\r\n\r\n".$order_text;
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','CardSave').'invalid hash';
+				$email->body = SoftWayText::sprintf("Hello,\r\n A CardSave notification was refused because the response from the hash was invalid")."\r\n\r\n".$order_text;
 
 				$this->modifyOrder($order_id,null,false,$email);
 
@@ -611,8 +611,8 @@ class WBPaymentCardSave extends WBPayment
 			$history->data .= "\n\n" . 'payment with code '.$vars['StatusCode'].' - '.$this->errorResultText[$i];
 
 			$order_text = $vars['StatusCode'] . ' - ' . $this->errorResultText[$i]."\r\n\r\n".$order_text;
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave',$vars['StatusCode'])).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
-		 	$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','CardSave',$vars['StatusCode'],$dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave',$vars['StatusCode'])).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
+		 	$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','CardSave',$vars['StatusCode'],$dbOrder->order_number);
 
 			$this->modifyOrder($order_id,$order_status,$history,$email);
 
@@ -628,8 +628,8 @@ class WBPaymentCardSave extends WBPayment
 		if( $orderPrice != $vars['Amount'] || $orderCurrency != $vars['CurrencyCode'] ) {
 			$order_status = $this->payment_params->invalid_status;
 
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','CardSave').WoobookingText::_('INVALID_AMOUNT');
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','CardSave',$history->history_amount,$orderPrice.$this->currency->currency_code))."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','CardSave').SoftWayText::_('INVALID_AMOUNT');
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','CardSave',$history->history_amount,$orderPrice.$this->currency->currency_code))."\r\n\r\n".$order_text;
 
 			$this->modifyOrder($order_id,$order_status,$history,$email);
 
@@ -643,8 +643,8 @@ class WBPaymentCardSave extends WBPayment
 		$vars['payment_status']='Accepted';
 		$history->notified = 1;
 
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','CardSave',$vars['payment_status'],$dbOrder->order_number);
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave',$vars['payment_status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','CardSave',$vars['payment_status'],$dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave',$vars['payment_status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
 
 		$this->modifyOrder($order_id,$order_status,$history,$email);
 
@@ -782,8 +782,8 @@ class WBPaymentCardSave extends WBPayment
 						ob_start();
 
 						$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=listing';
-						$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-						$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+						$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+						$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 						switch( $status ) {
 							case 0:
@@ -792,8 +792,8 @@ class WBPaymentCardSave extends WBPayment
 								$history->notified = 1;
 								$payment_status = 'confirmed';
 
-								$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION','CardSave','Accepted');
-								$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Accepted')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
+								$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION','CardSave','Accepted');
+								$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Accepted')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
 
 								$this->modifyOrder($order_id,$order_status,$history,$email);
 
@@ -801,9 +801,9 @@ class WBPaymentCardSave extends WBPayment
 
 							case 5:
 								$order_status = $this->payment_params->invalid_status;
-								$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION','CardSave','Transaction declined');
+								$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION','CardSave','Transaction declined');
 
-								$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Declined')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
+								$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Declined')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
 
 								$this->modifyOrder($order_id,$order_status,$history,$email);
 
@@ -820,8 +820,8 @@ class WBPaymentCardSave extends WBPayment
 											$order_status = $this->payment_params->verified_status;
 											$history->notified = 1;
 											$payment_status = 'confirmed';
-											$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION','CardSave','Accepted');
-											$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Accepted')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
+											$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION','CardSave','Accepted');
+											$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Accepted')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order_status)."\r\n\r\n".$order_text;
 
 											$this->modifyOrder($order_id,$order_status,$history,$email);
 										}
@@ -844,10 +844,10 @@ class WBPaymentCardSave extends WBPayment
 									$msg = '';
 								}
 								$order_status = $this->payment_params->invalid_status;
-								$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION','CardSave','Transaction error ('.$status.')');
+								$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION','CardSave','Transaction error ('.$status.')');
 
 								$order_text = 'CardSave Error ('.$status.') : ' . $msg . "\r\n\r\n" . $order_text;
-								$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Error')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order->order_status)."\r\n\r\n".$order_text;
+								$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','CardSave','Error')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order->order_status)."\r\n\r\n".$order_text;
 
 								$this->modifyOrder($order_id,$order_status,$history,$email);
 
@@ -905,17 +905,17 @@ class WBPaymentCardSave extends WBPayment
 		$fill = '';
 
 		if(empty($obj->payment_params->merchantid)){
-			$fill = WoobookingText::_('MERCHANT_NUMBER');
+			$fill = SoftWayText::_('MERCHANT_NUMBER');
 		}
 		if(empty($obj->payment_params->password)){
-			$fill = WoobookingText::_('HIKA_PASSWORD');
+			$fill = SoftWayText::_('HIKA_PASSWORD');
 		}
 		if(empty($obj->payment_params->sharedkey)){
-			$fill = WoobookingText::_('SHARED_KEY');
+			$fill = SoftWayText::_('SHARED_KEY');
 		}
 		if(!empty($fill)){
 			$app = JFactory::getApplication();
-			$app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED','CardSave',$fill,'CardSave','http://www.cardsave.net/hikashop/'));
+			$app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED','CardSave',$fill,'CardSave','http://www.cardsave.net/hikashop/'));
 		}
 	}
 

@@ -34,20 +34,20 @@ class WBPaymentPaypalAdvanced extends WBPayment {
 
 		$pb = '';
 		if(empty($element->payment_params->vendor)){
-			$pb .=', '.WoobookingText::_('ATOS_MERCHANT_ID');
+			$pb .=', '.SoftWayText::_('ATOS_MERCHANT_ID');
 		}
 
 		if(empty($element->payment_params->partner)){
-			$pb .=', '.WoobookingText::_('PARTNER');
+			$pb .=', '.SoftWayText::_('PARTNER');
 		}
 
 		if (empty ($element->payment_params->password)){
-			$pb .=', '.WoobookingText::_('HIKA_PASSWORD');
+			$pb .=', '.SoftWayText::_('HIKA_PASSWORD');
 		}
 
 		if(!empty($pb)){
 			$app = JFactory::getApplication();
-			$app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPal Advanced', $pb, 'PayPal Advanced', 'https://www.paypal.com/webapps/mpp/paypal-payments-advanced'));
+			$app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED', 'PayPal Advanced', $pb, 'PayPal Advanced', 'https://www.paypal.com/webapps/mpp/paypal-payments-advanced'));
 		}
 	}
 
@@ -205,8 +205,8 @@ window.parent.location = "'.$url.'";
 
 		if($vars['secret_code'] != $this->payment_params->secret_code) {
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid secret code';
-			$email->body = WoobookingText::sprintf("Hello,\r\n A PayPal Advanced notification was refused because the secret code from the PayPal Advanced server was invalid")."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid secret code';
+			$email->body = SoftWayText::sprintf("Hello,\r\n A PayPal Advanced notification was refused because the secret code from the PayPal Advanced server was invalid")."\r\n\r\n".$order_text;
 			$Orderclass = hikashop_get('class.order');
 			$order = $Orderclass->get($order_id);
 			if($order->order_status != $this->payment_params->invalid_status)
@@ -223,8 +223,8 @@ window.parent.location = "'.$url.'";
 			$history->notified = 1;
 			$history->amount = $vars['AMT'];
 			$history->data = ob_get_clean();
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PayPal Advanced',$vars['RESULT'],$dbOrder->order_number);
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','PayPal Advanced',$vars['RESULT'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$this->payment_params->verified_status)."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PayPal Advanced',$vars['RESULT'],$dbOrder->order_number);
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','PayPal Advanced',$vars['RESULT'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$this->payment_params->verified_status)."\r\n\r\n".$order_text;
 			$email->body = $body;
 
 			$Orderclass = hikashop_get('class.order');
@@ -237,8 +237,8 @@ window.parent.location = "'.$url.'";
 		else if($vars['RESULT'] >= 126 && $vars['STATUS'] <= 128){//if it is blocked by the fraud protection service
 
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
-			$email->body = WoobookingText::sprintf("Hello,\r\n A PayPal Advanced notification was refused because the response from the PayPal Advanced server was invalid. Error code: ".$vars['RESULT'])."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
+			$email->body = SoftWayText::sprintf("Hello,\r\n A PayPal Advanced notification was refused because the response from the PayPal Advanced server was invalid. Error code: ".$vars['RESULT'])."\r\n\r\n".$order_text;
 			$Orderclass = hikashop_get('class.order');
 			$order = $Orderclass->get($order_id);
 			if($order->order_status != $this->payment_params->invalid_status)
@@ -251,8 +251,8 @@ window.parent.location = "'.$url.'";
 		else if($vars['RESULT'] >= 10 && $vars['STATUS'] < 126){ //if an error has occurred
 
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
-			$email->body = WoobookingText::sprintf("Hello,\r\n A PayPal Advanced notification was refused because the response from the PayPal Advanced server was invalid. Error code: ".$vars['RESULT'])."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
+			$email->body = SoftWayText::sprintf("Hello,\r\n A PayPal Advanced notification was refused because the response from the PayPal Advanced server was invalid. Error code: ".$vars['RESULT'])."\r\n\r\n".$order_text;
 			$Orderclass = hikashop_get('class.order');
 			$order = $Orderclass->get($order_id);
 			if($order->order_status != $this->payment_params->invalid_status)

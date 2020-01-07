@@ -1,7 +1,7 @@
 <?php
 
 
-class ApiWoobooking
+class ApiSoftWay
 {
     public function __construct()
     {

@@ -16,7 +16,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?>
 <div class="hikashop_rbsworldpayXMLRedirect_end" id="hikashop_rbsworldpayXMLRedirect_end">
 	<span id="hikashop_rbsworldpayXMLRedirect_end_message" class="hikashop_rbsworldpayXMLRedirect_end_message">
-		<?php echo WoobookingText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X',$method->payment_name).'<br/>'. WoobookingText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>
+		<?php echo SoftWayText::sprintf('PLEASE_WAIT_BEFORE_REDIRECTION_TO_X',$method->payment_name).'<br/>'. SoftWayText::_('CLICK_ON_BUTTON_IF_NOT_REDIRECTED');?>
 	</span>
 	<span id="hikashop_rbsworldpayXMLRedirect_end_spinner" class="hikashop_rbsworldpayXMLRedirect_end_spinner">
 		<img src="<?php echo HIKASHOP_IMAGES.'spinner.gif';?>" />

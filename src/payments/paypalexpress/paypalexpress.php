@@ -42,7 +42,7 @@ class WBPaymentPaypalExpress extends WBPayment
 		$datehash = time();
 
 		$notif = HIKASHOP_LIVE.'index.php?option=com_hikashop&ctrl=checkout&task=notify&amp;notif_payment='.$this->name.'&tmpl=component&hash='.$datehash;
-		$this->pluginConfig['notification'][0] =  WoobookingText::sprintf('ALLOW_NOTIFICATIONS_FROM_X','Paypal');
+		$this->pluginConfig['notification'][0] =  SoftWayText::sprintf('ALLOW_NOTIFICATIONS_FROM_X','Paypal');
 		$lang = JFactory::getLanguage();
 		$this->button = ''
 			. '<div id="paypal_express_button" style="width:144px; height:46px; margin-top:15px;"><a href="'.$notif
@@ -179,7 +179,7 @@ class WBPaymentPaypalExpress extends WBPayment
 
 					$feesValue = round($this->plugin_data->payment_price + $amountTheorical * $this->plugin_params->payment_percentage / 100,2);
 					$item = array(
-						'L_PAYMENTREQUEST_0_NAME'.$i => WoobookingText::_('HIKASHOP_PAYMENT'),
+						'L_PAYMENTREQUEST_0_NAME'.$i => SoftWayText::_('HIKASHOP_PAYMENT'),
 						'L_PAYMENTREQUEST_0_NUMBER'.$i => 99999, //?
 						'L_PAYMENTREQUEST_0_AMT'.$i => $feesValue,
 						'L_PAYMENTREQUEST_0_QTY'.$i => 1,
@@ -449,7 +449,7 @@ class WBPaymentPaypalExpress extends WBPayment
 
 							$feesValue = round($this->plugin_data->payment_price + $amountTheorical * $this->plugin_params->payment_percentage / 100,2);
 							$item = array(
-								'L_PAYMENTREQUEST_0_NAME'.$i => WoobookingText::_('HIKASHOP_PAYMENT'),
+								'L_PAYMENTREQUEST_0_NAME'.$i => SoftWayText::_('HIKASHOP_PAYMENT'),
 								'L_PAYMENTREQUEST_0_NUMBER'.$i => 99999, //?
 								'L_PAYMENTREQUEST_0_AMT'.$i => $feesValue,
 								'L_PAYMENTREQUEST_0_QTY'.$i => 1,
@@ -888,7 +888,7 @@ class WBPaymentPaypalExpress extends WBPayment
 		$order->order_shipping_method = $shipping;
 		$order->cart =& $cart;
 		$order->history = new stdClass();
-		$order->history->history_reason = WoobookingText::_('ORDER_CREATED');
+		$order->history->history_reason = SoftWayText::_('ORDER_CREATED');
 		$order->history->history_notified = 0;
 		$order->history->history_type = 'creation';
 

@@ -27,7 +27,7 @@ class WBPaymentBanktransfer extends WBPayment {
 
 		$this->information = $this->payment_params->information;
 		if(preg_match('#^[a-z0-9_]*$#i',$this->information)){
-			$this->information = WoobookingText::_($this->information);
+			$this->information = SoftWayText::_($this->information);
 		}
 		$currencyClass = hikashop_get('class.currency');
 		$this->amount = $currencyClass->format($order->order_full_price,$order->order_currency_id);

@@ -11,7 +11,7 @@
 namespace SoftWay\CMS\Form\fields;
 defined('_SOFT_WAY_EXEC') or die;
 use SoftWay\CMS\Form\FormField;
-use WoobookingText;
+use SoftWayText;
 use Factory;
 use SoftWay\CMS\Html\Html;
 use SimpleXMLElement;

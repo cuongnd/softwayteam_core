@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><tr>
 	<td class="key">
 		<label for="params[payment_params][merchantid]">
-			<?php echo WoobookingText::_( 'MERCHANT_NUMBER' ); ?>
+			<?php echo SoftWayText::_( 'MERCHANT_NUMBER' ); ?>
 		</label>
 	</td>
 	<td>
@@ -20,7 +20,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][cpihash]">
-			<?php echo WoobookingText::_( 'CPI_STORE_KEY' ); ?>
+			<?php echo SoftWayText::_( 'CPI_STORE_KEY' ); ?>
 		</label>
 	</td>
 	<td>
@@ -30,7 +30,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][instant_capture]">
-			<?php echo WoobookingText::_( 'INSTANTCAPTURE' ); ?>
+			<?php echo SoftWayText::_( 'INSTANTCAPTURE' ); ?>
 		</label>
 	</td>
 	<td>
@@ -40,7 +40,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]">
-			<?php echo WoobookingText::_( 'DEBUG' ); ?>
+			<?php echo SoftWayText::_( 'DEBUG' ); ?>
 		</label>
 	</td>
 	<td>
@@ -50,7 +50,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][cancel_url]">
-			<?php echo WoobookingText::_( 'CANCEL_URL' ); ?>
+			<?php echo SoftWayText::_( 'CANCEL_URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -60,7 +60,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][return_url]">
-			<?php echo WoobookingText::_( 'RETURN_URL' ); ?>
+			<?php echo SoftWayText::_( 'RETURN_URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -70,7 +70,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][invalid_status]">
-			<?php echo WoobookingText::_( 'INVALID_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'INVALID_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -80,7 +80,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]">
-			<?php echo WoobookingText::_( 'VERIFIED_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'VERIFIED_STATUS' ); ?>
 		</label>
 	</td>
 	<td>

@@ -43,7 +43,7 @@ class WBPaymentAuthorize extends WBPayment
 
 	function  __construct(&$subject, $config){
 		parent::__construct($subject, $config);
-		$this->pluginConfig['notification'][0] =  WoobookingText::sprintf('ALLOW_NOTIFICATIONS_FROM_X','Authorize.net');
+		$this->pluginConfig['notification'][0] =  SoftWayText::sprintf('ALLOW_NOTIFICATIONS_FROM_X','Authorize.net');
 	}
 
 	function needCC(&$method) {
@@ -124,13 +124,13 @@ class WBPaymentAuthorize extends WBPayment
 
 		switch($response_code) {
 			case 2:
-				$this->app->enqueueMessage(WoobookingText::_('TRANSACTION_DECLINED_WRONG_CARD'));
+				$this->app->enqueueMessage(SoftWayText::_('TRANSACTION_DECLINED_WRONG_CARD'));
 				$this->ccClear();
 				$do = false;
 				break;
 			case 3:
 			default:
-				$this->app->enqueueMessage(WoobookingText::sprintf('TRANSACTION_PROCESSING_ERROR',$response_reason_code.' '.$response_reason_text));
+				$this->app->enqueueMessage(SoftWayText::sprintf('TRANSACTION_PROCESSING_ERROR',$response_reason_code.' '.$response_reason_text));
 				$this->ccClear();
 				$do = false;
 				break;
@@ -163,22 +163,22 @@ class WBPaymentAuthorize extends WBPayment
 			switch($this->response_code){
 				case 1:
 					$email = new stdClass();
-					$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Authorize.net','Accepted',$order->order_number);
+					$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Authorize.net','Accepted',$order->order_number);
 					$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=listing';
-					$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$order->order_number,HIKASHOP_LIVE);
-					$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
-					$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Authorize.net','Accepted')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order->order_status)."\r\n\r\n".$order_text;
+					$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$order->order_number,HIKASHOP_LIVE);
+					$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+					$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Authorize.net','Accepted')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order->order_status)."\r\n\r\n".$order_text;
 					$email->body = $body;
 
 					$this->modifyOrder($order,$order->order_status,false,$email);
 					break;
 				case 4:
 					$email = new stdClass();
-					$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Authorize.net','Pending',$order->order_number);
+					$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Authorize.net','Pending',$order->order_number);
 					$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=listing';
-					$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$order->order_number,HIKASHOP_LIVE);
-					$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
-					$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Authorize.net','Pending')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order->order_status)."\r\n\r\n".$order_text;
+					$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$order->order_number,HIKASHOP_LIVE);
+					$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+					$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Authorize.net','Pending')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order->order_status)."\r\n\r\n".$order_text;
 					$email->body = $body;
 
 					$this->modifyOrder($order,$order->order_status,false,$email);
@@ -265,10 +265,10 @@ class WBPaymentAuthorize extends WBPayment
 			$negative = '';
 			if((int)@$this->payment_params->negative_coupon)
 				$negative = '-';
-			$vars["x_line_item"][]='coupon<|>'.WoobookingText::_('HIKASHOP_COUPON').'<|>'.WoobookingText::_('HIKASHOP_COUPON').'<|>1<|>'.$negative.round($order->cart->coupon->discount_value,(int)$this->currency->currency_locale['int_frac_digits']).'<|>N';
+			$vars["x_line_item"][]='coupon<|>'.SoftWayText::_('HIKASHOP_COUPON').'<|>'.SoftWayText::_('HIKASHOP_COUPON').'<|>1<|>'.$negative.round($order->cart->coupon->discount_value,(int)$this->currency->currency_locale['int_frac_digits']).'<|>N';
 		}
 		if(!empty($order->order_payment_price)){
-			$vars["x_line_item"][]='payment<|>'.WoobookingText::_('HIKASHOP_PAYMENT').'<|>'.WoobookingText::_('HIKASHOP_PAYMENT').'<|>1<|>'.round($order->order_payment_price,(int)$this->currency->currency_locale['int_frac_digits']).'<|>N';
+			$vars["x_line_item"][]='payment<|>'.SoftWayText::_('HIKASHOP_PAYMENT').'<|>'.SoftWayText::_('HIKASHOP_PAYMENT').'<|>1<|>'.round($order->order_payment_price,(int)$this->currency->currency_locale['int_frac_digits']).'<|>N';
 		}
 
 		if(count($vars["x_line_item"])>=30){
@@ -277,7 +277,7 @@ class WBPaymentAuthorize extends WBPayment
 			}else{
 				$has_tax = 'NO';
 			}
-			$vars["x_line_item"]=array(substr(strip_tags(WoobookingText::_('HIKASHOP_FINAL_TOTAL')),0,30).'<|>'.substr(strip_tags(WoobookingText::_('HIKASHOP_FINAL_TOTAL')),0,30).'<|><|>1<|>'.round($order->cart->full_total->prices[0]->price_value,(int)$this->currency->currency_locale['int_frac_digits']).'<|>'.$has_tax);
+			$vars["x_line_item"]=array(substr(strip_tags(SoftWayText::_('HIKASHOP_FINAL_TOTAL')),0,30).'<|>'.substr(strip_tags(SoftWayText::_('HIKASHOP_FINAL_TOTAL')),0,30).'<|><|>1<|>'.round($order->cart->full_total->prices[0]->price_value,(int)$this->currency->currency_locale['int_frac_digits']).'<|>'.$has_tax);
 		}
 
 		if(bccomp($tax,0,5)){
@@ -374,16 +374,16 @@ class WBPaymentAuthorize extends WBPayment
 		$vars['x_MD5_Hash_calculated']=$this->md5Hash(@$this->payment_params->md5_hash,@$this->payment_params->login_id,@$vars['x_trans_id'],@$vars['x_amount']);
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$vars['x_MD5_Hash'] = strtoupper(@$vars['x_MD5_Hash']);
 
 		if ($vars['x_MD5_Hash'] != $vars['x_MD5_Hash_calculated']) {
 
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Authorize.net').'invalid response';
-			$body = WoobookingText::sprintf("Hello,\r\n An Authorize.net notification was refused because the response from the Authorize.net server was invalid. The hash received was ".$vars['x_MD5_Hash']." while the calculated hash was ".$vars['x_MD5_Hash_calculated'].". Please cehck that you're set the same md5 hash key in Authorize.net and the plugin")."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Authorize.net').'invalid response';
+			$body = SoftWayText::sprintf("Hello,\r\n An Authorize.net notification was refused because the response from the Authorize.net server was invalid. The hash received was ".$vars['x_MD5_Hash']." while the calculated hash was ".$vars['x_MD5_Hash_calculated'].". Please cehck that you're set the same md5 hash key in Authorize.net and the plugin")."\r\n\r\n".$order_text;
 			$email->body = $body;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status,false,$email);
@@ -403,8 +403,8 @@ class WBPaymentAuthorize extends WBPayment
 			}
 
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Authorize.net',$vars['payment_status'],$dbOrder->order_number);
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Authorize.net',$vars['payment_status'])).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Authorize.net',$vars['payment_status'],$dbOrder->order_number);
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Authorize.net',$vars['payment_status'])).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
 			$email->body = $body;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status,false,$email);
@@ -425,8 +425,8 @@ class WBPaymentAuthorize extends WBPayment
 	 	$price_check = round($dbOrder->order_full_price, 2 );
 	 	if($price_check != @$vars['x_amount']){
 	 		$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Authorize.net').WoobookingText::_('INVALID_AMOUNT');
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','Authorize.net',$history->amount,$price_check.'USD'))."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Authorize.net').SoftWayText::_('INVALID_AMOUNT');
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','Authorize.net',$history->amount,$price_check.'USD'))."\r\n\r\n".$order_text;
 			$email->body = $body;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status,$history,$email);
@@ -452,8 +452,8 @@ class WBPaymentAuthorize extends WBPayment
 		}
 
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Authorize.net',$vars['payment_status'],$dbOrder->order_number);
-		$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Authorize.net',$vars['payment_status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Authorize.net',$vars['payment_status'],$dbOrder->order_number);
+		$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Authorize.net',$vars['payment_status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order_status])."\r\n\r\n".$order_text;
 		$email->body = $body;
 
 		$this->modifyOrder($order_id, $order_status, $history, $email);

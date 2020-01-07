@@ -52,7 +52,7 @@ class FormFieldAliastag extends JFormFieldList
 				$extension = $parts[0];
 				$lang->load($extension . '.sys', JPATH_ADMINISTRATOR, null, false, true)
 				|| $lang->load($extension, JPath::clean(JPATH_ADMINISTRATOR . '/components/' . $extension), null, false, true);
-				$options[$i]->text = WoobookingText::_(strtoupper($extension) . '_TAGS_' . strtoupper($parts[1]));
+				$options[$i]->text = SoftWayText::_(strtoupper($extension) . '_TAGS_' . strtoupper($parts[1]));
 			}
 
 		// Merge any additional options in the XML definition.

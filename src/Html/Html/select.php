@@ -57,7 +57,7 @@ abstract class HtmlSelect
 	 */
 	public static function booleanlist($name, $attribs = array(), $selected = null, $yes = 'JYES', $no = 'JNO', $id = false)
 	{
-		$arr = array(Html::_('select.option', '0', WoobookingText::_($no)), Html::_('select.option', '1', WoobookingText::_($yes)));
+		$arr = array(Html::_('select.option', '0', SoftWayText::_($no)), Html::_('select.option', '1', SoftWayText::_($yes)));
 
 		return Html::_('select.radiolist', $arr, $name, $attribs, 'value', 'text', (int) $selected, $id);
 	}
@@ -217,7 +217,7 @@ abstract class HtmlSelect
 	 *                            list.select: either the value of one selected option or an array
 	 *                            of selected options. Default: none.
 	 *                            list.translate: Boolean. If set, text and labels are translated via
-	 *                            WoobookingText::_().
+	 *                            SoftWayText::_().
 	 *
 	 * @return  string  HTML for the select list
 	 *
@@ -536,7 +536,7 @@ abstract class HtmlSelect
 	 *                               -list.select: either the value of one selected option or an array
 	 *                                of selected options. Default: none.
 	 *                               -list.translate: Boolean. If set, text and labels are translated via
-	 *                                WoobookingText::_(). Default is false.
+	 *                                SoftWayText::_(). Default is false.
 	 *                               -option.id: The property in each option array to use as the
 	 *                                selection id attribute. Defaults to none.
 	 *                               -option.key: The property in each option array to use as the
@@ -675,7 +675,7 @@ abstract class HtmlSelect
 
 			if ($key === '<OPTGROUP>' && $options['groups'])
 			{
-				$html .= $baseIndent . '<optgroup label="' . ($options['list.translate'] ? WoobookingText::_($text) : $text) . '">' . $options['format.eol'];
+				$html .= $baseIndent . '<optgroup label="' . ($options['list.translate'] ? SoftWayText::_($text) : $text) . '">' . $options['format.eol'];
 				$baseIndent = str_repeat($options['format.indent'], ++$options['format.depth']);
 			}
 			elseif ($key === '</OPTGROUP>' && $options['groups'])
@@ -696,7 +696,7 @@ abstract class HtmlSelect
 
 				if (!empty($label) && $options['list.translate'])
 				{
-					$label = WoobookingText::_($label);
+					$label = SoftWayText::_($label);
 				}
 
 				if ($options['option.label.toHtml'])
@@ -735,7 +735,7 @@ abstract class HtmlSelect
 
 				if ($options['list.translate'])
 				{
-					$text = WoobookingText::_($text);
+					$text = SoftWayText::_($text);
 				}
 
 				// Generate the option, encoding as required
@@ -781,7 +781,7 @@ abstract class HtmlSelect
 		foreach ($data as $obj)
 		{
 			$k = $obj->$optKey;
-			$t = $translate ? WoobookingText::_($obj->$optText) : $obj->$optText;
+			$t = $translate ? SoftWayText::_($obj->$optText) : $obj->$optText;
 			$id = (isset($obj->id) ? $obj->id : null);
 
 			$extra = '';

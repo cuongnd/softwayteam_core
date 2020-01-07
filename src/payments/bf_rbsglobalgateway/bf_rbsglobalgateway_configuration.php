@@ -93,7 +93,7 @@ if(!class_exists('SimpleXMLElement')){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]">
-			<?php echo WoobookingText::_( 'DEBUG' ); ?>
+			<?php echo SoftWayText::_( 'DEBUG' ); ?>
 		</label>
 	</td>
 	<td>
@@ -164,9 +164,9 @@ if(!class_exists('SimpleXMLElement')){ ?>
 	<td>
 		<?php
 			$values = array();
-			$values[] = Html::_('select.option', '',WoobookingText::_('NO_ADDRESS') );
-			$values[] = Html::_('select.option', 'billing',WoobookingText::_('HIKASHOP_BILLING_ADDRESS'));
-			$values[] = Html::_('select.option', 'shipping',WoobookingText::_('HIKASHOP_SHIPPING_ADDRESS'));
+			$values[] = Html::_('select.option', '',SoftWayText::_('NO_ADDRESS') );
+			$values[] = Html::_('select.option', 'billing',SoftWayText::_('HIKASHOP_BILLING_ADDRESS'));
+			$values[] = Html::_('select.option', 'shipping',SoftWayText::_('HIKASHOP_SHIPPING_ADDRESS'));
 			$values[] = Html::_('select.option', 'billing,shipping','Both addresses');
 			 echo Html::_('select.genericlist', $values, 'params[payment_params][address_type]', 'class="inputbox" size="1"', 'value', 'text', @$this->element->payment_params->address_type);
 		?>
@@ -192,7 +192,7 @@ if(!class_exists('SimpleXMLElement')){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][notification]">
-			<?php echo WoobookingText::sprintf( 'ALLOW_NOTIFICATIONS_FROM_X', '<br/>' . $this->element->payment_name);  ?>
+			<?php echo SoftWayText::sprintf( 'ALLOW_NOTIFICATIONS_FROM_X', '<br/>' . $this->element->payment_name);  ?>
 		</label>
 	</td>
 	<td>
@@ -202,7 +202,7 @@ if(!class_exists('SimpleXMLElement')){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][invalid_status]">
-			<?php echo WoobookingText::_( 'INVALID_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'INVALID_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -212,7 +212,7 @@ if(!class_exists('SimpleXMLElement')){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][pending_status]">
-			<?php echo WoobookingText::_( 'PENDING_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'PENDING_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -222,7 +222,7 @@ if(!class_exists('SimpleXMLElement')){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]">
-			<?php echo WoobookingText::_( 'VERIFIED_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'VERIFIED_STATUS' ); ?>
 		</label>
 	</td>
 	<td>

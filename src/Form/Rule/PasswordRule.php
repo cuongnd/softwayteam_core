@@ -90,7 +90,7 @@ class PasswordRule extends FormRule
 		// We set a maximum length to prevent abuse since it is unfiltered.
 		if ($valueLength > 4096)
 		{
-			Factory::getApplication()->enqueueMessage(WoobookingText::_('COM_USERS_MSG_PASSWORD_TOO_LONG'), 'warning');
+			Factory::getApplication()->enqueueMessage(SoftWayText::_('COM_USERS_MSG_PASSWORD_TOO_LONG'), 'warning');
 		}
 
 		// We don't allow white space inside passwords
@@ -102,7 +102,7 @@ class PasswordRule extends FormRule
 		if (strlen($valueTrim) !== $valueLength)
 		{
 			Factory::getApplication()->enqueueMessage(
-				WoobookingText::_('COM_USERS_MSG_SPACES_IN_PASSWORD'),
+				SoftWayText::_('COM_USERS_MSG_SPACES_IN_PASSWORD'),
 				'warning'
 			);
 
@@ -117,7 +117,7 @@ class PasswordRule extends FormRule
 			if ($nInts < $minimumIntegers)
 			{
 				Factory::getApplication()->enqueueMessage(
-					WoobookingText::plural('COM_USERS_MSG_NOT_ENOUGH_INTEGERS_N', $minimumIntegers),
+					SoftWayText::plural('COM_USERS_MSG_NOT_ENOUGH_INTEGERS_N', $minimumIntegers),
 					'warning'
 				);
 
@@ -133,7 +133,7 @@ class PasswordRule extends FormRule
 			if ($nsymbols < $minimumSymbols)
 			{
 				Factory::getApplication()->enqueueMessage(
-					WoobookingText::plural('COM_USERS_MSG_NOT_ENOUGH_SYMBOLS_N', $minimumSymbols),
+					SoftWayText::plural('COM_USERS_MSG_NOT_ENOUGH_SYMBOLS_N', $minimumSymbols),
 					'warning'
 				);
 
@@ -149,7 +149,7 @@ class PasswordRule extends FormRule
 			if ($nUppercase < $minimumUppercase)
 			{
 				Factory::getApplication()->enqueueMessage(
-					WoobookingText::plural('COM_USERS_MSG_NOT_ENOUGH_UPPERCASE_LETTERS_N', $minimumUppercase),
+					SoftWayText::plural('COM_USERS_MSG_NOT_ENOUGH_UPPERCASE_LETTERS_N', $minimumUppercase),
 					'warning'
 				);
 
@@ -165,7 +165,7 @@ class PasswordRule extends FormRule
 			if ($nLowercase < $minimumLowercase)
 			{
 				Factory::getApplication()->enqueueMessage(
-					WoobookingText::plural('COM_USERS_MSG_NOT_ENOUGH_LOWERCASE_LETTERS_N', $minimumLowercase),
+					SoftWayText::plural('COM_USERS_MSG_NOT_ENOUGH_LOWERCASE_LETTERS_N', $minimumLowercase),
 					'warning'
 				);
 
@@ -179,7 +179,7 @@ class PasswordRule extends FormRule
 			if (strlen((string) $value) < $minimumLength)
 			{
 				Factory::getApplication()->enqueueMessage(
-					WoobookingText::plural('COM_USERS_MSG_PASSWORD_TOO_SHORT_N', $minimumLength),
+					SoftWayText::plural('COM_USERS_MSG_PASSWORD_TOO_SHORT_N', $minimumLength),
 					'warning'
 				);
 

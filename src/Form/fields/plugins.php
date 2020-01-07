@@ -146,19 +146,19 @@ class FormFieldPlugins extends JFormFieldList
 				$source    = JPATH_PLUGINS . '/' . $folder . '/' . $item->value;
 				$extension = 'plg_' . $folder . '_' . $item->value;
 				$lang->load($extension . '.sys', JPATH_ADMINISTRATOR, null, false, true) || $lang->load($extension . '.sys', $source, null, false, true);
-				$options[$i]->text = WoobookingText::_($item->text);
+				$options[$i]->text = SoftWayText::_($item->text);
 
 				// If we are using useglobal update the use global value text with the plugin text.
 				if ($useGlobal && isset($parentOptions[0]) && $item->value === $globalValue)
 				{
-					$text                   = WoobookingText::_($extension);
-					$parentOptions[0]->text = WoobookingText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', ($text === '' || $text === $extension ? $item->value : $text));
+					$text                   = SoftWayText::_($extension);
+					$parentOptions[0]->text = SoftWayText::sprintf('JGLOBAL_USE_GLOBAL_VALUE', ($text === '' || $text === $extension ? $item->value : $text));
 				}
 			}
 		}
 		else
 		{
-			Log::add(WoobookingText::_('JFRAMEWORK_FORM_FIELDS_PLUGINS_ERROR_FOLDER_EMPTY'), Log::WARNING, 'jerror');
+			Log::add(SoftWayText::_('JFRAMEWORK_FORM_FIELDS_PLUGINS_ERROR_FOLDER_EMPTY'), Log::WARNING, 'jerror');
 		}
 
 		return array_merge($parentOptions, $options);

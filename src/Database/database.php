@@ -132,12 +132,12 @@ abstract class Database
 		Log::add('Database::stderr() is deprecated.', Log::WARNING, 'deprecated');
 		if ($this->errorNum != 0)
 		{
-			return WoobookingText::sprintf('JLIB_DATABASE_ERROR_FUNCTION_FAILED', $this->errorNum, $this->errorMsg)
+			return SoftWayText::sprintf('JLIB_DATABASE_ERROR_FUNCTION_FAILED', $this->errorNum, $this->errorMsg)
 			. ($showSQL ? "<br />SQL = <pre>$this->sql</pre>" : '');
 		}
 		else
 		{
-			return WoobookingText::_('JLIB_DATABASE_FUNCTION_NOERROR');
+			return SoftWayText::_('JLIB_DATABASE_FUNCTION_NOERROR');
 		}
 	}
 	/**

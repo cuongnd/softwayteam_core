@@ -5,7 +5,7 @@ use SoftWay\CMS\Form\Form;
 use SoftWay\CMS\Registry\Registry;
 
 
-class WoobookingModelForm extends WoobookingModel
+class SoftWayModelForm extends SoftWayModel
 {
     public $model="";
     public $__state_set=false;

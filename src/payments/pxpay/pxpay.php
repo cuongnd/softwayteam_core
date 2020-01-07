@@ -59,7 +59,7 @@ class WBPaymentPxpay extends WBPayment
 		if(preg_match('#<URI>(.*)</URI>#iU', $ret, $res) !== false) {
 			$this->url = $res[1];
 		} else {
-			$this->app->enqueueMessage(WoobookingText::_('ERROR'));
+			$this->app->enqueueMessage(SoftWayText::_('ERROR'));
 		}
 
 		if( @$this->payment_params->debug ) {
@@ -144,8 +144,8 @@ class WBPaymentPxpay extends WBPayment
 		}
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id.$this->url_itemid;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 
 		$completed = ($result == '1');
 		$history->notified = 0;
@@ -156,8 +156,8 @@ class WBPaymentPxpay extends WBPayment
 			$order_status = $this->payment_params->invalid_status;
 			$history->data .= "\n\n" . 'payment with code '.$responseText;
 
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','PxPay',$order_status)).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
-		 	$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PxPay',$vars['Status'],$dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','PxPay',$order_status)).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
+		 	$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PxPay',$vars['Status'],$dbOrder->order_number);
 
 			$this->modifyOrder($order_id, $order_status, $history, $email);
 
@@ -170,8 +170,8 @@ class WBPaymentPxpay extends WBPayment
 		$order_status = $this->payment_params->verified_status;
 		$payment_status = 'Accepted';
 
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','PxPay', $payment_status)).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED', $statuses[$order_status])."\r\n\r\n".$order_text;
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'PxPay', $payment_status, $dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','PxPay', $payment_status)).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED', $statuses[$order_status])."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'PxPay', $payment_status, $dbOrder->order_number);
 
 		$this->modifyOrder($order_id, $order_status, $history, $email);
 

@@ -194,7 +194,7 @@ abstract class HtmlCategory
 				static::$items[$hash][] = Html::_('select.option', $item->id, $item->title);
 			}
 			// Special "Add to root" option:
-			static::$items[$hash][] = Html::_('select.option', '1', WoobookingText::_('JLIB_HTML_ADD_TO_ROOT'));
+			static::$items[$hash][] = Html::_('select.option', '1', SoftWayText::_('JLIB_HTML_ADD_TO_ROOT'));
 		}
 
 		return static::$items[$hash];

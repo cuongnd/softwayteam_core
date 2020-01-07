@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><tr>
 	<td class="key">
 		<label for="params[payment_params][secret_code]"><?php
-			echo WoobookingText::_( 'REQUIRED' );
+			echo SoftWayText::_( 'REQUIRED' );
 		?></label>
 	</td>
 	<td>
@@ -20,7 +20,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][vendor]"><?php
-			echo WoobookingText::_( 'ATOS_MERCHANT_ID' );
+			echo SoftWayText::_( 'ATOS_MERCHANT_ID' );
 		?></label>
 	</td>
 	<td>
@@ -30,7 +30,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][user]"><?php
-			echo WoobookingText::_( 'HIKA_USERNAME' );
+			echo SoftWayText::_( 'HIKA_USERNAME' );
 		?></label>
 	</td>
 	<td>
@@ -40,7 +40,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][password]"><?php
-			echo WoobookingText::_( 'HIKA_PASSWORD' );
+			echo SoftWayText::_( 'HIKA_PASSWORD' );
 		?></label>
 	</td>
 	<td>
@@ -50,7 +50,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][partner]"><?php
-			echo WoobookingText::_( 'PARTNER' );
+			echo SoftWayText::_( 'PARTNER' );
 		?></label>
 	</td>
 	<td>
@@ -60,7 +60,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][validation]"><?php
-			echo WoobookingText::_('ENABLE_VALIDATION');
+			echo SoftWayText::_('ENABLE_VALIDATION');
 		?></label>
 	</td>
 	<td><?php
@@ -70,7 +70,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]"><?php
-			echo WoobookingText::_('VERIFIED_STATUS');
+			echo SoftWayText::_('VERIFIED_STATUS');
 		?></label>
 	</td>
 	<td><?php
@@ -80,7 +80,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][invalid_status]"><?php
-			echo WoobookingText::_('INVALID_STATUS');
+			echo SoftWayText::_('INVALID_STATUS');
 		?></label>
 	</td>
 	<td><?php
@@ -90,7 +90,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][pending_status]"><?php
-			echo WoobookingText::_('PENDING_STATUS');
+			echo SoftWayText::_('PENDING_STATUS');
 		?></label>
 	</td>
 	<td><?php
@@ -100,7 +100,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][cancel_url]"><?php
-			echo WoobookingText::_( 'CANCEL_URL' );
+			echo SoftWayText::_( 'CANCEL_URL' );
 		?></label>
 	</td>
 	<td>
@@ -110,7 +110,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][return_url]"><?php
-			echo WoobookingText::_( 'RETURN_URL' );
+			echo SoftWayText::_( 'RETURN_URL' );
 		?></label>
 	</td>
 	<td>
@@ -120,7 +120,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][type]"><?php
-			echo WoobookingText::_( 'HIKA_TYPE' );
+			echo SoftWayText::_( 'HIKA_TYPE' );
 		?></label>
 	</td>
 	<td><?php
@@ -132,13 +132,13 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 		?><br/>
 		<div id="height">
 				<label for="params[payment_params][height]"><?php
-					echo WoobookingText::_( 'HEIGHT' );
+					echo SoftWayText::_( 'HEIGHT' );
 				?></label>
 				<input type="text"  name="params[payment_params][height]" value="<?php echo $this->escape(@$this->element->payment_params->height); ?>" />
 		</div>
 		<div id="width">
 				<label for="params[payment_params][width]"><?php
-					echo WoobookingText::_( 'PRODUCT_WIDTH' );
+					echo SoftWayText::_( 'PRODUCT_WIDTH' );
 				?></label>
 				<input type="text"  name="params[payment_params][width]" value="<?php echo $this->escape(@$this->element->payment_params->width); ?>" />
 		</div>
@@ -174,7 +174,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]"><?php
-			echo WoobookingText::_('DEBUG');
+			echo SoftWayText::_('DEBUG');
 		?></label>
 	</td>
 	<td><?php

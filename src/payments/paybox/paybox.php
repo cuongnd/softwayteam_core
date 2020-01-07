@@ -122,12 +122,12 @@ class WBPaymentPaybox extends WBPayment
 			}
 			if(!$valid) {
 				$email = new stdClass();
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Paybox') . ' ' . WoobookingText::sprintf('IP_NOT_VALID', '');
-				$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Paybox',$ip,implode("\r\n",$ips)));
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Paybox') . ' ' . SoftWayText::sprintf('IP_NOT_VALID', '');
+				$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Paybox',$ip,implode("\r\n",$ips)));
 				$action = false;
 				$this->modifyOrder($action, null, null, $email);
 
-				JError::raiseError(403, WoobookingText::_('Access Forbidden'));
+				JError::raiseError(403, SoftWayText::_('Access Forbidden'));
 				exit;
 			}
 		}
@@ -151,12 +151,12 @@ class WBPaymentPaybox extends WBPayment
 				if($sign !== 1) {
 					$ip = hikashop_getIP();
 					$email = new stdClass();
-					$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Paybox') . ' ' . WoobookingText::_('SIGN_NOT_VALID');
-					$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Paybox',$ip,WoobookingText::_('SIGN_NOT_VALID')));
+					$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Paybox') . ' ' . SoftWayText::_('SIGN_NOT_VALID');
+					$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Paybox',$ip,SoftWayText::_('SIGN_NOT_VALID')));
 					$action = false;
 					$this->modifyOrder($action, null, null, $email);
 
-					JError::raiseError(403, WoobookingText::_('Access Forbidden'));
+					JError::raiseError(403, SoftWayText::_('Access Forbidden'));
 					exit;
 				}
 			}
@@ -180,8 +180,8 @@ class WBPaymentPaybox extends WBPayment
 		$email = new stdClass();
 
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id=' . $order_id . $this->url_itemid;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $dbOrder->order_number, HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK', $url));
 
 		$history->notified = 0;
 		$history->amount = ($pbx_mt/100);
@@ -189,8 +189,8 @@ class WBPaymentPaybox extends WBPayment
 
 		$price_check = (int)($dbOrder->order_full_price * 100);
 		if($pbx_mt != $price_check) {
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paybox') . WoobookingText::_('INVALID_AMOUNT');
-			$email->body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER', 'Paybox', $history->amount, ($price_check/100) . $this->currency->currency_code)) . "\r\n\r\n" . $order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', 'Paybox') . SoftWayText::_('INVALID_AMOUNT');
+			$email->body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER', 'Paybox', $history->amount, ($price_check/100) . $this->currency->currency_code)) . "\r\n\r\n" . $order_text;
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, $history, $email);
 			exit;
 		}
@@ -202,8 +202,8 @@ class WBPaymentPaybox extends WBPayment
 			$history->data .= "\n\n" . 'payment with code '.$pbx_auth;
 			$payment_status = 'cancel';
 
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paybox', $payment_status)).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
-		 	$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paybox', $payment_status, $dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', 'Paybox', $payment_status)).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
+		 	$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paybox', $payment_status, $dbOrder->order_number);
 
 			$this->modifyOrder($order_id, $order_status, $history, $email);
 			exit;
@@ -213,8 +213,8 @@ class WBPaymentPaybox extends WBPayment
 		$order_status = $this->payment_params->verified_status;
 		$payment_status = 'Accepted';
 
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Paybox', $payment_status)).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED', $statuses[$order_status])."\r\n\r\n".$order_text;
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paybox', $payment_status, $dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Paybox', $payment_status)).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED', $statuses[$order_status])."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', 'Paybox', $payment_status, $dbOrder->order_number);
 
 		$this->modifyOrder($order_id, $order_status, $history, $email);
 		exit;

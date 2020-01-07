@@ -141,8 +141,8 @@ class WBPaymentAlipay extends WBPayment
 		}
 		$old_status=$dbOrder->order_status;
 		$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order_id;
-		$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-		$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+		$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+		$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 		if($this->payment_params->debug){
 			$this->writeToLog(print_r($dbOrder,true)."\n\n\n");
 		}
@@ -177,12 +177,12 @@ class WBPaymentAlipay extends WBPayment
 		}
 		$fp = @fsockopen($transport . $url_array['host'], $url_array['port'], $errno, $errstr, 60);
 		if(!$fp) {
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Alipay').' '.WoobookingText::sprintf('PAYPAL_CONNECTION_FAILED',$dbOrder->order_number);
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('NOTIFICATION_REFUSED_NO_CONNECTION','Alipay'))."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Alipay').' '.SoftWayText::sprintf('PAYPAL_CONNECTION_FAILED',$dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('NOTIFICATION_REFUSED_NO_CONNECTION','Alipay'))."\r\n\r\n".$order_text;
 
 			$this->modifyOrder($order_id,null,false,$email);
 
-			JError::raiseError( 403, WoobookingText::_( 'Access Forbidden' ));
+			JError::raiseError( 403, SoftWayText::_( 'Access Forbidden' ));
 			return false;
 		} else {
 			fputs($fp, "POST " . $url_array['path'] . " HTTP/1.1\r\n");
@@ -232,15 +232,15 @@ class WBPaymentAlipay extends WBPayment
 
 			if($dbOrder->order_status == $order_status) return true;
 			$mail_status=$statuses[$order_status];
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Alipay',$_POST['trade_status'],$dbOrder->order_number);
-			$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Alipay',$_POST['trade_status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$mail_status)."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Alipay',$_POST['trade_status'],$dbOrder->order_number);
+			$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Alipay',$_POST['trade_status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$mail_status)."\r\n\r\n".$order_text;
 
 			$this->modifyOrder($order_id,$order_status,$history,$email);
 
 			return true;
 		} else {
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Alipay').'invalid response';
-			$email->body = WoobookingText::sprintf("Hello,\r\n An Alipay notification was refused because the response from the Alipay server was invalid")."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Alipay').'invalid response';
+			$email->body = SoftWayText::sprintf("Hello,\r\n An Alipay notification was refused because the response from the Alipay server was invalid")."\r\n\r\n".$order_text;
 
 			$this->modifyOrder($order_id,null,false,$email);
 

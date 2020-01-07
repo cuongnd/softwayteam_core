@@ -41,7 +41,7 @@ class FormFieldSessionHandler extends JFormFieldList
 		// Get the options from JSession.
 		foreach (JSession::getStores() as $store)
 		{
-			$options[] = Html::_('select.option', $store, WoobookingText::_('JLIB_FORM_VALUE_SESSION_' . $store), 'value', 'text');
+			$options[] = Html::_('select.option', $store, SoftWayText::_('JLIB_FORM_VALUE_SESSION_' . $store), 'value', 'text');
 		}
 
 		// Merge any additional options in the XML definition.

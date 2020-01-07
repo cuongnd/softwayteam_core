@@ -323,7 +323,7 @@ class WBPayment
             }
         }
         $order->history = new stdClass();
-        $order->history->history_reason = WoobookingText::sprintf('AUTOMATIC_PAYMENT_NOTIFICATION');
+        $order->history->history_reason = SoftWayText::sprintf('AUTOMATIC_PAYMENT_NOTIFICATION');
         $order->history->history_notified = $history_notified;
         $order->history->history_payment_method = $this->name;
         $order->history->history_type = 'payment';
@@ -363,7 +363,7 @@ class WBPayment
         global $Itemid;
         $this->url_itemid = empty($Itemid) ? '' : '&Itemid=' . $Itemid;
         if (is_object($order_id)) {
-            $subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION', $this->name, $payment_status);
+            $subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION', $this->name, $payment_status);
             $url = HIKASHOP_LIVE . 'administrator/index.php?option=com_hikashop&ctrl=order&task=listing' . $this->url_itemid;
             if (isset($order->order_id))
                 $url = HIKASHOP_LIVE . 'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id=' . $order->order_id . $this->url_itemid;
@@ -372,16 +372,16 @@ class WBPayment
         } elseif ($order_id !== false) {
             $dbOrder = $orderClass->get($order_id);
             $order_number = $dbOrder->order_number;
-            $subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', $this->name, $payment_status, $order_number);
+            $subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER', $this->name, $payment_status, $order_number);
             $url = HIKASHOP_LIVE . 'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id=' . $order_id . $this->url_itemid;
         }
         $order_text = '';
         if (is_string($email))
             $order_text = "\r\n\r\n" . $email;
-        $body = str_replace('<br/>', "\r\n", WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS', $this->name, $payment_status)) . ' ' .
-            WoobookingText::sprintf('ORDER_STATUS_CHANGED', $mail_status) .
-            "\r\n" . WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $order_number, HIKASHOP_LIVE) .
-            "\r\n" . str_replace('<br/>', "\r\n", WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK', $url)) . $order_text;
+        $body = str_replace('<br/>', "\r\n", SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS', $this->name, $payment_status)) . ' ' .
+            SoftWayText::sprintf('ORDER_STATUS_CHANGED', $mail_status) .
+            "\r\n" . SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE', $order_number, HIKASHOP_LIVE) .
+            "\r\n" . str_replace('<br/>', "\r\n", SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK', $url)) . $order_text;
         if (is_object($email)) {
             if (!empty($email->subject))
                 $subject = $email->subject;
@@ -513,7 +513,7 @@ class WBPayment
                 unset($order);
             }
             if ($cpt > 0)
-                $messages[] = '[' . ucfirst($this->name) . '] ' . WoobookingText::_sprintf('X_ORDERS_AUTHORIZATION_RENEW', $cpt);
+                $messages[] = '[' . ucfirst($this->name) . '] ' . SoftWayText::_sprintf('X_ORDERS_AUTHORIZATION_RENEW', $cpt);
         }
     }
 

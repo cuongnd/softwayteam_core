@@ -10,11 +10,11 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><div class="hikashop_check_end" id="hikashop_check_end">
 	<span class="hikashop_check_end_message" id="hikashop_check_end_message">
 		<?php
-		echo WoobookingText::_('ORDER_IS_COMPLETE').'<br/>'.
-		WoobookingText::sprintf('PLEASE_SEND_CHECK',$this->amount).'<br/>'.
+		echo SoftWayText::_('ORDER_IS_COMPLETE').'<br/>'.
+		SoftWayText::sprintf('PLEASE_SEND_CHECK',$this->amount).'<br/>'.
 		$this->information.'<br/>'.
-		WoobookingText::sprintf('INCLUDE_ORDER_NUMBER_TO_CHECK',$this->order_number).'<br/>'.
-		WoobookingText::_('THANK_YOU_FOR_PURCHASE');?>
+		SoftWayText::sprintf('INCLUDE_ORDER_NUMBER_TO_CHECK',$this->order_number).'<br/>'.
+		SoftWayText::_('THANK_YOU_FOR_PURCHASE');?>
 	</span>
 </div>
 <?php

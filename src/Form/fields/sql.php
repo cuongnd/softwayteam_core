@@ -285,14 +285,14 @@ class FormFieldSQL extends JFormFieldList
 			}
 			catch (JDatabaseExceptionExecuting $e)
 			{
-				Factory::getApplication()->enqueueMessage(WoobookingText::_('JERROR_AN_ERROR_HAS_OCCURRED'), 'error');
+				Factory::getApplication()->enqueueMessage(SoftWayText::_('JERROR_AN_ERROR_HAS_OCCURRED'), 'error');
 			}
 		}
 
 		// Add header.
 		if (!empty($header))
 		{
-			$header_title = WoobookingText::_($header);
+			$header_title = SoftWayText::_($header);
 			$options[] = Html::_('select.option', '', $header_title);
 		}
 
@@ -303,7 +303,7 @@ class FormFieldSQL extends JFormFieldList
 			{
 				if ($this->translate == true)
 				{
-					$options[] = Html::_('select.option', $item->$key, WoobookingText::_($item->$value));
+					$options[] = Html::_('select.option', $item->$key, SoftWayText::_($item->$value));
 				}
 				else
 				{

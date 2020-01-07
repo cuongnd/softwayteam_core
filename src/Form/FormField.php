@@ -8,7 +8,7 @@
 
 namespace SoftWay\CMS\Form;
 use SoftWay\CMS\Layout\FileLayout;
-use WoobookingText;
+use SoftWayText;
 use SoftWay\CMS\Utilities\Utility;
 defined('_SOFT_WAY_EXEC') or die;
 
@@ -746,7 +746,7 @@ abstract class FormField
 
 		// Get the label text from the XML element, defaulting to the element name.
 		$title = $this->element['label'] ? (string) $this->element['label'] : (string) $this->element['name'];
-		$title = $this->translateLabel ? WoobookingText::_($title) : $title;
+		$title = $this->translateLabel ? SoftWayText::_($title) : $title;
 
 		return $title;
 	}
@@ -995,11 +995,11 @@ abstract class FormField
 	{
 		// Label preprocess
 		$label = $this->element['label'] ? (string) $this->element['label'] : (string) $this->element['name'];
-		$label = $this->translateLabel ? WoobookingText::_($label) : $label;
+		$label = $this->translateLabel ? SoftWayText::_($label) : $label;
 
 		// Description preprocess
 		$description = !empty($this->description) ? $this->description : null;
-		$description = !empty($description) && $this->translateDescription ? WoobookingText::_($description) : $description;
+		$description = !empty($description) && $this->translateDescription ? SoftWayText::_($description) : $description;
 
 		$alt = preg_replace('/[^a-zA-Z0-9_\-]/', '_', $this->fieldname);
 
@@ -1012,7 +1012,7 @@ abstract class FormField
 			'field'          => $this,
 			'group'          => $this->group,
 			'hidden'         => $this->hidden,
-			'hint'           => $this->translateHint ? WoobookingText::alt($this->hint, $alt) : $this->hint,
+			'hint'           => $this->translateHint ? SoftWayText::alt($this->hint, $alt) : $this->hint,
 			'id'             => $this->id,
 			'label'          => $label,
 			'labelclass'     => $this->labelclass,

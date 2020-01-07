@@ -112,7 +112,7 @@ class UserField extends FormField
 		$data = parent::getLayoutData();
 
 		// Initialize value
-		$name = WoobookingText::_('JLIB_FORM_SELECT_USER');
+		$name = SoftWayText::_('JLIB_FORM_SELECT_USER');
 
 		if (is_numeric($this->value))
 		{

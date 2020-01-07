@@ -54,8 +54,8 @@ class FormFieldNote extends FormField
 			$html[] = '<button type="button" class="close" data-dismiss="' . $close . '">&times;</button>';
 		}
 
-		$html[] = !empty($title) ? '<' . $heading . '>' . WoobookingText::_($title) . '</' . $heading . '>' : '';
-		$html[] = !empty($description) ? WoobookingText::_($description) : '';
+		$html[] = !empty($title) ? '<' . $heading . '>' . SoftWayText::_($title) . '</' . $heading . '>' : '';
+		$html[] = !empty($description) ? SoftWayText::_($description) : '';
 
 		return '</div><div ' . $class . '>' . implode('', $html);
 	}

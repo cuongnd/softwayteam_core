@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><tr>
 	<td class="key">
 		<label for="params[payment_params][url]">
-			<?php echo WoobookingText::_( 'URL' ); ?>
+			<?php echo SoftWayText::_( 'URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -20,7 +20,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][shop_id]">
-			<?php echo WoobookingText::_( 'BLUEPAID_SHOP_ID' ); ?>
+			<?php echo SoftWayText::_( 'BLUEPAID_SHOP_ID' ); ?>
 		</label>
 	</td>
 	<td>
@@ -30,7 +30,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][status_url]">
-			<?php echo WoobookingText::sprintf( 'STATUS_URL',$this->element->payment_name ); ?>
+			<?php echo SoftWayText::sprintf( 'STATUS_URL',$this->element->payment_name ); ?>
 		</label>
 	</td>
 	<td>
@@ -41,7 +41,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][notification]">
-			<?php echo WoobookingText::sprintf( 'ALLOW_NOTIFICATIONS_FROM_X', $this->element->payment_name);  ?>
+			<?php echo SoftWayText::sprintf( 'ALLOW_NOTIFICATIONS_FROM_X', $this->element->payment_name);  ?>
 		</label>
 	</td>
 	<td>
@@ -51,7 +51,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]">
-			<?php echo WoobookingText::_( 'DEBUG' ); ?>
+			<?php echo SoftWayText::_( 'DEBUG' ); ?>
 		</label>
 	</td>
 	<td>
@@ -61,13 +61,13 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][ips]">
-			<?php echo WoobookingText::_( 'IPS' ); ?>
+			<?php echo SoftWayText::_( 'IPS' ); ?>
 		</label>
 	</td>
 	<td>
 		<textarea id="bluepaid_ips" name="params[payment_params][ips]" ><?php echo (!empty($this->element->payment_params->ips) && is_array($this->element->payment_params->ips)?trim(implode(',',$this->element->payment_params->ips)):''); ?></textarea>
 		<br/>
-		<a href="#" onclick="return refresh_ips();"><?php echo WoobookingText::_('REFRESH_IPS');?></a>
+		<a href="#" onclick="return refresh_ips();"><?php echo SoftWayText::_('REFRESH_IPS');?></a>
 		<script type="text/javascript">
 		function refresh_ips() {
 			var w = window, d = document, o = w.Oby;
@@ -86,7 +86,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][invalid_status]">
-			<?php echo WoobookingText::_( 'INVALID_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'INVALID_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -96,7 +96,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][pending_status]">
-			<?php echo WoobookingText::_( 'PENDING_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'PENDING_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -106,7 +106,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]">
-			<?php echo WoobookingText::_( 'VERIFIED_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'VERIFIED_STATUS' ); ?>
 		</label>
 	</td>
 	<td>

@@ -60,7 +60,7 @@ class WBPaymentPayuindia extends WBPayment {
 			'surl' => $surl,
 			'furl' => $curl,
 			'curl' => $curl,
-			'productinfo' => WoobookingText::_('ORDER_NUMBER') . ' ' . $order->order_number,
+			'productinfo' => SoftWayText::_('ORDER_NUMBER') . ' ' . $order->order_number,
 			'charset' => 'utf-8',
 			'firstname' => $order->cart->shipping_address->address_firstname,
 			'lastname' => $order->cart->shipping_address->address_lastname,
@@ -135,8 +135,8 @@ class WBPaymentPayuindia extends WBPayment {
 
 		if($vars['hash'] != $HASHreverse) {
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
-			$email->body = WoobookingText::sprintf("Hello,\r\n A Payu India notification was refused because the response from the Payu India server was invalid")."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
+			$email->body = SoftWayText::sprintf("Hello,\r\n A Payu India notification was refused because the response from the Payu India server was invalid")."\r\n\r\n".$order_text;
 			$Orderclass = hikashop_get('class.order');
 			$order = $Orderclass->get($order_id);
 			if($order->order_status != $this->payment_params->invalid_status)
@@ -158,8 +158,8 @@ class WBPaymentPayuindia extends WBPayment {
 			$history->amount = $vars['amount'];
 			$history->data = ob_get_clean();
 
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Payu India',$vars['status'],$dbOrder->order_number);
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Payu India',$vars['status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$this->payment_params->verified_status)."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Payu India',$vars['status'],$dbOrder->order_number);
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Payu India',$vars['status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$this->payment_params->verified_status)."\r\n\r\n".$order_text;
 			$email->body = $body;
 
 			$Orderclass = hikashop_get('class.order');
@@ -174,8 +174,8 @@ class WBPaymentPayuindia extends WBPayment {
 
 		if($vars['status'] == 'pending'){
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Payu India',$vars['status'],$dbOrder->order_number);
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Payu India',$vars['status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$this->payment_params->pending_status)."\r\n\r\n".$order_text;
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Payu India',$vars['status'],$dbOrder->order_number);
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Payu India',$vars['status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$this->payment_params->pending_status)."\r\n\r\n".$order_text;
 			$email->body = $body;
 			$Orderclass = hikashop_get('class.order');
 			$order = $Orderclass->get($order_id);
@@ -191,8 +191,8 @@ class WBPaymentPayuindia extends WBPayment {
 		}
 
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
-		$email->body = WoobookingText::sprintf("Hello,\r\n A Payu India notification was refused because the response from the Payu India server was invalid")."\r\n\r\n".$order_text;
+		$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER', $this->name).'invalid response';
+		$email->body = SoftWayText::sprintf("Hello,\r\n A Payu India notification was refused because the response from the Payu India server was invalid")."\r\n\r\n".$order_text;
 		$Orderclass = hikashop_get('class.order');
 		$order = $Orderclass->get($order_id);
 		if($order->order_status != $this->payment_params->invalid_status)

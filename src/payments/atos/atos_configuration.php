@@ -10,7 +10,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 ?><tr>
 	<td class="key">
 		<label for="params[payment_params][payment_means]">
-			<?php echo WoobookingText::_( 'ATOS_PAYMENT_MEANS' ); ?>
+			<?php echo SoftWayText::_( 'ATOS_PAYMENT_MEANS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -23,7 +23,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][merchant_id]">
-			<?php echo WoobookingText::_( 'ATOS_MERCHANT_ID' ); ?>
+			<?php echo SoftWayText::_( 'ATOS_MERCHANT_ID' ); ?>
 		</label>
 	</td>
 	<td>
@@ -33,7 +33,7 @@ defined('_SOFT_WAY_EXEC') or die('Restricted access');
 <tr>
 	<td class="key">
 		<label for="params[payment_params][merchant_country]">
-			<?php echo WoobookingText::_( 'ATOS_MERCHANT_COUNTRY' ); ?>
+			<?php echo SoftWayText::_( 'ATOS_MERCHANT_COUNTRY' ); ?>
 		</label>
 	</td>
 		<td>
@@ -52,7 +52,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][upload_folder]">
-			<?php echo WoobookingText::_( 'ATOS_UPLOAD_FOLDER' ); ?>
+			<?php echo SoftWayText::_( 'ATOS_UPLOAD_FOLDER' ); ?>
 		</label>
 	</td>
 	<td>
@@ -63,7 +63,7 @@ if(!$safe_mode){ ?>
 	<tr>
 		<td class="key">
 			<label for="params[payment_params][binaries_folder]">
-				<?php echo WoobookingText::_( 'ATOS_BINARIES_FOLDER' ); ?>
+				<?php echo SoftWayText::_( 'ATOS_BINARIES_FOLDER' ); ?>
 			</label>
 		</td>
 		<td>
@@ -74,7 +74,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][logo_folder]">
-			<?php echo WoobookingText::_( 'ATOS_LOGO_FOLDER' ); ?>
+			<?php echo SoftWayText::_( 'ATOS_LOGO_FOLDER' ); ?>
 		</label>
 	</td>
 	<td>
@@ -86,7 +86,7 @@ if(!$safe_mode){ ?>
 	<tr>
 		<td class="key">
 			<label for="request">
-				<?php echo WoobookingText::_( 'ATOS_UPLOAD_REQUEST' ); ?>
+				<?php echo SoftWayText::_( 'ATOS_UPLOAD_REQUEST' ); ?>
 			</label>
 		</td>
 		<td>
@@ -97,7 +97,7 @@ if(!$safe_mode){ ?>
 	<tr>
 		<td class="key">
 			<label for="response">
-				<?php echo WoobookingText::_( 'ATOS_UPLOAD_RESPONSE' ); ?>
+				<?php echo SoftWayText::_( 'ATOS_UPLOAD_RESPONSE' ); ?>
 			</label>
 		</td>
 		<td>
@@ -108,7 +108,7 @@ if(!$safe_mode){ ?>
 	<tr>
 		<td class="key">
 			<label for="certificate">
-				<?php echo WoobookingText::_( 'ATOS_CERTIFICATE' ); ?>
+				<?php echo SoftWayText::_( 'ATOS_CERTIFICATE' ); ?>
 			</label>
 		</td>
 		<td>
@@ -120,7 +120,7 @@ if(!$safe_mode){ ?>
 	<tr>
 		<td class="key">
 			<label for="params[payment_params][param_folder]">
-				<?php echo WoobookingText::_( 'ATOS_PARAM_FOLDER' ); ?>
+				<?php echo SoftWayText::_( 'ATOS_PARAM_FOLDER' ); ?>
 			</label>
 		</td>
 		<td>
@@ -131,18 +131,18 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][delay]">
-			<?php echo WoobookingText::_( 'ATOS_DELAY' ); ?>
+			<?php echo SoftWayText::_( 'ATOS_DELAY' ); ?>
 		</label>
 	</td>
 	<td>
 		<input size="7" type="text" name="params[payment_params][delay]" value="<?php echo @$this->element->payment_params->delay; ?>" />
-		<?php echo WoobookingText::_( 'DAYS' ); ?>
+		<?php echo SoftWayText::_( 'DAYS' ); ?>
 	</td>
 </tr>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][enable_validation]">
-			<?php echo WoobookingText::sprintf( 'ENABLE_VALIDATION' ); ?>
+			<?php echo SoftWayText::sprintf( 'ENABLE_VALIDATION' ); ?>
 		</label>
 	</td>
 	<td>
@@ -152,20 +152,20 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][instalments]">
-			<?php echo WoobookingText::_( 'ATOS_INSTALLMENTS' ); ?>
+			<?php echo SoftWayText::_( 'ATOS_INSTALLMENTS' ); ?>
 		</label>
 	</td>
 	<td>
 		<input size="3" type="text" name="params[payment_params][instalments]" value="<?php echo @$this->element->payment_params->instalments; ?>" />
-		<?php echo WoobookingText::sprintf( 'INSTALLMENTS_SEPARATED_BY' ); ?>
+		<?php echo SoftWayText::sprintf( 'INSTALLMENTS_SEPARATED_BY' ); ?>
 		<input size="2" type="text" name="params[payment_params][period]" value="<?php echo @$this->element->payment_params->period; ?>" />
-		<?php echo WoobookingText::_( 'DAYS' ); ?>
+		<?php echo SoftWayText::_( 'DAYS' ); ?>
 	</td>
 </tr>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][force_instalments]">
-			<?php echo WoobookingText::sprintf( 'FORCE_MULTIPLE_PAYMENTS' ); ?>
+			<?php echo SoftWayText::sprintf( 'FORCE_MULTIPLE_PAYMENTS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -175,7 +175,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][template]">
-			<?php echo WoobookingText::_( 'TEMPLATE' ); ?>
+			<?php echo SoftWayText::_( 'TEMPLATE' ); ?>
 		</label>
 	</td>
 	<td>
@@ -195,7 +195,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][notification]">
-			<?php echo WoobookingText::sprintf( 'ALLOW_NOTIFICATIONS_FROM_X', $this->element->payment_name); ?>
+			<?php echo SoftWayText::sprintf( 'ALLOW_NOTIFICATIONS_FROM_X', $this->element->payment_name); ?>
 		</label>
 	</td>
 	<td>
@@ -205,7 +205,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][debug]">
-			<?php echo WoobookingText::_( 'DEBUG' ); ?>
+			<?php echo SoftWayText::_( 'DEBUG' ); ?>
 		</label>
 	</td>
 	<td>
@@ -215,7 +215,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][cancel_url]">
-			<?php echo WoobookingText::_( 'CANCEL_URL' ); ?>
+			<?php echo SoftWayText::_( 'CANCEL_URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -225,7 +225,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][return_url]">
-			<?php echo WoobookingText::_( 'RETURN_URL' ); ?>
+			<?php echo SoftWayText::_( 'RETURN_URL' ); ?>
 		</label>
 	</td>
 	<td>
@@ -235,7 +235,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][invalid_status]">
-			<?php echo WoobookingText::_( 'INVALID_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'INVALID_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -245,7 +245,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][pending_status]">
-			<?php echo WoobookingText::_( 'PENDING_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'PENDING_STATUS' ); ?>
 		</label>
 	</td>
 	<td>
@@ -255,7 +255,7 @@ if(!$safe_mode){ ?>
 <tr>
 	<td class="key">
 		<label for="params[payment_params][verified_status]">
-			<?php echo WoobookingText::_( 'VERIFIED_STATUS' ); ?>
+			<?php echo SoftWayText::_( 'VERIFIED_STATUS' ); ?>
 		</label>
 	</td>
 	<td>

@@ -19,7 +19,7 @@ class SoftWayView extends CMSObject
         $model_path=SOFTWAY_PATH_APP."/models/$model.php";
         if(file_exists($model_path)){
             $model_name="{$model}Model";
-            $model_class=WoobookingModel::getInstance($model);
+            $model_class=SoftWayModel::getInstance($model);
             $model_class->model=$model;
             return $model_class;
         }else{

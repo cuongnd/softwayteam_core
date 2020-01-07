@@ -237,7 +237,7 @@ class WBPaymentCmcic extends WBPayment {
 		$cancel_url = $httpsHikashop . 'index.php?option=com_hikashop&ctrl=order&task=cancel_order&order_id=' . $dbOrder->order_id . $this->url_itemid;
 
 		if($dbOrder->order_status != $this->payment_params->verified_status) {
-			$this->app->enqueueMessage(WoobookingText::_('TRANSACTION_DECLINED'));
+			$this->app->enqueueMessage(SoftWayText::_('TRANSACTION_DECLINED'));
 			$this->app->redirect($cancel_url);
 		}
 

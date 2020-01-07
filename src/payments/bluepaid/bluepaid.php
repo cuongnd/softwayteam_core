@@ -63,8 +63,8 @@ class WBPaymentBluepaid extends WBPayment
 		$dbOrder = $this->getOrder($order_id);
 		if(!empty($dbOrder)){
 			$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=edit&order_id='.$order->order_id;
-			$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
-			$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+			$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$dbOrder->order_number,HIKASHOP_LIVE);
+			$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
 		}else{
 			echo "Could not load any order for your notification ".@$vars['divers'];
 			return false;
@@ -84,24 +84,24 @@ class WBPaymentBluepaid extends WBPayment
 			$ip = hikashop_getIP();
 			$ips = str_replace(array('.','*',','),array('\.','[0-9]+','|'),$this->payment_params->ips);
 			if(!preg_match('#('.implode('|',$ips).')#',$ip)){
-				$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Bluepaid',$ip,implode("\r\n",$this->payment_params->ips)))."\r\n\r\n".$order_text;
+				$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('NOTIFICATION_REFUSED_FROM_IP','Bluepaid',$ip,implode("\r\n",$this->payment_params->ips)))."\r\n\r\n".$order_text;
 
 
 				$email = new stdClass();
-				$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Bluepaid').' '.WoobookingText::sprintf('IP_NOT_VALID',$dbOrder->order_number);
+				$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Bluepaid').' '.SoftWayText::sprintf('IP_NOT_VALID',$dbOrder->order_number);
 				$email->body = $body;
 
 				$this->modifyOrder($order_id, $this->payment_params->invalid_status, false, $email);
 
-				JError::raiseError( 403, WoobookingText::_( 'Access Forbidden' ));
+				JError::raiseError( 403, SoftWayText::_( 'Access Forbidden' ));
 				return false;
 			}
 		}
 
 		if ($vars['secure_key']!=@$this->payment_params->secure_key) {
-			$body = WoobookingText::sprintf("Hello,\r\n A Bluepaid notification was refused because the response from the Bluepaid server was invalid")."\r\n\r\n".$order_text;
+			$body = SoftWayText::sprintf("Hello,\r\n A Bluepaid notification was refused because the response from the Bluepaid server was invalid")."\r\n\r\n".$order_text;
 
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Bluepaid').'invalid response';
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Bluepaid').'invalid response';
 			$email->body = $body;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, false, $email);
@@ -123,9 +123,9 @@ class WBPaymentBluepaid extends WBPayment
 			}else{
 				$vars['payment_status']='Unknown';
 			}
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Bluepaid',$vars['payment_status'])).' '.WoobookingText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Bluepaid',$vars['payment_status'])).' '.SoftWayText::_('STATUS_NOT_CHANGED')."\r\n\r\n".$order_text;
 
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Bluepaid',$vars['payment_status'],$dbOrder->order_number);
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Bluepaid',$vars['payment_status'],$dbOrder->order_number);
 			$email->body = $body;
 
 			$this->modifyOrder($order_id, null, false, $email);
@@ -143,10 +143,10 @@ class WBPaymentBluepaid extends WBPayment
 
 	 	$price_check = round($dbOrder->order_full_price,(int)$this->currency->currency_locale['int_frac_digits']).$this->currency->currency_code;
 	 	if($price_check != @$vars['montant'].@$vars['devise']){
-	 		$mailer->setSubject(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Bluepaid').WoobookingText::_('INVALID_AMOUNT'));
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','Bluepaid',$order->history->amount,$price_check))."\r\n\r\n".$order_text;
+	 		$mailer->setSubject(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Bluepaid').SoftWayText::_('INVALID_AMOUNT'));
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','Bluepaid',$order->history->amount,$price_check))."\r\n\r\n".$order_text;
 
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Bluepaid').WoobookingText::_('INVALID_AMOUNT');
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','Bluepaid').SoftWayText::_('INVALID_AMOUNT');
 			$email->body = $body;
 
 			$this->modifyOrder($order_id, $this->payment_params->invalid_status, $history, $email);
@@ -168,9 +168,9 @@ class WBPaymentBluepaid extends WBPayment
 			$history->notified = 1;
 		}
 
-		$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Bluepaid',$vars['payment_status'])).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order->order_status])."\r\n\r\n".$order_text;
+		$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Bluepaid',$vars['payment_status'])).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$statuses[$order->order_status])."\r\n\r\n".$order_text;
 
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Bluepaid',$vars['payment_status'],$dbOrder->order_number);
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Bluepaid',$vars['payment_status'],$dbOrder->order_number);
 		$email->body = $body;
 
 		$this->modifyOrder($order_id, $order_status, $history, $email);

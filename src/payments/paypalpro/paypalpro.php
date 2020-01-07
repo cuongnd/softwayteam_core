@@ -121,7 +121,7 @@ class WBPaymentPaypalpro extends WBPayment
 			}
 			if(!empty($order->cart->coupon)){
 				$discount = - round($order->order_discount_price,(int)$this->currency->currency_locale['int_frac_digits']);
-				$vars["L_NAME".$i] = WoobookingText::_('HIKASHOP_COUPON');
+				$vars["L_NAME".$i] = SoftWayText::_('HIKASHOP_COUPON');
 				$vars["L_NUMBER".$i] = 'coupon';
 				$vars["L_AMT".$i] = $discount;
 				$vars["L_QTY".$i] = 1;
@@ -130,7 +130,7 @@ class WBPaymentPaypalpro extends WBPayment
 			}
 
 			if(!empty($order->order_payment_price) && bccomp($order->order_payment_price,0,5)){
-				$vars["L_NAME".$i] = WoobookingText::_('HIKASHOP_PAYMENT');
+				$vars["L_NAME".$i] = SoftWayText::_('HIKASHOP_PAYMENT');
 				$vars["L_NUMBER".$i] = 'payment';
 				$vars["L_AMT".$i] = round($order->order_payment_price-$order->order_payment_tax,(int)$this->currency->currency_locale['int_frac_digits']);
 				$vars["L_QTY".$i] = 1;
@@ -255,11 +255,11 @@ class WBPaymentPaypalpro extends WBPayment
 
 		if(!empty($this->transaction_id)){
 			$email = new stdClass();
-			$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PayPal Pro','SUCCESS',$order->order_number);
+			$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','PayPal Pro','SUCCESS',$order->order_number);
 			$url = HIKASHOP_LIVE.'administrator/index.php?option=com_hikashop&ctrl=order&task=listing';
-			$order_text = "\r\n".WoobookingText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$order->order_number,HIKASHOP_LIVE);
-			$order_text .= "\r\n".str_replace('<br/>',"\r\n",WoobookingText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','PayPal Pro','SUCCESS')).' '.WoobookingText::sprintf('ORDER_STATUS_CHANGED',$order->order_status)."\r\n\r\n".$order_text;
+			$order_text = "\r\n".SoftWayText::sprintf('NOTIFICATION_OF_ORDER_ON_WEBSITE',$order->order_number,HIKASHOP_LIVE);
+			$order_text .= "\r\n".str_replace('<br/>',"\r\n",SoftWayText::sprintf('ACCESS_ORDER_WITH_LINK',$url));
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','PayPal Pro','SUCCESS')).' '.SoftWayText::sprintf('ORDER_STATUS_CHANGED',$order->order_status)."\r\n\r\n".$order_text;
 			$email->body = $body;
 
 			$this->modifyOrder($order,$order->order_status,false,$email);
@@ -279,17 +279,17 @@ class WBPaymentPaypalpro extends WBPayment
 		$obj = $element;
 		$field = '';
 		if(empty($obj->payment_params->login)){
-			$field = WoobookingText::_( 'USERNAME' );
+			$field = SoftWayText::_( 'USERNAME' );
 		}elseif(empty($obj->payment_params->password)){
-			$field = WoobookingText::_( 'PASSWORD' );
+			$field = SoftWayText::_( 'PASSWORD' );
 		}elseif(empty($obj->payment_params->signature)){
-			$field = WoobookingText::_( 'SIGNATURE' );
+			$field = SoftWayText::_( 'SIGNATURE' );
 		}
 		if(!empty($field)){
 			$app = JFactory::getApplication();
 			$lang = JFactory::getLanguage();
 			$locale=strtolower(substr($lang->get('tag'),0,2));
-			$app->enqueueMessage(WoobookingText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED','PayPal Pro',$field,'PayPal Pro','https://www.paypal.com/'.$locale.'/mrb/pal=SXL9FKNKGAEM8'));
+			$app->enqueueMessage(SoftWayText::sprintf('ENTER_INFO_REGISTER_IF_NEEDED','PayPal Pro',$field,'PayPal Pro','https://www.paypal.com/'.$locale.'/mrb/pal=SXL9FKNKGAEM8'));
 		}
 	}
 

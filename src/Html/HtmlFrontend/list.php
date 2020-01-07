@@ -46,7 +46,7 @@ abstract class HtmlFrontendList
 		}
 
 		$imageFiles = new DirectoryIterator(JPATH_SITE . '/' . $directory);
-		$images = array(HtmlFrontend::_('select.option', '', WoobookingText::_('JOPTION_SELECT_IMAGE')));
+		$images = array(HtmlFrontend::_('select.option', '', SoftWayText::_('JOPTION_SELECT_IMAGE')));
 
 		foreach ($imageFiles as $file)
 		{
@@ -96,16 +96,16 @@ abstract class HtmlFrontendList
 
 		if (empty($items))
 		{
-			$options[] = HtmlFrontend::_('select.option', 1, WoobookingText::_('JOPTION_ORDER_FIRST'));
+			$options[] = HtmlFrontend::_('select.option', 1, SoftWayText::_('JOPTION_ORDER_FIRST'));
 
 			return $options;
 		}
 
-		$options[] = HtmlFrontend::_('select.option', 0, '0 ' . WoobookingText::_('JOPTION_ORDER_FIRST'));
+		$options[] = HtmlFrontend::_('select.option', 0, '0 ' . SoftWayText::_('JOPTION_ORDER_FIRST'));
 
 		for ($i = 0, $n = count($items); $i < $n; $i++)
 		{
-			$items[$i]->text = WoobookingText::_($items[$i]->text);
+			$items[$i]->text = SoftWayText::_($items[$i]->text);
 
 			if (StringHelper::strlen($items[$i]->text) > $chop)
 			{
@@ -119,7 +119,7 @@ abstract class HtmlFrontendList
 			$options[] = HtmlFrontend::_('select.option', $items[$i]->value, $items[$i]->value . '. ' . $text);
 		}
 
-		$options[] = HtmlFrontend::_('select.option', $items[$i - 1]->value + 1, ($items[$i - 1]->value + 1) . ' ' . WoobookingText::_('JOPTION_ORDER_LAST'));
+		$options[] = HtmlFrontend::_('select.option', $items[$i - 1]->value + 1, ($items[$i - 1]->value + 1) . ' ' . SoftWayText::_('JOPTION_ORDER_LAST'));
 
 		return $options;
 	}
@@ -153,11 +153,11 @@ abstract class HtmlFrontendList
 		{
 			if ($neworder > 0)
 			{
-				$text = WoobookingText::_('JGLOBAL_NEWITEMSLAST_DESC');
+				$text = SoftWayText::_('JGLOBAL_NEWITEMSLAST_DESC');
 			}
 			elseif ($neworder <= 0)
 			{
-				$text = WoobookingText::_('JGLOBAL_NEWITEMSFIRST_DESC');
+				$text = SoftWayText::_('JGLOBAL_NEWITEMSFIRST_DESC');
 			}
 
 			$html = '<input type="hidden" name="' . $name . '" value="' . (int) $selected . '" /><span class="readonly">' . $text . '</span>';
@@ -193,7 +193,7 @@ abstract class HtmlFrontendList
 
 		if ($nouser)
 		{
-			$users[] = HtmlFrontend::_('select.option', '0', WoobookingText::_('JOPTION_NO_USER'));
+			$users[] = HtmlFrontend::_('select.option', '0', SoftWayText::_('JOPTION_NO_USER'));
 			$users = array_merge($users, $db->loadObjectList());
 		}
 		else
@@ -237,22 +237,22 @@ abstract class HtmlFrontendList
 
 		if ($none)
 		{
-			$pos[''] = WoobookingText::_('JNONE');
+			$pos[''] = SoftWayText::_('JNONE');
 		}
 
 		if ($center)
 		{
-			$pos['center'] = WoobookingText::_('JGLOBAL_CENTER');
+			$pos['center'] = SoftWayText::_('JGLOBAL_CENTER');
 		}
 
 		if ($left)
 		{
-			$pos['left'] = WoobookingText::_('JGLOBAL_LEFT');
+			$pos['left'] = SoftWayText::_('JGLOBAL_LEFT');
 		}
 
 		if ($right)
 		{
-			$pos['right'] = WoobookingText::_('JGLOBAL_RIGHT');
+			$pos['right'] = SoftWayText::_('JGLOBAL_RIGHT');
 		}
 
 		$positions = HtmlFrontend::_(

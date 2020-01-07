@@ -137,8 +137,8 @@ class WBPaymentgooglewallet extends WBPayment
 		}
 
 		$email = new stdClass();
-		$email->subject = WoobookingText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Google Wallet','Unknown',$dbOrder->order_number);
-		$email->body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('PAYMENT_NOTIFICATION_STATUS','Google Wallet','Unknown')).' '.WoobookingText::_('STATUS_NOT_CHANGED');
+		$email->subject = SoftWayText::sprintf('PAYMENT_NOTIFICATION_FOR_ORDER','Google Wallet','Unknown',$dbOrder->order_number);
+		$email->body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('PAYMENT_NOTIFICATION_STATUS','Google Wallet','Unknown')).' '.SoftWayText::_('STATUS_NOT_CHANGED');
 		$action = false;
 		$this->modifyOrder($action, null, null, $email);
 	}

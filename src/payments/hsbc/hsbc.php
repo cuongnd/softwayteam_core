@@ -205,7 +205,7 @@ class WBPaymentHSBC extends WBPayment
 		if(empty($dbOrder)){
 			echo "Could not load any order for your notification ".$vars['OrderId'];
 			if($finalReturn) {
-				$this->app->enqueueMessage(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC'),'Invalid order');
+				$this->app->enqueueMessage(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC'),'Invalid order');
 				$this->app->redirect($error_url);
 			}
 			return false;
@@ -223,7 +223,7 @@ class WBPaymentHSBC extends WBPayment
 
 		if( empty($_POST['OrderHash']) ) {
 			if($finalReturn) {
-				$this->app->enqueueMessage(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC'),'Invalid Hash');
+				$this->app->enqueueMessage(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC'),'Invalid Hash');
 				$this->app->redirect($error_url);
 			}
 			return false;
@@ -231,7 +231,7 @@ class WBPaymentHSBC extends WBPayment
 
 		if( $_POST['StorefrontId'] != $this->payment_params->merchantid ) {
 			if($finalReturn) {
-				$this->app->enqueueMessage(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC'),'Invalid store id');
+				$this->app->enqueueMessage(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC'),'Invalid store id');
 				$this->app->redirect($error_url);
 			}
 			return false;
@@ -239,7 +239,7 @@ class WBPaymentHSBC extends WBPayment
 
 		if( $_POST['OrderHash'] != $this->generate($vars, $element->payment_params->cpihash) ) {
 			if($finalReturn) {
-				$this->app->enqueueMessage(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC'),'Invalid processed Hash');
+				$this->app->enqueueMessage(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC'),'Invalid processed Hash');
 				$this->app->redirect($error_url);
 			}
 			return false;
@@ -259,12 +259,12 @@ class WBPaymentHSBC extends WBPayment
 
 		if( $orderPrice != $vars['PurchaseAmount'] || $orderCurrency != $vars['PurchaseCurrency'] ) {
 			if($finalReturn) {
-				$this->app->enqueueMessage(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC').WoobookingText::_('INVALID_AMOUNT'));
+				$this->app->enqueueMessage(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC').SoftWayText::_('INVALID_AMOUNT'));
 				$this->app->redirect($cancel_url);
 			}
 
-			$email->subject = WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC').WoobookingText::_('INVALID_AMOUNT');
-			$body = str_replace('<br/>',"\r\n",WoobookingText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','HSBC',$history->amount,@$orderPrice.$this->currency->currency_code));
+			$email->subject = SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC').SoftWayText::_('INVALID_AMOUNT');
+			$body = str_replace('<br/>',"\r\n",SoftWayText::sprintf('AMOUNT_RECEIVED_DIFFERENT_FROM_ORDER','HSBC',$history->amount,@$orderPrice.$this->currency->currency_code));
 			$email->body = $body;
 
 			$this->modifyOrder($order_id,$this->payment_params->invalid_status,$history,$email);
@@ -290,7 +290,7 @@ class WBPaymentHSBC extends WBPayment
 			$email = $i . ' - ' . $this->errorCpiResultText[$i];
 
 			if($finalReturn) {
-				$this->app->enqueueMessage(WoobookingText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC').' '.$this->errorCpiResultText[$i]);
+				$this->app->enqueueMessage(SoftWayText::sprintf('NOTIFICATION_REFUSED_FOR_THE_ORDER','HSBC').' '.$this->errorCpiResultText[$i]);
 				$this->app->redirect($cancel_url);
 			}
 		}

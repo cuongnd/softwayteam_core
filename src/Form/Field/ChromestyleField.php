@@ -140,8 +140,8 @@ class ChromestyleField extends FormFieldGroupedList
 		$groups = array();
 
 		// Add Module Style Field
-		$tmp = '---' . WoobookingText::_('JLIB_FORM_VALUE_FROM_TEMPLATE') . '---';
-		$groups[$tmp][] = \Html::_('select.option', '0', WoobookingText::_('JLIB_FORM_VALUE_INHERITED'));
+		$tmp = '---' . SoftWayText::_('JLIB_FORM_VALUE_FROM_TEMPLATE') . '---';
+		$groups[$tmp][] = \Html::_('select.option', '0', SoftWayText::_('JLIB_FORM_VALUE_INHERITED'));
 
 		$templateStyles = $this->getTemplateModuleStyles();
 

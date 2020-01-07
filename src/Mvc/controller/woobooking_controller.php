@@ -86,7 +86,7 @@ class softway_controller{
         }
     }
     public static function display_block_app($block_id,$layout){
-        $blockModel=WoobookingModel::getInstance('block');
+        $blockModel=SoftWayModel::getInstance('block');
         $block=$blockModel->getItem($block_id);
         list($view,$tpl)=explode(".",$layout);
         $view_path=SOFTWAY_PATH_APP."/views/$view/view.html.php";
@@ -139,7 +139,7 @@ class softway_controller{
             require_once $model_path;
         }
         if(!class_exists($model_name)){
-            $model_class=WoobookingModel::getInstance($model);
+            $model_class=SoftWayModel::getInstance($model);
             $model_class->model=$model;
             return $model_class;
         }else{
@@ -156,7 +156,7 @@ class softway_controller{
         if(file_exists($model_path)){
             require_once $model_path;
             $model_name="{$model}Model";
-            $model_class=WoobookingModel::getInstance($model);
+            $model_class=SoftWayModel::getInstance($model);
             $model_class->model=$model;
             return $model_class;
         }else{
@@ -176,7 +176,7 @@ class softway_controller{
         if(file_exists($model_path)){
             require_once $model_path;
             $model_name="{$model}Model";
-            $model_class=WoobookingModel::getInstance($model);
+            $model_class=SoftWayModel::getInstance($model);
             $model_class->model=$model;
             return $model_class;
         }else{
@@ -344,7 +344,7 @@ class softway_controller{
         {
             $data=$input->getArray($_POST);
         }
-        $model=WoobookingModel::getInstance($this->model);
+        $model=SoftWayModel::getInstance($this->model);
 
 
         $data= $model->save($data);

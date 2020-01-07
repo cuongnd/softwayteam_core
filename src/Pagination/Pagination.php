@@ -18,7 +18,7 @@ use SoftWay\CMS\Application\Application;
 use SoftWay\CMS\Router\Route;
 use SoftWay\CMS\Router\Router;
 use SoftWay\CMS\Html\Html;
-use WoobookingText;
+use SoftWayText;
 
 /**
  * Pagination Class. Provides a common interface for content pagination for the Joomla! CMS.
@@ -282,7 +282,7 @@ class Pagination
 		if ($this->pagesTotal > 1)
 		{
 		    
-			$html .= WoobookingText::sprintf('JLIB_HTML_PAGE_CURRENT_OF_TOTAL', $this->pagesCurrent, $this->pagesTotal);
+			$html .= SoftWayText::sprintf('JLIB_HTML_PAGE_CURRENT_OF_TOTAL', $this->pagesCurrent, $this->pagesTotal);
 		}
 
 		return $html;
@@ -313,12 +313,12 @@ class Pagination
 		// If there are results found.
 		if ($this->total > 0)
 		{
-			$msg = WoobookingText::sprintf('JLIB_HTML_RESULTS_OF', $fromResult, $toResult, $this->total);
+			$msg = SoftWayText::sprintf('JLIB_HTML_RESULTS_OF', $fromResult, $toResult, $this->total);
 			$html .= "\n" . $msg;
 		}
 		else
 		{
-			$html .= "\n" . WoobookingText::_('JLIB_HTML_NO_RECORDS_FOUND');
+			$html .= "\n" . SoftWayText::_('JLIB_HTML_NO_RECORDS_FOUND');
 		}
 
 		return $html;
@@ -590,9 +590,9 @@ class Pagination
 			$limits[] = Html::_('select.option', "$i");
 		}
 
-		$limits[] = Html::_('select.option', '50', WoobookingText::_('J50'));
-		$limits[] = Html::_('select.option', '100', WoobookingText::_('J100'));
-		$limits[] = Html::_('select.option', '0', WoobookingText::_('JALL'));
+		$limits[] = Html::_('select.option', '50', SoftWayText::_('J50'));
+		$limits[] = Html::_('select.option', '100', SoftWayText::_('J100'));
+		$limits[] = Html::_('select.option', '0', SoftWayText::_('JALL'));
 
 		$selected = $this->viewall ? 0 : $this->limit;
 
@@ -692,7 +692,7 @@ class Pagination
 	{
 		$html = "<div class=\"list-footer\">\n";
 
-		$html .= "\n<div class=\"limit\">" . WoobookingText::_('JGLOBAL_DISPLAY_NUM') . $list['limitfield'] . "</div>";
+		$html .= "\n<div class=\"limit\">" . SoftWayText::_('JGLOBAL_DISPLAY_NUM') . $list['limitfield'] . "</div>";
 		$html .= $list['pageslinks'];
 		$html .= "\n<div class=\"counter\">" . $list['pagescounter'] . "</div>";
 
@@ -793,7 +793,7 @@ class Pagination
 			}
 		}
 
-		$data->all = new PaginationObject(WoobookingText::_('JLIB_HTML_VIEW_ALL'), $this->prefix);
+		$data->all = new PaginationObject(SoftWayText::_('JLIB_HTML_VIEW_ALL'), $this->prefix);
 
 		if (!$this->viewall)
 		{
@@ -802,8 +802,8 @@ class Pagination
 		}
 
 		// Set the start and previous data objects.
-		$data->start    = new PaginationObject(WoobookingText::_('JLIB_HTML_START'), $this->prefix);
-		$data->previous = new PaginationObject(WoobookingText::_('JPREV'), $this->prefix);
+		$data->start    = new PaginationObject(SoftWayText::_('JLIB_HTML_START'), $this->prefix);
+		$data->previous = new PaginationObject(SoftWayText::_('JPREV'), $this->prefix);
 
 		if ($this->pagesCurrent > 1)
 		{
@@ -832,8 +832,8 @@ class Pagination
 		}
 
 		// Set the next and end data objects.
-		$data->next = new PaginationObject(WoobookingText::_('JNEXT'), $this->prefix);
-		$data->end  = new PaginationObject(WoobookingText::_('JLIB_HTML_END'), $this->prefix);
+		$data->next = new PaginationObject(SoftWayText::_('JNEXT'), $this->prefix);
+		$data->end  = new PaginationObject(SoftWayText::_('JLIB_HTML_END'), $this->prefix);
 
 		if ($this->pagesCurrent < $this->pagesTotal)
 		{

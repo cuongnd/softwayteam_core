@@ -61,11 +61,11 @@ class RssRenderer extends DocumentRenderer
 
 		if ($app->get('sitename_pagetitles', 0) == 1)
 		{
-			$title = \WoobookingText::sprintf('JPAGETITLE', $app->get('sitename'), $data->getTitle());
+			$title = \SoftWayText::sprintf('JPAGETITLE', $app->get('sitename'), $data->getTitle());
 		}
 		elseif ($app->get('sitename_pagetitles', 0) == 2)
 		{
-			$title = \WoobookingText::sprintf('JPAGETITLE', $data->getTitle(), $app->get('sitename'));
+			$title = \SoftWayText::sprintf('JPAGETITLE', $data->getTitle(), $app->get('sitename'));
 		}
 
 		$feed_title = htmlspecialchars($title, ENT_COMPAT, 'UTF-8');
