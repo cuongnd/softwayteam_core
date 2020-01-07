@@ -13,7 +13,7 @@ use SoftWay\CMS\OpenSource\SoftWayOnOpenSource;
 use SoftWay\CMS\Filesystem\Folder;
 use SoftWay\CMS\OpenSource\WordPress\ECommerce\ECommerce;
 use SoftWay\CMS;
-use softway_controller;
+use SoftWayController;
 use SoftWay\CMS\Html\Html;
 use SoftWay\CMS\Utilities\Utility;
 use SoftWayModel;
@@ -144,7 +144,7 @@ class SoftWayOnWordpress
 
         if($task){
 
-            echo softway_controller::action_task();
+            echo SoftWayController::action_task();
         }else {
 
 
@@ -510,7 +510,7 @@ class SoftWayOnWordpress
 
         if($task){
 
-            echo softway_controller::action_task();
+            echo SoftWayController::action_task();
         }else {
             $menu = self::get_true_menu_of_soft_way($page);
             $file_controller_path = SOFTWAY_PATH_APP . "/controllers/" . ucfirst($menu) . ".php";
@@ -739,10 +739,10 @@ class SoftWayOnWordpress
         $type=null;
         if(is_array($atts) && $id=reset($atts)){
             list($package,$view,$layout)=explode("-",$a_view);
-            echo   softway_controller::display_block_app($id,"$view.$layout");
+            echo   SoftWayController::display_block_app($id,"$view.$layout");
         }else{
             list($package,$view,$layout)=explode("-",$a_view);
-            echo   softway_controller::view("$view.$layout");
+            echo   SoftWayController::view("$view.$layout");
         }
     }
     function goToPopupInstall( ) {
@@ -831,7 +831,7 @@ class SoftWayOnWordpress
         }else {
 
             list($view, $layout) = explode("-", $type);
-            echo softway_controller::view("$view.$layout");
+            echo SoftWayController::view("$view.$layout");
         }
 
 
@@ -1026,7 +1026,7 @@ class SoftWayOnWordpress
             self::get_api_task(),
             array(
                 'methods' => 'POST',
-                'callback' => array('softway_controller', 'ajax_action_task'),
+                'callback' => array('SoftWayController', 'ajax_action_task'),
             )
         );
 
@@ -1167,7 +1167,7 @@ class SoftWayOnWordpress
     public static function get_list_view_xml(){
 
         if(empty(self::$list_menu_by_xml)){
-            $file_xml_path_app=WOOBOOKING_PATH_ADMIN_COMPONENT1."/views.xml";
+            $file_xml_path_app=SOFTWAY_PATH_ADMIN_APP."/views.xml";
             $xml = simplexml_load_file($file_xml_path_app);
 
 

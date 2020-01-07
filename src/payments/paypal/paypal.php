@@ -48,9 +48,9 @@ class WBPaymentPaypal extends WBPayment
         if ($this->currency->currency_locale['int_frac_digits'] > 2)
             $this->currency->currency_locale['int_frac_digits'] = 2;
         $app = Factory::getApplication();
-        $notify_url = softway_controller::getFrontendLink("payment.notify","order_id=".$order->id);
-        $return_url = softway_controller::getFrontendLink("payment.return","order_id=".$order->id);
-        $cancel_url = softway_controller::getFrontendLink("payment.cancel","order_id=".$order->id);
+        $notify_url = SoftWayController::getFrontendLink("payment.notify","order_id=".$order->id);
+        $return_url = SoftWayController::getFrontendLink("payment.return","order_id=".$order->id);
+        $cancel_url = SoftWayController::getFrontendLink("payment.cancel","order_id=".$order->id);
 
         $tax_total = '';
         $discount_total = '';
