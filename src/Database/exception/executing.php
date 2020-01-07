@@ -13,7 +13,7 @@ defined('_SOFT_WAY_EXEC') or die;
  *
  * @since  3.6
  */
-class DatabaseExceptionExecuting extends RuntimeException
+class DatabaseExceptionExecuting extends \RuntimeException
 {
 	/**
 	 * The SQL statement that was executed.
