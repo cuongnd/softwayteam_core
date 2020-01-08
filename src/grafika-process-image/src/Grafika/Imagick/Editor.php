@@ -339,7 +339,7 @@ final class Editor implements EditorInterface
     }
 
     /**
-     * Checks if the editor is available on the current PHP install.
+     * Checks if the editor is available on the current PHP easybkappointmentinstall.
      *
      * @return bool True if available false if not.
      */

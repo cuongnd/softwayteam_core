@@ -304,7 +304,7 @@ final class Version
 	 *
 	 * This media version is used to append to softwaycore core media in order to trick browsers into
 	 * reloading the CSS and JavaScript, because they think the files are renewed.
-	 * The media version is renewed after softwaycore core update, install, discover_install and uninstallation.
+	 * The media version is renewed after softwaycore core update, easybkappointmentinstall, discover_install and uninstallation.
 	 *
 	 * @return  string  The media version.
 	 *

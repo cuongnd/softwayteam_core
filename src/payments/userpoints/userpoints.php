@@ -787,7 +787,7 @@ class WBPaymentUserpoints extends WBPayment {
 			if(!$aup && $warning) {
 				$app = JFactory::getApplication();
 				if($app->isAdmin())
-					$app->enqueueMessage('The HikaShop UserPoints plugin requires the component AltaUserPoints to be installed. If you want to use it, please install the component or use another mode.');
+					$app->enqueueMessage('The HikaShop UserPoints plugin requires the component AltaUserPoints to be installed. If you want to use it, please easybkappointmentinstall the component or use another mode.');
 			}
 		}
 		if($aup === true && $init && !$aup_init) {
@@ -831,7 +831,7 @@ class WBPaymentUserpoints extends WBPayment {
 		} else if($warning) {
 			$app = JFactory::getApplication();
 			if($app->isAdmin())
-				$app->enqueueMessage('The HikaShop UserPoints plugin requires the component EasySocial to be installed. If you want to use it, please install the component or use another mode.');
+				$app->enqueueMessage('The HikaShop UserPoints plugin requires the component EasySocial to be installed. If you want to use it, please easybkappointmentinstall the component or use another mode.');
 		}
 
 		return $foundry;

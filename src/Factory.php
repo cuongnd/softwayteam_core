@@ -15,7 +15,7 @@ class Factory
 {
     private static $database;
     public static $language;
-    private static $application;
+    private static $application=array();
     private static $input;
     private static $document;
     private static $open_source=null;
@@ -144,15 +144,15 @@ class Factory
     }
 
 
-    public static function getApplication($client="")
+    public static function getApplication($client="site"):Application
     {
 
-        if (!self::$application) {
+        if (!self::$application[$client]) {
 
-            self::$application =Application::getInstance($client);
+            self::$application[$client] =Application::getInstance($client);
         }
 
-        return self::$application;
+        return self::$application[$client];
     }
     public static function setRootUrl($root_url){
         self::$root_url=$root_url;

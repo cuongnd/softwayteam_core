@@ -119,7 +119,7 @@ interface EditorInterface {
     public function free( &$image );
 
     /**
-     * Checks the PHP install if the editor is available.
+     * Checks the PHP easybkappointmentinstall if the editor is available.
      *
      * @return bool True if available false if not.
      */

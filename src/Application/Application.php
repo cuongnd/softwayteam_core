@@ -16,6 +16,7 @@ use SoftWay\CMS\Object\CMSObject;
 
 use SoftWay\CMS\OpenSource\WordPress\SoftWayOnWordpress;
 use SoftWay\CMS\Router\Router;
+use SoftWay\CMS\Utilities\Utility;
 
 class Application extends CMSObject
 {
@@ -38,15 +39,16 @@ class Application extends CMSObject
     public  $input;
     public $logger;
 
-    public static function getInstance($client)
+    public static function getInstance($client="site")
     {
 
-        if (!(self::$instance[$client]))
+        if (!array_key_exists($client,self::$instance))
         {
             $class=$client=="admin"?'ApplicationAdmin':'ApplicationSite';
             require_once __DIR__."/$class.php";
             $class=__NAMESPACE__."\\$class";
             self::$instance[$client] = new $class();
+
             self::$instance[$client]->setClient($client);
         }
 

@@ -1,7 +1,7 @@
 <?php
 
 
-namespace SoftWay\CMS\OpenSource\WordPress;
+namespace SoftWay\CMS\OpenSourceInstall\WordPress;
 
 
 use Exception;
@@ -9,9 +9,9 @@ use Factory;
 use SoftWay\CMS\Filesystem\File;
 use SoftWay\CMS\Form\Form;
 use SoftWay\CMS\Html\HtmlFrontend;
-use SoftWay\CMS\OpenSource\SoftWayOnOpenSource;
+use SoftWay\CMS\OpenSourceInstall\SoftWayOnOpenSource;
 use SoftWay\CMS\Filesystem\Folder;
-use SoftWay\CMS\OpenSource\WordPress\ECommerce\ECommerce;
+use SoftWay\CMS\OpenSourceInstall\WordPress\ECommerce\ECommerce;
 use SoftWay\CMS;
 use SoftWayController;
 use SoftWay\CMS\Html\Html;
