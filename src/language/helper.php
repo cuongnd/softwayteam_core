@@ -26,7 +26,7 @@ class LanguageHelper
 	 *
 	 * @since   11.1
 	 */
-	public static function createLanguageList($actualLanguage, $basePath = JPATH_BASE, $caching = false, $installed = false)
+	public static function createLanguageList($actualLanguage, $basePath = ROOT_PATH_PLUGIN, $caching = false, $installed = false)
 	{
 		$list = array();
 		// Cache activation
@@ -120,7 +120,7 @@ class LanguageHelper
 			if (Factory::getApplication()->getClientId() == 2)
 			{
 				$languages[$key] = array();
-				$knownLangs = Language::getKnownLanguages(JPATH_BASE);
+				$knownLangs = Language::getKnownLanguages(ROOT_PATH_PLUGIN);
 				foreach ($knownLangs as $metadata)
 				{
 					// Take off 3 letters iso code languages as they can't match browsers' languages and default them to en

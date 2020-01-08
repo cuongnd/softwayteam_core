@@ -29,7 +29,7 @@ class LanguageWrapperHelper
 	 * @see     LanguageHelper::createLanguageList
 	 * @since   3.4
 	 */
-	public function createLanguageList($actualLanguage, $basePath = JPATH_BASE, $caching = false, $installed = false)
+	public function createLanguageList($actualLanguage, $basePath = ROOT_PATH_PLUGIN, $caching = false, $installed = false)
 	{
 		return LanguageHelper::createLanguageList($actualLanguage, $basePath, $caching, $installed);
 	}

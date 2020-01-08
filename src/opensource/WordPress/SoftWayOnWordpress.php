@@ -130,9 +130,7 @@ class SoftWayOnWordpress
 
     public  function softway_dashboard_softway_endpoint(){
 
-        if(!self::checkInstalled()){
-            self::goToPopupInstall();
-        }
+
         Html::_('jquery.tooltip');
         Html::_('jquery.bootstrap');
         $root_url = self::get_root_url();
@@ -341,8 +339,6 @@ class SoftWayOnWordpress
     }
     public function run()
     {
-
-
         $this->view = self::get_current_page();
         $app = Factory::getApplication();
         $input=Factory::getInput();
@@ -837,6 +833,8 @@ class SoftWayOnWordpress
 
     }
     public static function pluginprefix_activation(){
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . '/includes/defines.php';
+        require_once EASY_BK_APPOINTMENT_PATH_ROOT . '/includes/framework.php';
 
         $list_page=SoftWayOnWordpress::get_list_layout_view_frontend();
         $key_soft_way=self::$key_soft_way;
@@ -1089,10 +1087,15 @@ class SoftWayOnWordpress
 
         }
     }
+
+    /**
+     * @return array|null
+     * @throws Exception
+     */
     public static function get_list_view_for_woo_panel(){
         if(empty(static::$items_submenus)){
             $list_menu_by_xml=self::get_list_view_xml();
-            $confingModel=SoftWayModel::getInstance('config');
+            $confingModel=SoftWayModel::getInstance('Config');
             $list_view=$confingModel->get_list_view_publish();
             $items_submenus=array();
             $index=21;
@@ -1167,6 +1170,7 @@ class SoftWayOnWordpress
     public static function get_list_view_xml(){
 
         if(empty(self::$list_menu_by_xml)){
+
             $file_xml_path_app=SOFTWAY_PATH_ADMIN_APP."/views.xml";
             $xml = simplexml_load_file($file_xml_path_app);
 
