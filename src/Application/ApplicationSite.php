@@ -15,6 +15,7 @@ use SoftWay\CMS\Object\CMSObject;
 
 use SoftWay\CMS\OpenSource\WordPress\SoftWayOnWordpress;
 use SoftWay\CMS\Router\Router;
+use sw_config;
 
 class ApplicationSite extends Application
 {
@@ -239,8 +240,8 @@ class ApplicationSite extends Application
     protected function initialiseApp($options = array())
     {
         
-        require_once SOFT_WAY_CORE_PATH_ROOT."/nb_config.php";
-        $config= new nb_config();
+        require_once SOFT_WAY_CORE_PATH_ROOT."/sw_config.php";
+        $config= new sw_config();
         
         $register=new Registry();
         $register->loadObject($config);

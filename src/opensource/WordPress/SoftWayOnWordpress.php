@@ -105,7 +105,7 @@ class SoftWayOnWordpress
             add_filter("softway_dashboard_{$menu}_endpoint",array($this,"softway_dashboard_softway_endpoint"));
         }
 
-        Factory::setRootUrlPlugin($root_url . "/wp-content/plugins/softwaycore/");
+        Factory::setRootUrlPlugin($root_url . "/wp-content/plugins/".SW_PLUGIN_NAME."/");
 
 
         if ($app->getClient() == 1 && !in_array($this->view, $listMenuWooPanel)) {
@@ -199,7 +199,7 @@ class SoftWayOnWordpress
         $root_url = self::get_root_url();
         $input = Factory::getInput();
         Factory::setRootUrl($root_url);
-        Factory::setRootUrlPlugin($root_url . "/wp-content/plugins/softwaycore/");
+        Factory::setRootUrlPlugin($root_url . "/wp-content/plugins/".SW_PLUGIN_NAME."/");
 
         add_action('wp_print_scripts', array($this,'frontend_shapeSpace_print_scripts'));
         /**
@@ -380,7 +380,7 @@ class SoftWayOnWordpress
             array(
                 array(
                     'slug' => 'softwaycore-block',
-                    'title' => __( 'Woo booking block', 'softwaycore-block' ),
+                    'title' => 'Woo booking block',
                 ),
             )
         );
@@ -399,7 +399,7 @@ class SoftWayOnWordpress
         $doc=Factory::getDocument();
 
         add_action('admin_head', array($this,'admin_wordpress_shapeSpace_print_scripts'));
-        $doc->addScript('admin/sw_apps/softway_core/assets/js/soft_way_debug.js');
+        $doc->addScript('admin/sw_apps/sw_easybkappointment/assets/js/soft_way_debug.js');
 
 
         Html::_('jquery.loading_js');
@@ -411,8 +411,8 @@ class SoftWayOnWordpress
         $doc->addScript('admin/resources/js/jquery.form/jquery.form.js');
         $doc->addScript('admin/resources/js/form-serializeObject/jquery.serializeObject.js');
         $doc->addScript('admin/resources/js/form-serializeObject/jquery.serializeToJSON.js');
-        $doc->addScript('admin/sw_apps/softway_core/assets/js/main_script.js');
-        $doc->addLessStyleSheet('admin/sw_apps/softway_core/assets/less/main_style.less');
+        $doc->addScript('admin/sw_apps/sw_easybkappointment/assets/js/main_script.js');
+        $doc->addLessStyleSheet('admin/sw_apps/sw_easybkappointment/assets/less/main_style.less');
         $doc->addStyleSheet('admin/resources/js/drawer-master/css/style.css');
         Html::_('jquery.tooltip');
         Html::_('jquery.bootstrap');
@@ -429,8 +429,8 @@ class SoftWayOnWordpress
         Html::_('jquery.confirm');
         Html::_('jquery.serialize_object');
         Html::_('jquery.bootstrap');
-        $doc->addLessStyleSheet('sw_apps/softway_core/assets/less/main_style_backend_wordpress.less');
-        Factory::setRootUrlPlugin($root_url . "/wp-content/plugins/softwaycore/");
+        $doc->addLessStyleSheet('sw_apps/sw_easybkappointment/assets/less/main_style_backend_wordpress.less');
+        Factory::setRootUrlPlugin($root_url . "/wp-content/plugins/".SW_PLUGIN_NAME."/");
         //$list_view=self::get_list_layout_view_frontend();
         if ( !function_exists( 'wp_add_inline_script' ) ) {
             require_once ABSPATH . WPINC . '/functions.wp-scripts.php';
@@ -599,7 +599,7 @@ class SoftWayOnWordpress
         <script type="text/javascript">
             root_url = "<?php echo $root_url ?>";
             current_url = "<?php echo $root_url.'sellercenter/'.$this->view ?>";
-            root_url_plugin = "<?php echo $root_url ?>/wp-content/plugins/softwaycore/";
+            root_url_plugin = "<?php echo $root_url ?>/wp-content/plugins/<?php echo SW_PLUGIN_NAME ?>/";
             api_task = "/wp-json/<?php echo self::$namespace . self::get_api_task() ?>";
         </script>
         <?php
@@ -609,7 +609,7 @@ class SoftWayOnWordpress
         ?>
         <script type="text/javascript">
             root_url = "<?php echo $root_url ?>";
-            root_url_plugin = "<?php echo $root_url ?>/wp-content/plugins/softwaycore/";
+            root_url_plugin = "<?php echo $root_url ?>/wp-content/plugins/<?php echo SW_PLUGIN_NAME ?>/";
             api_task = "/wp-json/<?php echo self::$namespace . self::get_api_task() ?>";
         </script>
         <?php
@@ -620,7 +620,7 @@ class SoftWayOnWordpress
         <script type="text/javascript">
             root_url = "<?php echo $root_url ?>";
             current_url = "<?php echo $root_url ?>";
-            root_url_plugin = "<?php echo $root_url ?>/wp-content/plugins/softwaycore/";
+            root_url_plugin = "<?php echo $root_url ?>/wp-content/plugins/<?php echo SW_PLUGIN_NAME ?>/";
             api_task = "/wp-json/<?php echo self::$namespace . self::get_api_task() ?>";
         </script>
         <?php
@@ -734,7 +734,7 @@ class SoftWayOnWordpress
 
         <script type="text/javascript">
             root_url = "<?php echo $root_url ?>";
-            root_url_plugin = "<?php echo $root_url ?>/wp-content/plugins/softwaycore/";
+            root_url_plugin = "<?php echo $root_url ?>/wp-content/plugins/<?php echo SW_PLUGIN_NAME ?>/";
             api_task = "/wp-json/<?php echo self::$namespace . self::get_api_task() ?>";
             list_view=<?php echo json_encode($list_view) ?>
         </script>
@@ -743,7 +743,9 @@ class SoftWayOnWordpress
 
     }
     function soft_way_render_by_tag_func( $atts,$content, $a_view ) {
-        if($a_view !="softwaycore-easybkappointmentinstall-form"  && !self::checkInstalled()){
+        $input=Factory::getInput();
+        if($a_view !="softwaycore-install-form"  && !self::checkInstalled()){
+
             self::goToPopupInstall();
         }
 
@@ -758,14 +760,11 @@ class SoftWayOnWordpress
         }
     }
     function goToPopupInstall( ) {
-        echo "<pre>";
-        print_r(Utility::printDebugBacktrace(), false);
-        echo "</pre>";
-        die;
+
         $root_url=Factory::getRootUrl();
         $html = '<html><head>';
         $html .= '<meta http-equiv="content-type" content="text/html; charset=utf-8" />';
-        $html .= '<script>document.location.href=' . json_encode(str_replace("'", '&apos;', $root_url.'/softwaycore-install-form?task=install')) . ';</script>';
+        $html .= '<script>document.location.href=' . json_encode(str_replace("'", '&apos;', $root_url.'/softwaycore-install-form?task=install.setup')) . ';</script>';
         $html .= '</head><body></body></html>';
         echo $html;
     }
@@ -1073,7 +1072,7 @@ class SoftWayOnWordpress
         $app = Factory::getApplication();
         $doc = Factory::getDocument();
         wp_enqueue_media();
-        $doc->addScript('admin/sw_apps/softway_core/assets/js/soft_way_debug.js');
+        $doc->addScript('admin/sw_apps/sw_easybkappointment/assets/js/soft_way_debug.js');
 
         if ($app->getClient() == 1) {
 
@@ -1086,8 +1085,8 @@ class SoftWayOnWordpress
             $doc->addScript('admin/resources/js/jquery.form/jquery.form.js');
             $doc->addScript('admin/resources/js/form-serializeObject/jquery.serializeObject.js');
             $doc->addScript('admin/resources/js/form-serializeObject/jquery.serializeToJSON.js');
-            $doc->addScript('admin/sw_apps/softway_core/assets/js/main_script.js');
-            $doc->addLessStyleSheet('admin/sw_apps/softway_core/assets/less/main_style.less');
+            $doc->addScript('admin/sw_apps/sw_easybkappointment/assets/js/main_script.js');
+            $doc->addLessStyleSheet('admin/sw_apps/sw_easybkappointment/assets/less/main_style.less');
             $doc->addStyleSheet('admin/resources/js/drawer-master/css/style.css');
             Html::_('jquery.tooltip');
             Html::_('jquery.bootstrap');
@@ -1104,8 +1103,8 @@ class SoftWayOnWordpress
 
             HtmlFrontend::_('jquery.bootstrap');
 
-            $doc->addScript('sw_apps/softway_core/assets/js/main_script.js');
-            $doc->addLessStyleSheet('sw_apps/softway_core/assets/less/main_style.less');
+            $doc->addScript('sw_apps/sw_easybkappointment/assets/js/main_script.js');
+            $doc->addLessStyleSheet('sw_apps/sw_easybkappointment/assets/less/main_style.less');
             $doc->addStyleSheet('resources/js/fontawesome-free-5.11.2/css/all.min.css');
 
         }

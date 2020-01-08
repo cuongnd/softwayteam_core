@@ -127,13 +127,13 @@ class HeadRenderer extends DocumentRenderer
             $random = random_int(100000, 900000);
             ob_start();
             ?>
-            <link rel="stylesheet/less" type="text/css" href="<?php echo plugins_url() . "/softwaycore/" . $src ?>"/>
+            <link rel="stylesheet/less" type="text/css" href="<?php echo plugins_url() . "/".SW_PLUGIN_NAME."/" . $src ?>"/>
             <?php
             echo ob_get_clean();
         }
         foreach ($document->_styleSheets as $src => $attribs) {
             $random = random_int(100000, 900000);
-            wp_enqueue_style('softwaycore-css-' . $random, plugins_url() . '/softwaycore/' . $src);
+            wp_enqueue_style('softwaycore-css-' . $random, plugins_url() . '/'.SW_PLUGIN_NAME.'/' . $src);
         }
         // Generate stylesheet declarations
         foreach ($document->_style as $type => $content) {

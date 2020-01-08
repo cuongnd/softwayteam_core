@@ -7,7 +7,7 @@ use SoftWay\CMS\Registry\Registry;
 use SoftWay\CMS\Document\Document;
 use SoftWay\CMS\Application\Application;
 use SoftWay\CMS\Uri\NBUri;
-use SoftWay\CMS\Application\NBAppHelper;
+use SoftWay\CMS\Application\SWAppHelper;
 use SoftWay\CMS\OpenSource\SoftWayOnOpenSource;
 use SoftWay\CMS\Session\Session;
 use SoftWay\CMS\Database\driver\DatabaseDriverMysqli;
@@ -147,7 +147,7 @@ class Factory
     public static function getApplication($client="site"):Application
     {
 
-        if (!self::$application[$client]) {
+        if (!array_key_exists($client,self::$application)) {
 
             self::$application[$client] =Application::getInstance($client);
         }
@@ -222,7 +222,7 @@ class Factory
         {
             if ($file === null)
             {
-                $file = SOFT_WAY_CORE_PATH_ROOT . '/nb_config.php';
+                $file = SOFT_WAY_CORE_PATH_ROOT . '/sw_config.php';
             }
 
             self::$config = self::createConfig($file, $type, $namespace);
@@ -270,7 +270,7 @@ class Factory
 
     public static function getAppConfig()
     {
-        return NBAppHelper::getConfig();
+        return SWAppHelper::getConfig();
     }
 
 }
